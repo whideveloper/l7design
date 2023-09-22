@@ -67,7 +67,7 @@
                         </div>
                         <!-- social-->
                         <div class="text-center mt-4">
-                            <p class="text-muted font-16">Sign in with</p>
+                            <p class="text-muted font-16">entrar com</p>
                             <ul class="social-list list-inline mt-3">
                                 <li class="list-inline-item">
                                     <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
@@ -88,7 +88,7 @@
 
                     <!-- Footer-->
                     <footer class="footer footer-alt">
-                        <p class="text-muted">Don't have an account? <a href="auth-register-2.html" class="text-muted ms-1"><b>Sign Up</b></a></p>
+                        <p class="text-muted">Não tem uma conta? <a href="auth-register-2.html" class="text-muted ms-1"><b>Increva-se</b></a></p>
                     </footer>
 
                 </div> <!-- end .card-body -->
