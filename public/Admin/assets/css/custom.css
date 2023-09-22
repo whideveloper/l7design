@@ -370,3 +370,31 @@ margin-left: 118px;
 .forbidden .text-error{
   color: #e6761e;
 }
+.logo span.authl.logo-lg{box-shadow: inherit;}
+.logo span.authl.logo-lg img{height: 80px;margin-left: -15px;}
+.logo span.authl.logo-lg h2{
+
+font-size: 28px;
+}
+.logo span.authl.logo-lg h2 span{
+  font-size: 15px;
+}
+.btn-logar .btn-primary:hover{
+  background: #1aa084;
+}
+.btn-logar .btn-primary{
+  background:#1ead8e;
+  border-color: #1ead8e;
+}
+.login.auth-fluid {
+  
+background: inherit;
+}
+.auth-fluid-right{
+
+background-position: center;
+
+background-repeat: no-repeat;
+
+background-size: cover;
+}
