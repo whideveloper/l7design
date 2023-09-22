@@ -25,33 +25,41 @@ class UserController extends Controller
 
     public function index()
     {   
-        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+        if(Auth::user()->can('usuario.criar') || Auth::user()->can('usuario.editar') || 
+            Auth::user()->can('usuario.visualizar') || Auth::user()->can('usuario.remover'))
+        {            
+            $users = User::where('id', '<>', 1)->sorting()->paginate(15);
+            $roles = Role::paginate(15);
+            $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
+            ->groupBy('permissions.name')
+            ->select('permissions.name')
+            ->get();
+            return view('Admin.cruds.user.index', [
+                'users'=>$users,
+                'roles'=>$roles,
+                'permissions'=>$permissions
+            ]);
+        }else if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover']))
+        {
             return view('Admin.error.403');
-        } 
+            
+        }
 
-        $users = User::where('id', '<>', 1)->sorting()->paginate(15);
-        $roles = Role::paginate(15);
-        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
-        ->groupBy('permissions.name')
-        ->select('permissions.name')
-        ->get();
-        return view('Admin.cruds.user.index', [
-            'users'=>$users,
-            'roles'=>$roles,
-            'permissions'=>$permissions
-        ]);
     }
 
     public function create()
     {  
-        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+        if(Auth::user()->can('usuario.criar'))
+        { 
+            $roles = Role::all();
+            return view('Admin.cruds.user.create', [
+                'roles'=>$roles
+            ]);
+        }else{
             return view('Admin.error.403');
         }
 
-        $roles = Role::all();
-        return view('Admin.cruds.user.create', [
-            'roles'=>$roles
-        ]);
+        
     }
 
     public function store(UserStoreRequest $request)
@@ -91,17 +99,17 @@ class UserController extends Controller
 
     public function edit(UserEditRequest $request, User $user)
     {  
-        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+        if(Auth::user()->can('usuario.editar')){
+            $roles = $request->validated();
+            $roles = Role::all();
+            
+            return view('Admin.cruds.user.edit', [
+                'user'=>$user,
+                'roles'=>$roles
+            ]);
+        }else {
             return view('Admin.error.403');
-        }
-
-        $roles = $request->validated();
-        $roles = Role::all();
-        
-        return view('Admin.cruds.user.edit', [
-            'user'=>$user,
-            'roles'=>$roles
-        ]);
+        }        
     }
     public function show(User $user){
         $user = User::find('id');
@@ -159,13 +167,9 @@ class UserController extends Controller
     }
 
     public function destroy(User $user)
-    {   
+    { 
         if(!Auth::user()->can('usuario.remover')){
             return view('Admin.error.403');
-        }
-
-        if(!Auth::user()->can('usuario.remover')){
-            abort(Response::HTTP_FORBIDDEN);
         }
         Storage::delete($user->path_image);
         $user->delete();

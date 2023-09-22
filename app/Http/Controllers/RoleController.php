@@ -16,31 +16,34 @@ class RoleController extends Controller
 {
     public function index()
     {        
-        if(!Auth::user()->can(['grupo.criar', 'grupo.editar','grupo.visualizar', 'grupo.remover'])){
-            return view('Admin.error.403');
-        }    
+        if(Auth::user()->can('grupo.criar') || Auth::user()->can('grupo.editar') || 
+            Auth::user()->can('grupo.visualizar') ||  Auth::user()->can('grupo.remover'))
+        {
+            $roles = Role::paginate(15);
+            $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
+            ->groupBy('permissions.name')
+            ->select('permissions.name')
+            ->get(); 
 
-        $roles = Role::paginate(15);
-        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
-        ->groupBy('permissions.name')
-        ->select('permissions.name')
-        ->get(); 
-
-        return view('Admin.cruds.group.index', [
-            'roles'=>$roles,
-            'permissions'=>$permissions
-        ]);
+            return view('Admin.cruds.group.index', [
+                'roles'=>$roles,
+                'permissions'=>$permissions
+            ]);
+        }else if(!Auth::user()->can(['grupo.criar', 'grupo.editar','grupo.visualizar', 'grupo.remover']))
+        {
+            return view('Admin.error.403');            
+        }
     }
     public function create()
-    {
-        if(!Auth::user()->can(['grupo.criar', 'grupo.editar','grupo.visualizar', 'grupo.remover'])){
-            return view('Admin.error.403');
-        } 
-
-        $permissions = Permission::all();
-        return view('Admin.cruds.group.create', [
-            'permissions'=>$permissions
-        ]);
+    {   
+        if (Auth::user()->can('grupo.criar')) {
+            $permissions = Permission::all();
+            return view('Admin.cruds.group.create', [
+                'permissions'=>$permissions
+            ]);
+        }else{
+             return view('Admin.error.403');
+        }         
     }
     public function store(RequestStoreRoles $request)
     {  
@@ -52,16 +55,16 @@ class RoleController extends Controller
         return redirect()->route('admin.dashboard.group.index');
     }
     public function edit(Request $request,Role $role)
-    { 
-        if(!Auth::user()->can(['grupo.criar', 'grupo.editar','grupo.visualizar', 'grupo.remover'])){
+    {   
+        if(Auth::user()->can('grupo.editar')){
+            $permissions = Permission::all();
+            return view('Admin.cruds.group.edit', [
+                'role'=>$role,
+                'permissions'=>$permissions
+            ]);
+        }else{
             return view('Admin.error.403');
-        } 
-
-        $permissions = Permission::all();
-        return view('Admin.cruds.group.edit', [
-            'role'=>$role,
-            'permissions'=>$permissions
-        ]);
+        }         
     }
 
     public function show(Role $role){

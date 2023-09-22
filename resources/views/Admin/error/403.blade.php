@@ -27,7 +27,7 @@
                                 <h3 class="mt-3 mb-2">FORBIDDEN</h3>
                                 <p class="text-muted mb-3">O usuário não tem permissão para acessar essa página. Entre em contato com o administrador do painel. <a href="" class="text-dark"><b>Support</b></a></p>
     
-                                <a href="{{route('admin.dashboard')}}" class="btn btn-success waves-effect waves-light">Voltar</a>
+                                <a href="{{route('admin.dashboard')}}" class="btn btn-success waves-effect waves-light">Voltar para o dashboard</a>
                             </div>
     
                         </div> <!-- end card-body -->
