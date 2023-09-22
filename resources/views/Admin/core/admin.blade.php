@@ -122,21 +122,21 @@
                     <div class="logo-box" style="background-color: #fff !important">
                         <a href="{{route('admin.dashboard')}}" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="42">
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="42">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="40">
-                                <h1>WHI - Webs de alta inspiração</h1>
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
+                                <h2>WHI - Web de alta inspiração</h2>
                             </span>
                         </a>
 
                         <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="42">
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="42">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="40">
-                                <h1>WHI <span>Webs de alta inspiração</span> </h1>
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
+                                <h2>WHI <span>Web de alta inspiração</span> </h2>
                             </span>
                         </a>
                     </div>

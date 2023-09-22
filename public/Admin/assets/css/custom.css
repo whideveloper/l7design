@@ -337,15 +337,36 @@ justify-content: center;
 align-items: center;
 height: 70px;
 }
-.logo span.logo-lg h1{
+.logo span.logo-lg h2{
 font-size: 21px;
 text-align: left;
 }
-.logo span.logo-lg h1 span{
+.logo span.logo-lg h2 span{
 display: block;
 font-size: 12px;
 }
 .page-title-box .page-title{color: #262626;}
 .swal2-modal .swal2-confirm{
   background: #1da187!important;
+}
+.forbidden .logo span.logo-lg{
+  box-shadow: inherit;
+  height: auto;
+  width: 120px;
+  margin: 0 auto;
+}
+.forbidden .logo span.logo-lg img{
+  width: 100%;
+  height: auto;
+}
+.forbidden{
+  height: 100%;
+  margin-top: 130px !important;
+}
+.forbidden .container .row{
+  
+margin-left: 118px;
+}
+.forbidden .text-error{
+  color: #e6761e;
 }

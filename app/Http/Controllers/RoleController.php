@@ -6,20 +6,25 @@ use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RequestIndexRoles;
 use App\Http\Requests\RequestStoreRoles;
-use App\Http\Requests\RequestUpdateRoles;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests\RequestUpdateRoles;
 
 class RoleController extends Controller
 {
     public function index()
-    {
+    {        
         $roles = Role::paginate(15);
+        // if(!Auth::user()->hasRole('Super') || !Auth::user()->hasRole($role->name)){
+        //     return view('Admin.error.403');
+        // }                 
+
         $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
         ->groupBy('permissions.name')
         ->select('permissions.name')
-        ->get();
+        ->get(); 
 
         return view('Admin.cruds.group.index', [
             'roles'=>$roles,
@@ -42,7 +47,7 @@ class RoleController extends Controller
         return redirect()->route('admin.dashboard.group.index');
     }
     public function edit(Request $request,Role $role)
-    {
+    { 
         $permissions = Permission::all();
 
         return view('Admin.cruds.group.edit', [
