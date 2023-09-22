@@ -25,12 +25,16 @@ class UserController extends Controller
 
     public function index()
     {   
+        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+            return view('Admin.error.403');
+        } 
+
+        $users = User::where('id', '<>', 1)->sorting()->paginate(15);
         $roles = Role::paginate(15);
         $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
         ->groupBy('permissions.name')
         ->select('permissions.name')
         ->get();
-        $users = User::where('id', '<>', 1)->sorting()->paginate(15);
         return view('Admin.cruds.user.index', [
             'users'=>$users,
             'roles'=>$roles,
@@ -39,7 +43,11 @@ class UserController extends Controller
     }
 
     public function create()
-    {   
+    {  
+        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+            return view('Admin.error.403');
+        }
+
         $roles = Role::all();
         return view('Admin.cruds.user.create', [
             'roles'=>$roles
@@ -65,24 +73,28 @@ class UserController extends Controller
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
             }
-
+            
             $user->syncRoles($roles);
 
             if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
-            Session::flash('success', 'Usuário cadastrado com sucesso.');
+            Session::flash('success', 'Usuário cadastrado com sucesso!');
 
             DB::commit();
             return redirect()->route('admin.dashboard.user.index');
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao cadastrar o Usuário.');
+            Session::flash('error', 'Erro ao cadastrar o Usuário!');
             return redirect()->back();
         }
     }
 
     public function edit(UserEditRequest $request, User $user)
-    {   
+    {  
+        if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover'])){
+            return view('Admin.error.403');
+        }
+
         $roles = $request->validated();
         $roles = Role::all();
         
@@ -138,7 +150,7 @@ class UserController extends Controller
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao atualizar o Usuário.');
+            Session::flash('error', 'Erro ao atualizar o Usuário!');
             return redirect()
                 ->back()
                 ->withInput()
@@ -148,6 +160,10 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {   
+        if(!Auth::user()->can('usuario.remover')){
+            return view('Admin.error.403');
+        }
+
         if(!Auth::user()->can('usuario.remover')){
             abort(Response::HTTP_FORBIDDEN);
         }
@@ -162,7 +178,7 @@ class UserController extends Controller
     {
         if($deleted = User::whereIn('id', $request->deleteAll)->delete()){
             
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso']);
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
         }
     }
 

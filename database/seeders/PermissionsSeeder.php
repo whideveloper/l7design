@@ -17,9 +17,9 @@ class PermissionsSeeder extends Seeder
 
         $permissions = [
             'banners'=>[
-                'Visualizar',
                 'Criar',
                 'Editar',
+                'Visualizar',
                 'Remover',
                 ],
             'grupo'=>[
@@ -29,7 +29,6 @@ class PermissionsSeeder extends Seeder
                 'Remover'
             ],
             'usuario'=>[
-                'Alterar',
                 'Criar',
                 'Editar',
                 'Visualizar',
