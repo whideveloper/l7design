@@ -33,14 +33,14 @@
                     <form action="{{route('admin.user.authenticate')}}" method="POST">
                         @csrf
                         @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">E-mail</label>
                             <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Enter your email">
