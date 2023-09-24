@@ -11,6 +11,7 @@ class SendEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $data;
     /**
      * Create a new message instance.
      *
@@ -18,7 +19,7 @@ class SendEmail extends Mailable
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -28,8 +29,7 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        // return $this->view('view.name');
-        return $this->from('waggner.dev@gmail.com', 'WHI')
+        return $this->from('naoresponda@hoom.net.br', 'WHI')
                 ->subject('Bem-vindo ao Meu Site')
                 ->view('emails.contato'); 
     }
