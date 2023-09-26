@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -42,6 +43,15 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.user.destroySelected');
         Route::post('usuario/sorting', [UserController::class, 'sorting'])
             ->name('admin.dashboard.user.sorting');
+        
+        //CONTATO
+        Route::resource('contato', ContactController::class)
+            ->names('admin.dashboard.contact')
+            ->parameters(['contato'=>'contact']);
+        Route::post('contato/delete', [ContactController::class, 'destroySelected'])
+            ->name('admin.dashboard.contact.destroySelected');
+        Route::post('contato/sorting', [ContactController::class, 'sorting'])
+            ->name('admin.dashboard.contact.sorting');
         
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');
