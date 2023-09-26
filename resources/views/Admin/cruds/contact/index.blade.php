@@ -25,14 +25,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-3">
-                                    @can('usuario.remover')
+                                    @can('formulario de contato.remover')
                                         <div class="col-6">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.contact.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
-                                        </div>
-                                    @endcan
-                                    @can('usuario.criar')
-                                        <div class="col-6">
-                                            <a href="{{route('admin.dashboard.contact.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         </div>
                                     @endcan
                                 </div>
@@ -71,12 +66,12 @@
                                                 <td>{{$contact->created_at->format('d/m/Y H:i')}}</td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('usuario.editar')
+                                                        @can('formulario de contato.editar')
                                                             <div class="col-4">
                                                                 <a href="{{route('admin.dashboard.contact.edit',['contact' => $contact->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                             </div>
                                                         @endcan
-                                                        @can('usuario.visualizar')
+                                                        @can('formulario de contato.visualizar')
                                                             <div class="col-4">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-contact-{{$contact->id}}"></a>
 
@@ -97,7 +92,7 @@
                                                                 </div>
                                                             </div>
                                                         @endcan
-                                                        @can('usuario.remover')
+                                                        @can('formulario de contato.remover')
                                                             <form action="{{route('admin.dashboard.contact.destroy',['contact' => $contact->id])}}" class="col-4" method="POST">
                                                                 @method('DELETE') @csrf
                                                                     

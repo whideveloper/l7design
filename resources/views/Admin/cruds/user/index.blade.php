@@ -24,7 +24,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3">
+                                <div class="row mb-3 justify-content-end">
                                     @can('usuario.remover')
                                         <div class="col-6">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>

@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 
 class ContactController extends Controller
 {
     public function index()
-    {
-        $contacts = Contact::orderBy('created_at', 'desc')->paginate(15);
+    {   
+        if(Auth::user()->can('formulario de contato.editar') || 
+            Auth::user()->can('formulario de contato.visualizar') || Auth::user()->can('formulario de contato.remover'))
+        { 
+            $contacts = Contact::orderBy('created_at', 'desc')->paginate(15);
 
-        return view('Admin.cruds.contact.index',[
-            'contacts' => $contacts
-        ]);
+            return view('Admin.cruds.contact.index',[
+                'contacts' => $contacts
+            ]);
+        }else{
+            return view('Admin.error.403');
+        }
+        
     }
 
     public function show(Contact $contact)
@@ -24,27 +32,38 @@ class ContactController extends Controller
     }
 
     public function edit(Contact $contact)
-    {
-        return view('Admin.cruds.contact.edit', [
-            'contact' => $contact
-        ]);
+    {   if(Auth::user()->can('formulario de contato.editar')){
+            return view('Admin.cruds.contact.edit', [
+                'contact' => $contact
+            ]);
+        }else{
+            return view('Admin.error.403');
+        }
     }
 
     public function update(Request $request, Contact $contact)
     {
         $data = $request->all();
+        $roles = $request->validated()['roles']??[];
+        if (Auth::user()->hasRole('Super') && $contact->id == 1) {
+            $roles[] = 'Super';
+        }
 
         $contact->fill($data)->save();
+        $contact->syncRoles($roles);
+        
         Session::flash('success', 'Atualização realizada com sucesso!');
-
         return redirect()->route('admin.dashboard.contact.index');
     }
 
     public function destroy(Contact $contact)
     {
+        if(!Auth::user()->can('formulario de contato.remover')){
+            return view('Admin.error.403');
+        }
         $contact->delete();
+        
         Session::flash('success', 'Item deletado com sucesso!');
-
         return redirect()->back();
     }
 
