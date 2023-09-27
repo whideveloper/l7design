@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateContactsTable extends Migration
 {
@@ -19,6 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('email', 191)->nullable();
             $table->enum('status', ['1', '2', '3', '4'])->default('1');
             $table->integer('sorting')->default(0);
+            $table->date('data_registro')->default(DB::raw('CURRENT_DATE'));
             $table->softDeletes();
             $table->timestamps();
         });

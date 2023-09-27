@@ -26,28 +26,31 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     @can('formulario de contato.remover')
-                                        <div style="width: 20%;margin-top: 25px;">
+                                        <div style="width: 16%;margin-top: 25px;">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.contact.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
-                                    <div class="row justify-content-end" style="width: 80%;gap:0 15px;">
+                                    <div class="row justify-content-end flex-column-reverse pe-0" style="width: 84%;gap:0 15px;align-items: flex-end;">
                                         @if (route('admin.dashboard.contact.search') == url()->current())                                            
-                                            <a href="{{route('admin.dashboard.contact.index')}}" class="btn btn-primary" style="width: 110px;height: 38px;margin-top: 25px;">Limpar Filtro</a>
+                                            <a href="{{route('admin.dashboard.contact.index')}}" class="btn btn-primary" style="width: 110px;height: 38px;margin-top: 0px;">Limpar Filtro</a>
                                         @endif
-                                        <form action="{{route('admin.dashboard.contact.search')}}" method="POST" class="row justify-content-end col-10 pe-0">
+                                        <form action="{{route('admin.dashboard.contact.search')}}" method="POST" class="row justify-content-end col-12">
                                             @csrf
                                             <h5 class="page-title" style="padding-left: 0px">Filtrar por:</h5>
-                                            <select name="status" class="form-select" style="height: 38px;width: 20%;" aria-label="Default select example">
-                                                <option selected>Status  do email</option>
+                                            <div class="data-search ps-0">
+                                                <input type="date" name="date_search">
+                                            </div>
+                                            <select name="status" class="form-select" style="height: 38px;width: 16%;" aria-label="Default select example">
+                                                <option selected>Status</option>
                                                 <option value="1">Pendente</option>
                                                 <option value="2">Em Contato</option>
                                                 <option value="3">Orçamento</option>
                                                 <option value="4">Agendamento</option>
                                             </select>
-                                            <div class="input-group mb-3" style="width: 39%;">
+                                            <div class="input-group mb-3" style="width: 30%;">
                                                 <input name="email" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="button-addon2">                                 
                                             </div>
-                                            <div class="input-group mb-3 p-0" style="width: 41%;">
+                                            <div class="input-group mb-3 p-0" style="width: 34%;">
                                                 <input name="search" type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="button-addon2">
                                                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
                                             </div>
@@ -86,7 +89,7 @@
                                                         @case(4) <span class="badge bg-success">Agendamento</span> @break
                                                     @endswitch
                                                 </td>
-                                                <td>{{$contact->created_at->format('d/m/Y')}}</td>
+                                                <td>{{date('d/m/Y', strtotime($contact->data_registro))}}</td>
                                                 <td class="col-3">
                                                     <div class="row justify-content-between flex-row col-4">
                                                         @can('formulario de contato.editar')

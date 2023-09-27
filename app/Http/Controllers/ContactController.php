@@ -33,6 +33,15 @@ class ContactController extends Controller
                 ]);
             }
 
+            if ($request->date_search) {
+                // dd($request->date_search);
+                $contacts = Contact::where('data_registro', '=', $request->date_search)->paginate(15);
+
+                return view('Admin.cruds.contact.index', [
+                    'contacts' => $contacts
+                ]);
+            }
+
             if ($request->filled('status')) {
                 $contacts->where('status', $request->input('status'));
             }

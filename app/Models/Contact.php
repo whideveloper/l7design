@@ -14,6 +14,7 @@ class Contact extends Model
       'nome',
       'email',
       'status',
-      'sorting'  
+      'sorting',
+      'data_registro'  
     ];
 }

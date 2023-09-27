@@ -19,7 +19,7 @@
                         'required'=>'required',
                         'placeholder' => 'Selecione o status'
                     ]) !!}
-                </div>     
+                </div>   
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
