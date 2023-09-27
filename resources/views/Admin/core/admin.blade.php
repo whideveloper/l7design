@@ -380,7 +380,7 @@
                         <div class="text-center">
                             <i class="dripicons-information h1 text-warning"></i>
                             <h4 class="mt-2">Aviso de Sessão</h4>
-                            <p class="mt-3">Sua sessão está prestes a expirar em 30 minutos.</p>
+                            <p class="mt-3">Por inatividade, essa sessão está prestes a expirar em 3 minutos.</p>
                             <button type="button" class="btn btn-warning my-2" data-bs-dismiss="modal">Continue</button>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
                 var timeRemaining = (lastActivity + (sessionTimeout * 60)) - currentTime;
 
                 // Exiba o modal quando faltar 30 minutos para a sessão expirar
-                if (timeRemaining <= (30 * 60)) {
+                if (timeRemaining <= (3 * 60)) {
                     showSessionExpirationModal();
                 }
             }    
