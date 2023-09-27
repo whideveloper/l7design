@@ -40,8 +40,10 @@ class AuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
-    {
-        Auth::logout();
+    {   
+        auth()->logout();
+
+        $request->session()->invalidate();
 
         return redirect('/painel/login');
     }

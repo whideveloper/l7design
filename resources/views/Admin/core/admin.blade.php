@@ -50,6 +50,10 @@
             <!-- Topbar Start -->
             <div class="navbar-custom">
                 <div class="container-fluid">
+                    <div class="contador-sessao">
+                        <span class="mdi mdi-alarm"></span>
+                        <span id="session-countdown" class="cont-session"></span>
+                    </div>
                     <ul class="list-unstyled topnav-menu float-end mb-0">
 
                         <li class="dropdown d-none d-lg-inline-block">
@@ -368,5 +372,83 @@
             </script>
         @endif
 
+         <!-- Info Alert Modal -->
+         <div id="session-expiration-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body p-4">
+                        <div class="text-center">
+                            <i class="dripicons-information h1 text-warning"></i>
+                            <h4 class="mt-2">Aviso de Sessão</h4>
+                            <p class="mt-3">Sua sessão está prestes a expirar em 30 minutos.</p>
+                            <button type="button" class="btn btn-warning my-2" data-bs-dismiss="modal">Continue</button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        <script>
+            function showSessionExpirationModal() {
+                $('#session-expiration-modal').modal('show');
+            }
+            // Função para atualizar a contagem regressiva
+            function updateCountdown() {
+                // Obtenha o elemento de exibição da contagem regressiva
+                var countdownElement = document.getElementById('session-countdown');
+            
+                // Obtenha o tempo limite da sessão (em minutos) do Laravel
+                var sessionTimeout = {{ config('session.lifetime') }}; // Tempo limite em minutos
+            
+                // Obtenha o tempo da última atividade registrada na sessão (em segundos)
+                var lastActivity = {{ session('last_activity', time()) }};
+
+                // Calcule o tempo restante em segundos
+                var currentTime = Math.floor(Date.now() / 1000); // Tempo atual em segundos
+                var timeRemaining = (lastActivity + (sessionTimeout * 60)) - currentTime;
+
+                if (timeRemaining <= 0) {
+                    // Redirecionar para a página de login quando a sessão expirar
+                    window.location.href = "{{ route('admin.dashboard.painel') }}";
+                } else {
+                    // Converta o tempo restante de segundos para minutos e segundos
+                    var minutes = Math.floor(timeRemaining / 60);
+                    var seconds = timeRemaining % 60;
+            
+                    // Atualize a exibição da contagem regressiva
+                    countdownElement.textContent = minutes + 'm ' + seconds + 's';
+                }
+            }
+            
+            // Chame a função inicialmente para exibir a contagem regressiva
+            updateCountdown();            
+            // Configure um intervalo para atualizar a contagem regressiva a cada segundo
+            setInterval(updateCountdown, 1000);
+
+            function checkSessionExpiration() {
+                // Obtenha o tempo limite da sessão (em minutos) do Laravel
+                var sessionTimeout = {{ config('session.lifetime') }}; // Tempo limite em minutos
+
+                // Obtenha o tempo da última atividade registrada na sessão (em segundos)
+                var lastActivity = {{ session('last_activity', time()) }};
+
+                // Calcule o tempo restante em segundos
+                var currentTime = Math.floor(Date.now() / 1000); // Tempo atual em segundos
+                var timeRemaining = (lastActivity + (sessionTimeout * 60)) - currentTime;
+
+                // Exiba o modal quando faltar 30 minutos para a sessão expirar
+                if (timeRemaining <= (30 * 60)) {
+                    showSessionExpirationModal();
+                }
+            }    
+            // Verifique a expiração da sessão a cada minuto
+            setInterval(checkSessionExpiration, 60000);      
+        </script>
+            
+        <script>
+            $(document).ready(function() {
+                checkSessionExpiration();
+            })
+        </script>
     </body>
 </html>
