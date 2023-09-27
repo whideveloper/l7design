@@ -7,17 +7,38 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests\ContactUpdateRequest;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {   
         if(Auth::user()->can('formulario de contato.editar') || 
             Auth::user()->can('formulario de contato.visualizar') || Auth::user()->can('formulario de contato.remover'))
-        { 
-            $contacts = Contact::orderBy('created_at', 'desc')->paginate(15);
+        {   
+            $contacts = Contact::query();
 
-            return view('Admin.cruds.contact.index',[
+            if ($request->filled('search')) {
+                $contacts = Contact::where('nome', 'LIKE', '%' . $request->input('search') . '%')->paginate(5);
+
+                return view('Admin.cruds.contact.index', [
+                    'contacts' => $contacts
+                ]);
+            }
+            if ($request->filled('email')) {
+                $contacts = Contact::where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
+
+                return view('Admin.cruds.contact.index', [
+                    'contacts' => $contacts
+                ]);
+            }
+
+            if ($request->filled('status')) {
+                $contacts->where('status', $request->input('status'));
+            }
+            $contacts = $contacts->orderBy('created_at', 'desc')->paginate(5);
+
+            return view('Admin.cruds.contact.index', [
                 'contacts' => $contacts
             ]);
         }else{
@@ -41,16 +62,11 @@ class ContactController extends Controller
         }
     }
 
-    public function update(Request $request, Contact $contact)
+    public function update(ContactUpdateRequest $request, Contact $contact)
     {
         $data = $request->all();
-        $roles = $request->validated()['roles']??[];
-        if (Auth::user()->hasRole('Super') && $contact->id == 1) {
-            $roles[] = 'Super';
-        }
 
         $contact->fill($data)->save();
-        $contact->syncRoles($roles);
         
         Session::flash('success', 'Atualização realizada com sucesso!');
         return redirect()->route('admin.dashboard.contact.index');

@@ -26,10 +26,33 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     @can('formulario de contato.remover')
-                                        <div class="col-6">
+                                        <div style="width: 20%;margin-top: 25px;">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.contact.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
+                                    <div class="row justify-content-end" style="width: 80%;gap:0 15px;">
+                                        @if (route('admin.dashboard.contact.search') == url()->current())                                            
+                                            <a href="{{route('admin.dashboard.contact.index')}}" class="btn btn-primary" style="width: 110px;height: 38px;margin-top: 25px;">Limpar Filtro</a>
+                                        @endif
+                                        <form action="{{route('admin.dashboard.contact.search')}}" method="POST" class="row justify-content-end col-10 pe-0">
+                                            @csrf
+                                            <h5 class="page-title" style="padding-left: 0px">Filtrar por:</h5>
+                                            <select name="status" class="form-select" style="height: 38px;width: 20%;" aria-label="Default select example">
+                                                <option selected>Status  do email</option>
+                                                <option value="1">Pendente</option>
+                                                <option value="2">Em Contato</option>
+                                                <option value="3">Orçamento</option>
+                                                <option value="4">Agendamento</option>
+                                            </select>
+                                            <div class="input-group mb-3" style="width: 39%;">
+                                                <input name="email" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="button-addon2">                                 
+                                            </div>
+                                            <div class="input-group mb-3 p-0" style="width: 41%;">
+                                                <input name="search" type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="button-addon2">
+                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
@@ -41,8 +64,8 @@
                                             <th>Nome</th>
                                             <th>E-mail</th>
                                             <th>Status</th>
-                                            <th>Criado em</th>
-                                            <th>Ações</th>
+                                            <th>Enviado em</th>
+                                            <th class="col-3">Ações</th>
                                         </tr>
                                     </thead>
 
@@ -63,16 +86,16 @@
                                                         @case(4) <span class="badge bg-success">Agendamento</span> @break
                                                     @endswitch
                                                 </td>
-                                                <td>{{$contact->created_at->format('d/m/Y H:i')}}</td>
-                                                <td>
-                                                    <div class="row">
+                                                <td>{{$contact->created_at->format('d/m/Y')}}</td>
+                                                <td class="col-3">
+                                                    <div class="row justify-content-between flex-row col-4">
                                                         @can('formulario de contato.editar')
-                                                            <div class="col-4">
+                                                            <div class="col-1">
                                                                 <a href="{{route('admin.dashboard.contact.edit',['contact' => $contact->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                             </div>
                                                         @endcan
                                                         @can('formulario de contato.visualizar')
-                                                            <div class="col-4">
+                                                            <div class="col-1">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-contact-{{$contact->id}}"></a>
 
                                                                 <div id="modal-contact-{{$contact->id}}" class="modal fade" tabindex="-1" contact="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -93,7 +116,7 @@
                                                             </div>
                                                         @endcan
                                                         @can('formulario de contato.remover')
-                                                            <form action="{{route('admin.dashboard.contact.destroy',['contact' => $contact->id])}}" class="col-4" method="POST">
+                                                            <form action="{{route('admin.dashboard.contact.destroy',['contact' => $contact->id])}}" class="col-1" method="POST">
                                                                 @method('DELETE') @csrf
                                                                     
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

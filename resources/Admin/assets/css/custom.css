@@ -241,20 +241,20 @@ display: none;
 display: none;
 }
 .hidden div a:hover{
-background: #083783 !important;
+background: #1da187 !important;
 color: #FFF !important;
 }
 .hidden div a {
-background: #70707047 !important;
+background: #f4f4f4 !important;
 margin: 0 5px !important;
 padding: 5px 5px 5px 8px !important;
 font-family: "Ubuntu", sans-serif;
 font-size: 0.87rem !important;
-color: #083783 !important;
+color: #262626 !important;
 }
 .hidden div span span[aria-current="page"], 
 .hidden div span span[aria-current="page"] span{
-background: #083783 !important;
+background: #1da187 !important;
 margin: 0 5px !important;
 padding: 5px 5px 5px 8px !important;
 font-family: "Ubuntu", sans-serif;
@@ -265,14 +265,7 @@ color: #FFF !important;
 padding: 0 !important;
 border: inherit !important;
 }
-.hidden div span span[aria-disabled="true"] span{
-background: transparent !important;
-margin: 0 5px !important;
-padding: 5px 5px 5px 8px !important;
-font-family: "Ubuntu", sans-serif !important;
-font-size: 0.87rem !important;
-color: #083783 !important;
-}
+.hidden div span span[aria-disabled="true"] span{background: transparent !important;margin: 0 5px !important;padding: 5px 5px 5px 8px !important;font-family: "Ubuntu", sans-serif !important;font-size: 0.87rem !important;color: #262626 !important;}
 .hidden div{
   position: relative !important;
   display: flex !important;

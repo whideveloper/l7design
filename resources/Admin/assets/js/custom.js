@@ -169,13 +169,13 @@ $(function() {
             data: { arrId: arrId },
             success: function(data) {
                 if (data.status) {
-                    $.NotificationApp.send("Sucesso!", "Registros ordenado com sucesso", "bottom-left", "#00000080", "success", '3000');
+                    $.NotificationApp.send("Sucesso!", "Registro ordenado com sucesso!", "bottom-left", "#00000080", "success", '3000');
                 } else {
-                    $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
+                    $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro.", "bottom-left", "#00000080", "error", '10000');
                 }
             },
             error: function() {
-                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar os registros", "bottom-left", "#00000080", "error", '10000');
+                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro.", "bottom-left", "#00000080", "error", '10000');
             }
         })
     });

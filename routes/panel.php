@@ -52,6 +52,8 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.contact.destroySelected');
         Route::post('contato/sorting', [ContactController::class, 'sorting'])
             ->name('admin.dashboard.contact.sorting');
+        Route::post('contato/search', [ContactController::class, 'index'])
+            ->name('admin.dashboard.contact.search');
         
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');

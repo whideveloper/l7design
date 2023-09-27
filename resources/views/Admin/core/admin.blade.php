@@ -2,7 +2,7 @@
 <html lang="{{config('app.locale')}}">
     <head>
         <meta charset="utf-8" />
-        <title>{{env('APP_NAME')}} WHI - Painel Gerenciador</title>
+        <title>{{env('APP_NAME')}} - Painel Gerenciador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -200,6 +200,12 @@
                                             @can('usuario.visualizar')
                                                 <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-apple-airplay"></i> Usuários</a>
+                                                </li>
+                                            @endcan
+
+                                            @can('formulario de contato.visualizar')
+                                                <li class="{{ route('admin.dashboard.contact.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.contact.index')}}"><i class="mdi mdi-apple-airplay"></i> Contato</a>
                                                 </li>
                                             @endcan
                                         </ul>
