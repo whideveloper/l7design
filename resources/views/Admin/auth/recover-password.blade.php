@@ -43,11 +43,11 @@
                         @endif
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">E-mail</label>
-                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Digite seu E-mail">
+                            <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Digite seu E-mail">
                         </div>
 
                         <div class="text-center d-grid">
-                            <button class="btn btn-success waves-effect waves-light" type="submit"> Alterar Senha </button>
+                            <button class="btn btn-success waves-effect waves-light" type="submit"> Enviar </button>
                         </div>
                     </form>
                     <!-- end form-->

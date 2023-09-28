@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('path_image')->nullable();
             $table->boolean('remember')->default(0);
             $table->integer('sorting')->default(0);
+            $table->string('password_reset_token', 100)->nullable();
+            $table->timestamp('password_reset_token_created_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

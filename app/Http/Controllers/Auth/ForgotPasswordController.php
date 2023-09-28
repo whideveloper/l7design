@@ -13,20 +13,20 @@ class ForgotPasswordController extends Controller
         return view('Admin.auth.recover-password');
     }
 
-    public function sendResetLinkEmail(Request $request){
-        // Validação dos dados de entrada
-        $request->validate([
-            'email' => 'email',
-        ]);
+    // public function sendResetLinkEmail(Request $request){
+    //     // Validação dos dados de entrada
+    //     $request->validate([
+    //         'email' => 'email',
+    //     ]);
     
-        $user = User::where('email', $request->email)->first();
+    //     $user = User::where('email', $request->email)->first();
         
-        if (!$user) {
-            return back()->withErrors(['email' => 'Usuário não encontrado']);
-        }
+    //     if (!$user) {
+    //         return back()->withErrors(['email' => 'Usuário não encontrado']);
+    //     }
     
-        $user->notify(new ResetPasswordController($user->createTokenForPasswordReset()));
+    //     $user->notify(new ResetPasswordController($user->createTokenForPasswordReset()));
     
-        return back()->with('status', 'Link de redefinição de senha enviado com sucesso!');
-    }
+    //     return back()->with('status', 'Link de redefinição de senha enviado com sucesso!');
+    // }
 }

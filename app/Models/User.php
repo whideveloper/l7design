@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','active','path_image','remember','sorting'
+        'name', 'email', 'password','active','path_image','remember','sorting','password_reset_token','password_reset_token_created_at'
     ];
 
     /**
@@ -27,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
 
     /**
@@ -42,5 +43,15 @@ class User extends Authenticatable
     public function scopeSorting($query)
     {
         return $query->orderBy('sorting', 'ASC');
+    }
+
+    public function createTokenForPasswordReset()
+    {
+        $token = Str::random(60);
+        $this->password_reset_token = $token;
+        $this->password_reset_token_created_at = now();
+        $this->save();
+
+        return $token;
     }
 }
