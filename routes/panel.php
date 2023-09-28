@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\ContactController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 
 Route::get('painel/', function () {
@@ -18,6 +20,22 @@ Route::prefix('painel/')->group(function () {
         return view('Admin.auth.login');
     })->name('admin.dashboard.painel');
     
+    // Rota para exibir o formulário "Esqueci a senha"
+    Route::get('password/reset', [ForgotPasswordController::class, 'viewForm'])
+        ->name('password.request');
+
+    // Rota para processar o formulário "Esqueci a senha"
+    Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])
+        ->name('password.email');
+
+    // Rota para exibir o formulário de redefinição de senha
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])
+        ->name('password.reset');
+
+    // Rota para processar a redefinição de senha
+    Route::post('password/reset', [ResetPasswordController::class, 'reset'])
+    ->name('password.update');
+
     Route::post('login.do', [AuthController::class, 'authenticate'])->name('admin.user.authenticate');
 
     Route::middleware('auth')->group(function(){
