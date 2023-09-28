@@ -34,18 +34,18 @@ class SendEmailController extends Controller
         );
         // Verifica se o usuário com o email especificado existe
         $user = User::where('email', '=', $request->email)->first();
-        
         if (!$user) {
             return back()->withErrors(['email' => 'Usuário não encontrado']);
-        }
+        }        
         
         // Gera o token de redefinição de senha e envia a notificação
         $token = $user->createTokenForPasswordReset();
         $mail = $request->email;
-        Mail::to($mail)->send(new SendForgotPassword($token,$mail));
+        // Mail::to($mail)->send(new SendForgotPassword($token,$mail));
 
+        Session::flash('success', 'Link de redefinição de senha enviado com sucesso!');
         return $response == Password::RESET_LINK_SENT
-            ? redirect()->route('admin.dashboard.painel')->with('success', 'Link de redefinição de senha enviado com sucesso!')
+            ? redirect()->route('admin.dashboard.painel')
             : 'Não foi possível enviar um link de redefinição de senha.';
-            }
+    }
 }

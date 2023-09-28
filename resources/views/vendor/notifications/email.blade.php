@@ -6,18 +6,12 @@
 @if ($level === 'error')
 # @lang('Whoops!')
 @else
-# @lang('Hello!')
+# @lang('Olá!')
 @endif
 @endif
 
-{{-- Intro Lines --}}
-@foreach ($introLines as $line)
-{{ $line }}
+Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha da sua conta.
 
-@endforeach
-
-{{-- Action Button --}}
-@isset($actionText)
 <?php
     switch ($level) {
         case 'success':
@@ -29,21 +23,18 @@
     }
 ?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
-{{ $actionText }}
+ Redefinir Senha
 @endcomponent
-@endisset
 
-{{-- Outro Lines --}}
-@foreach ($outroLines as $line)
-{{ $line }}
+Este link de redefinição de senha expirará em 60 minutos.
 
-@endforeach
+Se você não solicitou uma redefinição de senha, nenhuma ação adicional será necessária.
 
 {{-- Salutation --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>
+@lang('Cumprimentos'),<br>
 {{ config('app.name') }}
 @endif
 
@@ -51,8 +42,8 @@
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser:',
+    "Se você estiver com problemas para clicar no botão \":actionText\" copie e cole o URL abaixo\n".
+    'em seu navegador:',
     [
         'actionText' => $actionText,
     ]

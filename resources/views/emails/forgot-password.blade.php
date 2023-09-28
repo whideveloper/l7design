@@ -30,7 +30,6 @@
                   font-weight: 400;
                   ">
                     Não compartilhe esse codigo com terceiros {{$token}}
-                    <a href="{{route('password.reset')}}" target="_blank" rel="noopener noreferrer"></a>
                </p>
              </td>
           </tr>

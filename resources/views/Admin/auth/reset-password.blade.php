@@ -27,8 +27,8 @@
 
                     <div class="text-center w-75 m-auto">
                         <img src="../assets/images/users/user-1.jpg" height="88" alt="user-image" class="rounded-circle shadow">
-                        <h4 class="text-dark-50 text-center mt-3">Hi ! Geneva </h4>
-                        <p class="text-muted mb-4">Enter your password to access the admin.</p>
+                        <h4 class="text-dark-50 text-center mt-3">Olá !</h4>
+                        <p class="text-muted mb-4">Digite sua nova senha para acessar o painel gerenciador.</p>
                     </div>
 
                     <!-- form -->
@@ -44,12 +44,12 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                            <label for="password" class="form-label">Nova Senha</label>
+                            <input class="form-control" name="password" type="password" required="" id="password" placeholder="Digite a nova senha">
                         </div>
 
                         <div class="text-center d-grid">
-                            <button class="btn btn-primary" type="submit"> Log In </button>
+                            <button class="btn btn-primary" type="submit"> Alterar Senha </button>
                         </div>
                     </form>
                     <!-- end form-->
