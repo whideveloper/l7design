@@ -1,11 +1,17 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\User\AuthController;
@@ -20,21 +26,61 @@ Route::prefix('painel/')->group(function () {
     Route::get('/login', function () {
         return view('Admin.auth.login');
     })->name('admin.dashboard.painel');
+
+    Route::post('login.do', [AuthController::class, 'authenticate'])
+    ->name('admin.user.authenticate');
+
+    /*=====================REDEFINICAO DE SENHA=========================*/
     
     // Rota para exibir o formulário "Esqueci a senha"
     Route::get('password/reset', [ForgotPasswordController::class, 'viewForm'])
-        ->name('password.request');
+        ->middleware('guest')->name('password.request');
+
     // Rota para processar o formulário "Esqueci a senha"
-    Route::post('password/email', [SendEmailController::class, 'sendResetLinkEmail'])
-        ->name('password.email');
+    Route::post('/password/email', function (Request $request) {
+        $request->validate(['email' => 'required|email']);
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+        
+        Session::flash('success', 'Por favor, verifique o seu e-mail para prosseguir com o processo de redefinição de senha.');
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    })->middleware('guest')->name('password.email');
+
     // Rota para exibir o formulário de redefinição de senha
     Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])
-        ->name('password.reset');
-    // Rota para processar a redefinição de senha
-    Route::post('password/reset', [ResetPasswordController::class, 'reset'])
-    ->name('password.update');
+    ->middleware('guest')->name('password.reset');
 
-    Route::post('login.do', [AuthController::class, 'authenticate'])->name('admin.user.authenticate');
+    // Rota para processar a redefinição de senha
+    Route::post('/password/reset', function (Request $request) {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+     
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+     
+                $user->save();
+     
+                event(new PasswordReset($user));
+            }
+        );
+        
+        Session::flash('success', 'Senha alterada com sucesso!');
+        return $status === Password::PASSWORD_RESET
+                    ? redirect()->route('admin.dashboard.painel')->with('status', __($status))
+                    : back()->withErrors(['email' => [__($status)]]);
+    })->middleware('guest')->name('password.update');
+
+    /*=====================FINAL REDEFINICAO DE SENHA=========================*/
 
     Route::middleware('auth')->group(function(){
         

@@ -43,9 +43,19 @@
                                 </ul>
                             </div>
                         @endif
+                        
+                        <input type="hidden" name="token" value="{{$token}}">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input class="form-control" name="email" type="email" required="" id="email" placeholder="Digite seu E-mail">
+                        </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Nova Senha</label>
                             <input class="form-control" name="password" type="password" required="" id="password" placeholder="Digite a nova senha">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Confirmar Nova Senha</label>
+                            <input class="form-control" name="password_confirmation" type="password" required="" id="password_confirmation" placeholder="Digite a nova senha">
                         </div>
 
                         <div class="text-center d-grid">

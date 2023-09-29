@@ -41,6 +41,13 @@
                                 </ul>
                             </div>
                         @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">E-mail</label>
                             <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Digite seu E-mail">
