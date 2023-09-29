@@ -393,16 +393,7 @@ background-size: auto;
 
 background-color: #1e1e1e !important;
 }
-.contador-sessao{
 
-position: absolute;
-
-right: 240px;
-
-top: 50%;
-
-transform: translate(0, -50%);
-}
 .contador-sessao span{
   
 color: rgba(255,255,255,.6);

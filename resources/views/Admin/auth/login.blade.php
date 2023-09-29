@@ -9,14 +9,14 @@
                     <!-- Logo -->
                     <div class="auth-brand text-center text-lg-start">
                         <div class="auth-logo">
-                            <a href="index.html" class="logo logo-dark text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-dark text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="22">
                                     <h2>WHI <span>Web de alta inspiração</span></h2>
                                 </span>
                             </a>
         
-                            <a href="index.html" class="logo logo-light text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-light text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whit.png')}}" alt="" height="22">
                                     <h2>WHI - Web de alta inspiração</h2>
@@ -51,7 +51,7 @@
                             <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Enter your email">
                         </div>
                         <div class="mb-3">
-                            <a href="{{route('password.request')}}" class="text-muted float-end"><small>Forgot your password?</small></a>
+                            <a href="{{route('password.request')}}" class="text-muted float-end"><small>Esqueceu sua senha?</small></a>
                             <label for="password" class="form-label">Senha</label>
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password">
@@ -92,9 +92,9 @@
                     <!-- end form-->
 
                     <!-- Footer-->
-                    <footer class="footer footer-alt">
+                    {{-- <footer class="footer footer-alt">
                         <p class="text-muted">Não tem uma conta? <a href="auth-register-2.html" class="text-muted ms-1"><b>Increva-se</b></a></p>
-                    </footer>
+                    </footer> --}}
 
                 </div> <!-- end .card-body -->
             </div> <!-- end .align-items-center.d-flex.h-100-->

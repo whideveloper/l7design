@@ -9,14 +9,14 @@
                     <!-- Logo -->
                     <div class="auth-brand text-center text-lg-start">
                         <div class="auth-logo">
-                            <a href="index.html" class="logo logo-dark text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-dark text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="22">
                                     <h2>WHI <span>Web de alta inspiração</span></h2>
                                 </span>
                             </a>
         
-                            <a href="index.html" class="logo logo-light text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-light text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whit.png')}}" alt="" height="22">
                                     <h2>WHI - Web de alta inspiração</h2>
@@ -25,8 +25,8 @@
                         </div>
                     </div>
 
-                    <div class="text-center w-75 m-auto">
-                        <img src="../assets/images/users/user-1.jpg" height="88" alt="user-image" class="rounded-circle shadow">
+                    <div class="text-center w-75 m-auto mt-3">
+                        <img src="{{asset('Admin/assets/images/users/user.png')}}" height="88" alt="user-image" class="rounded-circle shadow">
                         <h4 class="text-dark-50 text-center mt-3">Olá !</h4>
                         <p class="text-muted mb-4">Digite sua nova senha para acessar o painel gerenciador.</p>
                     </div>
@@ -66,7 +66,7 @@
 
                     <!-- Footer-->
                     <footer class="footer footer-alt">
-                        <p class="text-muted">Not you? return <a href="auth-login-2.html" class="text-muted ms-1"><b>Sign In</b></a></p>
+                        <p class="text-muted">Não foi você? retornar <a href="{{route('admin.dashboard.painel')}}" class="text-muted ms-1"><b>Entrar</b></a></p>
                     </footer>
 
                 </div> <!-- end .card-body -->

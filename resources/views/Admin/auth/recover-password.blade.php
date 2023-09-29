@@ -9,14 +9,14 @@
                     <!-- Logo -->
                     <div class="auth-brand text-center text-lg-start">
                         <div class="auth-logo">
-                            <a href="index.html" class="logo logo-dark text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-dark text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="22">
                                     <h2>WHI <span>Web de alta inspiração</span></h2>
                                 </span>
                             </a>
         
-                            <a href="index.html" class="logo logo-light text-center">
+                            <a href="{{route('admin.dashboard.painel')}}" class="logo logo-light text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whit.png')}}" alt="" height="22">
                                     <h2>WHI - Web de alta inspiração</h2>

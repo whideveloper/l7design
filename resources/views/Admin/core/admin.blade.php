@@ -50,11 +50,11 @@
             <!-- Topbar Start -->
             <div class="navbar-custom">
                 <div class="container-fluid">
-                    <div class="contador-sessao">
-                        <span class="mdi mdi-alarm"></span>
-                        <span id="session-countdown" class="cont-session"></span>
-                    </div>
-                    <ul class="list-unstyled topnav-menu float-end mb-0">
+                    <ul class="list-unstyled topnav-menu float-end mb-0 d-flex justify-content-end align-items-center">
+                        <div class="contador-sessao">
+                            <span class="mdi mdi-alarm"></span>
+                            <span id="session-countdown" class="cont-session"></span>
+                        </div>
 
                         <li class="dropdown d-none d-lg-inline-block">
                             <a class="nav-link arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">

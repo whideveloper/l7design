@@ -43,14 +43,39 @@
         <h5 class="page-title">Grupos</h5>
         <div class="card">
             <ul class="list-group w-100 h-25" style="column-count: 2">
-                @foreach($roles as $role)
-                    <li class="list-group-item">
-                        <label>
-                            {{ucfirst($role->name)}}
-                        </label>
-                        <input name="roles[]" type="checkbox" @if(Auth::user()->hasRole($role->name)) checked @endif value="{{$role->name}}">                        
-                    </li>
-                @endforeach
+                @foreach($currentRole as $role)
+                    @if (!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super'))
+                        <li class="list-group-item">
+                            <label>
+                                {{ucfirst($role->name)}}
+                            </label>
+                            <input type="hidden" name="roles[]" value="{{$role->name}}">
+                            <input  type="checkbox" @if(!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
+                        </li>
+                        @elseif(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super'))
+                        <li class="list-group-item">
+                            <label>
+                                {{ucfirst($role->name)}}
+                            </label>
+                            <input type="hidden" name="roles[]" value="{{$role->name}}">
+                            <input  type="checkbox" @if(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
+                        </li>
+                    @endif
+                @endforeach                
+            </ul>
+
+            <ul class="list-group w-100 h-25 mt-4" style="column-count: 2">
+                <div class="mt-2">
+                    <h5 class="page-title">Adiciona Grupos</h5>
+                    @foreach($roles as $role)
+                            <li class="list-group-item">
+                                <label>
+                                    {{ucfirst($role->name)}}
+                                </label>                                
+                                <input name="roles[]" type="checkbox" value="{{$role->name}}">                        
+                            </li>
+                    @endforeach
+                </div>
             </ul>
         </div>
     </div>

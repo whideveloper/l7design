@@ -30,6 +30,9 @@ class UserController extends Controller
         {            
             $users = User::where('id', '<>', 1)->sorting()->paginate(15);
             $roles = Role::paginate(15);
+            foreach($roles as $role){
+                $currentRole = Role::where('roles.id', '<>', $role->id)->get();
+            }
             $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
             ->groupBy('permissions.name')
             ->select('permissions.name')
@@ -37,7 +40,8 @@ class UserController extends Controller
             return view('Admin.cruds.user.index', [
                 'users'=>$users,
                 'roles'=>$roles,
-                'permissions'=>$permissions
+                'permissions'=>$permissions,
+                'currentRole'=>$currentRole
             ]);
         }else if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover']))
         {
@@ -101,11 +105,18 @@ class UserController extends Controller
     {  
         if(Auth::user()->can('usuario.editar')){
             $roles = $request->validated();
-            $roles = Role::all();
+            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.model_id')->get();
+
+            foreach($currentRole as $role){
+                $roles = Role::where('roles.id', '<>', $role->id)->get();
+            }
+
+            // dd($roles);
             
             return view('Admin.cruds.user.edit', [
                 'user'=>$user,
-                'roles'=>$roles
+                'roles'=>$roles,
+                'currentRole'=>$currentRole
             ]);
         }else {
             return view('Admin.error.403');
@@ -123,7 +134,7 @@ class UserController extends Controller
         $helper = new HelperArchive();
 
         $roles = $request->validated()['roles']??[];
-        
+        // dd($roles);
         if (Auth::user()->hasRole('Super') && $user->id == 1) {
             $roles[] = 'Super';
             // dd($roles);

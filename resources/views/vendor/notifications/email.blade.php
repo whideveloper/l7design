@@ -42,7 +42,7 @@ Se você não solicitou uma redefinição de senha, nenhuma ação adicional ser
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "Se você estiver com problemas para clicar no botão \":actionText\" copie e cole o URL abaixo\n".
+    "Se você estiver com problemas para clicar no botão \"Redefinir Senha\" copie e cole o URL abaixo\n".
     'em seu navegador:',
     [
         'actionText' => $actionText,
