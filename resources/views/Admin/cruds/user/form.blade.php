@@ -39,44 +39,71 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-lg-12 card card-body">
-        <h5 class="page-title">Grupos</h5>
-        <div class="card">
-            <ul class="list-group w-100 h-25" style="column-count: 2">
-                @foreach($currentRole as $role)
-                    @if (!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super'))
-                        <li class="list-group-item">
-                            <label>
-                                {{ucfirst($role->name)}}
-                            </label>
-                            <input type="hidden" name="roles[]" value="{{$role->name}}">
-                            <input  type="checkbox" @if(!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
-                        </li>
-                        @elseif(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super'))
-                        <li class="list-group-item">
-                            <label>
-                                {{ucfirst($role->name)}}
-                            </label>
-                            <input type="hidden" name="roles[]" value="{{$role->name}}">
-                            <input  type="checkbox" @if(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
-                        </li>
-                    @endif
-                @endforeach                
-            </ul>
+    <div class="col-12 col-lg-12">
+        <div class="card card-body">
+            @if ($currentRole <> '')
+                @if ($currentRole->count())
+                    <h5 class="page-title">Grupos Pertencentes</h5>
 
-            <ul class="list-group w-100 h-25 mt-4" style="column-count: 2">
-                <div class="mt-2">
-                    <h5 class="page-title">Adiciona Grupos</h5>
-                    @foreach($roles as $role)
-                            <li class="list-group-item">
-                                <label>
-                                    {{ucfirst($role->name)}}
-                                </label>                                
-                                <input name="roles[]" type="checkbox" value="{{$role->name}}">                        
-                            </li>
-                    @endforeach
+                    <div class="card">
+                        <ul class="list-group w-100 h-25" style="column-count: 2">
+                            @foreach($currentRole as $role)
+                                @if (!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super'))
+                                    <li class="list-group-item">
+                                        <label>
+                                            {{ucfirst($role->name)}}
+                                        </label>
+                                        <input  type="checkbox" name="roles[]" @if(!Auth::user()->hasRole($role->name) && Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
+                                    </li>
+                                    @elseif(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super'))
+                                    <li class="list-group-item">
+                                        <label>
+                                            {{ucfirst($role->name)}}
+                                        </label>
+                                        <input  type="checkbox" name="roles[]" @if(Auth::user()->hasRole($role->name) && !Auth::user()->hasRole('Super')) checked @endif value="{{$role->name}}">                        
+                                    </li>
+                                @endif
+                            @endforeach                
+                        </ul>
+                    </div>
+                @endif
+            @endif
+            @if ($otherRoles <> '')
+                @if ($otherRoles->count())
+                    <div class="card">
+                        <ul class="list-group w-100 h-25" style="column-count: 2">
+                            <div class="mt-2">
+                                <h5 class="page-title">Adicionar ao(s) Grupo(s)</h5>
+                                @foreach($otherRoles as $role)
+                                        <li class="list-group-item">
+                                            <label>
+                                                {{ucfirst($role->name)}}
+                                            </label>                                
+                                            <input name="roles[]" type="checkbox" value="{{$role->name}}">                        
+                                        </li>
+                                @endforeach
+                            </div>
+                        </ul>
+                    </div>
+                @endif
+            @endif   
+            @if ($otherRoles == '' && $currentRole == '')                
+                <div class="card">
+                    <ul class="list-group w-100 h-25" style="column-count: 2">
+                        <div class="mt-2">
+                            <h5 class="page-title">Grupos</h5>
+                            @foreach($roles as $role)
+                                    <li class="list-group-item">
+                                        <label>
+                                            {{ucfirst($role->name)}}
+                                        </label>                                
+                                        <input name="roles[]" type="checkbox" value="{{$role->name}}">                        
+                                    </li>
+                            @endforeach
+                        </div>
+                    </ul>
                 </div>
-            </ul>
+            @endif
         </div>
     </div>
 </div>

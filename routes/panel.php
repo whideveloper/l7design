@@ -101,6 +101,10 @@ Route::prefix('painel/')->group(function () {
         Route::resource('usuario', UserController::class)
             ->names('admin.dashboard.user')
             ->parameters(['usuario'=>'user']);
+            
+        Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
+            ->name('admin.dashboard.user.deleteForced');
+
         Route::post('usuario/delete', [UserController::class, 'destroySelected'])
             ->name('admin.dashboard.user.destroySelected');
         Route::post('usuario/sorting', [UserController::class, 'sorting'])

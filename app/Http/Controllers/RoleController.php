@@ -46,10 +46,22 @@ class RoleController extends Controller
         }         
     }
     public function store(RequestStoreRoles $request)
-    {  
-        $role = Role::create([
-            'name' => $request->name
-        ]);
+    {   
+        // Recuperar grupo excluído
+        $role = Role::withTrashed()->where('name', $request->name)->first();
+
+        if ($role) {
+            // Restaure o grupo, definindo deleted_at como null
+            $role->restore();
+        } else {
+            // Crie um novo grupo com o mesmo nome
+            $newRole = new Role();
+            $newRole->name = $request->name;
+            $newRole->save();
+        }
+
+        // Use o grupo existente ou o novo grupo
+        $role = $role ?? $newRole;
         $role->syncPermissions($request->permissions);
         Session::flash('success','Grupo cadastrado com sucesso!');
         return redirect()->route('admin.dashboard.group.index');

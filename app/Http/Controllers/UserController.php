@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -29,24 +30,25 @@ class UserController extends Controller
             Auth::user()->can('usuario.visualizar') || Auth::user()->can('usuario.remover'))
         {            
             $users = User::where('id', '<>', 1)->sorting()->paginate(15);
-            $roles = Role::paginate(15);
-            foreach($roles as $role){
-                $currentRole = Role::where('roles.id', '<>', $role->id)->get();
-            }
+            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
+            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get();
             $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
             ->groupBy('permissions.name')
             ->select('permissions.name')
             ->get();
+            $userDeleteds_at = User::onlyTrashed()->get();
+            
             return view('Admin.cruds.user.index', [
                 'users'=>$users,
-                'roles'=>$roles,
+                'otherRoles'=>$otherRoles,
                 'permissions'=>$permissions,
-                'currentRole'=>$currentRole
+                'currentRole'=>$currentRole,
+                'userDeleteds_at'=>$userDeleteds_at
+                
             ]);
         }else if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover']))
         {
-            return view('Admin.error.403');
-            
+            return view('Admin.error.403');            
         }
 
     }
@@ -56,21 +58,24 @@ class UserController extends Controller
         if(Auth::user()->can('usuario.criar'))
         { 
             $roles = Role::all();
+            $currentRole = '';
+            $otherRoles = '';
+
             return view('Admin.cruds.user.create', [
+                'roles'=>$roles,
+                'currentRole'=>$currentRole,
+                'otherRoles'=>$otherRoles,
                 'roles'=>$roles
             ]);
         }else{
             return view('Admin.error.403');
-        }
-
-        
+        }        
     }
 
     public function store(UserStoreRequest $request)
     {
         $data = $request->all();
         $helper = new HelperArchive();
-
         $roles = $request->validated()['roles']??[];
 
         try {
@@ -81,15 +86,19 @@ class UserController extends Controller
             $data['password'] = Hash::make($request->password);
             $data['active'] = $request->active ? 1 : 0;
 
-            if (!$user = User::create($data)) {
-                Storage::delete($this->pathUpload . $path_image);
-                throw new Exception();
-            }
-            
-            $user->syncRoles($roles);
+            $userExist = User::where('email', $data['email'])->first();
 
-            if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
-            Session::flash('success', 'Usuário cadastrado com sucesso!');
+            if ($userExist) {
+                Storage::delete($this->pathUpload . $path_image);
+
+                return redirect()->back()->with('error', 'Erro ao cadastrar usuário! Este e-mail já existe em nossos registros.');
+            } else {
+                $user = User::create($data);
+                $user->syncRoles($roles);
+    
+                if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
+                Session::flash('success', 'Usuário cadastrado com sucesso!');
+            }
 
             DB::commit();
             return redirect()->route('admin.dashboard.user.index');
@@ -101,22 +110,21 @@ class UserController extends Controller
         }
     }
 
-    public function edit(UserEditRequest $request, User $user)
+    public function edit(User $user)
     {  
-        if(Auth::user()->can('usuario.editar')){
-            $roles = $request->validated();
-            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.model_id')->get();
-
-            foreach($currentRole as $role){
-                $roles = Role::where('roles.id', '<>', $role->id)->get();
-            }
-
-            // dd($roles);
+        if(Auth::user()->can('usuario.editar')){ 
+            // $roles = Role::get();
+            // $currentRole = '';
+            // $otherRoles = '';
             
+            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
+            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get();
+            // dd($currentRole);
             return view('Admin.cruds.user.edit', [
-                'user'=>$user,
-                'roles'=>$roles,
-                'currentRole'=>$currentRole
+                'user' => $user,
+                'otherRoles' => $otherRoles,
+                'currentRole' => $currentRole,
+                // 'roles'=>$roles
             ]);
         }else {
             return view('Admin.error.403');
@@ -126,18 +134,15 @@ class UserController extends Controller
         $user = User::find('id');
 
         return redirect()->route('admin.dashboard.user.show')->with($user);
-
     }
     public function update(UserUpdateRequest $request, User $user)
     {
         $data = $request->all();
         $helper = new HelperArchive();
-
         $roles = $request->validated()['roles']??[];
-        // dd($roles);
+        
         if (Auth::user()->hasRole('Super') && $user->id == 1) {
             $roles[] = 'Super';
-            // dd($roles);
         }
 
         try {
@@ -188,11 +193,31 @@ class UserController extends Controller
         Session::flash('success','Usuário deletado com sucesso!');
         return redirect()->back();
     }
+    public function deleteForced($id)
+    { 
+        if (!Auth::user()->can('usuario.remover')) {
+            return view('Admin.error.403');
+        }
+    
+        $user = user::withTrashed()->find($id);
+        if ($user) {
+            // Verifique se o usuário autenticado tem permissão para excluir permanentemente o user (opcional)
+            // ...
+            
+            try {
+                $user->forceDelete();
+                Session::flash('success', 'Usuário excluído permanentemente com sucesso!');
+            } catch (\Exception $e) {
+                Session::flash('error', 'Erro ao excluir permanentemente o usuário.');
+            }
+        }
+
+        return redirect()->route('admin.dashboard.user.index');
+    }
 
     public function destroySelected(Request $request)
     {
-        if($deleted = User::whereIn('id', $request->deleteAll)->delete()){
-            
+        if($deleted = User::whereIn('id', $request->deleteAll)->delete()){            
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
         }
     }
