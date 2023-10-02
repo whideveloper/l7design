@@ -116,7 +116,6 @@ class UserController extends Controller
             
             $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
             ->where('model_has_roles.model_id', $user->id)->get();
-            // dd($currentRole);
             $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
 
             return view('Admin.cruds.user.edit', [

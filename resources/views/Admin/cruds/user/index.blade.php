@@ -151,7 +151,7 @@
                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body p-3 pt-0 pb-3">
-                                                                                {!! Form::model($user, ['route' => ['admin.dashboard.user.show', $user->id], 'class'=>'parsley-examples']) !!}
+                                                                                {!! Form::model($user, ['route' => ['admin.dashboard.user.show', $user->id], 'class'=>'parsley-examples']) !!}  
                                                                                     @include('Admin.cruds.user.form')
                                                                                 {!! Form::close() !!}                                                                             
                                                                             </div>

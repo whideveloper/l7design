@@ -53,7 +53,8 @@
                                     <label>
                                         {{ucfirst($role->name)}}
                                     </label>
-                                    <input  type="checkbox" name="roles[]" checked value="{{$role->name}}">                        
+                                    <input  type="checkbox" name="roles[]" @if(!Auth::user()->hasRole('Super') && !Auth::user()->hasRole('Administrador')) disabled @endif checked value="{{$role->name}}">
+                      
                                 </li>
                             @endforeach                
                         </ul>
@@ -61,7 +62,7 @@
                 @endif
             @endif
             
-            @if (Auth::user()->hasRole('Super'))
+            @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
                 @if ($otherRoles <> '')
                     @if ($otherRoles->count())
                         <div class="card">
