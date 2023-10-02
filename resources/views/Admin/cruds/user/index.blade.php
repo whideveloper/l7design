@@ -32,27 +32,26 @@
                                     @endcan
                                     <div class="row col-6 d-flex justify-content-end">
                                         <div style="width: 240px">
-                                            <a href="" data-bs-toggle="modal" data-bs-target="#modal-user" class="btn btn-primary float-end">Restaurar dados excluídos <i class="mdi mdi-delete-restore"></i></a>
+                                            @if ($userDeleteds_at->count())                                                
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#modal-user" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
+                                            @endif
 
                                             <div id="modal-user" class="modal fade" tabindex="-1" user="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                 <div class="modal-dialog" style="max-width: 800px;">
                                                     <div class="modal-content">
                                                         <div class="modal-header p-3 pt-2 pb-2">
-                                                            <h4 class="page-title">Usuários Excluídos</h4>
+                                                            <h4 class="page-title">Registros deletados</h4>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
+
                                                         <div class="modal-body p-3 pt-0 pb-3">
                                                             <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                                                 <thead class="table-light">
                                                                     <tr>
                                                                         <th></th>
-                                                                        <th class="bs-checkbox">
-                                                                            <label><input name="btnSelectAll" type="checkbox"></label>
-                                                                        </th>
                                                                         <th>Nome</th>
                                                                         <th>E-mail</th>
-                                                                        <th>Status</th>
-                                                                        <th>Criado em</th>
+                                                                        <th>Deletado em</th>
                                                                         <th>Ações</th>
                                                                     </tr>
                                                                 </thead>
@@ -61,23 +60,19 @@
                                                                     @foreach ($userDeleteds_at as $key => $user)
                                                                         <tr data-code="{{$user->id}}">
                                                                             <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
-                                                                            <td class="bs-checkbox">
-                                                                                <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$user->id}}"></label>
-                                                                            </td>
                                                                             <td>{{$user->name}}</td>
                                                                             <td>{{$user->email}}</td>
-                                                                            <td>
-                                                                                @switch($user->active)
-                                                                                    @case(0) <span class="badge bg-danger">Inativo</span> @break
-                                                                                    @case(1) <span class="badge bg-success">Ativo</span> @break
-                                                                                @endswitch
-                                                                            </td>
-                                                                            <td>{{$user->created_at->format('d/m/Y H:i')}}</td>
+                                                                            <td>{{$user->deleted_at->format('d/m/Y')}}</td>
                                                                             <td>
                                                                                 <div class="row">
                                                                                     @can('usuario.editar')
                                                                                         <div class="col-4">
-                                                                                            <a href="{{route('admin.dashboard.user.edit',['user' => $user->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                                            <form action="{{route('admin.dashboard.user.retoreData',['user' => $user->id])}}" class="col-4" method="POST">
+                                                                                                @csrf
+                                                                                                @method('POST') 
+                                                                                                    
+                                                                                                <button type="submit" class="btn-icon" title="Restaurar item"><i class="mdi mdi-restore"></i></button>
+                                                                                            </form>
                                                                                         </div>
                                                                                     @endcan
                                                                                     @can('usuario.remover')
@@ -85,7 +80,7 @@
                                                                                             @csrf
                                                                                             @method('DELETE') 
                                                                                                 
-                                                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                                                            <button type="button" class="btn-icon btSubmitDeleteItemForever" title="Deletar permanentemente"><i class="mdi mdi-delete-forever-outline"></i></button>
                                                                                         </form>
                                                                                     @endcan
                                                                                 </div>

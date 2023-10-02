@@ -113,18 +113,16 @@ class UserController extends Controller
     public function edit(User $user)
     {  
         if(Auth::user()->can('usuario.editar')){ 
-            // $roles = Role::get();
-            // $currentRole = '';
-            // $otherRoles = '';
             
-            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
-            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get();
+            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
+            ->where('model_has_roles.model_id', $user->id)->get();
             // dd($currentRole);
+            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
+
             return view('Admin.cruds.user.edit', [
                 'user' => $user,
                 'otherRoles' => $otherRoles,
                 'currentRole' => $currentRole,
-                // 'roles'=>$roles
             ]);
         }else {
             return view('Admin.error.403');
@@ -206,9 +204,10 @@ class UserController extends Controller
             
             try {
                 $user->forceDelete();
-                Session::flash('success', 'Usuário excluído permanentemente com sucesso!');
+                Session::flash('success', 'Usuário excluído com sucesso!');
+                Session::flash('reopenModal','modal-user');
             } catch (\Exception $e) {
-                Session::flash('error', 'Erro ao excluir permanentemente o usuário.');
+                Session::flash('error', 'Erro ao excluir o usuário.');
             }
         }
 
@@ -217,6 +216,10 @@ class UserController extends Controller
 
     public function destroySelected(Request $request)
     {
+        if (!Auth::user()->can('usuario.remover')) {
+            return view('Admin.error.403');
+        }
+
         if($deleted = User::whereIn('id', $request->deleteAll)->delete()){            
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
         }
@@ -228,5 +231,14 @@ class UserController extends Controller
             User::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
+    }
+
+    public function retoreData($id){
+        $user = User::onlyTrashed()->where('id', $id);
+        $user->restore();
+
+        Session::flash('success','Registro restaurado com sucesso!');
+        Session::flash('reopenModal','modal-user');
+        return redirect()->route('admin.dashboard.user.index');
     }
 }

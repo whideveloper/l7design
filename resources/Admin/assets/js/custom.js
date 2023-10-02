@@ -75,7 +75,7 @@ $(function() {
 
         Swal.fire({
             title: "Tem certeza?",
-            text: "Você não poderá reverter isso!",
+            text: "Os itens excluídos permanecerão no lixo eletrônico até 30 dias, após esse prazo eles serão deletados permanentemente.",
             icon: "warning",
             showCancelButton: !0,
             confirmButtonText: "Sim, exclua!",
@@ -112,7 +112,7 @@ $(function() {
         var $this = $(this)
         Swal.fire({
             title: "Tem certeza?",
-            text: "Você não poderá reverter isso!",
+            text: "O item excluído permanecerá no lixo eletrônico até 30 dias, após esse prazo ele será deletado permanentemente.",
             icon: "warning",
             showCancelButton: !0,
             confirmButtonText: "Sim, exclua!",
@@ -122,7 +122,29 @@ $(function() {
             buttonsStyling: !1,
         }).then(function(e) {
             if (e.value) {
-                Swal.fire({ title: "Deletado!", text: "Item deletado com sucesso", icon: "success", showConfirmButton: false })
+                Swal.fire({ title: "Deletado!", text: "Item deletado com sucesso!", icon: "success", showConfirmButton: false })
+                setTimeout(() => {
+                    $this.parents('form').submit()
+                }, 1000);
+            }
+        });
+    })
+    $('.btSubmitDeleteItemForever').on('click', function(e) {
+        e.preventDefault()
+        var $this = $(this)
+        Swal.fire({
+            title: "Tem certeza?",
+            text: "Este item será deletado permanentemente. Você não poderá reverter isso!",
+            icon: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonText: "Não, cancele!",
+            confirmButtonClass: "btn btn-success mt-2",
+            cancelButtonClass: "btn btn-danger ms-2 mt-2",
+            buttonsStyling: !1,
+        }).then(function(e) {
+            if (e.value) {
+                Swal.fire({ title: "Deletado!", text: "Item deletado com sucesso!", icon: "success", showConfirmButton: false })
                 setTimeout(() => {
                     $this.parents('form').submit()
                 }, 1000);
@@ -144,7 +166,7 @@ $(function() {
             buttonsStyling: !1,
         }).then(function(e) {
             if (e.value) {
-                Swal.fire({ title: "Deletado!", text: "Item deletado com sucesso", icon: "success", showConfirmButton: false })
+                Swal.fire({ title: "Deletado!", text: "Item deletado com sucesso!", icon: "success", showConfirmButton: false })
                 setTimeout(() => {
                     $this.parents('form').submit()
                 }, 1000);
@@ -368,67 +390,3 @@ $(function() {
     })
 
 })
-
-
-// if(document.querySelector('.complete-editor-time-line')){
-//     let n = 1;
-//     document.querySelectorAll('.complete-editor-time-line').forEach(el => {
-//         el.id = `complete-editor-time-line-${n}`;
-
-//         ClassicEditor
-//             .create(document.querySelector(`#complete-editor-time-line-${n}`), {
-//                 toolbar: {
-//                     items: [
-//                         'bold', 'italic', 'underline', 'alignment', 'fontBackgroundColor', 'fontColor', 'link', '|',
-//                         'bulletedList', 'numberedList', 'outdent', 'indent', '|',
-//                         'code', 'codeBlock', '|',
-//                         'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo'
-//                     ]
-//                 },
-//                 language: 'pt-br',
-//                 table: {
-//                     contentToolbar: [
-//                         'tableColumn',
-//                         'tableRow',
-//                         'mergeTableCells'
-//                     ]
-//                 },
-//                 licenseKey: '',
-//             })
-//             .then(editor => {
-//                 console.log(editor);
-//             })
-//             .catch(error => {
-//                 console.error(error);
-//             });
-//         n++
-//     });
-//     // CKEDITOR.replace('complete-editor-time-line-1');
-//     // CKEDITOR.replace('complete-editor-time-line-2');
-// }
-
-// $('.basic-editor-topic').each(function(){
-//     ClassicEditor.create(this, {
-//         toolbar: {
-//             items: [
-//                 'bold', 'italic', 'underline', 'link', '|',
-//                 'undo', 'redo'
-//             ]
-//         },
-//         language: 'pt-br',
-//         table: {
-//             contentToolbar: [
-//                 'tableColumn',
-//                 'tableRow',
-//                 'mergeTableCells'
-//             ]
-//         },
-//         licenseKey: '',
-//     })
-//     .then(editor => {
-//         // console.log(editor);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
-// })

@@ -102,6 +102,9 @@ Route::prefix('painel/')->group(function () {
             ->names('admin.dashboard.user')
             ->parameters(['usuario'=>'user']);
             
+        Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
+            ->name('admin.dashboard.user.retoreData');
+            
         Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
 
