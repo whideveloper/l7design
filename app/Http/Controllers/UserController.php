@@ -31,12 +31,12 @@ class UserController extends Controller
         {            
             $users = User::where('id', '<>', 1)->sorting()->paginate(15);
             $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
-            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get();
+            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
             $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
             ->groupBy('permissions.name')
             ->select('permissions.name')
             ->get();
-            $userDeleteds_at = User::onlyTrashed()->get();
+            $userDeleteds_at = User::onlyTrashed()->count();
             
             return view('Admin.cruds.user.index', [
                 'users'=>$users,
@@ -128,9 +128,16 @@ class UserController extends Controller
         }        
     }
     public function show(User $user){
-        $user = User::find('id');
-
-        return redirect()->route('admin.dashboard.user.show')->with($user);
+        // $user = User::find('id');
+        if(Auth::user()->can('usuario.visualizar')){ 
+            $userDeleteds_at = User::onlyTrashed()->get();
+            return view('Admin.cruds.user.show', [
+                'userDeleteds_at' => $userDeleteds_at,
+                'user' => $user
+            ]);
+        }else{
+            return view('Admin.error.403');
+        }
     }
     public function update(UserUpdateRequest $request, User $user)
     {
