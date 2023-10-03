@@ -12,13 +12,21 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard.user.index')}}">Usuários</a></li>
-                                    <li class="breadcrumb-item active">Visualizar Usuário</li>
+                                    <li class="breadcrumb-item active">Registros deletados</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Visualizar Usuário</h4>
+                            <h4 class="page-title">Registros deletados</h4>
                         </div>
                     </div>
                 </div>
+                @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
+                    <div class="col-6 mb-3 row gap-2">
+                        <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;width:210px;">Deletar permanentemente <i class="mdi mdi-delete-restore"></i></button>
+                        
+                        <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
+                    </div>                    
+                @endif
+                
                 <!-- end page title -->
                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                     <thead class="table-light">
@@ -35,7 +43,7 @@
                     </thead>
 
                     <tbody data-route="{{route('admin.dashboard.user.sorting')}}">
-                        @foreach ($users as $key => $user)
+                        @foreach ($userDeleteds_at as $key => $user)
                             <tr data-code="{{$user->id}}">
                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox">
@@ -70,8 +78,15 @@
                         @endforeach
                     </tbody>
                 </table> 
+                {{-- PAGINATION --}}
+                <div class="mt-3 float-end">
+                    {{$userDeleteds_at->links()}}
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>
+    <script>
+        var userIndexRoute = "{{ route('admin.dashboard.user.index') }}";
+    </script>
     @include('Admin.components.links.resourcesCreateEdit')
 @endsection

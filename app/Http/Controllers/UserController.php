@@ -7,11 +7,9 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserStoreRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -128,9 +126,8 @@ class UserController extends Controller
         }        
     }
     public function show(User $user){
-        // $user = User::find('id');
         if(Auth::user()->can('usuario.visualizar')){ 
-            $userDeleteds_at = User::onlyTrashed()->get();
+            $userDeleteds_at = User::onlyTrashed()->paginate(5);
             return view('Admin.cruds.user.show', [
                 'userDeleteds_at' => $userDeleteds_at,
                 'user' => $user
@@ -246,5 +243,16 @@ class UserController extends Controller
         Session::flash('success','Registro restaurado com sucesso!');
         Session::flash('reopenModal','modal-user');
         return redirect()->route('admin.dashboard.user.index');
+    }
+
+    public function retoreDataAll(Request $request)
+    {
+        if (!Auth::user()->can('usuario.editar')) {
+            return view('Admin.error.403');
+        }
+
+        if($restored = User::whereIn('id', $request->restoreAll)->restore()){            
+            return Response::json(['status' => 'success', 'message' => $restored.' itens restaurados com sucessso!']);
+        }
     }
 }

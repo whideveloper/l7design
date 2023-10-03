@@ -101,13 +101,17 @@ Route::prefix('painel/')->group(function () {
         Route::resource('usuario', UserController::class)
             ->names('admin.dashboard.user')
             ->parameters(['usuario'=>'user']);
-            
+        //SHOW
+        Route::get('usuario/deletados/show', [UserController::class, 'show'])
+            ->name('admin.dashboard.user.show');   
+        //RESTORE
         Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');
-            
+        Route::post('usuario/restore', [UserController::class, 'retoreDataAll'])
+            ->name('admin.dashboard.user.retoreDataAll');
+        //DELETADOS
         Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
-
         Route::post('usuario/delete', [UserController::class, 'destroySelected'])
             ->name('admin.dashboard.user.destroySelected');
         Route::post('usuario/sorting', [UserController::class, 'sorting'])
