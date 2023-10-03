@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use Carbon\Carbon;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
@@ -128,6 +129,7 @@ class UserController extends Controller
     public function show(User $user){
         if(Auth::user()->can('usuario.visualizar')){ 
             $userDeleteds_at = User::onlyTrashed()->paginate(5);
+            
             return view('Admin.cruds.user.show', [
                 'userDeleteds_at' => $userDeleteds_at,
                 'user' => $user
@@ -136,6 +138,37 @@ class UserController extends Controller
             return view('Admin.error.403');
         }
     }
+
+    public function search(Request $request){
+        if(Auth::user()->can('usuario.visualizar')){ 
+
+            if ($request->filled('email')) {
+                $userDeleteds_at = User::onlyTrashed()->where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
+
+                return view('Admin.cruds.user.show', [
+                    'userDeleteds_at' => $userDeleteds_at
+                ]);
+            }
+            if ($request->filled('name')) {
+                $userDeleteds_at = User::onlyTrashed()->where('name', 'LIKE', '%' . $request->input('name') . '%')->paginate(5);
+
+                return view('Admin.cruds.user.show', [
+                    'userDeleteds_at' => $userDeleteds_at
+                ]);
+            }
+            if ($request->date_search) {
+                // dd($request->date_search);
+                $userDeleteds_at = User::onlyTrashed()->where('data_registro', '=', $request->date_search)->paginate(15);
+            
+                return view('Admin.cruds.user.show', [
+                    'userDeleteds_at' => $userDeleteds_at
+                ]);
+            }
+        }else{
+            return view('Admin.error.403');
+        }
+    }
+
     public function update(UserUpdateRequest $request, User $user)
     {
         $data = $request->all();

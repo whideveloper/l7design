@@ -32,8 +32,10 @@
                                     @endcan
                                     <div class="row col-6 d-flex justify-content-end">
                                         <div style="width: 240px">
-                                            @if ($userDeleteds_at)                                                
-                                                <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
+                                            @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
+                                                @if ($userDeleteds_at)                                                
+                                                    <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
+                                                @endif
                                             @endif
 
                                             {{-- <div id="modal-user" class="modal fade" tabindex="-1" user="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

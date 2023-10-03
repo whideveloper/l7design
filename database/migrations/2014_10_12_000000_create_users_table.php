@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('path_image')->nullable();
             $table->boolean('remember')->default(0);
             $table->integer('sorting')->default(0);
+            $table->date('data_registro')->default(DB::raw('CURRENT_DATE'));
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

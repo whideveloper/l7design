@@ -104,12 +104,14 @@ Route::prefix('painel/')->group(function () {
         //SHOW
         Route::get('usuario/deletados/show', [UserController::class, 'show'])
             ->name('admin.dashboard.user.show');   
+        Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
+        ->name('admin.dashboard.user.show.search');
         //RESTORE
         Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');
         Route::post('usuario/restore', [UserController::class, 'retoreDataAll'])
             ->name('admin.dashboard.user.retoreDataAll');
-        //DELETADOS
+        //DELETADOS        
         Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
         Route::post('usuario/delete', [UserController::class, 'destroySelected'])

@@ -19,13 +19,36 @@
                         </div>
                     </div>
                 </div>
-                @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
-                    <div class="col-6 mb-3 row gap-2">
-                        <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;width:210px;">Deletar permanentemente <i class="mdi mdi-delete-restore"></i></button>
-                        
-                        <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
-                    </div>                    
-                @endif
+                <div class="row gap-3 justify-content-end">
+                    @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
+                        <div class="col-4 mb-3 row gap-2 align-content-md-end">
+                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger ms-2" style="display: none;width:170px;">Deletar registros <i class="mdi mdi-delete-restore"></i></button>
+                            
+                            <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
+                        </div>                    
+                    @endif
+                    <div class="col-8 p-0 d-flex flex-wrap">
+                        <form action="{{route('admin.dashboard.user.show.search')}}" method="POST" class="row justify-content-end col-12">
+                            @csrf
+                            <h5 class="page-title" style="padding-left: 0px">Filtrar por:</h5>
+                            <div class="data-search p-0">
+                                <input type="date" name="date_search">
+                            </div>
+                            <div class="input-group mb-3" style="width: 40%;">
+                                <input name="email" type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="button-addon2">                                 
+                            </div>
+                            <div class="input-group mb-3 p-0" style="width: 40%;">
+                                <input name="name" type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Button</button>
+                            </div>
+                        </form>                        
+                    </div>
+                </div>
+                <div class="row col-lg-12 d-flex justify-content-end mb-3 ms-0">
+                    @if (route('admin.dashboard.user.show.search') == url()->current())                                            
+                        <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary" style="width: 110px;height: 38px;margin-top: 0px;">Limpar Filtro</a>
+                    @endif
+                </div>
                 
                 <!-- end page title -->
                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
