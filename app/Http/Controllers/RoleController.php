@@ -16,8 +16,7 @@ class RoleController extends Controller
 {
     public function index()
     {        
-        if(Auth::user()->can('grupo.criar') || Auth::user()->can('grupo.editar') || 
-            Auth::user()->can('grupo.visualizar') ||  Auth::user()->can('grupo.remover'))
+        if(Auth::user()->can('grupo.visualizar'))
         {
             $roles = Role::paginate(15);
             $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
