@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.contact.index')}}">Usuários</a></li>
-                                    <li class="breadcrumb-item active">Editar Usuário</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.contact.index')}}">Formulário de Contato</a></li>
+                                    <li class="breadcrumb-item active">Editar Formulário de Contato</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Usuário</h4>
+                            <h4 class="page-title">Editar Formulário de Contato</h4>
                         </div>
                     </div>
                 </div>

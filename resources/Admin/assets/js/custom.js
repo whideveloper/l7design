@@ -41,10 +41,12 @@ $(function() {
             $(`.${btnDelete}`).fadeIn('fast');
             var checked = true
             $('#btSubmitDelete').css('display', 'block');
+            $('#btSubmitDeleteForever').css('display', 'block');
             $('#btSubmitRestore').css('display', 'block');
         }else{
             $(this).parents('table').find('input[name=btnSelectAll]').prop('checked', false)
             $('#btSubmitDelete').css('display', 'none');
+            $('#btSubmitDeleteForever').css('display', 'none');
             $('#btSubmitRestore').css('display', 'none');
         }
     })
@@ -56,12 +58,14 @@ $(function() {
             $(`.${btnDelete}`).fadeOut('fast');
             var checked = false
             $('#btSubmitDelete').css('display', 'none');
+            $('#btSubmitDeleteForever').css('display', 'none');
             $('#btSubmitRestore').css('display', 'none');
         } else {
             $(this).parents('table').find('input[name=btnSelectAll]').prop('checked', true)
             $(`.${btnDelete}`).fadeIn('fast');
             var checked = true
             $('#btSubmitDelete').css('display', 'block');
+            $('#btSubmitDeleteForever').css('display', 'block');
             $('#btSubmitRestore').css('display', 'block');
         }
         $(this).parents('table').find('.btnSelectItem').each(function() {
@@ -178,8 +182,6 @@ $(function() {
             }
         });
     })
-
-
     $('.btSubmitRestoreItem').on('click', function(e) {
         e.preventDefault()
         var $this = $(this)
@@ -204,6 +206,48 @@ $(function() {
     })
 
     //Deletar permanentemente
+    $('#btSubmitDeleteForever').on('click', function() {
+        var $this = $(this),
+            val = []
+
+        $('.btnSelectItem:checked').each(function() {
+            val.push($(this).val())
+        })
+
+        Swal.fire({
+            title: "Tem certeza?",
+            text: "Os itens serão deletados permanentemente. Esta ação não poderá ser revertida.",
+            icon: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonText: "Não, cancele!",
+            confirmButtonClass: "btn btn-success mt-2",cancelButtonClass: "btn btn-danger ms-2 mt-2",
+            buttonsStyling: !1,
+        }).then(function(e) {
+            if (e.value) {
+                $.ajax({
+                    type: 'POST',
+                    url: $this.data('route'),
+                    data: { deleteAllForever: val },
+                    dataType: 'JSON',
+                    beforeSend: function() {},
+                    success: function(response) {
+                        switch (response.status) {
+                            case 'success':
+                                Swal.fire({ title: "Deletado!", text: response.message, icon: "success", showConfirmButton: false })
+                                setTimeout(() => {
+                                    window.location.href = window.location.href
+                                }, 1000);
+                                break;
+                            default:
+                                Swal.fire({ title: "Erro!", text: response.message, icon: "error", confirmButtonColor: "#4a4fea" })
+                                break;
+                        }
+                    }
+                })
+            }
+        });
+    })
     $('.btSubmitDeleteItemForever').on('click', function(e) {
         e.preventDefault()
         var $this = $(this)

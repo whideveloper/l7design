@@ -106,6 +106,8 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.user.show');   
         Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
         ->name('admin.dashboard.user.show.search');
+        Route::post('usuario/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
+        ->name('admin.dashboard.user.destroySelectedForced');
         //RESTORE
         Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');

@@ -22,7 +22,7 @@
                 <div class="row gap-3 justify-content-end">
                     @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
                         <div class="col-4 mb-3 row gap-2 align-content-md-end">
-                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger ms-2" style="display: none;width:170px;">Deletar registros <i class="mdi mdi-delete-restore"></i></button>
+                            <button id="btSubmitDeleteForever" data-route="{{route('admin.dashboard.user.destroySelectedForced')}}" type="button" class="btn btn-danger ms-2" style="display: none;width:170px;">Deletar registros <i class="mdi mdi-delete-restore"></i></button>
                             
                             <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
                         </div>                    

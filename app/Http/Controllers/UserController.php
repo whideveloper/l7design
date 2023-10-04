@@ -250,6 +250,17 @@ class UserController extends Controller
         return redirect()->route('admin.dashboard.user.index');
     }
 
+    public function destroySelectedForced(Request $request)
+    {
+        if (!Auth::user()->can('usuario.remover')) {
+            return view('Admin.error.403');
+        }
+
+        if($deletedForever = User::whereIn('id', $request->deleteAllForever)->forceDelete()){            
+            return Response::json(['status' => 'success', 'message' => $deletedForever.' itens deletados com sucessso!']);
+        }
+    }
+    
     public function destroySelected(Request $request)
     {
         if (!Auth::user()->can('usuario.remover')) {
