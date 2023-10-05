@@ -13,46 +13,42 @@ class ContactController extends Controller
 {
     public function index(Request $request)
     {   
-        if(Auth::user()->can('formulario de contato.editar') || 
-            Auth::user()->can('formulario de contato.visualizar') || Auth::user()->can('formulario de contato.remover'))
-        {   
-            $contacts = Contact::query();
+        if(!Auth::user()->can('formulario de contato.visualizar')){   
+            return view('Admin.error.403');
+        }
+        $contacts = Contact::query();
 
-            if ($request->filled('search')) {
-                $contacts = Contact::where('nome', 'LIKE', '%' . $request->input('search') . '%')->paginate(5);
-
-                return view('Admin.cruds.contact.index', [
-                    'contacts' => $contacts
-                ]);
-            }
-            if ($request->filled('email')) {
-                $contacts = Contact::where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
-
-                return view('Admin.cruds.contact.index', [
-                    'contacts' => $contacts
-                ]);
-            }
-
-            if ($request->date_search) {
-                // dd($request->date_search);
-                $contacts = Contact::where('data_registro', '=', $request->date_search)->paginate(15);
-
-                return view('Admin.cruds.contact.index', [
-                    'contacts' => $contacts
-                ]);
-            }
-
-            if ($request->filled('status')) {
-                $contacts->where('status', $request->input('status'));
-            }
-            $contacts = $contacts->orderBy('created_at', 'desc')->paginate(5);
+        if ($request->filled('search')) {
+            $contacts = Contact::where('nome', 'LIKE', '%' . $request->input('search') . '%')->paginate(5);
 
             return view('Admin.cruds.contact.index', [
                 'contacts' => $contacts
             ]);
-        }else{
-            return view('Admin.error.403');
         }
+        if ($request->filled('email')) {
+            $contacts = Contact::where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
+
+            return view('Admin.cruds.contact.index', [
+                'contacts' => $contacts
+            ]);
+        }
+
+        if ($request->date_search) {
+            $contacts = Contact::where('data_registro', '=', $request->date_search)->paginate(15);
+
+            return view('Admin.cruds.contact.index', [
+                'contacts' => $contacts
+            ]);
+        }
+
+        if ($request->filled('status')) {
+            $contacts->where('status', $request->input('status'));
+        }
+        $contacts = $contacts->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('Admin.cruds.contact.index', [
+            'contacts' => $contacts
+        ]);
         
     }
 
@@ -62,13 +58,13 @@ class ContactController extends Controller
     }
 
     public function edit(Contact $contact)
-    {   if(Auth::user()->can('formulario de contato.editar')){
-            return view('Admin.cruds.contact.edit', [
-                'contact' => $contact
-            ]);
-        }else{
+    {   
+        if(!Auth::user()->can(['formulario de contato.visualizar','formulario de contato.editar'])){
             return view('Admin.error.403');
         }
+        return view('Admin.cruds.contact.edit', [
+            'contact' => $contact
+        ]);
     }
 
     public function update(ContactUpdateRequest $request, Contact $contact)
@@ -83,7 +79,7 @@ class ContactController extends Controller
 
     public function destroy(Contact $contact)
     {
-        if(!Auth::user()->can('formulario de contato.remover')){
+        if(!Auth::user()->can(['formulario de contato.visualizar','formulario de contato.remover'])){
             return view('Admin.error.403');
         }
         $contact->delete();
@@ -94,6 +90,10 @@ class ContactController extends Controller
 
     public function destroySelected(Request $request)
     {
+        if(!Auth::user()->can(['formulario de contato.visualizar','formulario de contato.remover'])){
+            return view('Admin.error.403');
+        }
+        
         if($deleted = Contact::whereIn('id', $request->deleteAll)->delete()){
             
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);

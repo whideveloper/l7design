@@ -37,7 +37,9 @@ class PermissionsSeeder extends Seeder
                 'Criar',
                 'Editar',
                 'Visualizar',
-                'Remover']
+                'Remover',
+                'Restaurar dados',
+                'Atribuir grupos']
             ];
 
         foreach($permissions as $key => $permission){

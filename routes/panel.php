@@ -102,7 +102,7 @@ Route::prefix('painel/')->group(function () {
             ->names('admin.dashboard.user')
             ->parameters(['usuario'=>'user']);
         //SHOW
-        Route::get('usuario/deletados/show', [UserController::class, 'show'])
+        Route::get('usuario/deletados/show', [UserController::class, 'deletedShow'])
             ->name('admin.dashboard.user.show');   
         Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
         ->name('admin.dashboard.user.show.search');

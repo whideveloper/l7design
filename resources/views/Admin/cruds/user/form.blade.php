@@ -40,8 +40,7 @@
         </div>
     </div>
     <div class="col-12 col-lg-12">
-        <div class="card card-body">
-            
+        <div class="card card-body">            
             @if ($currentRole <> '')
                 @if ($currentRole->count())
                     <h5 class="page-title">Grupos Pertencentes</h5>
@@ -53,7 +52,9 @@
                                     <label>
                                         {{ucfirst($role->name)}}
                                     </label>
-                                    <input  type="checkbox" name="roles[]" @if(!Auth::user()->hasRole('Super') && !Auth::user()->hasRole('Administrador')) disabled @endif checked value="{{$role->name}}">
+                                    @can('usuario.atribuir grupos')                                        
+                                        <input  type="checkbox" name="roles[]" checked value="{{$role->name}}">
+                                    @endcan
                       
                                 </li>
                             @endforeach                
@@ -62,7 +63,7 @@
                 @endif
             @endif
             
-            @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
+            @can('usuario.atribuir grupos')               
                 @if ($otherRoles <> '')
                     @if ($otherRoles->count())
                         <div class="card">
@@ -99,7 +100,7 @@
                         </ul>
                     </div>
                 @endif
-            @endif   
+            @endcan   
         </div>
     </div>
 </div>

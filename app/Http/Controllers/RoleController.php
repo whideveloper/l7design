@@ -16,26 +16,24 @@ class RoleController extends Controller
 {
     public function index()
     {        
-        if(Auth::user()->can('grupo.visualizar'))
-        {
-            $roles = Role::paginate(15);
-            $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
-            ->groupBy('permissions.name')
-            ->select('permissions.name')
-            ->get(); 
-
-            return view('Admin.cruds.group.index', [
-                'roles'=>$roles,
-                'permissions'=>$permissions
-            ]);
-        }else if(!Auth::user()->can(['grupo.criar', 'grupo.editar','grupo.visualizar', 'grupo.remover']))
-        {
-            return view('Admin.error.403');            
+        if(!Auth::user()->can('grupo.visualizar')){
+            return view('Admin.error.403'); 
         }
+
+        $roles = Role::paginate(15);
+        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
+        ->groupBy('permissions.name')
+        ->select('permissions.name')
+        ->get(); 
+
+        return view('Admin.cruds.group.index', [
+            'roles'=>$roles,
+            'permissions'=>$permissions
+        ]);
     }
     public function create()
     {   
-        if (Auth::user()->can('grupo.criar')) {
+        if (Auth::user()->can(['grupo.visualizar','grupo.criar'])) {
             $permissions = Permission::all();
             return view('Admin.cruds.group.create', [
                 'permissions'=>$permissions
@@ -67,7 +65,7 @@ class RoleController extends Controller
     }
     public function edit(Request $request,Role $role)
     {   
-        if(Auth::user()->can('grupo.editar')){
+        if(Auth::user()->can(['grupo.visualizar','grupo.editar'])){
             $permissions = Permission::all();
             return view('Admin.cruds.group.edit', [
                 'role'=>$role,
@@ -79,6 +77,9 @@ class RoleController extends Controller
     }
 
     public function show(Role $role){
+        if(!Auth::user()->can('grupo.visualizar')){
+            return view('Admin.error.403');
+        } 
         $role = Role::find('id');
 
         return redirect()->route('admin.dashboard.group.show')->with($role);
@@ -104,7 +105,7 @@ class RoleController extends Controller
 
     public function destroy(Request $request,Role $role)
     {
-        if(!Auth::user()->can('grupo.remover')){
+        if(!Auth::user()->can(['grupo.visualizar','grupo.remover'])){
             return view('Admin.error.403');
         } 
 
@@ -114,6 +115,10 @@ class RoleController extends Controller
     }
     public function destroySelected(Request $request)
     {
+        if(!Auth::user()->can(['grupo.visualizar','grupo.remover'])){
+            return view('Admin.error.403');
+        } 
+
         if($deleted = Role::whereIn('id', $request->deleteAll)->delete()){
             
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
@@ -122,7 +127,7 @@ class RoleController extends Controller
 
     public function sorting(Request $request)
     {   
-        if(!Auth::user()->can('grupo.remover')){
+        if(!Auth::user()->can('grupo.visualizar')){
             return view('Admin.error.403');
         }
 

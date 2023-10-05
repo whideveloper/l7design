@@ -25,50 +25,44 @@ class UserController extends Controller
 
     public function index()
     {   
-        if(Auth::user()->can('usuario.criar') || Auth::user()->can('usuario.editar') || 
-            Auth::user()->can('usuario.visualizar') || Auth::user()->can('usuario.remover'))
-        {            
-            $users = User::where('id', '<>', 1)->sorting()->paginate(15);
-            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
-            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
-            $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
-            ->groupBy('permissions.name')
-            ->select('permissions.name')
-            ->get();
-            $userDeleteds_at = User::onlyTrashed()->count();
-            
-            return view('Admin.cruds.user.index', [
-                'users'=>$users,
-                'otherRoles'=>$otherRoles,
-                'permissions'=>$permissions,
-                'currentRole'=>$currentRole,
-                'userDeleteds_at'=>$userDeleteds_at
-                
-            ]);
-        }else if(!Auth::user()->can(['usuario.criar', 'usuario.editar','usuario.visualizar', 'usuario.remover']))
-        {
-            return view('Admin.error.403');            
+        if(!Auth::user()->can('usuario.visualizar')){     
+            return view('Admin.error.403');
         }
 
+        $users = User::where('id', '<>', 1)->sorting()->paginate(15);
+        $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
+        $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
+        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
+        ->groupBy('permissions.name')
+        ->select('permissions.name')
+        ->get();
+        $userDeleteds_at = User::onlyTrashed()->count();
+        
+        return view('Admin.cruds.user.index', [
+            'users'=>$users,
+            'otherRoles'=>$otherRoles,
+            'permissions'=>$permissions,
+            'currentRole'=>$currentRole,
+            'userDeleteds_at'=>$userDeleteds_at
+            
+        ]);
     }
 
     public function create()
     {  
-        if(Auth::user()->can('usuario.criar'))
-        { 
-            $roles = Role::all();
-            $currentRole = '';
-            $otherRoles = '';
-
-            return view('Admin.cruds.user.create', [
-                'roles'=>$roles,
-                'currentRole'=>$currentRole,
-                'otherRoles'=>$otherRoles,
-                'roles'=>$roles
-            ]);
-        }else{
+        if(!Auth::user()->can(['usuario.visualizar','usuario.criar'])){ 
             return view('Admin.error.403');
-        }        
+        }       
+        $roles = Role::all();
+        $currentRole = '';
+        $otherRoles = '';
+
+        return view('Admin.cruds.user.create', [
+            'roles'=>$roles,
+            'currentRole'=>$currentRole,
+            'otherRoles'=>$otherRoles,
+            'roles'=>$roles
+        ]);
     }
 
     public function store(UserStoreRequest $request)
@@ -111,61 +105,60 @@ class UserController extends Controller
 
     public function edit(User $user)
     {  
-        if(Auth::user()->can('usuario.editar')){ 
-            
-            $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
-            ->where('model_has_roles.model_id', $user->id)->get();
-            $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
-
-            return view('Admin.cruds.user.edit', [
-                'user' => $user,
-                'otherRoles' => $otherRoles,
-                'currentRole' => $currentRole,
-            ]);
-        }else {
+        if(!Auth::user()->can(['usuario.visualizar','usuario.editar'])){ 
             return view('Admin.error.403');
-        }        
+        }      
+        
+        $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
+        ->where('model_has_roles.model_id', $user->id)->get();
+        $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get(); 
+
+        return view('Admin.cruds.user.edit', [
+            'user' => $user,
+            'otherRoles' => $otherRoles,
+            'currentRole' => $currentRole,
+        ]);
     }
     public function show(User $user){
-        if(Auth::user()->can('usuario.visualizar')){ 
-            $userDeleteds_at = User::onlyTrashed()->paginate(5);
-            
-            return view('Admin.cruds.user.show', [
-                'userDeleteds_at' => $userDeleteds_at,
-                'user' => $user
-            ]);
-        }else{
+        
+    }
+    public function deletedShow(User $user){
+        if(!Auth::user()->can(['usuario.restaurar dados','usuario.visualizar'])){ 
             return view('Admin.error.403');
         }
+        $userDeleteds_at = User::onlyTrashed()->paginate(5);        
+        return view('Admin.cruds.user.show', [
+            'userDeleteds_at' => $userDeleteds_at,
+            'user' => $user
+        ]);
     }
 
     public function search(Request $request){
-        if(Auth::user()->can('usuario.visualizar')){ 
-
-            if ($request->filled('email')) {
-                $userDeleteds_at = User::onlyTrashed()->where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
-
-                return view('Admin.cruds.user.show', [
-                    'userDeleteds_at' => $userDeleteds_at
-                ]);
-            }
-            if ($request->filled('name')) {
-                $userDeleteds_at = User::onlyTrashed()->where('name', 'LIKE', '%' . $request->input('name') . '%')->paginate(5);
-
-                return view('Admin.cruds.user.show', [
-                    'userDeleteds_at' => $userDeleteds_at
-                ]);
-            }
-            if ($request->date_search) {
-                // dd($request->date_search);
-                $userDeleteds_at = User::onlyTrashed()->where('data_registro', '=', $request->date_search)->paginate(15);
-            
-                return view('Admin.cruds.user.show', [
-                    'userDeleteds_at' => $userDeleteds_at
-                ]);
-            }
-        }else{
+        if(!Auth::user()->can('usuario.visualizar')){ 
             return view('Admin.error.403');
+        }
+        
+        if ($request->filled('email')) {
+            $userDeleteds_at = User::onlyTrashed()->where('email', 'LIKE', '%' . $request->input('email') . '%')->paginate(5);
+
+            return view('Admin.cruds.user.show', [
+                'userDeleteds_at' => $userDeleteds_at
+            ]);
+        }
+        if ($request->filled('name')) {
+            $userDeleteds_at = User::onlyTrashed()->where('name', 'LIKE', '%' . $request->input('name') . '%')->paginate(5);
+
+            return view('Admin.cruds.user.show', [
+                'userDeleteds_at' => $userDeleteds_at
+            ]);
+        }
+        if ($request->date_search) {
+            // dd($request->date_search);
+            $userDeleteds_at = User::onlyTrashed()->where('data_registro', '=', $request->date_search)->paginate(15);
+        
+            return view('Admin.cruds.user.show', [
+                'userDeleteds_at' => $userDeleteds_at
+            ]);
         }
     }
 
@@ -218,7 +211,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     { 
-        if(!Auth::user()->can('usuario.remover')){
+        if(!Auth::user()->can(['usuario.visualizar','usuario.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($user->path_image);
@@ -229,7 +222,7 @@ class UserController extends Controller
     }
     public function deleteForced($id)
     { 
-        if (!Auth::user()->can('usuario.remover')) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
     
@@ -252,7 +245,7 @@ class UserController extends Controller
 
     public function destroySelectedForced(Request $request)
     {
-        if (!Auth::user()->can('usuario.remover')) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -263,7 +256,7 @@ class UserController extends Controller
     
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can('usuario.remover')) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -281,6 +274,9 @@ class UserController extends Controller
     }
 
     public function retoreData($id){
+        if (!Auth::user()->can(['usuario.visualizar','usuario.restaurar dados'])) {
+            return view('Admin.error.403');
+        }
         $user = User::onlyTrashed()->where('id', $id);
         $user->restore();
 
@@ -291,7 +287,7 @@ class UserController extends Controller
 
     public function retoreDataAll(Request $request)
     {
-        if (!Auth::user()->can('usuario.editar')) {
+        if (!Auth::user()->can(['usuario.visualizar','restaurar dados'])) {
             return view('Admin.error.403');
         }
 
