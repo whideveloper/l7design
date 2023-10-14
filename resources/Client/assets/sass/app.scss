@@ -1,0 +1,18 @@
+//config files
+@use "utilities/reset";
+@use "utilities/base";
+@use "utilities/typography";
+@use "utilities/mixins";
+@use "utilities/variables" as v; //precisa estar depois de typography;
+//theme
+@use "theme";
+
+//main
+@use "main";
+
+//elementos
+
+h1 {
+    @extend %theme;
+    font-family: v.$montserrat;
+}

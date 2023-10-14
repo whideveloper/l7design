@@ -1,13 +1,12 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
-mix
+mix.scripts(
+    "resources/Admin/assets/js/vendor.min.js",
+    "public/Admin/assets/js/vendor.min.js"
+)
     .scripts(
-        "resources/Admin/assets/js/vendor.min.js",
-        "public/Admin/assets/js/vendor.min.js"
-    )
-    .scripts(
-    "resources/Admin/assets/js/app.min.js",
-    "public/Admin/assets/js/app.min.js"
+        "resources/Admin/assets/js/app.min.js",
+        "public/Admin/assets/js/app.min.js"
     )
     .scripts(
         "resources/Admin/assets/js/custom.js",
@@ -265,33 +264,37 @@ mix
 
     //Portais
 
+    // .styles(
+    //     "resources/Client/assets/css/reset.css",
+    //     "public/Client/assets/css/reset.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/default.css",
+    //     "public/Client/assets/css/default.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/splide.min.css",
+    //     "public/Client/assets/css/splide.min.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/colapsinho.css",
+    //     "public/Client/assets/css/colapsinho.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/sandwich.menu.css",
+    //     "public/Client/assets/css/sandwich.menu.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/main.css",
+    //     "public/Client/assets/css/main.css"
+    // )
+    // .styles(
+    //     "resources/Client/assets/css/responsive.css",
+    //     "public/Client/assets/css/responsive.css"
+    // )
     .styles(
-        "resources/Client/assets/css/reset.css",
-        "public/Client/assets/css/reset.css"
-    )
-    .styles(
-        "resources/Client/assets/css/default.css",
-        "public/Client/assets/css/default.css"
-    )
-    .styles(
-        "resources/Client/assets/css/splide.min.css",
-        "public/Client/assets/css/splide.min.css"
-    )
-    .styles(
-        "resources/Client/assets/css/colapsinho.css",
-        "public/Client/assets/css/colapsinho.css"
-    )
-    .styles(
-        "resources/Client/assets/css/sandwich.menu.css",
-        "public/Client/assets/css/sandwich.menu.css"
-    )
-    .styles(
-        "resources/Client/assets/css/main.css",
-        "public/Client/assets/css/main.css"
-    )
-    .styles(
-        "resources/Client/assets/css/responsive.css",
-        "public/Client/assets/css/responsive.css"
+        "resources/Client/assets/sass/app.css",
+        "public/Client/assets/css/app.css"
     )
     .scripts(
         "resources/Client/assets/js/splide.min.js",
@@ -338,22 +341,19 @@ mix
         jquery: ["$", "window.jQuery", "jQuery"],
     })
 
-    .copyDirectory(
-        "resources/Client/assets/images",
-        "public/Client/assets/images"
-    )
-    .copyDirectory(
-        "resources/Client/assets/archives",
-        "public/Client/assets/archives"
-    )
+    // .copyDirectory(
+    //     "resources/Client/assets/images",
+    //     "public/Client/assets/images"
+    // )
+    // .copyDirectory(
+    //     "resources/Client/assets/archives",
+    //     "public/Client/assets/archives"
+    // )
     .copyDirectory(
         "resources/Client/assets/fontello",
         "public/Client/assets/fontello"
     )
-    .copyDirectory(
-        "resources/Admin/assets/fonts", 
-        "public/Admin/assets/fonts"
-    )
+    .copyDirectory("resources/Admin/assets/fonts", "public/Admin/assets/fonts")
     .copyDirectory(
         "resources/Admin/assets/images",
         "public/Admin/assets/images"
@@ -367,4 +367,3 @@ mix
         "public/Admin/assets/libs/i18n"
     )
     .version();
-
