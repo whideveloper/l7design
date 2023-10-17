@@ -6,17 +6,17 @@
 
     Usaremos também o @use do sass (https://sass-lang.com/documentation/at-rules/use/) que é a forma mais indicada para criação de ligação entre diferentes arquivos afim de montar um único arquivo final;
 
-    Dentro desta estrutura é necessário que todos os arquivos que utilizam varáveis e mixins chamem esses arquivos para si afim de serem capazes de criar a referencia necessária;
+    Dentro desta estrutura é necessário que todos os arquivos que utilizam @variables e @mixins chamem esses arquivos para si afim de serem capazes de criar as referencias necessárias;
 
 ## PASTAS
 
 ### utilities
 
-    Pasta onde vamos manter os arquivos de configuração, os arquivos que são a base do nosso tema;
+    Pasta onde vamos manter os arquivos de configuração, os arquivos que são a base do nosso sistema;
 
 ### models
 
-    Pasta para os scss de cada tipo de módulo específico.
+    Pasta para os scss de cada tipo de módulo específico. Importante que o nome do scss é o msm nome do model que ele se refere; O estilo dos models deve fzr tudo que é referente ao módulo;
 
 ## app.scss -> app.css
 
