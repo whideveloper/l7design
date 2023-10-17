@@ -341,10 +341,10 @@ mix.scripts(
         jquery: ["$", "window.jQuery", "jQuery"],
     })
 
-    // .copyDirectory(
-    //     "resources/Client/assets/images",
-    //     "public/Client/assets/images"
-    // )
+    .copyDirectory(
+        "resources/Client/assets/images",
+        "public/Client/assets/images"
+    )
     // .copyDirectory(
     //     "resources/Client/assets/archives",
     //     "public/Client/assets/archives"

@@ -1,5 +1,13 @@
 # ESTRUTURA DE ESTILIZAÇÃO
 
+## Estrutura e ambiente
+
+    Trabalharemos com scss, porém o compilador desse código será um plugin do VSCode, o Live Sass Compiler (id da extenção: glenn2223.live-sass);
+
+    Usaremos também o @use do sass (https://sass-lang.com/documentation/at-rules/use/) que é a forma mais indicada para criação de ligação entre diferentes arquivos afim de montar um único arquivo final;
+
+    Dentro desta estrutura é necessário que todos os arquivos que utilizam varáveis e mixins chamem esses arquivos para si afim de serem capazes de criar a referencia necessária;
+
 ## PASTAS
 
 ### utilities
