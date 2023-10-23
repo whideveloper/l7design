@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,17 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::paginate(15);
+        $roles = Role::paginate(15);
+        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
+            ->groupBy('permissions.name')
+            ->select('permissions.name')
+            ->get();
+        return view('Admin.cruds.student.index',[
+            'students'=>$students,
+            'roles'=>$roles,
+            'permissions'=>$permissions
+        ]);
     }
 
     /**
