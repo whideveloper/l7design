@@ -15,5 +15,10 @@ class Student extends Model
         'email',
         'password',
         'active',
+        'sorting'
     ];
+
+    function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
 }

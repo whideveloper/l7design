@@ -101,7 +101,7 @@ Route::prefix('painel/')->group(function () {
         //ALUNOS
         Route::resource('alunos', StudentController::class)
             ->names('admin.dashboard.student')
-            ->parameters(['alunos' => 'students']);
+            ->parameters(['alunos' => 'student']);
         Route::post('alunos/delete', [StudentController::class, 'destroySelected'])
             ->name('admin.dashboard.student.destroySelected');
         Route::post('alunos/sorting', [StudentController::class, 'sorting'])

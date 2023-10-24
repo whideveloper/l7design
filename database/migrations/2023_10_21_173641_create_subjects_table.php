@@ -20,6 +20,7 @@ class CreateSubjectsTable extends Migration
             $table->string('description',191)->nullable();
             $table->string('path_image',255)->nullable();
             $table->tinyInteger('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

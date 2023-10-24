@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('name',191)->nullable();
             $table->string('email',191)->unique();
             $table->string('password');
+            $table->integer('sorting')->default(0);
             $table->tinyInteger('active')->default(0);
             $table->softDeletes();
             $table->timestamps();

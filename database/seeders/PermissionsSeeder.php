@@ -16,12 +16,18 @@ class PermissionsSeeder extends Seeder
     {
 
         $permissions = [
+            'aluno'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'banners'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
-                ],
+            ],
             'formulario de contato'=>[
                 'Editar',
                 'Visualizar',
@@ -48,7 +54,7 @@ class PermissionsSeeder extends Seeder
                     'name'=>strtolower("{$key}.{$value}")
                 ]);
             }
-        }   
+        }
     }
-    
+
 }
