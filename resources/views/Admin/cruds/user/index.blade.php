@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Usuários</li>
+                                    <li class="breadcrumb-item active">Professores</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Usuários</h4>
+                            <h4 class="page-title">Professores</h4>
                         </div>
                     </div>
                 </div>
@@ -32,8 +32,8 @@
                                     @endcan
                                     <div class="row col-6 d-flex justify-content-end">
                                         <div style="width: 240px">
-                                            @can('usuario.restaurar dados')                                                
-                                                @if ($userDeleteds_at)                                                
+                                            @can('usuario.restaurar dados')
+                                                @if ($userDeleteds_at)
                                                     <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
                                                 @endif
                                             @endcan
@@ -57,7 +57,7 @@
                                                                         <th>Ações</th>
                                                                     </tr>
                                                                 </thead>
-                            
+
                                                                 <tbody data-route="{{route('admin.dashboard.user.sorting')}}">
                                                                     @foreach ($userDeleteds_at as $key => $user)
                                                                         <tr data-code="{{$user->id}}">
@@ -71,8 +71,8 @@
                                                                                         <div class="col-4">
                                                                                             <form action="{{route('admin.dashboard.user.retoreData',['user' => $user->id])}}" class="col-4" method="POST">
                                                                                                 @csrf
-                                                                                                @method('POST') 
-                                                                                                    
+                                                                                                @method('POST')
+
                                                                                                 <button type="submit" class="btn-icon" title="Restaurar item"><i class="mdi mdi-restore"></i></button>
                                                                                             </form>
                                                                                         </div>
@@ -80,8 +80,8 @@
                                                                                     @can('usuario.remover')
                                                                                         <form action="{{route('admin.dashboard.user.deleteForced',['user' => $user->id])}}" class="col-4" method="POST">
                                                                                             @csrf
-                                                                                            @method('DELETE') 
-                                                                                                
+                                                                                            @method('DELETE')
+
                                                                                             <button type="button" class="btn-icon btSubmitDeleteItemForever" title="Deletar permanentemente"><i class="mdi mdi-delete-forever-outline"></i></button>
                                                                                         </form>
                                                                                     @endcan
@@ -90,7 +90,7 @@
                                                                         </tr>
                                                                     @endforeach
                                                                 </tbody>
-                                                            </table>                                                                           
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -155,7 +155,7 @@
                                                                             <div class="modal-body p-3 pt-0 pb-3">
                                                                                 {!! Form::model($user, ['route' => ['admin.dashboard.user.show', $user->id], 'class'=>'parsley-examples']) !!}
                                                                                     @include('Admin.cruds.user.form')
-                                                                                {!! Form::close() !!}                                                                             
+                                                                                {!! Form::close() !!}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -165,7 +165,7 @@
                                                         @can('usuario.remover')
                                                             <form action="{{route('admin.dashboard.user.destroy',['user' => $user->id])}}" class="col-4" method="POST">
                                                                 @method('DELETE') @csrf
-                                                                    
+
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                             </form>
                                                         @endcan

@@ -30,26 +30,21 @@
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.student.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
-                                    @can('aluno.criar')
-                                        <div class="col-6">
-                                            <a href="{{route('admin.dashboard.student.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                        </div>
-                                    @endcan
-{{--                                    <div class="row col-6 d-flex justify-content-end">--}}
-{{--                                        <div style="width: 240px">--}}
-{{--                                            @can('aluno.restaurar dados')--}}
-{{--                                                @if ($studentDeleteds_at)--}}
-{{--                                                    <a href="{{route('admin.dashboard.student.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>--}}
-{{--                                                @endif--}}
-{{--                                            @endcan--}}
+                                    <div class="row col-6 d-flex justify-content-end">
+                                        <div style="width: 240px">
+                                            @can('aluno.restaurar dados')
+                                                @if ($studentsDeleted_at)
+                                                    <a href="{{route('admin.dashboard.student.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
+                                                @endif
+                                            @endcan
 
-{{--                                        </div>--}}
-{{--                                        @can('aluno.criar')--}}
-{{--                                            <div style="width: 165px">--}}
-{{--                                                <a href="{{route('admin.dashboard.student.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>--}}
-{{--                                            </div>--}}
-{{--                                        @endcan--}}
-{{--                                    </div>--}}
+                                        </div>
+                                        @can('aluno.criar')
+                                            <div style="width: 165px">
+                                                <a href="{{route('admin.dashboard.student.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                            </div>
+                                        @endcan
+                                    </div>
                                 </div>
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">

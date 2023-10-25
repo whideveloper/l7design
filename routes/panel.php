@@ -102,33 +102,48 @@ Route::prefix('painel/')->group(function () {
         Route::resource('alunos', StudentController::class)
             ->names('admin.dashboard.student')
             ->parameters(['alunos' => 'student']);
+        //SHOW
+        Route::get('alunos/deletados/show', [StudentController::class, 'deletedShow'])
+            ->name('admin.dashboard.student.show');
+        Route::post('alunos/deletados/show/search', [StudentController::class, 'search'])
+            ->name('admin.dashboard.student.show.search');
+        Route::post('alunos/deletados/show/delete', [StudentController::class, 'destroySelectedForced'])
+            ->name('admin.dashboard.student.destroySelectedForced');
+        //RESTORE
+        Route::post('alunos/retoreData/{student}', [StudentController::class, 'retoreData'])
+            ->name('admin.dashboard.student.retoreData');
+        Route::post('alunos/restore', [StudentController::class, 'retoreDataAll'])
+            ->name('admin.dashboard.student.retoreDataAll');
+        //DELETADOS
+        Route::delete('alunos/deleteForced/{student}', [StudentController::class, 'deleteForced'])
+            ->name('admin.dashboard.student.deleteForced');
         Route::post('alunos/delete', [StudentController::class, 'destroySelected'])
             ->name('admin.dashboard.student.destroySelected');
         Route::post('alunos/sorting', [StudentController::class, 'sorting'])
             ->name('admin.dashboard.student.sorting');
 
         //USUARIOS
-        Route::resource('usuario', UserController::class)
+        Route::resource('professor', UserController::class)
             ->names('admin.dashboard.user')
-            ->parameters(['usuario'=>'user']);
+            ->parameters(['professor'=>'user']);
         //SHOW
-        Route::get('usuario/deletados/show', [UserController::class, 'deletedShow'])
+        Route::get('professor/deletados/show', [UserController::class, 'deletedShow'])
             ->name('admin.dashboard.user.show');
-        Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
+        Route::post('professor/deletados/show/search', [UserController::class, 'search'])
         ->name('admin.dashboard.user.show.search');
-        Route::post('usuario/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
+        Route::post('professor/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
         ->name('admin.dashboard.user.destroySelectedForced');
         //RESTORE
-        Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
+        Route::post('professor/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');
-        Route::post('usuario/restore', [UserController::class, 'retoreDataAll'])
+        Route::post('professor/restore', [UserController::class, 'retoreDataAll'])
             ->name('admin.dashboard.user.retoreDataAll');
         //DELETADOS
-        Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
+        Route::delete('professor/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
-        Route::post('usuario/delete', [UserController::class, 'destroySelected'])
+        Route::post('professor/delete', [UserController::class, 'destroySelected'])
             ->name('admin.dashboard.user.destroySelected');
-        Route::post('usuario/sorting', [UserController::class, 'sorting'])
+        Route::post('professor/sorting', [UserController::class, 'sorting'])
             ->name('admin.dashboard.user.sorting');
 
         //CONTATO

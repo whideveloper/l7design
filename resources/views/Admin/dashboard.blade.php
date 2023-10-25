@@ -66,7 +66,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-account-circle font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-account-multiple font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -90,13 +90,13 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-account-circle font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-account-tie font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Usuários</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Usuários</p>
+                                                        <h4 class="text-dark mt-1">Professores</h4>
+                                                        <p class="text-muted mb-1">Gerenciar Professores</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->

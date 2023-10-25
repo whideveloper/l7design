@@ -21,4 +21,8 @@ class Student extends Model
     function scopeSorting($query){
         return $query->orderBy('sorting', 'ASC');
     }
+
+    function scopeActive($query){
+        return $query->where('active', 1);
+    }
 }

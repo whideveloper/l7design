@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.student.index')}}">Usuários</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.student.index')}}">Alunos</a></li>
                                     <li class="breadcrumb-item active">Registros deletados</li>
                                 </ol>
                             </div>
@@ -66,7 +66,7 @@
                     </thead>
 
                     <tbody data-route="{{route('admin.dashboard.student.sorting')}}">
-                        @foreach ($studentDeleteds_at as $key => $student)
+                        @foreach ($studentsDeleted_at as $key => $student)
                             <tr data-code="{{$student->id}}">
                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                 <td class="bs-checkbox">
@@ -103,13 +103,13 @@
                 </table>
                 {{-- PAGINATION --}}
                 <div class="mt-3 float-end">
-                    {{$studentDeleteds_at->links()}}
+                    {{$studentsDeleted_at->links()}}
                 </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>
     <script>
-        var studentIndexRoute = "{{ route('admin.dashboard.student.index') }}";
+        var indexRoute = "{{ route('admin.dashboard.student.index') }}";
     </script>
     @include('Admin.components.links.resourcesCreateEdit')
 @endsection

@@ -53,7 +53,7 @@ $(function() {
 
     $('input[name=btnSelectAll]').on('click', function() {
         var btnDelete = $(this).val()
-    
+
         if ($(this).parents('table').find('.btnSelectItem:checked').length == $(this).parents('table').find('.btnSelectItem').length) {
             $(`.${btnDelete}`).fadeOut('fast');
             var checked = false
@@ -72,7 +72,7 @@ $(function() {
             $(this).prop("checked", checked)
         })
     })
-    
+
     $('#btSubmitDelete').on('click', function() {
         var $this = $(this),
             val = []
@@ -170,7 +170,7 @@ $(function() {
                             case 'success':
                                 Swal.fire({ title: "Restaurado!", text: response.message, icon: "success", showConfirmButton: false })
                                 setTimeout(() => {
-                                    window.location.href = userIndexRoute;
+                                    window.location.href = indexRoute;
                                 }, 1000);
                                 break;
                             default:

@@ -29,10 +29,12 @@ class StudentController extends Controller
             ->groupBy('permissions.name')
             ->select('permissions.name')
             ->get();
+        $studentsDeleted_at = Student::onlyTrashed()->count();
         return view('Admin.cruds.student.index',[
             'students'=>$students,
             'roles'=>$roles,
-            'permissions'=>$permissions
+            'permissions'=>$permissions,
+            'studentsDeleted_at'=>$studentsDeleted_at
         ]);
     }
     public function create()
@@ -80,16 +82,26 @@ class StudentController extends Controller
         }
     }
 
-    public function show(Student $student)
-    {
-        if(!Auth::user()->can('aluno.visualizar')){
+//    public function show(Student $student)
+//    {
+//        if(!Auth::user()->can('aluno.visualizar')){
+//            return view('Admin.error.403');
+//        }
+//        $student = Student::find('id');
+//
+//        return redirect()
+//            ->route('admin.dashboard.student.show')
+//            ->with($student);
+//    }
+    public function deletedShow(Student $student){
+        if(!Auth::user()->can(['usuario.restaurar dados','usuario.visualizar'])){
             return view('Admin.error.403');
         }
-        $student = Student::find('id');
-
-        return redirect()
-            ->route('admin.dashboard.student.show')
-            ->with($student);
+        $studentsDeleted_at = Student::onlyTrashed()->paginate(5);
+        return view('Admin.cruds.student.show', [
+            'studentsDeleted_at' => $studentsDeleted_at,
+            'student' => $student
+        ]);
     }
 
     public function edit(Student $student)
@@ -101,7 +113,27 @@ class StudentController extends Controller
             'student'=>$student
         ]);
     }
+    public function search(Request $request){
+        if(!Auth::user()->can('usuario.visualizar')){
+            return view('Admin.error.403');
+        }
 
+        $studentsDeleted_at = Student::onlyTrashed();
+
+        if ($request->filled('name')) {
+            $studentsDeleted_at = Student::onlyTrashed()->where('name', 'LIKE', '%' . $request->input('name') . '%');
+
+        }
+        if ($request->filled('email')) {
+            $studentsDeleted_at = Student::onlyTrashed()->where('email', 'LIKE', '%' . $request->input('email') . '%');
+
+        }
+        $studentsDeleted_at = $studentsDeleted_at->paginate(15);
+
+        return view('Admin.cruds.student.show', [
+            'studentsDeleted_at' => $studentsDeleted_at
+        ]);
+    }
     public function update(Request $request, Student $student)
     {
         $data = $request->all();
@@ -153,6 +185,40 @@ class StudentController extends Controller
         Session::flash('success','Aluno deletado com sucesso!');
         return redirect()->back();
     }
+
+    public function deleteForced($id)
+    {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
+            return view('Admin.error.403');
+        }
+
+        $student = Student::withTrashed()->find($id);
+        if ($student) {
+            // Verifique se o usuário autenticado tem permissão para excluir permanentemente o user (opcional)
+            // ...
+
+            try {
+                $student->forceDelete();
+                Session::flash('success', 'Aluno excluído com sucesso!');
+                Session::flash('reopenModal','modal-user');
+            } catch (\Exception $e) {
+                Session::flash('error', 'Erro ao excluir o aluno.');
+            }
+        }
+
+        return redirect()->route('admin.dashboard.student.index');
+    }
+
+    public function destroySelectedForced(Request $request)
+    {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
+            return view('Admin.error.403');
+        }
+
+        if($deletedForever = Student::whereIn('id', $request->deleteAllForever)->forceDelete()){
+            return Response::json(['status' => 'success', 'message' => $deletedForever.' itens deletados com sucessso!']);
+        }
+    }
     public function destroySelected(Request $request)
     {
         if (!Auth::user()->can(['aluno.visualizar','aluno.remover'])) {
@@ -172,4 +238,26 @@ class StudentController extends Controller
         return Response::json(['status' => 'success']);
     }
 
+    public function retoreData($id){
+        if (!Auth::user()->can(['aluno.visualizar','aluno.restaurar dados'])) {
+            return view('Admin.error.403');
+        }
+        $user = Student::onlyTrashed()->where('id', $id);
+        $user->restore();
+
+        Session::flash('success','Registro restaurado com sucesso!');
+        Session::flash('reopenModal','modal-student');
+        return redirect()->route('admin.dashboard.student.index');
+    }
+
+    public function retoreDataAll(Request $request)
+    {
+        if (!Auth::user()->can(['aluno.visualizar','restaurar dados'])) {
+            return view('Admin.error.403');
+        }
+
+        if($restored = Student::whereIn('id', $request->restoreAll)->restore()){
+            return Response::json(['status' => 'success', 'message' => $restored.' itens restaurados com sucessso!']);
+        }
+    }
 }
