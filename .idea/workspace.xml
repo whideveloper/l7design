@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Mudança da nome da permissao de usuario para professor">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="CRUD de materias">
       <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/create.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/form.blade.php" afterDir="false" />
@@ -204,7 +204,7 @@
       <workItem from="1698143918053" duration="79000" />
       <workItem from="1698179320253" duration="1362000" />
       <workItem from="1698232986493" duration="8531000" />
-      <workItem from="1698269447303" duration="3905000" />
+      <workItem from="1698269447303" duration="4729000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -246,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698243705269</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CRUD de materias">
+      <option name="closed" value="true" />
+      <created>1698276147649</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698276147649</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +266,7 @@
     <MESSAGE value="CRUD de alunos(students)" />
     <MESSAGE value="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario" />
     <MESSAGE value="Mudança da nome da permissao de usuario para professor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudança da nome da permissao de usuario para professor" />
+    <MESSAGE value="CRUD de materias" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD de materias" />
   </component>
 </project>
