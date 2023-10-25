@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function index()
     {
-        if(!Auth::user()->can('usuario.visualizar')){
+        if(!Auth::user()->can('professor.visualizar')){
             return view('Admin.error.403');
         }
 
@@ -50,7 +50,7 @@ class UserController extends Controller
 
     public function create()
     {
-        if(!Auth::user()->can(['usuario.visualizar','usuario.criar'])){
+        if(!Auth::user()->can(['professor.visualizar','professor.criar'])){
             return view('Admin.error.403');
         }
         $roles = Role::all();
@@ -105,7 +105,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        if(!Auth::user()->can(['usuario.visualizar','usuario.editar'])){
+        if(!Auth::user()->can(['professor.visualizar','professor.editar'])){
             return view('Admin.error.403');
         }
 
@@ -123,7 +123,7 @@ class UserController extends Controller
 
     }
     public function deletedShow(User $user){
-        if(!Auth::user()->can(['usuario.restaurar dados','usuario.visualizar'])){
+        if(!Auth::user()->can(['professor.restaurar dados','professor.visualizar'])){
             return view('Admin.error.403');
         }
         $userDeleteds_at = User::onlyTrashed()->paginate(5);
@@ -134,7 +134,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        if(!Auth::user()->can('usuario.visualizar')){
+        if(!Auth::user()->can('professor.visualizar')){
             return view('Admin.error.403');
         }
         $userDeleteds_at = User::onlyTrashed();
@@ -203,7 +203,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        if(!Auth::user()->can(['usuario.visualizar','usuario.remover'])){
+        if(!Auth::user()->can(['professor.visualizar','professor.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($user->path_image);
@@ -214,7 +214,7 @@ class UserController extends Controller
     }
     public function deleteForced($id)
     {
-        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
+        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -237,7 +237,7 @@ class UserController extends Controller
 
     public function destroySelectedForced(Request $request)
     {
-        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
+        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -248,7 +248,7 @@ class UserController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
+        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -266,7 +266,7 @@ class UserController extends Controller
     }
 
     public function retoreData($id){
-        if (!Auth::user()->can(['usuario.visualizar','usuario.restaurar dados'])) {
+        if (!Auth::user()->can(['professor.visualizar','professor.restaurar dados'])) {
             return view('Admin.error.403');
         }
         $user = User::onlyTrashed()->where('id', $id);
@@ -279,7 +279,7 @@ class UserController extends Controller
 
     public function retoreDataAll(Request $request)
     {
-        if (!Auth::user()->can(['usuario.visualizar','restaurar dados'])) {
+        if (!Auth::user()->can(['professor.visualizar','restaurar dados'])) {
             return view('Admin.error.403');
         }
 

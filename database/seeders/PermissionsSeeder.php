@@ -39,7 +39,7 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover'
             ],
-            'usuario'=>[
+            'professor'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',

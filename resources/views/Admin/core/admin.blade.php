@@ -102,7 +102,7 @@
                                 </div>
 
                                 <!-- item-->
-                                @can('usuario.editar')
+                                @can('professor.editar')
                                     <a href="{{route('admin.dashboard.user.edit',['user' => $user->id])}}" class="dropdown-item notify-item">
                                         <i class="mdi mdi-account"></i>
                                         <span>Perfil</span>
@@ -197,19 +197,25 @@
                                         <ul class="nav-second-level">
                                             @can('grupo.visualizar')
                                                 <li class="{{ route('admin.dashboard.group.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.group.index')}}"><i class="mdi mdi-apple-airplay"></i> Grupos</a>
+                                                    <a href="{{route('admin.dashboard.group.index')}}"><i class="mdi mdi-account-group"></i> Grupos</a>
                                                 </li>
                                             @endcan
-                                            
-                                            @can('usuario.visualizar')
+
+                                            @can('aluno.visualizar')
+                                                <li class="{{ route('admin.dashboard.student.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.student.index')}}"><i class="mdi mdi-account-multiple"></i> Alunos</a>
+                                                </li>
+                                            @endcan
+
+                                                @can('professor.visualizar')
                                                 <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-apple-airplay"></i> Usuários</a>
+                                                    <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-account-tie"></i> Professores</a>
                                                 </li>
                                             @endcan
 
                                             @can('formulario de contato.visualizar')
                                                 <li class="{{ route('admin.dashboard.contact.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.contact.index')}}"><i class="mdi mdi-apple-airplay"></i> Contato</a>
+                                                    <a href="{{route('admin.dashboard.contact.index')}}"><i class="mdi mdi-form-select"></i> Contato</a>
                                                 </li>
                                             @endcan
                                         </ul>
@@ -223,7 +229,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        
+
 
                     </div>
                     <!-- End Sidebar -->
@@ -251,7 +257,7 @@
 
         <!-- Vendor js -->
         <script src="{{url(mix('Admin/assets/js/vendor.min.js'))}}"></script>
-        
+
         <!-- App js -->
         <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/fancybox.js'))}}"></script>
@@ -387,7 +393,7 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        
+
         <script>
             function showSessionExpirationModal() {
                 $('#session-expiration-modal').modal('show');
@@ -396,10 +402,10 @@
             function updateCountdown() {
                 // Obtenha o elemento de exibição da contagem regressiva
                 var countdownElement = document.getElementById('session-countdown');
-            
+
                 // Obtenha o tempo limite da sessão (em minutos) do Laravel
                 var sessionTimeout = {{ config('session.lifetime') }}; // Tempo limite em minutos
-            
+
                 // Obtenha o tempo da última atividade registrada na sessão (em segundos)
                 var lastActivity = {{ session('last_activity', time()) }};
 
@@ -414,14 +420,14 @@
                     // Converta o tempo restante de segundos para minutos e segundos
                     var minutes = Math.floor(timeRemaining / 60);
                     var seconds = timeRemaining % 60;
-            
+
                     // Atualize a exibição da contagem regressiva
                     countdownElement.textContent = minutes + 'm ' + seconds + 's';
                 }
             }
-            
+
             // Chame a função inicialmente para exibir a contagem regressiva
-            updateCountdown();            
+            updateCountdown();
             // Configure um intervalo para atualizar a contagem regressiva a cada segundo
             setInterval(updateCountdown, 1000);
 
@@ -440,11 +446,11 @@
                 if (timeRemaining <= (3 * 60)) {
                     showSessionExpirationModal();
                 }
-            }    
+            }
             // Verifique a expiração da sessão a cada minuto
-            setInterval(checkSessionExpiration, 60000);      
+            setInterval(checkSessionExpiration, 60000);
         </script>
-            
+
         <script>
             $(document).ready(function() {
                 checkSessionExpiration();

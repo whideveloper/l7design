@@ -77,7 +77,7 @@
                                 <td>{{$user->created_at->format('d/m/Y')}}</td>
                                 <td>
                                     <div class="row">
-                                        @can('usuario.editar')
+                                        @can('professor.editar')
                                             <div class="col-4">
                                                 <form action="{{route('admin.dashboard.user.retoreData',['user' => $user->id])}}" class="col-4" method="POST">
                                                     @csrf
@@ -87,7 +87,7 @@
                                                 </form>
                                             </div>
                                         @endcan
-                                        @can('usuario.remover')
+                                        @can('professor.remover')
                                             <form action="{{route('admin.dashboard.user.deleteForced',['user' => $user->id])}}" class="col-4" method="POST">
                                                 @csrf
                                                 @method('DELETE')

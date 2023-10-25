@@ -25,14 +25,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-3 justify-content-end">
-                                    @can('usuario.remover')
+                                    @can('professor.remover')
                                         <div class="col-6">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.user.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
                                     <div class="row col-6 d-flex justify-content-end">
                                         <div style="width: 240px">
-                                            @can('usuario.restaurar dados')
+                                            @can('professor.restaurar dados')
                                                 @if ($userDeleteds_at)
                                                     <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
                                                 @endif
@@ -67,7 +67,7 @@
                                                                             <td>{{$user->deleted_at->format('d/m/Y')}}</td>
                                                                             <td>
                                                                                 <div class="row">
-                                                                                    @can('usuario.editar')
+                                                                                    @can('professor.editar')
                                                                                         <div class="col-4">
                                                                                             <form action="{{route('admin.dashboard.user.retoreData',['user' => $user->id])}}" class="col-4" method="POST">
                                                                                                 @csrf
@@ -77,7 +77,7 @@
                                                                                             </form>
                                                                                         </div>
                                                                                     @endcan
-                                                                                    @can('usuario.remover')
+                                                                                    @can('professor.remover')
                                                                                         <form action="{{route('admin.dashboard.user.deleteForced',['user' => $user->id])}}" class="col-4" method="POST">
                                                                                             @csrf
                                                                                             @method('DELETE')
@@ -96,7 +96,7 @@
                                                 </div>
                                             </div> --}}
                                         </div>
-                                        @can('usuario.criar')
+                                        @can('professor.criar')
                                             <div style="width: 165px">
                                                 <a href="{{route('admin.dashboard.user.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
@@ -136,12 +136,12 @@
                                                 <td>{{$user->created_at->format('d/m/Y H:i')}}</td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('usuario.editar')
+                                                        @can('professor.editar')
                                                             <div class="col-4">
                                                                 <a href="{{route('admin.dashboard.user.edit',['user' => $user->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                             </div>
                                                         @endcan
-                                                        @can('usuario.visualizar')
+                                                        @can('professor.visualizar')
                                                             <div class="col-4">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-user-{{$user->id}}"></a>
 
@@ -162,7 +162,7 @@
                                                                 </div>
                                                             </div>
                                                         @endcan
-                                                        @can('usuario.remover')
+                                                        @can('professor.remover')
                                                             <form action="{{route('admin.dashboard.user.destroy',['user' => $user->id])}}" class="col-4" method="POST">
                                                                 @method('DELETE') @csrf
 
