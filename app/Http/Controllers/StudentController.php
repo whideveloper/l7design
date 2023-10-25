@@ -24,16 +24,10 @@ class StudentController extends Controller
             return view('Admin.error.403');
         }
         $students = Student::sorting()->paginate(15);
-        $roles = Role::paginate(15);
-        $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
-            ->groupBy('permissions.name')
-            ->select('permissions.name')
-            ->get();
+
         $studentsDeleted_at = Student::onlyTrashed()->count();
         return view('Admin.cruds.student.index',[
             'students'=>$students,
-            'roles'=>$roles,
-            'permissions'=>$permissions,
             'studentsDeleted_at'=>$studentsDeleted_at
         ]);
     }
@@ -42,10 +36,8 @@ class StudentController extends Controller
         if (!Auth::user()->can(['aluno.visualizar','aluno.criar'])) {
             return view('Admin.error.403');
         }
-        $permissions = Permission::all();
-        return view('Admin.cruds.student.create', [
-            'permissions'=>$permissions
-        ]);
+
+        return view('Admin.cruds.student.create');
     }
     public function store(Request $request)
     {
@@ -65,7 +57,9 @@ class StudentController extends Controller
             if ($studentExist) {
                 Storage::delete($this->pathUpload . $path_image);
 
-                return redirect()->back()->with('error', 'Erro ao cadastrar aluno! Este e-mail já existe em nossos registros.');
+                return redirect()
+                    ->back()
+                    ->with('error', 'Erro ao cadastrar aluno! Este e-mail já existe em nossos registros.');
             } else {
                 $student = Student::create($data);
 
@@ -82,17 +76,6 @@ class StudentController extends Controller
         }
     }
 
-//    public function show(Student $student)
-//    {
-//        if(!Auth::user()->can('aluno.visualizar')){
-//            return view('Admin.error.403');
-//        }
-//        $student = Student::find('id');
-//
-//        return redirect()
-//            ->route('admin.dashboard.student.show')
-//            ->with($student);
-//    }
     public function deletedShow(Student $student){
         if(!Auth::user()->can(['usuario.restaurar dados','usuario.visualizar'])){
             return view('Admin.error.403');
@@ -121,11 +104,13 @@ class StudentController extends Controller
         $studentsDeleted_at = Student::onlyTrashed();
 
         if ($request->filled('name')) {
-            $studentsDeleted_at = Student::onlyTrashed()->where('name', 'LIKE', '%' . $request->input('name') . '%');
+            $studentsDeleted_at = Student::onlyTrashed()
+                ->where('name', 'LIKE', '%' . $request->input('name') . '%');
 
         }
         if ($request->filled('email')) {
-            $studentsDeleted_at = Student::onlyTrashed()->where('email', 'LIKE', '%' . $request->input('email') . '%');
+            $studentsDeleted_at = Student::onlyTrashed()
+                ->where('email', 'LIKE', '%' . $request->input('email') . '%');
 
         }
         $studentsDeleted_at = $studentsDeleted_at->paginate(15);
@@ -216,7 +201,13 @@ class StudentController extends Controller
         }
 
         if($deletedForever = Student::whereIn('id', $request->deleteAllForever)->forceDelete()){
-            return Response::json(['status' => 'success', 'message' => $deletedForever.' itens deletados com sucessso!']);
+            return Response::json
+            (
+                [
+                    'status' => 'success',
+                    'message' => $deletedForever.' itens deletados com sucessso!'
+                ]
+            );
         }
     }
     public function destroySelected(Request $request)
@@ -226,7 +217,13 @@ class StudentController extends Controller
         }
 
         if($deleted = Student::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
+            return Response::json
+            (
+                [
+                    'status' => 'success',
+                    'message' => $deleted.' itens deletados com sucessso!'
+                ]
+            );
         }
     }
 
@@ -257,7 +254,13 @@ class StudentController extends Controller
         }
 
         if($restored = Student::whereIn('id', $request->restoreAll)->restore()){
-            return Response::json(['status' => 'success', 'message' => $restored.' itens restaurados com sucessso!']);
+            return Response::json
+            (
+                [
+                    'status' => 'success',
+                    'message' => $restored.' itens restaurados com sucessso!'
+                ]
+            );
         }
     }
 }

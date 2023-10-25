@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -14,7 +15,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -97,6 +97,30 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.group.destroySelected');
         Route::post('grupos/sorting', [RoleController::class, 'sorting'])
             ->name('admin.dashboard.group.sorting');
+
+        //MATERIAS
+        Route::resource('materias', SubjectController::class)
+            ->names('admin.dashboard.subject')
+            ->parameters(['materias' => 'subject']);
+        //SHOW
+        Route::get('materias/deletados/show', [SubjectController::class, 'deletedShow'])
+            ->name('admin.dashboard.subject.show');
+        Route::post('materias/deletados/show/search', [SubjectController::class, 'search'])
+            ->name('admin.dashboard.subject.show.search');
+        Route::post('materias/deletados/show/delete', [SubjectController::class, 'destroySelectedForced'])
+            ->name('admin.dashboard.subject.destroySelectedForced');
+        //RESTORE
+        Route::post('materias/retoreData/{subject}', [SubjectController::class, 'retoreData'])
+            ->name('admin.dashboard.subject.retoreData');
+        Route::post('materias/restore', [SubjectController::class, 'retoreDataAll'])
+            ->name('admin.dashboard.subject.retoreDataAll');
+        //DELETADOS
+        Route::delete('materias/deleteForced/{subject}', [SubjectController::class, 'deleteForced'])
+            ->name('admin.dashboard.subject.deleteForced');
+        Route::post('materias/delete', [SubjectController::class, 'destroySelected'])
+            ->name('admin.dashboard.subject.destroySelected');
+        Route::post('materias/sorting', [SubjectController::class, 'sorting'])
+            ->name('admin.dashboard.subject.sorting');
 
         //ALUNOS
         Route::resource('alunos', StudentController::class)

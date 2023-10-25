@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Mudança da nome da permissao de usuario para professor">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,28 +151,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/estudos/sistemaDeAulas&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "developer",
+    "last_opened_file_path": "C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/subject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\subject" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\student" />
     </key>
   </component>
@@ -195,7 +203,8 @@
       <workItem from="1698097502100" duration="6148000" />
       <workItem from="1698143918053" duration="79000" />
       <workItem from="1698179320253" duration="1362000" />
-      <workItem from="1698232986493" duration="8111000" />
+      <workItem from="1698232986493" duration="8531000" />
+      <workItem from="1698269447303" duration="3905000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -229,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698241678303</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mudança da nome da permissao de usuario para professor">
+      <option name="closed" value="true" />
+      <created>1698243705269</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698243705269</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,22 +257,7 @@
     <MESSAGE value="index controller Student" />
     <MESSAGE value="CRUD de alunos(students)" />
     <MESSAGE value="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Models/Subject.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php</url>
-          <line>60</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Mudança da nome da permissao de usuario para professor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudança da nome da permissao de usuario para professor" />
   </component>
 </project>

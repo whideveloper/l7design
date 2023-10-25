@@ -17,4 +17,11 @@ class Subject extends Model
         'active',
         'user_id'
     ];
+
+    function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
+    function scopeActive($query){
+        return $query->where('active', 1);
+    }
 }

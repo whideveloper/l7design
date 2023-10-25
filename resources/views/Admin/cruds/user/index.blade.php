@@ -149,7 +149,7 @@
                                                                     <div class="modal-dialog" style="max-width: 800px;">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header p-3 pt-2 pb-2">
-                                                                                <h4 class="page-title">Usuário</h4>
+                                                                                <h4 class="page-title">Professor</h4>
                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body p-3 pt-0 pb-3">
