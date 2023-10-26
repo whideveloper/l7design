@@ -78,14 +78,14 @@
                                                 </td>
                                                 <td>{{$student->created_at->format('d/m/Y H:i')}}</td>
                                                 <td>
-                                                    <div class="row">
+                                                    <div class="row justify-content-start">
                                                         @can('aluno.editar')
-                                                            <div class="col-4">
+                                                            <div class="col-2">
                                                                 <a href="{{route('admin.dashboard.student.edit',['student' => $student->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                             </div>
                                                         @endcan
                                                         @can('aluno.visualizar')
-                                                            <div class="col-4">
+                                                            <div class="col-2">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-student-{{$student->id}}"></a>
 
                                                                 <div id="modal-student-{{$student->id}}" class="modal fade" tabindex="-1" student="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -106,7 +106,7 @@
                                                             </div>
                                                         @endcan
                                                         @can('aluno.remover')
-                                                            <form action="{{route('admin.dashboard.student.destroy',['student' => $student->id])}}" class="col-4" method="POST">
+                                                            <form action="{{route('admin.dashboard.student.destroy',['student' => $student->id])}}" class="col-2" method="POST">
                                                                 @method('DELETE') @csrf
 
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

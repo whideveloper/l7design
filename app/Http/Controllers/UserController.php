@@ -25,11 +25,19 @@ class UserController extends Controller
 
     public function index()
     {
+        $users = User::query();
         if(!Auth::user()->can('professor.visualizar')){
             return view('Admin.error.403');
         }
-
-        $users = User::where('id', '<>', 1)->sorting()->paginate(15);
+        if(Auth::user()->can(['professor.visualizar','professor.visualizar outros professores'])){
+            $users = $users->where('id', '<>', 1)->sorting();
+        }
+        if(Auth::user()->can('professor.visualizar') && !Auth::user()->can('professor.visualizar outros professores')){
+            $users = $users->where('id', '<>', 1)
+                ->where('id', Auth::user()->id)
+                ->sorting();
+        }
+        $users = $users->paginate(15);
         $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')->get();
         $otherRoles = Role::whereNotIn('id', $currentRole->pluck('id'))->get();
         $permissions = Permission::join('role_has_permissions', 'permissions.id', 'role_has_permissions.permission_id')
@@ -53,6 +61,7 @@ class UserController extends Controller
         if(!Auth::user()->can(['professor.visualizar','professor.criar'])){
             return view('Admin.error.403');
         }
+
         $roles = Role::all();
         $currentRole = '';
         $otherRoles = '';
@@ -61,7 +70,6 @@ class UserController extends Controller
             'roles'=>$roles,
             'currentRole'=>$currentRole,
             'otherRoles'=>$otherRoles,
-            'roles'=>$roles
         ]);
     }
 
@@ -120,7 +128,18 @@ class UserController extends Controller
         ]);
     }
     public function show(User $user){
+        if(!Auth::user()->can('professor.visualizar')){
+            return view('Admin.error.403');
+        }
+        $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
+            ->where('model_has_roles.model_id', $user->id)->get();
+        $otherRoles = '';
 
+        return view('Admin.cruds.user.showUser', [
+            'user'=>$user,
+            'otherRoles' => $otherRoles,
+            'currentRole' => $currentRole,
+        ]);
     }
     public function deletedShow(User $user){
         if(!Auth::user()->can(['professor.restaurar dados','professor.visualizar'])){

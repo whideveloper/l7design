@@ -58,7 +58,7 @@
                             </div> <!-- end col-->
                         @endcan
 
-                        @can('materia.visualizar')
+                        @can('disciplina.visualizar')
                             <div class="col-md-6 col-xl-3">
                                 <a nofollow href="{{route('admin.dashboard.subject.index')}}">
                                     <div class="widget-rounded-circle card">
@@ -71,8 +71,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Matérias</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Matérias</p>
+                                                        <h4 class="text-dark mt-1">Disciplinas</h4>
+                                                        <p class="text-muted mb-1">Gerenciar Disciplinas</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -106,7 +106,7 @@
                             </div> <!-- end col-->
                         @endcan
 
-                        @can('usuario.visualizar')
+                        @can('professor.visualizar')
                             <div class="col-md-6 col-xl-3">
                                 <a nofollow href="{{route('admin.dashboard.user.index')}}">
                                     <div class="widget-rounded-circle card">

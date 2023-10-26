@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.subject.index')}}">Matérias</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.subject.index')}}">Disciplinas</a></li>
                                     <li class="breadcrumb-item active">Registros deletados</li>
                                 </ol>
                             </div>

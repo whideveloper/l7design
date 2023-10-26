@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Matérias</li>
+                                    <li class="breadcrumb-item active">Disciplinas</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Matérias</h4>
+                            <h4 class="page-title">Disciplinas</h4>
                         </div>
                     </div>
                 </div>
@@ -25,21 +25,21 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-3 justify-content-end">
-                                    @can('materia.remover')
+                                    @can('disciplina.remover')
                                         <div class="col-6">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.subject.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
                                     <div class="row col-6 d-flex justify-content-end">
                                         <div style="width: 240px">
-{{--                                            @can('materia.restaurar dados')--}}
+{{--                                            @can('disciplina.restaurar dados')--}}
 {{--                                                @if ($subjectsDeleted_at)--}}
 {{--                                                    <a href="{{route('admin.dashboard.subject.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>--}}
 {{--                                                @endif--}}
 {{--                                            @endcan--}}
 
                                         </div>
-                                        @can('materia.criar')
+                                        @can('disciplina.criar')
                                             <div style="width: 165px">
                                                 <a href="{{route('admin.dashboard.subject.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             </div>
@@ -53,8 +53,8 @@
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
-                                            <th>Nome</th>
-                                            <th>E-mail</th>
+                                            <th>Disciplina</th>
+                                            <th>Professor</th>
                                             <th>Status</th>
                                             <th>Criado em</th>
                                             <th>Ações</th>
@@ -69,7 +69,7 @@
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$subject->id}}"></label>
                                                 </td>
                                                 <td>{{$subject->name}}</td>
-                                                <td>{{$subject->email}}</td>
+                                                <td>{{$subject->userId->name}}</td>
                                                 <td>
                                                     @switch($subject->active)
                                                         @case(0) <span class="badge bg-danger">Inativo</span> @break
@@ -78,21 +78,21 @@
                                                 </td>
                                                 <td>{{$subject->created_at->format('d/m/Y H:i')}}</td>
                                                 <td>
-                                                    <div class="row">
-                                                        @can('materia.editar')
-                                                            <div class="col-4">
+                                                    <div class="row justify-content-start">
+                                                        @can('disciplina.editar')
+                                                            <div class="col-2">
                                                                 <a href="{{route('admin.dashboard.subject.edit',['subject' => $subject->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                             </div>
                                                         @endcan
-                                                        @can('materia.visualizar')
-                                                            <div class="col-4">
+                                                        @can('disciplina.visualizar')
+                                                            <div class="col-2">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-subject-{{$subject->id}}"></a>
 
                                                                 <div id="modal-subject-{{$subject->id}}" class="modal fade" tabindex="-1" subject="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                                    <div class="modal-dialog" style="max-width: 800px;">
+                                                                    <div class="modal-dialog" style="max-width: 1200px;">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header p-3 pt-2 pb-2">
-                                                                                <h4 class="page-title">materia</h4>
+                                                                                <h4 class="page-title">Disciplina</h4>
                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body p-3 pt-0 pb-3">
@@ -105,8 +105,8 @@
                                                                 </div>
                                                             </div>
                                                         @endcan
-                                                        @can('materia.remover')
-                                                            <form action="{{route('admin.dashboard.subject.destroy',['subject' => $subject->id])}}" class="col-4" method="POST">
+                                                        @can('disciplina.remover')
+                                                            <form action="{{route('admin.dashboard.subject.destroy',['subject' => $subject->id])}}" class="col-2" method="POST">
                                                                 @method('DELETE') @csrf
 
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

@@ -18,10 +18,14 @@ class Subject extends Model
         'user_id'
     ];
 
+    public function userId()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
     function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('subjects.sorting', 'ASC');
     }
     function scopeActive($query){
-        return $query->where('active', 1);
+        return $query->where('subjects.active', 1);
     }
 }

@@ -34,7 +34,7 @@
                                         <div style="width: 240px">
                                             @can('professor.restaurar dados')
                                                 @if ($userDeleteds_at)
-                                                    <a href="{{route('admin.dashboard.user.show')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
+                                                    <a href="{{route('admin.dashboard.user.showDeleted')}}" class="btn btn-primary float-end">Restaurar regitro(s) <i class="mdi mdi-delete-restore"></i></a>
                                                 @endif
                                             @endcan
 
@@ -135,39 +135,48 @@
                                                 </td>
                                                 <td>{{$user->created_at->format('d/m/Y H:i')}}</td>
                                                 <td>
-                                                    <div class="row">
+                                                    <div class="row justify-content-start">
                                                         @can('professor.editar')
-                                                            <div class="col-4">
-                                                                <a href="{{route('admin.dashboard.user.edit',['user' => $user->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <div class="col-2">
+                                                                @if($user->id == Auth::user()->id || Auth::user()->hasRole('Super'))
+                                                                    <a href="{{route('admin.dashboard.user.edit',['user' => $user->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                                    @else
+
+                                                                @endif
                                                             </div>
                                                         @endcan
                                                         @can('professor.visualizar')
-                                                            <div class="col-4">
-                                                                <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-user-{{$user->id}}"></a>
+                                                            <div class="col-2">
+                                                                <a href="{{route('admin.dashboard.user.show', ['user' => $user->id])}}" class="btn-icon mdi mdi-eye"></a>
+{{--                                                                <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-user-{{$user->id}}"></a>--}}
 
-                                                                <div id="modal-user-{{$user->id}}" class="modal fade" tabindex="-1" user="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                                    <div class="modal-dialog" style="max-width: 800px;">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header p-3 pt-2 pb-2">
-                                                                                <h4 class="page-title">Professor</h4>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body p-3 pt-0 pb-3">
-                                                                                {!! Form::model($user, ['route' => ['admin.dashboard.user.show', $user->id], 'class'=>'parsley-examples']) !!}
-                                                                                    @include('Admin.cruds.user.form')
-                                                                                {!! Form::close() !!}
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+{{--                                                                <div id="modal-user-{{$user->id}}" class="modal fade" tabindex="-1" user="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">--}}
+{{--                                                                    <div class="modal-dialog" style="max-width: 800px;">--}}
+{{--                                                                        <div class="modal-content">--}}
+{{--                                                                            <div class="modal-header p-3 pt-2 pb-2">--}}
+{{--                                                                                <h4 class="page-title">Professor</h4>--}}
+{{--                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--                                                                            </div>--}}
+{{--                                                                            <div class="modal-body p-3 pt-0 pb-3">--}}
+{{--                                                                                {!! Form::model($user, ['route' => ['admin.dashboard.user.show', $user->id], 'class'=>'parsley-examples']) !!}--}}
+{{--                                                                                    @include('Admin.cruds.user.form')--}}
+{{--                                                                                {!! Form::close() !!}--}}
+{{--                                                                            </div>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
                                                             </div>
                                                         @endcan
                                                         @can('professor.remover')
-                                                            <form action="{{route('admin.dashboard.user.destroy',['user' => $user->id])}}" class="col-4" method="POST">
-                                                                @method('DELETE') @csrf
+                                                            @if($user->id == Auth::user()->id || Auth::user()->hasRole('Super'))
+                                                                <form action="{{route('admin.dashboard.user.destroy',['user' => $user->id])}}" class="col-2" method="POST">
+                                                                    @method('DELETE') @csrf
 
-                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                            </form>
+                                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                                </form>
+                                                                @else
+
+                                                            @endif
                                                         @endcan
                                                     </div>
                                                 </td>
