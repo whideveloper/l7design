@@ -58,6 +58,7 @@
                                             <th>Status</th>
                                             <th>Criado em</th>
                                             <th>Ações</th>
+                                            <th>Alunos</th>
                                         </tr>
                                     </thead>
 
@@ -114,6 +115,64 @@
                                                         @endcan
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="row course-student">
+                                                        <!-- Standard  modal -->
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#standard-modall-{{$subject->id}}"><i class="icon-grid"></i></a>
+                                                    </div>
+
+                                                    <!-- Standard modal content -->
+                                                    <div id="standard-modall-{{$subject->id}}" class="modal fade studentModal" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" style="max-width: 760px;">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="standard-modalLabel">Registro(s) vinculado ao Aluno</h4>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="" class="col-12 student" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="subject_id" value="{{ $subject->id }}"></input>
+                                                                        <div class="row col-lg-12 mb-3">
+                                                                            <label for="btnAll" class="label-check">
+                                                                                <input type="checkbox" id="btnAll" class="form-check-input rounded-circle btnAll studentCheckbox">
+                                                                                Marca/remover todos
+                                                                            </label>
+                                                                        </div>
+
+                                                                        @foreach($students as $student)
+                                                                            @php
+                                                                                $checkSubject = "";
+                                                                            @endphp
+
+                                                                            @foreach ($student->subject as $studentSubject)
+                                                                                @if ($studentSubject->subject_id == $subject->id)
+                                                                                    @php
+                                                                                        $checkSubject = "checked";
+                                                                                    @endphp
+
+                                                                                    @break
+                                                                                @endif
+                                                                            @endforeach
+
+                                                                            <div class="mb-3 align-top col-3">
+                                                                                <div class="form-check mb-2 form-check-success">
+                                                                                    <input class="form-check-input rounded-circle studentCheckbox studentCheckboxItem" type="checkbox" name="student_id[]" id="{{ $student->id }}" value="{{ $student->id }}" {{ $checkSubject }}>
+                                                                                    <label class="form-check-label" for="{{ $student->id }}">{{ $student->name }}</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+
+                                                                        <div class="btn-student col-12 d-flex justify-content-end">
+                                                                            <button type="submit" class="btn btn-success">Enviar</button>
+                                                                        </div>
+
+                                                                    </form>
+                                                                </div>
+                                                            </div><!-- /.modal-content -->
+                                                        </div><!-- /.modal-dialog -->
+                                                    </div><!-- /.modal -->
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -132,4 +191,18 @@
         </div> <!-- content -->
     </div>
     @include('Admin.components.links.resourcesIndex')
+
+    <script>
+        const marcarTodosCheckbox = document.getElementById('btnAll');
+        const studentCheckboxes = document.querySelectorAll('.studentCheckbox');
+
+        marcarTodosCheckbox.addEventListener('change', function () {
+            const isChecked = this.checked;
+
+            studentCheckboxes.forEach(function (checkbox) {
+                checkbox.checked = isChecked;
+            });
+        });
+
+    </script>
 @endsection

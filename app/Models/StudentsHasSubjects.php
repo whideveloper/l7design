@@ -14,4 +14,8 @@ class StudentsHasSubjects extends Model
         'student_id',
         'subject_id',
     ];
+
+    public function subject(){
+        return $this->belongsTo(Subject::class, 'subject_id');
+    }
 }

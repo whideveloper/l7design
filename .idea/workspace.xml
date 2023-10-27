@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="CRUD de materias">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/user/showUser.blade.php" afterDir="false" />
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="permissao de usuario e ajustes em materias">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/StudentsHasSubjects.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/StudentsHasSubjects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/user/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/user/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +199,9 @@
       <workItem from="1698179320253" duration="1362000" />
       <workItem from="1698232986493" duration="8531000" />
       <workItem from="1698269447303" duration="4854000" />
-      <workItem from="1698323835123" duration="13849000" />
+      <workItem from="1698323835123" duration="14596000" />
+      <workItem from="1698352924327" duration="2360000" />
+      <workItem from="1698359412500" duration="5357000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -266,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698276205649</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="permissao de usuario e ajustes em materias">
+      <option name="closed" value="true" />
+      <created>1698339791918</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698339791918</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +280,7 @@
     <MESSAGE value="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario" />
     <MESSAGE value="Mudança da nome da permissao de usuario para professor" />
     <MESSAGE value="CRUD de materias" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD de materias" />
+    <MESSAGE value="permissao de usuario e ajustes em materias" />
+    <option name="LAST_COMMIT_MESSAGE" value="permissao de usuario e ajustes em materias" />
   </component>
 </project>

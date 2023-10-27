@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class SubjectController extends Controller
     {
         $user = Auth::user()->id;
         $subjects = Subject::with('userId');
+        $students = Student::with('subject')->get();
         if(!Auth::user()->can('disciplina.visualizar')){
             return view('Admin.error.403');
         }
@@ -30,7 +32,8 @@ class SubjectController extends Controller
 //        dd($subjects);
         return view('Admin.cruds.subject.index', [
             'subjects'=>$subjects,
-            'user'=>$user
+            'user'=>$user,
+            'students'=>$students
         ]);
     }
 

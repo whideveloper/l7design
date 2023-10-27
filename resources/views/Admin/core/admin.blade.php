@@ -296,7 +296,19 @@
                 })
             })
         </script>
-
+        <script>
+            $(function(){
+                $('.studentModal').each(function(){
+                    var inputChecked = $(this).find('.studentCheckboxItem:checked').length
+                    var qtyCheckbox = $(this).find('.studentCheckboxItem').length
+                    console.log(inputChecked , qtyCheckbox);
+                    if(inputChecked == qtyCheckbox){
+                        $(this).find('.btnAll').prop('checked', true)
+                    }
+                });
+                // alert("Aqui");
+            });
+        </script>
         {{-- <script>
             $('.embedLinkYoutube').on('change', function(){
                 let val = $(this).val() //Pega o valor do input
