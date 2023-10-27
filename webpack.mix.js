@@ -89,6 +89,10 @@ mix.scripts(
         "resources/Admin/assets/js/libs/ckeditor.js",
         "public/Admin/assets/libs/ckeditor.js"
     )
+    // .scripts(
+    //     "resources/views/Admin/assets/js/libs/jquery-jvectormap-1.2.2.min.js",
+    //     "public/Admin/assets/js/libs/jquery-jvectormap-1.2.2.min.js"
+    // )
     .scripts(
         "node_modules/bootstrap-table/dist/bootstrap-table.min.js",
         "public/Admin/assets/libs/bootstrap-table.min.js"
@@ -171,6 +175,9 @@ mix.scripts(
     .styles(
         "resources/Admin/assets/css/config/app.min.css",
         "public/Admin/assets/css/config/app.min.css"
+    ).styles(
+        "resources/Admin/assets/css/config/jquery-jvectormap-1.2.2.css",
+        "public/Admin/assets/css/config/jquery-jvectormap-1.2.2.css"
     )
     .styles(
         "resources/Admin/assets/css/config/bootstrap-dark.min.css",

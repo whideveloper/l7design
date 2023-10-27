@@ -19,8 +19,9 @@ class Student extends Model
     ];
 
     public function subject(){
-        return $this->hasMany(StudentsHasSubjects::class, 'student_id')->with('subject');
+        return $this->hasMany(StudentSubjects::class, 'student_id')->with('subject');
     }
+
     function scopeSorting($query){
         return $query->orderBy('sorting', 'ASC');
     }

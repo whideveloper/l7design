@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentsSubjectController;
 use App\Http\Controllers\SubjectController;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -126,6 +127,10 @@ Route::prefix('painel/')->group(function () {
         Route::resource('alunos', StudentController::class)
             ->names('admin.dashboard.student')
             ->parameters(['alunos' => 'student']);
+        Route::post('/alunos/disciplina', [StudentsSubjectController::class, 'store'])
+            ->name('admin.dashboard.studentSubject');
+        Route::post('/alunos/disciplina/aluno', [StudentsSubjectController::class, 'storeSubjectStudent'])
+            ->name('admin.dashboard.subjectStudent');
         //SHOW
         Route::get('alunos/deletados/show', [StudentController::class, 'deletedShow'])
             ->name('admin.dashboard.student.show');

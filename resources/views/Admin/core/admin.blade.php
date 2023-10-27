@@ -23,6 +23,9 @@
         <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
         <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
+        <!-- plugin css -->
+        <link href="{{url(mix('Admin/assets/css/config/jquery-jvectormap-1.2.2.css'))}}" rel="stylesheet" type="text/css" />
+
 		<!-- App css -->
 		<link href="{{url(mix('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
 		<link href="{{url(mix('Admin/assets/css/config/app.min.css'))}}" rel="stylesheet" type="text/css" id="app-default-stylesheet"  disabled/>
@@ -296,19 +299,7 @@
                 })
             })
         </script>
-        <script>
-            $(function(){
-                $('.studentModal').each(function(){
-                    var inputChecked = $(this).find('.studentCheckboxItem:checked').length
-                    var qtyCheckbox = $(this).find('.studentCheckboxItem').length
-                    console.log(inputChecked , qtyCheckbox);
-                    if(inputChecked == qtyCheckbox){
-                        $(this).find('.btnAll').prop('checked', true)
-                    }
-                });
-                // alert("Aqui");
-            });
-        </script>
+
         {{-- <script>
             $('.embedLinkYoutube').on('change', function(){
                 let val = $(this).val() //Pega o valor do input
@@ -467,6 +458,20 @@
             $(document).ready(function() {
                 checkSessionExpiration();
             })
+        </script>
+
+        <script>
+            $(function(){
+                $('.studentModal').each(function(){
+                    let inputChecked = $(this).find('.studentCheckboxItem:checked').length
+                    let qtyCheckbox = $(this).find('.studentCheckboxItem').length
+                    console.log(inputChecked , qtyCheckbox);
+                    if(inputChecked === qtyCheckbox){
+                        $(this).find('.btnAll').prop('checked', true)
+                    }
+                });
+                // alert("Aqui");
+            });
         </script>
     </body>
 </html>

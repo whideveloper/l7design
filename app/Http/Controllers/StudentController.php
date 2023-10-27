@@ -6,6 +6,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,11 +25,12 @@ class StudentController extends Controller
             return view('Admin.error.403');
         }
         $students = Student::sorting()->paginate(15);
-
+        $subjects = Subject::get();
         $studentsDeleted_at = Student::onlyTrashed()->count();
         return view('Admin.cruds.student.index',[
             'students'=>$students,
-            'studentsDeleted_at'=>$studentsDeleted_at
+            'studentsDeleted_at'=>$studentsDeleted_at,
+            'subjects'=>$subjects
         ]);
     }
     public function create()
@@ -70,6 +72,7 @@ class StudentController extends Controller
             DB::commit();
             return redirect()->route('admin.dashboard.student.index');
         }catch(\Exception $exception){
+            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao cadastrar o Aluno!');
             return redirect()->back();

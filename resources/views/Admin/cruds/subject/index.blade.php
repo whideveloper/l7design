@@ -118,7 +118,7 @@
                                                 <td>
                                                     <div class="row course-student">
                                                         <!-- Standard  modal -->
-                                                        <a href="" data-bs-toggle="modal" data-bs-target="#standard-modall-{{$subject->id}}"><i class="icon-grid"></i></a>
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#standard-modall-{{$subject->id}}"><i class="icon-grid btn-icon"></i></a>
                                                     </div>
 
                                                     <!-- Standard modal content -->
@@ -126,11 +126,11 @@
                                                         <div class="modal-dialog" style="max-width: 760px;">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title" id="standard-modalLabel">Registro(s) vinculado ao Aluno</h4>
+                                                                    <h4 class="modal-title" id="standard-modalLabel">Alunos vinculdos à matéria</h4>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form action="" class="col-12 student" method="POST">
+                                                                    <form action="{{route('admin.dashboard.subjectStudent')}}" class="col-12 student" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="subject_id" value="{{ $subject->id }}"></input>
                                                                         <div class="row col-lg-12 mb-3">
