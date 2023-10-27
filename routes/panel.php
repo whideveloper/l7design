@@ -106,6 +106,8 @@ Route::prefix('painel/')->group(function () {
         //SHOW
         Route::get('materias/deletados/show', [SubjectController::class, 'deletedShow'])
             ->name('admin.dashboard.subject.show');
+//        Route::get('materias/adicionar-aluno-a-materia/{subject}', [SubjectController::class, 'addStudentSubject'])
+//            ->name('admin.dashboard.subject.addStudentSubject');
         Route::post('materias/deletados/show/search', [SubjectController::class, 'search'])
             ->name('admin.dashboard.subject.show.search');
         Route::post('materias/deletados/show/delete', [SubjectController::class, 'destroySelectedForced'])

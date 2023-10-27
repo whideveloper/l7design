@@ -16,15 +16,14 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('Admin/assets/images/whi.png')}}">
 
+{{--        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
+
         @stack('createEditCss')
         @stack('indexCss')
         @stack('dashboardCss')
 
         <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
         <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
-
-        <!-- plugin css -->
-        <link href="{{url(mix('Admin/assets/css/config/jquery-jvectormap-1.2.2.css'))}}" rel="stylesheet" type="text/css" />
 
 		<!-- App css -->
 		<link href="{{url(mix('Admin/assets/css/config/bootstrap.min.css'))}}" rel="stylesheet" type="text/css" id="bs-default-stylesheet" disabled/>
@@ -463,10 +462,10 @@
         <script>
             $(function(){
                 $('.studentModal').each(function(){
-                    let inputChecked = $(this).find('.studentCheckboxItem:checked').length
-                    let qtyCheckbox = $(this).find('.studentCheckboxItem').length
+                    var inputChecked = $(this).find('.studentCheckboxItem:checked').length
+                    var qtyCheckbox = $(this).find('.studentCheckboxItem').length
                     console.log(inputChecked , qtyCheckbox);
-                    if(inputChecked === qtyCheckbox){
+                    if(inputChecked == qtyCheckbox){
                         $(this).find('.btnAll').prop('checked', true)
                     }
                 });

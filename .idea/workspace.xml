@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="students in subject">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="students in subject multiple">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/studentSubject.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/painel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/painel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentsHasSubjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentsSubjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/StudentsHasSubjects.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/StudentSubjects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_21_180439_create_students_has_subjects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_21_180439_create_student_subjects_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Admin/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/assets/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Admin/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Admin/assets/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
@@ -153,27 +147,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "developer",
-    "js.last.introduce.type": "LET",
-    "last_opened_file_path": "C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/subject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;LET&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/subject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\subject" />
@@ -212,7 +206,10 @@
       <workItem from="1698352924327" duration="2360000" />
       <workItem from="1698359412500" duration="5474000" />
       <workItem from="1698402909688" duration="13000" />
-      <workItem from="1698404538798" duration="8258000" />
+      <workItem from="1698404538798" duration="8327000" />
+      <workItem from="1698422826216" duration="5087000" />
+      <workItem from="1698436871268" duration="1749000" />
+      <workItem from="1698441964591" duration="1502000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -286,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698367053027</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="students in subject multiple">
+      <option name="closed" value="true" />
+      <created>1698413389512</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698413389512</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +306,8 @@
     <MESSAGE value="CRUD de materias" />
     <MESSAGE value="permissao de usuario e ajustes em materias" />
     <MESSAGE value="students in subject" />
-    <option name="LAST_COMMIT_MESSAGE" value="students in subject" />
+    <MESSAGE value="students in subject multiple" />
+    <option name="LAST_COMMIT_MESSAGE" value="students in subject multiple" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

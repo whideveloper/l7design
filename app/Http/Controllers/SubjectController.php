@@ -79,7 +79,6 @@ class SubjectController extends Controller
         //
     }
 
-
     public function edit(Subject $subject)
     {
         if (!Auth::user()->can(['disciplina.visualizar','disciplina.editar'])) {
@@ -141,5 +140,19 @@ class SubjectController extends Controller
 
         Session::flash('success','Matéria deletada com sucesso!');
         return redirect()->back();
+    }
+
+    public function addStudentSubject(Subject $subject)
+    {
+        if (!Auth::user()->can(['disciplina.visualizar','disciplina.editar'])) {
+            return view('Admin.error.403');
+        }
+        $user = Auth::user()->id;
+        $students = Student::with('subject')->get();
+        return view('Admin.cruds.subject.studentSubject', [
+            'subject'=>$subject,
+            'user'=>$user,
+            'students'=>$students,
+        ]);
     }
 }
