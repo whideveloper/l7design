@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="ajuste jquery">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Create model, controller and migration course" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,7 +206,7 @@
       <workItem from="1698422826216" duration="5087000" />
       <workItem from="1698436871268" duration="1749000" />
       <workItem from="1698441964591" duration="1502000" />
-      <workItem from="1698494570535" duration="1386000" />
+      <workItem from="1698494570535" duration="1702000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -290,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698413389512</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Create model, controller and migration course">
+      <option name="closed" value="true" />
+      <created>1698496258795</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698496258795</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +312,8 @@
     <MESSAGE value="permissao de usuario e ajustes em materias" />
     <MESSAGE value="students in subject" />
     <MESSAGE value="students in subject multiple" />
-    <option name="LAST_COMMIT_MESSAGE" value="students in subject multiple" />
+    <MESSAGE value="Create model, controller and migration course" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create model, controller and migration course" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
