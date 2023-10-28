@@ -11,7 +11,6 @@ class Course extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'subject_id',
         'title',
         'text',
         'slug',
@@ -20,6 +19,7 @@ class Course extends Model
         'link_vimeo',
         'video',
         'active',
+        'subject_id',
         'sorting',
     ];
 

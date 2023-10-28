@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentsSubjectController;
 use App\Http\Controllers\SubjectController;
@@ -89,6 +90,16 @@ Route::prefix('painel/')->group(function () {
         Route::get('/dashboard', function () {
             return view('Admin.dashboard');
         })->name('admin.dashboard');
+
+        //CURSOS
+        Route::resource('cursos', CourseController::class)
+            ->names('admin.dashboard.course')
+            ->parameters(['cursos' => 'course']);
+        Route::post('cursos/delete', [CourseController::class, 'destroySelected'])
+            ->name('admin.dashboard.course.destroySelected');
+        Route::post('cursos/sorting', [CourseController::class, 'sorting'])
+            ->name('admin.dashboard.course.sorting');
+
 
         //GRUPOS
         Route::resource('grupos', RoleController::class)

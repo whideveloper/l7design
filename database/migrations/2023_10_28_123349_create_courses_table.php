@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->string('title', 191)->nullable();
             $table->text('text')->nullable();
             $table->string('slug', 191);
-            $table->string('path_image'. 255)->nullable();
+            $table->string('path_image', 255)->nullable();
             $table->string('link_youtube', 255)->nullable();
             $table->string('link_vimeo', 255)->nullable();
             $table->text('video')->nullable();
