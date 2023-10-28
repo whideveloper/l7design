@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Create model, controller and migration course">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/index.blade.php" afterDir="false" />
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="CRUD curso e create model, controller and migration of files">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/file/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_28_123349_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_28_123349_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/UserCourse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserCourse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_28_172623_create_user_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_28_172623_create_user_courses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_28_172713_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_28_172713_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +163,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "developer",
     "js.last.introduce.type": "LET",
-    "last_opened_file_path": "C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/course",
+    "last_opened_file_path": "C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/file",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,6 +179,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\file" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\course" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\subject" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\student" />
@@ -218,7 +221,7 @@
       <workItem from="1698422826216" duration="5087000" />
       <workItem from="1698436871268" duration="1749000" />
       <workItem from="1698441964591" duration="1502000" />
-      <workItem from="1698494570535" duration="14096000" />
+      <workItem from="1698494570535" duration="16516000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -316,7 +319,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698496595134</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="CRUD curso e create model, controller and migration of files">
+      <option name="closed" value="true" />
+      <created>1698514684395</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698514684395</updated>
+    </task>
+    <task id="LOCAL-00014" summary="CRUD curso e create model, controller and migration of files">
+      <option name="closed" value="true" />
+      <created>1698514707505</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698514707505</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +352,8 @@
     <MESSAGE value="students in subject" />
     <MESSAGE value="students in subject multiple" />
     <MESSAGE value="Create model, controller and migration course" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create model, controller and migration course" />
+    <MESSAGE value="CRUD curso e create model, controller and migration of files" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD curso e create model, controller and migration of files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

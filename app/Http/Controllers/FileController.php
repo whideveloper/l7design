@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class FileController extends Controller
 {
@@ -81,5 +82,13 @@ class FileController extends Controller
     public function destroy(File $file)
     {
         //
+    }
+
+    public function sorting(Request $request)
+    {
+        foreach($request->arrId as $sorting => $id){
+            Dile::where('id', $id)->update(['sorting' => $sorting]);
+        }
+        return Response::json(['status' => 'success']);
     }
 }

@@ -17,4 +17,14 @@ class File extends Model
         'end_date',
         'sorting',
     ];
+    public function course(){
+        return $this->belongsTo(Course::class, 'course_id');
+    }
+    public function scopeActive($query){
+        return $query->where('active', 1);
+    }
+
+    public function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
 }

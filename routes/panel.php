@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentsSubjectController;
 use App\Http\Controllers\SubjectController;
@@ -99,6 +100,15 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.course.destroySelected');
         Route::post('cursos/sorting', [CourseController::class, 'sorting'])
             ->name('admin.dashboard.course.sorting');
+
+        //CURSOS
+        Route::resource('atividades', FileController::class)
+            ->names('admin.dashboard.file')
+            ->parameters(['atividades' => 'file']);
+        Route::post('atividades/delete', [CourseController::class, 'destroySelected'])
+            ->name('admin.dashboard.file.destroySelected');
+        Route::post('atividades/sorting', [CourseController::class, 'sorting'])
+            ->name('admin.dashboard.file.sorting');
 
 
         //GRUPOS

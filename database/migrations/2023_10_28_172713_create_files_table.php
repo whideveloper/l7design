@@ -17,6 +17,7 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
             $table->string('title', 191)->nullable();
+            $table->string('description', 191)->nullable();
             $table->string('path_file', 255)->nullable();
             $table->date('end_date')->nullable();
             $table->integer('sorting')->default(0);

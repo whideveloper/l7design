@@ -2,7 +2,7 @@
 <div class="row col-12">
     <div class="col-12 col-lg-6">
         <div class="card card-body">
-            <input type="hidden" name="user_id" value="{{$user->id}}">
+            <input type="hidden" name="user_id" value="{{$user}}">
             <div class="mb-3">
                 {!! Form::label('heard', 'Disciplina', ['class'=>'form-label']) !!}
                 {!! Form::select('subject_id', $subjects, isset($subject)?$subject:null, [

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Course;
+use App\Models\File;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +26,8 @@ class CourseController extends Controller
         $courses = Course::sorting()->paginate(15);
         return view('Admin.cruds.course.index', [
             'courses'=>$courses,
-            'subjects'=>$subjects
+            'subjects'=>$subjects,
+            'user'=>$user
         ]);
     }
 
@@ -40,6 +43,7 @@ class CourseController extends Controller
         return view('Admin.cruds.course.create', [
             'subjects' => $select,
             'subject' => $request->subject??null,
+            'user'=>$user
         ]);
     }
 
@@ -67,7 +71,9 @@ class CourseController extends Controller
             Session::flash('success', 'Curso cadastrado com sucesso!');
 
             DB::commit();
-            return redirect()->route('admin.dashboard.course.index');
+            return redirect()->route('admin.dashboard.course.edit',[
+                'course'=>$course
+            ]);
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -93,8 +99,8 @@ class CourseController extends Controller
         $subjects = Subject::active()->where('user_id', $user)->pluck('name');
         return view('Admin.cruds.course.edit', [
             'course'=>$course,
-            'subjects'=>$subjects,
             'subjects' => $select,
+            'user'=>$user
         ]);
     }
 

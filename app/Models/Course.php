@@ -22,7 +22,9 @@ class Course extends Model
         'subject_id',
         'sorting',
     ];
-
+    public function file(){
+        return $this->hasMany(File::class, 'course_id');
+    }
     public function getRouteKeyName(){
         return 'slug';
     }
