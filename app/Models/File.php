@@ -14,6 +14,7 @@ class File extends Model
         'course_id',
         'title',
         'path_file',
+        'description',
         'end_date',
         'sorting',
     ];

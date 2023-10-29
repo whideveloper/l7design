@@ -100,7 +100,7 @@
                                                             </div>
                                                         @endcan
                                                         @can('curso.remover')
-                                                            <form action="{{route('admin.dashboard.course.destroy',['course' => $course->id])}}" class="col-2" method="POST">
+                                                            <form action="{{route('admin.dashboard.course.destroy',['course' => $course->slug])}}" class="col-2" method="POST">
                                                                 @method('DELETE') @csrf
 
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Atividade</h4>
+                            <h4 class="page-title">Atividades</h4>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,26 @@
                     <div class="row col-6 d-flex justify-content-end">
                         @can('curso.criar')
                             <div style="width: 165px">
-                                <a href="{{route('admin.dashboard.file.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+{{--                                <a href="{{route('admin.dashboard.file.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>--}}
+                                <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-file-{{$course->id}}">Adicionar novo <i class="mdi mdi-plus"></i></a>
+
+                                <div id="modal-file-{{$course->id}}" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog" style="max-width: 800px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header p-3 pt-2 pb-2">
+                                                <h4 class="page-title">Atividade</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-3 pt-0 pb-3">
+                                                {!! Form::model(null, ['route' => 'admin.dashboard.file.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                @include('Admin.cruds.file.form')
+                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                <a href="{{route('admin.dashboard.file.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @endcan
                     </div>
@@ -57,6 +76,7 @@
                         </th>
                         <th class="text-center">Titulo</th>
                         <th class="text-center">Descrição</th>
+                        <th class="text-center">Data Final</th>
                         <th class="text-center">Ações</th>
                     </tr>
                     </thead>
@@ -69,7 +89,8 @@
                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$file->id}}"></label>
                                 </td>
                                 <td>{{$file->title}}</td>
-                                <td>{{$file->subtitle}}</td>
+                                <td>{{substr(strip_tags($file->description), 0, 100)}}</td>
+                                <td>{{Carbon\Carbon::parse($file->end_date)->format('d/m/Y')}}</td>
                                 <td>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-4">

@@ -162,8 +162,9 @@ class CourseController extends Controller
         Storage::delete($course->path_image);
         Storage::delete($course->video);
 
-        Session::flash('success','Curso deletado com sucesso!');
         $course->delete();
+        Session::flash('success','Curso deletado com sucesso!');
+        return redirect()->back();
     }
 
     public function destroySelected(Request $request)
