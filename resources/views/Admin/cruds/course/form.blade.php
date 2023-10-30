@@ -42,7 +42,7 @@
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 p-0">
         <div class="card card-body">
             <div class="mb-3 col-lg-12">
                 {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}

@@ -508,5 +508,10 @@ $(function() {
     $('[data-provide=datepicker]').on('focus', function(){
         this.removeAttribute('readonly');
     })
-
 })
+//Redirecionar da pagina de load para a rota especidicada
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        window.location.href = loadIndexRoute;
+    }, 1200);
+});

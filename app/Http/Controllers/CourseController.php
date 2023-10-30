@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Course;
-use App\Models\File;
 use App\Models\Subject;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -65,15 +63,13 @@ class CourseController extends Controller
             $data['slug'] = Str::slug($request->title);
 
             $course = Course::create($data);
-
+            $user = Auth::user()->id;
             if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
             if ($video) {$request->file('video')->storeAs($this->pathUploadVideo, $video);}
-            Session::flash('success', 'Curso cadastrado com sucesso!');
-
             DB::commit();
-            return redirect()->route('admin.dashboard.course.edit',[
-                'course'=>$course
-            ]);
+            return view('Admin.loadPage.page', [
+                'course' => $course,
+            ])->with(Session::flash('success', 'Curso cadastrado com sucesso!'));
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -96,7 +92,10 @@ class CourseController extends Controller
             $select[$subject->id] = $subject->name;
         }
         $user = Auth::user()->id;
-        $subjects = Subject::active()->where('user_id', $user)->pluck('name');
+        $course = Course::with(['file' => function ($query)
+        {$query->orderBy('sorting', 'ASC');}])
+            ->where('id', $course->id)
+            ->first();
         return view('Admin.cruds.course.edit', [
             'course'=>$course,
             'subjects' => $select,

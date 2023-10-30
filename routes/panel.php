@@ -87,6 +87,9 @@ Route::prefix('painel/')->group(function () {
     /*=====================FINAL REDEFINICAO DE SENHA=========================*/
 
     Route::middleware('auth')->group(function(){
+        Route::get('/carregamento', function () {
+            return view('Admin.loadPage.page');
+        })->name('loading');
 
         Route::get('/dashboard', function () {
             return view('Admin.dashboard');
@@ -101,13 +104,13 @@ Route::prefix('painel/')->group(function () {
         Route::post('cursos/sorting', [CourseController::class, 'sorting'])
             ->name('admin.dashboard.course.sorting');
 
-        //CURSOS
+        //ATIVIDADE
         Route::resource('atividades', FileController::class)
             ->names('admin.dashboard.file')
             ->parameters(['atividades' => 'file']);
-        Route::post('atividades/delete', [CourseController::class, 'destroySelected'])
+        Route::post('atividades/delete', [FileController::class, 'destroySelected'])
             ->name('admin.dashboard.file.destroySelected');
-        Route::post('atividades/sorting', [CourseController::class, 'sorting'])
+        Route::post('atividades/sorting', [FileController::class, 'sorting'])
             ->name('admin.dashboard.file.sorting');
 
 

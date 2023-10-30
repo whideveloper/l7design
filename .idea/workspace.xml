@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="CRUD files">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="CRUD atividades">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/file/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/loadPage/page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_28_172713_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_28_172713_create_files_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Admin/assets/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Admin/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Admin/assets/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/file/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/file/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +224,8 @@
       <workItem from="1698436871268" duration="1749000" />
       <workItem from="1698441964591" duration="1502000" />
       <workItem from="1698494570535" duration="16828000" />
-      <workItem from="1698526582232" duration="4119000" />
+      <workItem from="1698526582232" duration="5056000" />
+      <workItem from="1698656523931" duration="23267000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -339,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698516972571</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="CRUD atividades">
+      <option name="closed" value="true" />
+      <created>1698540861555</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1698540861555</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +374,8 @@
     <MESSAGE value="Create model, controller and migration course" />
     <MESSAGE value="CRUD curso e create model, controller and migration of files" />
     <MESSAGE value="CRUD files" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD files" />
+    <MESSAGE value="CRUD atividades" />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD atividades" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

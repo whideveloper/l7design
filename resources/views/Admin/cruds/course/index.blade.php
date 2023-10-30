@@ -24,9 +24,9 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3 justify-content-end">
+                                <div class="row mb-3 justify-content-between">
                                     @can('curso.remover')
-                                        <div class="col-6">
+                                        <div class="col-6 ps-2">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.course.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                                         </div>
                                     @endcan
@@ -108,54 +108,6 @@
                                                         @endcan
                                                     </div>
                                                 </td>
-{{--                                                <td>--}}
-{{--                                                    <div class="row course-course">--}}
-{{--                                                        <!-- Standard  modal -->--}}
-{{--                                                        <a href="" data-bs-toggle="modal" data-bs-target="#standard-modall-{{$course->id}}"><i class="icon-grid btn-icon"></i></a>--}}
-{{--                                                    </div>--}}
-
-{{--                                                    <!-- Standard modal content -->--}}
-{{--                                                    <div id="standard-modall-{{$course->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">--}}
-{{--                                                        <div class="modal-dialog">--}}
-{{--                                                            <div class="modal-content">--}}
-{{--                                                                <div class="modal-header">--}}
-{{--                                                                    <h4 class="modal-title" id="standard-modalLabel">Disciplinas vinculada ao curso</h4>--}}
-{{--                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--                                                                </div>--}}
-{{--                                                                <div class="modal-body">--}}
-{{--                                                                    <form action="{{ route('admin.dashboard.courseSubject')}}" class="col-4" method="POST">--}}
-{{--                                                                        @csrf--}}
-{{--                                                                        <input type="hidden" name="course_id" value="{{ $course->id }}"></input>--}}
-{{--                                                                        @foreach($subjects as $subject)--}}
-{{--                                                                            @php--}}
-{{--                                                                                $checkSubject = "";--}}
-{{--                                                                            @endphp--}}
-
-{{--                                                                            @foreach ($course->subject as $courseSubject)--}}
-{{--                                                                                @if ($courseSubject->subject_id == $subject->id)--}}
-{{--                                                                                    @php--}}
-{{--                                                                                        $checkSubject = "checked";--}}
-{{--                                                                                    @endphp--}}
-
-{{--                                                                                    @break--}}
-{{--                                                                                @endif--}}
-{{--                                                                            @endforeach--}}
-
-{{--                                                                            <div class="mb-3 align-top">--}}
-{{--                                                                                <div class="form-check mb-2 form-check-success">--}}
-{{--                                                                                    <input class="form-check-input rounded-circle" type="checkbox" name="subject_id[]" id="{{ $subject->id }}" value="{{ $subject->id }}" {{ $checkSubject }}>--}}
-{{--                                                                                    <label class="form-check-label" for="{{ $subject->id }}">{{ $subject->name }}</label>--}}
-{{--                                                                                </div>--}}
-{{--                                                                            </div>--}}
-{{--                                                                        @endforeach--}}
-
-{{--                                                                        <button type="submit" class="btn btn-success">Enviar</button>--}}
-{{--                                                                    </form>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div><!-- /.modal-content -->--}}
-{{--                                                        </div><!-- /.modal-dialog -->--}}
-{{--                                                    </div><!-- /.modal -->--}}
-{{--                                                </td>--}}
                                             </tr>
                                         @endforeach
                                     </tbody>
