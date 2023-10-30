@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -132,7 +132,7 @@ class SubjectController extends Controller
 
     public function destroy(Subject $subject)
     {
-        if(!Auth::user()->can(['subject.visualizar','subject.remover'])){
+        if(!Auth::user()->can(['disciplina.visualizar','disciplina.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($subject->path_image);
@@ -140,6 +140,28 @@ class SubjectController extends Controller
 
         Session::flash('success','Matéria deletada com sucesso!');
         return redirect()->back();
+    }
+    public function destroySelected(Request $request)
+    {
+        if(!Auth::user()->can(['disciplina.visualizar','disciplina.remover'])){
+            return view('Admin.error.403');
+        }
+
+        if($deleted = Subject::whereIn('id', $request->deleteAll)->delete()){
+
+            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
+        }
+    }
+    public function sorting(Request $request)
+    {
+        if(!Auth::user()->can('disciplina.visualizar')){
+            return view('Admin.error.403');
+        }
+
+        foreach($request->arrId as $sorting => $id){
+            Subject::where('id', $id)->update(['sorting' => $sorting]);
+        }
+        return Response::json(['status' => 'success']);
     }
 
     public function addStudentSubject(Subject $subject)

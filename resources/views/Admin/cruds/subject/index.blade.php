@@ -24,7 +24,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3 justify-content-end">
+                                <div class="row mb-3 justify-content-between">
                                     @can('disciplina.remover')
                                         <div class="col-6">
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.subject.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
@@ -56,7 +56,7 @@
                                             <th>Disciplina</th>
                                             <th>Professor</th>
                                             <th>Status</th>
-                                            <th>Criado em</th>
+                                            <th>Imagem</th>
                                             <th>Ações</th>
                                             <th>Alunos</th>
                                         </tr>
@@ -77,7 +77,11 @@
                                                         @case(1) <span class="badge bg-success">Ativo</span> @break
                                                     @endswitch
                                                 </td>
-                                                <td>{{$subject->created_at->format('d/m/Y H:i')}}</td>
+                                                <td class="table-user text-center">
+                                                    @if ($subject->path_image)
+                                                        <img src="{{ asset('storage/'.$subject->path_image) }}" name="Imagem" alt="table-user" class="me-2 rounded-circle">
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="row justify-content-start">
                                                         @can('disciplina.editar')
@@ -116,7 +120,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div class="row course-student">
+                                                    <div class="row subject-student">
                                                         <!-- Standard  modal -->
                                                         <a href="" data-bs-toggle="modal" data-bs-target="#standard-modall-{{$subject->id}}"><i class="icon-grid btn-icon"></i></a>
                                                     </div>
@@ -126,7 +130,7 @@
                                                         <div class="modal-dialog" style="max-width: 760px;">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title" id="standard-modalLabel">Alunos vinculdos à matéria</h4>
+                                                                    <h4 class="modal-title" id="standard-modalLabel">Alunos vinculdos à disciplina</h4>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">

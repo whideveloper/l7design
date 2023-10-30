@@ -63,11 +63,10 @@ class CourseController extends Controller
             $data['slug'] = Str::slug($request->title);
 
             $course = Course::create($data);
-            $user = Auth::user()->id;
             if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
             if ($video) {$request->file('video')->storeAs($this->pathUploadVideo, $video);}
             DB::commit();
-            return view('Admin.loadPage.page', [
+            return view('Admin.loadPage.pageIndexCourse', [
                 'course' => $course,
             ])->with(Session::flash('success', 'Curso cadastrado com sucesso!'));
         }catch(\Exception $exception){
@@ -143,9 +142,10 @@ class CourseController extends Controller
 
             if ($video) {Storage::delete($this->pathUploadVideo.$video);}
             if ($video) {$request->file('video')->storeAs($this->pathUploadVideo, $video);}
+
             DB::commit();
-            Session::flash('success', 'Curso atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.course.index');
+            return view('Admin.loadPage.pageIndexCourse')
+                ->with(Session::flash('success', 'Curso atualizado com sucesso!'));
         }catch(\Exception $exception){
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o curso!');

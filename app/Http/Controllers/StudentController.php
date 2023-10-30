@@ -6,6 +6,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Student;
+use App\Models\StudentSubjects;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,13 +25,39 @@ class StudentController extends Controller
         if(!Auth::user()->can('aluno.visualizar')){
             return view('Admin.error.403');
         }
-        $students = Student::sorting()->paginate(15);
+        $user = Auth::user()->id;
+        $students = StudentSubjects::join('students', 'student_subjects.student_id', 'students.id')
+            ->join('subjects', 'student_subjects.subject_id', 'subjects.id')
+            ->select([
+                'students.name',
+                'students.email',
+                'students.created_at',
+                'students.active',
+                'students.sorting',
+                'students.id',
+                'subjects.user_id'
+            ])
+            ->where('subjects.user_id', $user)
+            ->groupBy([
+                'students.name',
+                'students.email',
+                'students.created_at',
+                'students.active',
+                'students.sorting',
+                'students.id',
+                'subjects.user_id'
+            ])
+            ->paginate(15);
+
+//        dd($students);
+//        $students = Student::sorting()->paginate(15);
         $subjects = Subject::get();
         $studentsDeleted_at = Student::onlyTrashed()->count();
         return view('Admin.cruds.student.index',[
             'students'=>$students,
             'studentsDeleted_at'=>$studentsDeleted_at,
-            'subjects'=>$subjects
+            'subjects'=>$subjects,
+//            'studentSubjects'=>$studentSubjects
         ]);
     }
     public function create()

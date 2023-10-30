@@ -28,13 +28,15 @@ class FileController extends Controller
             if ($path_file) {$data['path_file'] = $this->pathUpload . $path_file;}
 
             $data['active'] = $request->active ? 1 : 0;
-//            dd($data);
-            File::create($data);
-            if ($path_file) {$request->file('path_file')->storeAs($this->pathUpload, $path_file);}
-            Session::flash('success', 'Atividade cadastrada com sucesso!');
 
+            $file = File::create($data);
+            $course = Course::where('id', $file->course->id)->first();
+
+            if ($path_file) {$request->file('path_file')->storeAs($this->pathUpload, $path_file);}
             DB::commit();
-            return redirect()->back();
+            return view('Admin.loadPage.pageEditCourse', [
+                'course' => $course,
+            ])->with(Session::flash('success', 'Atividade cadastrada com sucesso!'));
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -82,13 +84,16 @@ class FileController extends Controller
                 Storage::delete($this->pathUpload . $path_file);
                 $request->file('path_file')->storeAs($this->pathUpload, $path_file);
             }
-//            dd($data);
-            $file->update($data);
 
+            $file->update($data);
+            $user = Auth::user()->id;
+            $course = Course::where('id', $file->course->id)->first();
 
             DB::commit();
-            Session::flash('success', 'Atividade atualizada com sucesso!');
-            return redirect()->route('admin.dashboard.course.index');
+            return view('Admin.loadPage.pageEditCourse', [
+                'course'=>$course,
+                'user'=>$user
+            ])->with(Session::flash('success', 'Atividade atualizada com sucesso!'));
         } catch (\Exception $exception) {
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar a atividade!');

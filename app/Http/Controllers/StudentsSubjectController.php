@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\StudentSubjects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class StudentsSubjectController extends Controller
 {
@@ -19,7 +20,7 @@ class StudentsSubjectController extends Controller
                 ]);
             }
         }
-
+        Session::flash('success','Atualização realizada com sucesso!');
         return redirect()->route('admin.dashboard.student.index');
     }
 
@@ -36,7 +37,7 @@ class StudentsSubjectController extends Controller
                 ]);
             }
         }
-
+        Session::flash('success','Atualização realizada com sucesso!');
         return redirect()->route('admin.dashboard.subject.index');
     }
 }
