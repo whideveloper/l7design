@@ -24,6 +24,9 @@ class File extends Model
     public function fileResponses(){
         return $this->hasMany(FileResponse::class, 'file_id');
     }
+    public function students(){
+        return $this->hasMany(Student::class, 'id');
+    }
 
     public function scopeActive($query){
         return $query->where('active', 1);

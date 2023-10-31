@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Course;
 use App\Models\File;
+use App\Models\FileResponse;
 use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
@@ -50,14 +51,28 @@ class FileController extends Controller
         $user = Auth::user()->id;
         $course = Course::where('id', $file->course->id)->first();
         $subjects = Subject::active()->where('user_id', $user)->get();
-        $file = File::with(['fileResponses','course'])->where('id', $file->id)
-            ->first();
+        $fileResponses = FileResponse::join('files','file_responses.file_id','files.id')
+            ->join('students','file_responses.student_id','students.id')
+            ->select
+            ([
+                'students.name',
+                'students.email',
+                'students.id',
+                'file_id',
+                'file_responses.path_file',
+                'file_responses.created_at',
+                'file_responses.adjusted',
+            ])
+            ->where('files.id', $file->id)
+            ->get();
 
+//        dd($fileResponses);
         return view('Admin.cruds.file.edit', [
             'file'=>$file,
             'course'=>$course,
             'user'=>$user,
-            'subjects'=>$subjects
+            'subjects'=>$subjects,
+            'fileResponses'=>$fileResponses
         ]);
     }
     public function update(Request $request, File $file)

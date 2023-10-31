@@ -116,12 +116,12 @@ Route::prefix('painel/')->group(function () {
 
         //RESPOSTA DA ATIVIDADE
         Route::resource('atividades/resposta', FileResponseController::class)
-            ->names('admin.dashboard.fileResponse')
-            ->parameters(['resposta' => 'fileResponsefileResponse']);
+            ->names('admin.dashboard.response')
+            ->parameters(['atividades/resposta' => 'fileResponse']);
         Route::post('atividades/resposta/delete', [FileResponseController::class, 'destroySelected'])
-            ->name('admin.dashboard.fileResponse.destroySelected');
+            ->name('admin.dashboard.response.destroySelected');
         Route::post('atividades/resposta/sorting', [FileResponseController::class, 'sorting'])
-            ->name('admin.dashboard.fileResponse.sorting');
+            ->name('admin.dashboard.response.sorting');
 
 
         //GRUPOS
