@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Create migration, model ande controller of file_response" />
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Create migration, model ande controller of file_response">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileResponseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileResponseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FileResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FileResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_10_31_110825_create_file_responses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_10_31_110825_create_file_responses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/file/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/file/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,29 +153,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;LET&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/file&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "developer",
+    "js.last.introduce.type": "LET",
+    "last_opened_file_path": "C:/xampp/htdocs/estudos/sistemaDeAulas/resources/views/Admin/cruds/fileResponse.blade.php",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\fileResponse.blade.php" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\file" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\course" />
       <recent name="C:\xampp\htdocs\estudos\sistemaDeAulas\resources\views\Admin\cruds\subject" />
@@ -213,7 +224,7 @@
       <workItem from="1698656523931" duration="23520000" />
       <workItem from="1698690004994" duration="9497000" />
       <workItem from="1698705653595" duration="1579000" />
-      <workItem from="1698744810564" duration="7106000" />
+      <workItem from="1698744810564" duration="12324000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -367,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698752401972</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Create migration, model ande controller of file_response">
+      <option name="closed" value="true" />
+      <created>1698753095434</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1698753095434</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

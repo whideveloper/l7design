@@ -20,11 +20,11 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($file, ['route' => ['admin.dashboard.fileResponse.update', $file->id], 'class'=>'parsley-examples position-relative', 'method' => 'PUT', 'files' => true]) !!}
+                {!! Form::model($file, ['route' => ['admin.dashboard.file.update', $file->id], 'class'=>'parsley-examples position-relative', 'method' => 'PUT', 'files' => true]) !!}
                 @include('Admin.cruds.file.form')
 
                 {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                <a href="{{route('admin.dashboard.file.edit',['file'=>$file->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                <a href="{{route('admin.dashboard.course.edit',['course'=>$course->slug])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
 
                 <div class="row">
@@ -76,7 +76,7 @@
                             <th class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteListLink" type="checkbox"></label>
                             </th>
-                            <th class="text-center">Titulo</th>
+                            <th class="text-center">Aluno</th>
                             <th class="text-center">Descrição</th>
                             <th class="text-center">Data Final</th>
                             <th class="text-center">Ações</th>
@@ -90,19 +90,19 @@
                                 <td class="bs-checkbox">
                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$fileResponse->id}}"></label>
                                 </td>
-                                <td>{{$fileResponse->title}}</td>
+                                <td>{{$fileResponse->name}}</td>
                                 <td>{{substr(strip_tags($fileResponse->description), 0, 100)}}</td>
                                 <td>{{Carbon\Carbon::parse($fileResponse->end_date)->format('d/m/Y')}}</td>
                                 <td>
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-4">
                                             {{--                                                <button class="btn-icon" data-bs-target="#modal-fileResponse-editt-{{$file->id}}" data-bs-toggle="modal"><i class="mdi mdi-square-edit-outline"></i></button>--}}
-                                            <a href="{{route('admin.dashboard.fileResponse.edit', ['fileResponse' => $fileResponse->id])}}"><i class="btn-icon mdi mdi-square-edit-outline"></i></a>
+{{--                                            <a href="{{route('admin.dashboard.fileResponse.edit', ['fileResponse' => $fileResponse->id])}}"><i class="btn-icon mdi mdi-square-edit-outline"></i></a>--}}
                                         </div>
-                                        <form action="{{route('admin.dashboard.fileResponse.destroy',['fileResponse' => $fileResponse->id])}}" class="col-4" method="POST">
-                                            @method('DELETE') @csrf
-                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                        </form>
+{{--                                        <form action="{{route('admin.dashboard.fileResponse.destroy',['fileResponse' => $fileResponse->id])}}" class="col-4" method="POST">--}}
+{{--                                            @method('DELETE') @csrf--}}
+{{--                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>--}}
+{{--                                        </form>--}}
                                     </div>
                                 </td>
                             </tr>

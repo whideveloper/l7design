@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\FileResponseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentsSubjectController;
 use App\Http\Controllers\SubjectController;
@@ -112,6 +113,15 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.file.destroySelected');
         Route::post('atividades/sorting', [FileController::class, 'sorting'])
             ->name('admin.dashboard.file.sorting');
+
+        //RESPOSTA DA ATIVIDADE
+        Route::resource('atividades/resposta', FileResponseController::class)
+            ->names('admin.dashboard.fileResponse')
+            ->parameters(['resposta' => 'fileResponsefileResponse']);
+        Route::post('atividades/resposta/delete', [FileResponseController::class, 'destroySelected'])
+            ->name('admin.dashboard.fileResponse.destroySelected');
+        Route::post('atividades/resposta/sorting', [FileResponseController::class, 'sorting'])
+            ->name('admin.dashboard.fileResponse.sorting');
 
 
         //GRUPOS

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Helpers\HelperArchive;
 use App\Models\Course;
 use App\Models\File;
+use App\Models\Student;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +50,9 @@ class FileController extends Controller
         $user = Auth::user()->id;
         $course = Course::where('id', $file->course->id)->first();
         $subjects = Subject::active()->where('user_id', $user)->get();
+        $file = File::with(['fileResponses','course'])->where('id', $file->id)
+            ->first();
+
         return view('Admin.cruds.file.edit', [
             'file'=>$file,
             'course'=>$course,

@@ -21,6 +21,10 @@ class File extends Model
     public function course(){
         return $this->belongsTo(Course::class, 'course_id');
     }
+    public function fileResponses(){
+        return $this->hasMany(FileResponse::class, 'file_id');
+    }
+
     public function scopeActive($query){
         return $query->where('active', 1);
     }

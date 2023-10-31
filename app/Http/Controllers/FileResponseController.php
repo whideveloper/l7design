@@ -50,9 +50,11 @@ class FileResponseController extends Controller
             if ($path_file) {$data['path_file'] = $this->pathUpload . $path_file;}
 
             $data['adjusted'] = $request->adjusted ? 1 : 0;
+            $data['student_id'] = $request->student_id;
 
-            $fileResponse = FileResponse::create($data);
-            $file = File::where('id', $fileResponse->file->id)->first();
+            FileResponse::create($data);
+
+            $file = File::where('id', $request->file_id)->first();
 
             if ($path_file) {$request->file('path_file')->storeAs($this->pathUpload, $path_file);}
             DB::commit();

@@ -11,7 +11,7 @@ class FileResponse extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'file_id',
-        'user_id',
+        'student_id',
         'course_id',
         'path_file',
         'adjusted',
