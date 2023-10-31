@@ -66,9 +66,9 @@ class CourseController extends Controller
             if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
             if ($video) {$request->file('video')->storeAs($this->pathUploadVideo, $video);}
             DB::commit();
-            return view('Admin.loadPage.pageIndexCourse', [
-                'course' => $course,
-            ])->with(Session::flash('success', 'Curso cadastrado com sucesso!'));
+            return redirect()
+                ->route('admin.dashboard.course.edit', ['course' => $course])
+                ->with(Session::flash('success', 'Curso cadastrado com sucesso!'));
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -144,7 +144,8 @@ class CourseController extends Controller
             if ($video) {$request->file('video')->storeAs($this->pathUploadVideo, $video);}
 
             DB::commit();
-            return view('Admin.loadPage.pageIndexCourse')
+            return redirect()
+                ->route('admin.dashboard.course.edit', ['course' => $course])
                 ->with(Session::flash('success', 'Curso atualizado com sucesso!'));
         }catch(\Exception $exception){
             DB::rollBack();

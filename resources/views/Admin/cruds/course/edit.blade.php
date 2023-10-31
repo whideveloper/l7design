@@ -57,7 +57,7 @@
                                                 {!! Form::model(null, ['route' => 'admin.dashboard.file.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                                                 @include('Admin.cruds.file.form')
                                                 {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                                                <a href="{{route('admin.dashboard.file.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                                <a href="{{route('admin.dashboard.course.edit', ['course' => $course])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Cancelar</a>
                                                 {!! Form::close() !!}
                                             </div>
                                         </div>
@@ -106,27 +106,6 @@
                                         </div>
                                     </td>
                                 </tr>
-                                {{-- BEGIN EDIT --}}
-{{--                                <div id="modal-file-editt-{{$file->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">--}}
-{{--                                    <div class="modal-dialog" style="max-width: 800px;">--}}
-{{--                                        <div class="modal-content p-3 pt-2 pb-2">--}}
-{{--                                            <div class="modal-header">--}}
-{{--                                                <h4 class="page-title">Editar Atividade</h4>--}}
-{{--                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--                                            </div>--}}
-
-{{--                                            {!! Form::model($file, ['route' => ['admin.dashboard.file.update', $file->id], 'class'=>'parsley-examples p-3 pt-0 pb-3', 'method' => 'PUT', 'files' => true]) !!}--}}
-{{--                                            @include('Admin.cruds.file.form')--}}
-
-{{--                                            <div class="button-btn d-flex justify-content-end col-12 p-2 m-auto mb-2">--}}
-{{--                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-0 width-lg align-items-right me-3', 'type' => 'submit']) !!}--}}
-{{--                                                {!! Form::button('Fechar', ['class'=>'btn btn-secondary waves-effect waves-light float-end me-0 width-lg align-items-left', 'data-bs-dismiss'=> 'modal', 'type' => 'button']) !!}--}}
-{{--                                            </div>--}}
-{{--                                            {!! Form::close() !!}--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-                                {{-- END EDIT --}}
                             @endforeach
                         </tbody>
                     </table>

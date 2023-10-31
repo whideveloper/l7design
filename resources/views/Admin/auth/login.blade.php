@@ -15,7 +15,7 @@
                                     <h2>WHI <span>Web de alta inspiração</span></h2>
                                 </span>
                             </a>
-        
+
                             <a href="{{route('admin.dashboard.painel')}}" class="logo logo-light text-center">
                                 <span class="authl logo-lg">
                                     <img src="{{asset('Admin/assets/images/whit.png')}}" alt="" height="22">
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         {{-- <div class="mb-3">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="checkbox-signin">

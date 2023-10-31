@@ -21,7 +21,7 @@ class AuthController extends Controller
             'password' => $request->password,
             'active' => 1
         ];
-        
+
         $remember = $request->remember?true:false;
 
         if (Auth::attempt($credentials, $remember)) {
@@ -40,7 +40,7 @@ class AuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
-    {   
+    {
         auth()->logout();
 
         $request->session()->invalidate();

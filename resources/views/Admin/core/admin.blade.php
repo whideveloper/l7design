@@ -472,5 +472,7 @@
                 // alert("Aqui");
             });
         </script>
+
+        @include('Admin.loadPage.loading')
     </body>
 </html>

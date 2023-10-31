@@ -88,7 +88,7 @@ Route::prefix('painel/')->group(function () {
 
     Route::middleware('auth')->group(function(){
         Route::get('/carregamento', function () {
-            return view('Admin.loadPage.page');
+            return view('Admin.loadPage.login');
         })->name('loading');
 
         Route::get('/dashboard', function () {
