@@ -35,7 +35,7 @@
 
                     <div class="row mt-4">
                         @can('grupo.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.group.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
@@ -59,14 +59,14 @@
                         @endcan
 
                         @can('disciplina.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.subject.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-account-multiple font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -83,14 +83,14 @@
                         @endcan
 
                         @can('curso.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.course.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-account-multiple font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-school font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -107,7 +107,7 @@
                         @endcan
 
                         @can('aluno.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.student.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
@@ -131,7 +131,7 @@
                         @endcan
 
                         @can('professor.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.user.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
@@ -154,7 +154,7 @@
                             </div> <!-- end col-->
                         @endcan
                         @can('formulario de contato.visualizar')
-                            <div class="col-md-6 col-xl-3">
+                            <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.contact.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">

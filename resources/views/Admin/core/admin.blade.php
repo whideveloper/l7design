@@ -203,13 +203,25 @@
                                                 </li>
                                             @endcan
 
+                                            @can('disciplina.visualizar')
+                                                <li class="{{ route('admin.dashboard.subject.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.subject.index')}}"><i class="mdi mdi-notebook "></i> Disciplina</a>
+                                                </li>
+                                            @endcan
+
+                                            @can('curso.visualizar')
+                                                <li class="{{ route('admin.dashboard.course.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.course.index')}}"><i class="mdi mdi-school"></i> Cursos</a>
+                                                </li>
+                                            @endcan
+
                                             @can('aluno.visualizar')
                                                 <li class="{{ route('admin.dashboard.student.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.student.index')}}"><i class="mdi mdi-account-multiple"></i> Alunos</a>
                                                 </li>
                                             @endcan
 
-                                                @can('professor.visualizar')
+                                            @can('professor.visualizar')
                                                 <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-account-tie"></i> Professores</a>
                                                 </li>

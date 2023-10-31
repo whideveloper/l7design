@@ -19,6 +19,9 @@ class CourseController extends Controller
     protected $pathUploadVideo = 'admin/uploads/video/course/';
     public function index()
     {
+        if(!Auth::user()->can('curso.visualizar')){
+            return view('Admin.error.403');
+        }
         $user = Auth::user()->id;
         $subjects = Subject::active()->where('user_id', $user)->get();
         $courses = Course::sorting()->paginate(15);
@@ -31,6 +34,9 @@ class CourseController extends Controller
 
     public function create()
     {
+        if(!Auth::user()->can(['curso.visualizar','curso.criar'])){
+            return view('Admin.error.403');
+        }
         $user = Auth::user()->id;
         $select = [];
         $subjects = Subject::active()->where('user_id', $user)->get();
@@ -77,13 +83,11 @@ class CourseController extends Controller
         }
     }
 
-    public function show(Course $course)
-    {
-        //
-    }
-
     public function edit(Course $course)
     {
+        if(!Auth::user()->can(['curso.visualizar','curso.editar'])){
+            return view('Admin.error.403');
+        }
         $user = Auth::user()->id;
         $select = [];
         $subjects = Subject::active()->where('user_id', $user)->get();
@@ -159,6 +163,9 @@ class CourseController extends Controller
 
     public function destroy(Course $course)
     {
+        if(!Auth::user()->can(['curso.visualizar','curso.remover'])){
+            return view('Admin.error.403');
+        }
         Storage::delete($course->path_image);
         Storage::delete($course->video);
 
@@ -173,6 +180,10 @@ class CourseController extends Controller
             return view('Admin.error.403');
         }
 
+        if(!Auth::user()->can(['curso.visualizar','curso.remover'])){
+            return view('Admin.error.403');
+        }
+
         if($deleted = Course::whereIn('id', $request->deleteAll)->delete()){
 
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
@@ -181,6 +192,9 @@ class CourseController extends Controller
 
     public function sorting(Request $request)
     {
+        if(!Auth::user()->can(['curso.visualizar','curso.editar'])){
+            return view('Admin.error.403');
+        }
         if(!Auth::user()->can('curso.visualizar')){
             return view('Admin.error.403');
         }

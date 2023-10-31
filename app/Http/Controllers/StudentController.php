@@ -49,15 +49,12 @@ class StudentController extends Controller
             ])
             ->paginate(15);
 
-//        dd($students);
-//        $students = Student::sorting()->paginate(15);
         $subjects = Subject::get();
         $studentsDeleted_at = Student::onlyTrashed()->count();
         return view('Admin.cruds.student.index',[
             'students'=>$students,
             'studentsDeleted_at'=>$studentsDeleted_at,
             'subjects'=>$subjects,
-//            'studentSubjects'=>$studentSubjects
         ]);
     }
     public function create()

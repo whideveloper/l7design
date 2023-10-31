@@ -35,15 +35,14 @@
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-end flex-nowrap">
-                    @can('curso.remover')
+                    @can('atividade.remover')
                         <div class="col-6 ps-3">
                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.file.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
                         </div>
                     @endcan
                     <div class="row col-6 d-flex justify-content-end me-3 p-0">
-                        @can('curso.criar')
+                        @can('atividade.criar')
                             <div style="width: 165px">
-{{--                                <a href="{{route('admin.dashboard.file.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>--}}
                                 <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-file">Adicionar novo <i class="mdi mdi-plus"></i></a>
 
                                 <div id="modal-file" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -95,14 +94,17 @@
                                     <td>{{Carbon\Carbon::parse($file->end_date)->format('d/m/Y')}}</td>
                                     <td>
                                         <div class="row d-flex justify-content-center">
-                                            <div class="col-4">
-{{--                                                <button class="btn-icon" data-bs-target="#modal-file-editt-{{$file->id}}" data-bs-toggle="modal"><i class="mdi mdi-square-edit-outline"></i></button>--}}
-                                                <a href="{{route('admin.dashboard.file.edit', ['file' => $file->id])}}"><i class="btn-icon mdi mdi-square-edit-outline"></i></a>
-                                            </div>
-                                            <form action="{{route('admin.dashboard.file.destroy',['file' => $file->id])}}" class="col-4" method="POST">
-                                                @method('DELETE') @csrf
-                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                            </form>
+                                            @can(['atividade.editar', 'atividade.visualizar'])
+                                                <div class="col-4">
+                                                    <a href="{{route('admin.dashboard.file.edit', ['file' => $file->id])}}"><i class="btn-icon mdi mdi-square-edit-outline"></i></a>
+                                                </div>
+                                            @endcan
+                                            @can(['atividade.remover', 'atividade.visualizar'])
+                                                <form action="{{route('admin.dashboard.file.destroy',['file' => $file->id])}}" class="col-4" method="POST">
+                                                    @method('DELETE') @csrf
+                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>

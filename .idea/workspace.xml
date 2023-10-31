@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Create migration, model ande controller of file_response">
-      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/edit.blade.php" afterDir="false" />
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="File Response">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileResponseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileResponseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/file/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/file/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/panel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/core/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +223,7 @@
       <workItem from="1698690004994" duration="9497000" />
       <workItem from="1698705653595" duration="1579000" />
       <workItem from="1698744810564" duration="13058000" />
-      <workItem from="1698762178817" duration="21389000" />
+      <workItem from="1698762178817" duration="25356000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -394,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698759769401</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="File Response">
+      <option name="closed" value="true" />
+      <created>1698788713757</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1698788713758</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +424,8 @@
     <MESSAGE value="Adicionei um load ao cadastrar atividade,&#10;Nova blade de edit de atividade" />
     <MESSAGE value="Consulta de students" />
     <MESSAGE value="Create migration, model ande controller of file_response" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create migration, model ande controller of file_response" />
+    <MESSAGE value="File Response" />
+    <option name="LAST_COMMIT_MESSAGE" value="File Response" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
