@@ -137,7 +137,6 @@
                                                                             @php
                                                                                 $checkSubject = "";
                                                                             @endphp
-
                                                                             @foreach ($student->subject as $studentSubject)
                                                                                 @if ($studentSubject->subject_id == $subject->id)
                                                                                     @php

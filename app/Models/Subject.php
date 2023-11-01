@@ -15,9 +15,11 @@ class Subject extends Model
         'description',
         'path_image',
         'active',
-        'user_id'
+        'user_id',
     ];
-
+    public function students() {
+        return $this->belongsToMany(Student::class, 'student_subjects');
+    }
     public function userId()
     {
         return $this->belongsTo(User::class, 'user_id');

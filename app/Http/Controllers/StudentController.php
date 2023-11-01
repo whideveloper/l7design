@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\Permission;
-use App\Models\Role;
 use App\Models\Student;
 use App\Models\StudentSubjects;
 use App\Models\Subject;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -206,9 +203,6 @@ class StudentController extends Controller
 
         $student = Student::withTrashed()->find($id);
         if ($student) {
-            // Verifique se o usuário autenticado tem permissão para excluir permanentemente o user (opcional)
-            // ...
-
             try {
                 $student->forceDelete();
                 Session::flash('success', 'Aluno excluído com sucesso!');

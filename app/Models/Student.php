@@ -15,11 +15,11 @@ class Student extends Model
         'email',
         'password',
         'active',
-        'sorting'
+        'sorting',
     ];
 
-    public function subject(){
-        return $this->hasMany(StudentSubjects::class, 'student_id')->with('subject');
+    public function subject() {
+        return $this->belongsToMany(Subject::class, 'student_subjects');
     }
 
     function scopeSorting($query){
