@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="add permissions atividade, curso, disciplina">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Mudei a forma como é salvo os dados da tabela pivot, pois estava bugando o sistema. &#10;Utilizei o sync para sincronizar os dados">
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/student/studentSubjectAssociate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/painel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/painel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentsSubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentsSubjectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Admin/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Admin/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/fileResponse/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/subject/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Client/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Client/pages/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +230,10 @@
       <workItem from="1698744810564" duration="13058000" />
       <workItem from="1698762178817" duration="25605000" />
       <workItem from="1698794161400" duration="2225000" />
-      <workItem from="1698836687677" duration="7066000" />
+      <workItem from="1698836687677" duration="7221000" />
+      <workItem from="1698855094409" duration="1623000" />
+      <workItem from="1698922314817" duration="11304000" />
+      <workItem from="1699271067904" duration="3948000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -412,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698794034878</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Mudei a forma como é salvo os dados da tabela pivot, pois estava bugando o sistema. &#10;Utilizei o sync para sincronizar os dados">
+      <option name="closed" value="true" />
+      <created>1698843951448</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1698843951448</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +452,8 @@
     <MESSAGE value="Create migration, model ande controller of file_response" />
     <MESSAGE value="File Response" />
     <MESSAGE value="add permissions atividade, curso, disciplina" />
-    <option name="LAST_COMMIT_MESSAGE" value="add permissions atividade, curso, disciplina" />
+    <MESSAGE value="Mudei a forma como é salvo os dados da tabela pivot, pois estava bugando o sistema. &#10;Utilizei o sync para sincronizar os dados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mudei a forma como é salvo os dados da tabela pivot, pois estava bugando o sistema. &#10;Utilizei o sync para sincronizar os dados" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,6 +462,11 @@
           <url>file://$PROJECT_DIR$/database/migrations/2023_10_21_180439_create_student_subjects_table.php</url>
           <line>2</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/Admin/cruds/student/index.blade.php</url>
+          <line>124</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

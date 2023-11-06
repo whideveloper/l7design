@@ -4,7 +4,7 @@
         <div class="card card-body">
             <input type="hidden" name="course_id" value="{{$course->id}}">
             <input type="hidden" name="file_id" value="{{$file->id}}">
-            <input type="hidden" name="student_id" value="3">
+            <input type="hidden" name="student_id" value="1">
 
             <div class="card card-body">
                 <div class="mb-3 col-lg-12">

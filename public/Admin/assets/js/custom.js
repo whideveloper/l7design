@@ -21,6 +21,14 @@ function embedLinkYoutube(elem){
         elem.val(`https://www.youtube.com/embed/${id}`)
     }
 }
+$(function() {
+    $('#linkVimeoEmbed').on('change', function(){
+        var val = $(this).val(),
+            arrayLink = val.split('/'),
+            id = arrayLink[arrayLink.length - 1]
+        $(this).val(`https://player.vimeo.com/video/${id}`)
+    })
+});
 
 $(function() {
 
