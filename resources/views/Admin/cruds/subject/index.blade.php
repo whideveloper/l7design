@@ -143,34 +143,33 @@
                                                                                 Marca/remover todos
                                                                             </label>
                                                                         </div>
+                                                                        <div class="row">
+                                                                            @foreach($students as $student)
+                                                                                @php
+                                                                                    $checkSubject = "";
+                                                                                @endphp
 
-                                                                        @foreach($students as $student)
-                                                                            {{--                                                                            {{dd($students)}}--}}
-                                                                            @php
-                                                                                $checkSubject = "";
-                                                                            @endphp
+                                                                                @foreach($student->subject as $studentSubject)
+                                                                                    @if ($studentSubject->id == $subject->id)
+                                                                                        @php
+                                                                                            $checkSubject = "checked";
+                                                                                        @endphp
+                                                                                    @endif
+                                                                                @endforeach
 
-                                                                            @foreach($student->subject as $studentSubject)
-                                                                                @if ($studentSubject->id == $subject->id)
-                                                                                    @php
-                                                                                        $checkSubject = "checked";
-                                                                                    @endphp
-                                                                                @endif
-                                                                            @endforeach
-
-                                                                            <div class="mb-3 align-top col-3">
-                                                                                <div class="form-check mb-2 form-check-success">
-                                                                                    <input class="form-check-input rounded-circle studentCheckbox studentCheckboxItem"
-                                                                                           type="checkbox"
-                                                                                           name="student_id[]"
-                                                                                           id="{{ $student->id }}"
-                                                                                           value="{{ $student->id }}"
-                                                                                        {{ $checkSubject }}>
-                                                                                    <label class="form-check-label" for="{{ $student->id }}">{{ $student->name }}</label>
+                                                                                <div class="align-top col-4 box-student">
+                                                                                    <div class="form-check form-check-success">
+                                                                                        <input class="form-check-input rounded-circle studentCheckbox studentCheckboxItem"
+                                                                                               type="checkbox"
+                                                                                               name="student_id[]"
+                                                                                               id="{{ $student->id }}"
+                                                                                               value="{{ $student->id }}"
+                                                                                            {{ $checkSubject }}>
+                                                                                        <label class="form-check-label" for="{{ $student->id }}">{{ $student->name }}</label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-
-                                                                        @endforeach
+                                                                            @endforeach
+                                                                        </div>
 
 
                                                                         <div class="btn-student col-12 d-flex justify-content-end">

@@ -63,7 +63,7 @@
                     'data-plugins'=>'dropify',
                     'data-height'=>'200',
                     'data-max-file-size-preview'=>'2M',
-                    'accept'=>'image/*',
+                    'accept'=>'video/mp4,video/mkv,video/*',
                     'data-default-file'=> isset($course)?$course->video<>''?url('storage/'.$course->video):'':'',
                 ]) !!}
             </div>
