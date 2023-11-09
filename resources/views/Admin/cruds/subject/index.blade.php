@@ -130,19 +130,19 @@
                                                         <div class="modal-dialog" style="max-width: 760px;">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title" id="standard-modalLabel">Alunos vinculdos à disciplina</h4>
+                                                                    <h4 class="modal-title" id="standard-modalLabel">Alunos relacionados</h4>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <form action="{{route('admin.dashboard.subjectStudent')}}" class="col-12 student" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="subject_id" value="{{ $subject->id }}"></input>
-                                                                        <div class="row col-lg-12 mb-3">
-                                                                            <label for="btnAll" class="label-check">
-                                                                                <input type="checkbox" id="btnAll" class="form-check-input rounded-circle btnAll studentCheckbox">
-                                                                                Marca/remover todos
-                                                                            </label>
-                                                                        </div>
+{{--                                                                        <div class="row col-lg-12 mb-3">--}}
+{{--                                                                            <label for="btnAll" class="label-check">--}}
+{{--                                                                                <input type="checkbox" id="btnAll" class="form-check-input rounded-circle btnAll studentCheckbox">--}}
+{{--                                                                                Marcar/remover todos--}}
+{{--                                                                            </label>--}}
+{{--                                                                        </div>--}}
                                                                         <div class="row">
                                                                             @foreach($students as $student)
                                                                                 @php

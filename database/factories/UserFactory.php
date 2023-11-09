@@ -25,7 +25,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => 'Wagner Oliveira',
-            'email' => 'frontend4@hoom.com.br',
+            'email' => 'waggner.dev@gmail.com',
             'password' => Hash::make('123456789'), // password
             'active' => 1,
             'email_verified_at' => now(),
