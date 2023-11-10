@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="ajustes front-end">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="ocultar botoes de logar com google,&#10;mudar email de login do painel para wagnerdev@gmail.com">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/course/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/course/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +227,8 @@
       <workItem from="1698922314817" duration="11304000" />
       <workItem from="1699271067904" duration="4887000" />
       <workItem from="1699307988471" duration="6669000" />
-      <workItem from="1699532812812" duration="1726000" />
+      <workItem from="1699532812812" duration="2674000" />
+      <workItem from="1699565050371" duration="1701000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -436,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699319905923</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="ocultar botoes de logar com google,&#10;mudar email de login do painel para wagnerdev@gmail.com">
+      <option name="closed" value="true" />
+      <created>1699536964027</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699536964027</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +485,8 @@
     <MESSAGE value="Mudei a forma como é salvo os dados da tabela pivot, pois estava bugando o sistema. &#10;Utilizei o sync para sincronizar os dados" />
     <MESSAGE value="Embed youtube e vimeo" />
     <MESSAGE value="ajustes front-end" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes front-end" />
+    <MESSAGE value="ocultar botoes de logar com google,&#10;mudar email de login do painel para wagnerdev@gmail.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="ocultar botoes de logar com google,&#10;mudar email de login do painel para wagnerdev@gmail.com" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
