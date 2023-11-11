@@ -30,7 +30,11 @@
                                 <div>
                                     <h5>Usuário manipulador</h5>
                                 </div>
-                                {{$userName->name}}
+                                @if($activitie->causer) <!-- Verifica se há um usuário associado (causer) -->
+                                <td>{{ $activitie->causer->name }}</td>
+                                @else
+                                    <td>Não encontrado</td>
+                                @endif
                             </div>
                             <div class="mb-2 col-lg-6">
                                 <div>
@@ -50,7 +54,7 @@
                             </div>
                             <div class="mb-2">
                                 <div>
-                                    <h5>Dia e hora da ação realizada</h5>
+                                    <h5>Data do evento</h5>
                                 </div>
                                 @switch($activitie->description)
                                     @case('created') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
@@ -72,6 +76,9 @@
                                 </div>
                                 <code>
                                     {{ print_r($activitie->properties['attributes'] ?? [], true) }}
+{{--                                    {{ '<pre>' . json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) . '</pre>' }}--}}
+{{--                                    {{ json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) }}--}}
+
                                 </code>
                             </div>
                         </div> <!-- end card-body-->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
@@ -15,22 +16,11 @@ class AuditActivityController extends Controller
         if(!Auth::user()->can('auditoria.visualizar')){
             return view('Admin.error.403');
         }
-        $activities = Activity::join('users', 'activity_log.causer_id', 'users.id')
-            ->select([
-                'activity_log.id',
-                'activity_log.description',
-                'activity_log.subject_type',
-                'activity_log.subject_id',
-                'activity_log.causer_id',
-                'activity_log.updated_at',
-                'activity_log.created_at',
-                'users.id',
-                'users.name'
-            ])
-            ->orderBy('created_at', 'DESC')->paginate(10);
 
+        $activities = Activity::with('causer')->orderBy('created_at', 'DESC')
+            ->paginate(10);
         return view('Admin.cruds.audit.index', [
-            'activities' => $activities
+            'activities' => $activities,
         ]);
     }
 
@@ -39,23 +29,8 @@ class AuditActivityController extends Controller
         if(!Auth::user()->can('auditoria.visualizar')){
             return view('Admin.error.403');
         }
-        $userName = Activity::join('users', 'activity_log.causer_id', 'users.id')
-            ->select([
-                'activity_log.id',
-                'activity_log.description',
-                'activity_log.subject_type',
-                'activity_log.subject_id',
-                'activity_log.causer_id',
-                'activity_log.updated_at',
-                'activity_log.created_at',
-                'users.id',
-                'users.name'
-            ])
-            ->where('activity_log.causer_id', $activitie->id)
-            ->first();
         return view('Admin.cruds.audit.show')->with([
             'activitie'=>$activitie,
-            'userName' => $userName
         ]);
     }
 }

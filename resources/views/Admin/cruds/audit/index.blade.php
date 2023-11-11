@@ -32,7 +32,7 @@
                                         <tr>
                                             <th></th>
                                             <th>Ação realizada</th>
-                                            <th>Dia e hora da ação realizada</th>
+                                            <th>Data do evento</th>
                                             <th>Recurso manipulado</th>
                                             <th>Usuário manipulador</th>
                                             <th>Ação</th>
@@ -60,8 +60,11 @@
                                                 <td>
                                                     {{ ModelTypeAudit::getLabel($activitie->subject_type) }}
                                                 </td>
-                                                <td>{{$activitie->name}}</td>
-
+                                                @if($activitie->causer) <!-- Verifica se há um usuário associado (causer) -->
+                                                    <td>{{ $activitie->causer->name }}</td>
+                                                @else
+                                                    <td>Não encontrado</td>
+                                                @endif
                                                 @can('auditoria.visualizar')
                                                     <td>
                                                         <a href="{{route('admin.dashboard.audit.show',['activitie' => $activitie->id])}}" class="btn-icon mdi mdi-eye-outline"></a>
