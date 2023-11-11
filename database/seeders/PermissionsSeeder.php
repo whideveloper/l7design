@@ -22,6 +22,9 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'auditoria'=>[
+                'Visualizar',
+            ],
             'banners'=>[
                 'Criar',
                 'Editar',

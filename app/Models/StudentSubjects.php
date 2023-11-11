@@ -18,23 +18,4 @@ class StudentSubjects extends Model
     public function subject(){
         return $this->hasMany(StudentSubjects::class, 'student_id')->with('subject');
     }
-
-    protected static $logAttributes = [
-        'student_id',
-        'subject_id',
-    ];
-
-    protected static $logOnlyDirty = true;
-
-    public function customProperties()
-    {
-        $properties = [];
-
-        foreach (static::$logAttributes as $attribute) {
-            $properties['old'][$attribute] = $this->getOriginal($attribute);
-            $properties['new'][$attribute] = $this->getAttribute($attribute);
-        }
-
-        return $properties;
-    }
 }

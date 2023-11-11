@@ -176,28 +176,29 @@
                                 </a>
                             </div> <!-- end col-->
                         @endcan
-
-                        <div class="col-md-6 col-xl-4">
-                            <a nofollow href="{{route('admin.dashboard.audit.index')}}">
-                                <div class="widget-rounded-circle card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                        @can('auditoria.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.audit.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <h4 class="text-dark mt-1">Auditoria</h4>
-                                                    <p class="text-muted mb-1">Gerenciar Auditoria</p>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Auditoria</h4>
+                                                        <p class="text-muted mb-1">Gerenciar Auditoria</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div>
-                                </div> <!-- end widget-rounded-circle-->
-                            </a>
-                        </div> <!-- end col-->
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
                     </div>
 
                 </div> <!-- container -->

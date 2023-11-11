@@ -30,9 +30,7 @@
                                 <div>
                                     <h5>Usuário manipulador</h5>
                                 </div>
-                                @if(Auth::user()->id == $activitie->causer_id)
-                                    {{Auth::user()->name}}
-                                @endif
+                                {{$userName->name}}
                             </div>
                             <div class="mb-2 col-lg-6">
                                 <div>
@@ -48,6 +46,16 @@
                                     @case('created') <span>Criação</span> @break
                                     @case('updated') <span>Atualização</span> @break
                                     @case('deleted') <span>Deleção</span> @break
+                                @endswitch
+                            </div>
+                            <div class="mb-2">
+                                <div>
+                                    <h5>Dia e hora da ação realizada</h5>
+                                </div>
+                                @switch($activitie->description)
+                                    @case('created') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                    @case('updated') <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
+                                    @case('deleted') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
                                 @endswitch
                             </div>
                             <div class="mb-2">

@@ -32,6 +32,7 @@
                                         <tr>
                                             <th></th>
                                             <th>Ação realizada</th>
+                                            <th>Dia e hora da ação realizada</th>
                                             <th>Recurso manipulado</th>
                                             <th>Usuário manipulador</th>
                                             <th>Ação</th>
@@ -50,15 +51,22 @@
                                                     @endswitch
                                                 </td>
                                                 <td>
+                                                    @switch($activitie->description)
+                                                        @case('created') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                                        @case('updated') <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
+                                                        @case('deleted') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                                    @endswitch
+                                                </td>
+                                                <td>
                                                     {{ ModelTypeAudit::getLabel($activitie->subject_type) }}
                                                 </td>
-                                                @if(Auth::user()->id == $activitie->causer_id)
-                                                    <td>{{Auth::user()->name}}</td>
-                                                @endif
+                                                <td>{{$activitie->name}}</td>
 
-                                                <td>
-                                                    <a href="{{route('admin.dashboard.audit.show',['activitie' => $activitie->id])}}" class="btn-icon mdi mdi-eye-outline"></a>
-                                                </td>
+                                                @can('auditoria.visualizar')
+                                                    <td>
+                                                        <a href="{{route('admin.dashboard.audit.show',['activitie' => $activitie->id])}}" class="btn-icon mdi mdi-eye-outline"></a>
+                                                    </td>
+                                                @endcan
                                             </tr>
                                         @endforeach
                                     </tbody>
