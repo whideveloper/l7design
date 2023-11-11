@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Course extends Model
 {
-    use HasFactory, SoftDeletes;
-
+    use HasFactory, SoftDeletes, LogsActivity;
     protected $fillable = [
         'title',
         'text',
@@ -22,6 +22,34 @@ class Course extends Model
         'subject_id',
         'sorting',
     ];
+
+    protected static $logAttributes = [
+        'title',
+        'text',
+        'slug',
+        'path_image',
+        'link_youtube',
+        'link_vimeo',
+        'video',
+        'active',
+        'subject_id',
+        'sorting',
+    ];
+
+    protected static $logOnlyDirty = true;
+
+    public function customProperties()
+    {
+        $properties = [];
+
+        foreach (static::$logAttributes as $attribute) {
+            $properties['old'][$attribute] = $this->getOriginal($attribute);
+            $properties['new'][$attribute] = $this->getAttribute($attribute);
+        }
+
+        return $properties;
+    }
+
     public function file(){
         return $this->hasMany(File::class, 'course_id');
     }

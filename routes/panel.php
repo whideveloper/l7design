@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditActivityController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FileResponseController;
@@ -95,6 +96,11 @@ Route::prefix('painel/')->group(function () {
         Route::get('/dashboard', function () {
             return view('Admin.dashboard');
         })->name('admin.dashboard');
+
+        //AUDITORIA
+        Route::resource('auditoria', AuditActivityController::class)
+            ->names('admin.dashboard.audit')
+            ->parameters(['auditoria'=>'activitie']);
 
         //CURSOS
         Route::resource('cursos', CourseController::class)

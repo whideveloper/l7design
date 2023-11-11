@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles, SoftDeletes;
+    use HasFactory, Notifiable, HasRoles, SoftDeletes, LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +20,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
+        'name',
+        'email',
         'password',
         'active',
         'path_image',
@@ -31,6 +32,32 @@ class User extends Authenticatable
         'data_registro'
     ];
 
+    protected static $logAttributes = [
+        'name',
+        'email',
+        'password',
+        'active',
+        'path_image',
+        'remember',
+        'sorting',
+        'password_reset_token',
+        'password_reset_token_created_at',
+        'data_registro'
+    ];
+
+    protected static $logOnlyDirty = true;
+
+    public function customProperties()
+    {
+        $properties = [];
+
+        foreach (static::$logAttributes as $attribute) {
+            $properties['old'][$attribute] = $this->getOriginal($attribute);
+            $properties['new'][$attribute] = $this->getAttribute($attribute);
+        }
+
+        return $properties;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
