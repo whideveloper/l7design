@@ -19,6 +19,7 @@ class AuditActivityController extends Controller
 
         $activities = Activity::with('causer')->orderBy('created_at', 'DESC')
             ->paginate(10);
+
         return view('Admin.cruds.audit.index', [
             'activities' => $activities,
         ]);
@@ -29,8 +30,10 @@ class AuditActivityController extends Controller
         if(!Auth::user()->can('auditoria.visualizar')){
             return view('Admin.error.403');
         }
+        $modelName = $activitie->subject_type;
         return view('Admin.cruds.audit.show')->with([
             'activitie'=>$activitie,
+            'modelName'=>$modelName
         ]);
     }
 }

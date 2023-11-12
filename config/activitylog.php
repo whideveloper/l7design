@@ -32,20 +32,20 @@ return [
 
     /*
      * This model will be used to log activity.
-     * It should be implements the Spatie\Activitylog\Contracts\Activity interface
+     * It should be implements the Spatie\Activitylog\Contracts\AuditActivity interface
      * and extend Illuminate\Database\Eloquent\Model.
      */
     'activity_model' => \Spatie\Activitylog\Models\Activity::class,
 
     /*
      * This is the name of the table that will be created by the migration and
-     * used by the Activity model shipped with this package.
+     * used by the AuditActivity model shipped with this package.
      */
     'table_name' => 'activity_log',
 
     /*
      * This is the database connection that will be used by the migration and
-     * the Activity model shipped with this package. In case it's not set
+     * the AuditActivity model shipped with this package. In case it's not set
      * Laravel database.default will be used instead.
      */
     'database_connection' => env('ACTIVITY_LOGGER_DB_CONNECTION'),

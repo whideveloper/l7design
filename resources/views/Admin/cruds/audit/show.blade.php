@@ -1,5 +1,6 @@
 @php
     use App\Enums\ModelTypeAudit;
+    use App\Models\AuditActivity;
 @endphp
 @extends('Admin.core.admin')
 @section('content')
@@ -13,8 +14,10 @@
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.audit.index')}}">Auditoria</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.audit.index')}}">Auditoria</a>
+                                    </li>
                                     <li class="breadcrumb-item active">Visualizar Evento Auditoria</li>
                                 </ol>
                             </div>
@@ -30,8 +33,9 @@
                                 <div>
                                     <h5>Usuário manipulador</h5>
                                 </div>
-                                @if($activitie->causer) <!-- Verifica se há um usuário associado (causer) -->
-                                <td>{{ $activitie->causer->name }}</td>
+                                @if($activitie->causer)
+                                    <!-- Verifica se há um usuário associado (causer) -->
+                                    <td>{{ $activitie->causer->name }}</td>
                                 @else
                                     <td>Não encontrado</td>
                                 @endif
@@ -40,7 +44,8 @@
                                 <div>
                                     <h5>Recurso manipulado</h5>
                                 </div>
-                                {{ ModelTypeAudit::getLabel($activitie->subject_type) }}
+                                {{--{{ ModelTypeAudit::getLabel($activitie->subject_type) }}--}}
+                                {{$modelName = AuditActivity::getModelName($activitie->subject_type)}}
                             </div>
                             <div class="mb-2">
                                 <div>
@@ -57,9 +62,12 @@
                                     <h5>Data do evento</h5>
                                 </div>
                                 @switch($activitie->description)
-                                    @case('created') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('updated') <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('deleted') <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                    @case('created')
+                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                    @case('updated')
+                                        <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
+                                    @case('deleted')
+                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
                                 @endswitch
                             </div>
                             <div class="mb-2">
@@ -76,8 +84,8 @@
                                 </div>
                                 <code>
                                     {{ print_r($activitie->properties['attributes'] ?? [], true) }}
-{{--                                    {{ '<pre>' . json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) . '</pre>' }}--}}
-{{--                                    {{ json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) }}--}}
+                                    {{--                                    {{ '<pre>' . json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) . '</pre>' }}--}}
+                                    {{--                                    {{ json_encode($activitie->properties['attributes'] ?? [], JSON_PRETTY_PRINT) }}--}}
 
                                 </code>
                             </div>

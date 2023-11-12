@@ -7,6 +7,7 @@
     <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Ajuste auditoria e criacao da permissao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuditActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuditActivityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/activitylog.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/activitylog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/show.blade.php" afterDir="false" />
     </list>
@@ -232,7 +233,8 @@
       <workItem from="1699565050371" duration="2360000" />
       <workItem from="1699619912416" duration="1139000" />
       <workItem from="1699644054116" duration="17828000" />
-      <workItem from="1699704077359" duration="19705000" />
+      <workItem from="1699704077359" duration="20979000" />
+      <workItem from="1699740096676" duration="4780000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -482,7 +484,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699715653699</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Ajuste auditoria e criacao da permissao">
+      <option name="closed" value="true" />
+      <created>1699733260235</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1699733260235</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
