@@ -51,6 +51,8 @@
                                                     @case('created') <span>Criação</span> @break
                                                     @case('updated') <span>Atualização</span> @break
                                                     @case('deleted') <span>Deleção</span> @break
+                                                    @case('Student Synced') <span>Adição/Remoção do Aluno a disciplina</span> @break
+                                                    @case('Subject Synced') <span>Adição/Remoção da disciplina ao aluno</span> @break
                                                 @endswitch
                                             </td>
                                             <td>
@@ -60,6 +62,10 @@
                                                     @case('updated')
                                                         <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
                                                     @case('deleted')
+                                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                                    @case('Student Synced')
+                                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                                                    @case('Subject Synced')
                                                         <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
                                                 @endswitch
                                             </td>

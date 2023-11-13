@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Ajuste auditoria e criacao da permissao">
+    <list default="true" id="e2c52757-a25a-4967-ba7d-f69341ff20bb" name="Changes" comment="Ajuste auditoria, atribuindo nome a model em auditoria">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuditActivityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuditActivityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/activitylog.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/activitylog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentsSubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentsSubjectController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/cruds/audit/show.blade.php" afterDir="false" />
     </list>
@@ -234,7 +233,9 @@
       <workItem from="1699619912416" duration="1139000" />
       <workItem from="1699644054116" duration="17828000" />
       <workItem from="1699704077359" duration="20979000" />
-      <workItem from="1699740096676" duration="4780000" />
+      <workItem from="1699740096676" duration="5000000" />
+      <workItem from="1699825258537" duration="2892000" />
+      <workItem from="1699873519468" duration="1803000" />
     </task>
     <task id="LOCAL-00001" summary="create model, controller and migration of subject, student and pivot table student_has_subject">
       <option name="closed" value="true" />
@@ -492,7 +493,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699733260235</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Ajuste auditoria, atribuindo nome a model em auditoria">
+      <option name="closed" value="true" />
+      <created>1699748076137</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1699748076137</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create model, controller and migration of subject, student and pivot table student_has_subject" />
     <MESSAGE value="index controller Student" />
     <MESSAGE value="CRUD de alunos(students)" />
     <MESSAGE value="Adicionei restauração e remoção permantente em alunos e melhorei o codigo do search em usuario" />
@@ -535,7 +543,8 @@
     <MESSAGE value="ajuste front" />
     <MESSAGE value="Implementacao de auditoria" />
     <MESSAGE value="Ajuste auditoria e criacao da permissao" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste auditoria e criacao da permissao" />
+    <MESSAGE value="Ajuste auditoria, atribuindo nome a model em auditoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste auditoria, atribuindo nome a model em auditoria" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
