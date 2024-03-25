@@ -1,4 +1,18 @@
+:root {
+    --ubuntu: "Ubuntu", sans-serif;
+    --poppins: "Poppins", sans-serif;
+    --nunito: "Nunito", sans-serif;
+    --success: #28a745;
+}
 
+html {
+    font-size: 16px;
+}
+
+a,
+button {
+    cursor: pointer;
+}
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -92,4 +106,16 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+//css init site
+h1{
+    background-color: aqua;
+    color: red;
+    font-family: --poppins;
+    font-size: 35px;
+}
+.splide__slide img {
+    width: 100%;
+    height: auto;
 }

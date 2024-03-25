@@ -30,7 +30,8 @@
     <meta name="twitter:description" content="Descrição" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/app.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
 
 </head>
 
@@ -40,7 +41,8 @@
         @yield('content')
     </main>
 
-    {{-- <script src="{{ asset(mix('Client/assets/js/main.js')) }}"></script> --}}
+    <script src="{{ asset(mix('Client/assets/js/main.js')) }}"></script>
+    <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
 </body>
 
 </html>

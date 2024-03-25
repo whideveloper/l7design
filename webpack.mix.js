@@ -262,39 +262,14 @@ mix.scripts(
         "public/Admin/assets/libs/cropper.min.css"
     )
 
-    //Portais
-
-    // .styles(
-    //     "resources/Client/assets/css/reset.css",
-    //     "public/Client/assets/css/reset.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/default.css",
-    //     "public/Client/assets/css/default.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/splide.min.css",
-    //     "public/Client/assets/css/splide.min.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/colapsinho.css",
-    //     "public/Client/assets/css/colapsinho.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/sandwich.menu.css",
-    //     "public/Client/assets/css/sandwich.menu.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/main.css",
-    //     "public/Client/assets/css/main.css"
-    // )
-    // .styles(
-    //     "resources/Client/assets/css/responsive.css",
-    //     "public/Client/assets/css/responsive.css"
-    // )
     .styles(
-        "resources/Client/assets/sass/app.css",
-        "public/Client/assets/css/app.css"
+        "resources/Client/assets/css/splide.min.css",
+        "public/Client/assets/css/splide.min.css"
+    )
+
+    .styles(
+        "resources/Client/assets/sass/main.min.css",
+        "public/Client/assets/css/main.min.css"
     )
     .scripts(
         "resources/Client/assets/js/splide.min.js",
@@ -315,14 +290,6 @@ mix.scripts(
     .scripts(
         "resources/Client/assets/js/inputmask.min.js",
         "public/Client/assets/js/inputmask.min.js"
-    )
-    .scripts(
-        "resources/Client/assets/js/colapsinho.js",
-        "public/Client/assets/js/colapsinho.js"
-    )
-    .scripts(
-        "resources/Client/assets/js/sandwich.menu.js",
-        "public/Client/assets/js/sandwich.menu.js"
     )
     .scripts(
         "resources/Client/assets/js/scroll-banner.js",

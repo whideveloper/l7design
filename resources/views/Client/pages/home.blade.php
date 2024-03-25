@@ -1,10 +1,17 @@
 @extends('Client.core.main')
 @section('content')
-    <h1>teste whi</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/nobGM3EKLIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/710521391?share=copy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Linkin Park &amp; Eminem - Lying From You (2020)"></iframe>
-    </div>
+    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                    <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="">
+                </li>
+            </ul>
+        </div>
+        </section>
     <section>
 
         @php
