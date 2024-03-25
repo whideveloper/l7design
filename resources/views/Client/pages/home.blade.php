@@ -1,10 +1,13 @@
 @extends('Client.core.main')
 @section('content')
-    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+    <section id="image-carousel" class="splide slide" aria-label="Beautiful Images">
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
                     <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="">
+                    <div class="splide__description">
+                        <h2 class="splide__title">Conte com o time Telenordeste</h2>
+                    </div>
                 </li>
                 <li class="splide__slide">
                     <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="">

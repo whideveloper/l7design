@@ -115,7 +115,34 @@ h1{
     font-family: --poppins;
     font-size: 35px;
 }
-.splide__slide img {
-    width: 100%;
-    height: auto;
+.slide{
+
+    .splide__slide{
+
+        img{
+            width: 100%;
+            height: auto;
+        }
+
+        .splide__description{
+            align-items: center;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            left: 50%;
+            max-width: 1300px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+
+            .splide__title{
+                color: #FFF;
+                font-size: 1.875rem;
+                height: 1.438rem;
+                text-align: left;
+                width: 100%;
+            }   
+        }
+    }
 }
