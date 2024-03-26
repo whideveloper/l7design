@@ -1,10 +1,49 @@
 :root {
-    --ubuntu: "Ubuntu", sans-serif;
-    --poppins: "Poppins", sans-serif;
-    --nunito: "Nunito", sans-serif;
+    --roboto-font-family: "Roboto", sans-serif;
     --success: #28a745;
+    --header: #666666;
+    --white: #FFF;
+    --pantone-309-c: #003B49;
+    --pantone-3145-c: #00778B;
+    --pantone-7466-c: #00B0B9;
+    --laranja: #F18318;
+    --verde: #41A935;
+    --azul: #005CA9;
+    --ciano: #82D0F5;
+    --gradient: rgba(0, 176, 185, 1);
 }
 
+@font-face {
+    font-family: var(--roboto-font-family);
+    font-style: normal;
+    font-weight: 100;
+    font-display: block;
+    src: url("../fonts/roboto/Roboto-Thin.ttf") format("truetype"),
+         url("../fonts/roboto/Roboto-Light.ttf") format("truetype"),
+         url("../fonts/roboto/Roboto-Regular.ttf") format("truetype"),
+         url("../fonts/roboto/Roboto-Medium.ttf") format("truetype"),
+         url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+.roboto {
+    font-family: var(--roboto-font-family);
+}
+.thin {
+    font-weight: 100;
+}
+.light {
+    font-weight: 300;
+}
+.regular {
+    font-weight: 400;
+}
+.medium {
+    font-weight: 500;
+}
+.bold {
+    font-weight: 700;
+}
+  
 html {
     font-size: 16px;
 }
@@ -146,7 +185,7 @@ h1{
             width: 100%;
 
             .splide__title{
-                color: #FFF;
+                color: var(--white);
                 font-size: 1.875rem;
                 height: 1.438rem;
                 text-align: left;
@@ -186,13 +225,16 @@ h1{
             gap: 0 30px;
         }
         .header__item a{
+            color:  var(--header);
             text-decoration: none;
             font-size: 16px;
             border-bottom: 4px solid transparent;
+            font-family: var(--roboto-font-family);
+            font-weight: 500;
             padding-bottom: 8px;
             &:hover{
-                color: #22accf;
-                border-color: #FF6B00;
+                color: var(--pantone-7466-c);
+                border-color: var(--laranja);
             }
         }
     }
@@ -204,7 +246,7 @@ h1{
     align-items: baseline;
     .telenordeste__content{
         align-items: flex-start;
-        background-color: #FFF;
+        background-color: var(--white);
         border-radius: 10px;
         display: flex;
         flex-direction: row;
@@ -246,8 +288,8 @@ h1{
                 flex-direction: column;   
                 .telenordeste__content__event__day,
                 .telenordeste__content__event__month{
-                    color: #FFF;
-                    background-color: #22accf;
+                    color: var(--white);
+                    background-color: var(--pantone-7466-c);
                     padding: 8px 10px;
                 }
             }

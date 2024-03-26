@@ -321,6 +321,7 @@ mix.scripts(
         "public/Client/assets/fontello"
     )
     .copyDirectory("resources/Admin/assets/fonts", "public/Admin/assets/fonts")
+    .copyDirectory("resources/Client/assets/fonts", "public/Client/assets/fonts")
     .copyDirectory(
         "resources/Admin/assets/images",
         "public/Admin/assets/images"
