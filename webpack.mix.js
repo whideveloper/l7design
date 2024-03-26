@@ -261,7 +261,6 @@ mix.scripts(
         "node_modules/cropper/dist/cropper.min.css",
         "public/Admin/assets/libs/cropper.min.css"
     )
-
     .styles(
         "resources/Client/assets/css/splide.min.css",
         "public/Client/assets/css/splide.min.css"
@@ -312,16 +311,15 @@ mix.scripts(
         "resources/Client/assets/images",
         "public/Client/assets/images"
     )
-    // .copyDirectory(
-    //     "resources/Client/assets/archives",
-    //     "public/Client/assets/archives"
-    // )
     .copyDirectory(
         "resources/Client/assets/fontello",
         "public/Client/assets/fontello"
     )
     .copyDirectory("resources/Admin/assets/fonts", "public/Admin/assets/fonts")
-    .copyDirectory("resources/Client/assets/fonts", "public/Client/assets/fonts")
+    .copyDirectory(
+        "resources/Client/assets/fonts", 
+        "public/Client/assets/fonts"
+    )
     .copyDirectory(
         "resources/Admin/assets/images",
         "public/Admin/assets/images"

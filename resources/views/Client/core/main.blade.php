@@ -28,31 +28,39 @@
     <meta name="twitter:creator" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
     <meta name="twitter:title" content="L7Design" />
     <meta name="twitter:description" content="Descrição" />
-
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
+    <!--fonts google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
 
 </head>
 
 <body>
     <header class="header">
         <div class="header__content">
-            <div class="header__image">
-                <img src="{{ asset('Client/assets/images/cat-sqr.jpg') }}" alt="">
+            <div class="hearder__position">
+                <div class="header__image">
+                    <a href="">
+                        <img src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="Telenordeste" title="Telenordeste">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item"><a href="" class="active">Home</a></li>
+                        <li class="header__item"><a href="">Especialidades</a></li>
+                        <li class="header__item"><a href="">Material de apoio</a></li>
+                        <li class="header__item"><a href="">Mural de comunicação</a></li>
+                        <li class="header__item"><a href="">SAVs</a></li>
+                        <li class="header__item"><a href="">Desempenho</a></li>
+                        <li class="header__item"><a href="">Galeria</a></li>
+                        <li class="header__item"><a href="">Contatos e Sugestões</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="header__nav">
-                <ul class="header__list">
-                    <li class="header__item"><a href="">Home</a></li>
-                    <li class="header__item"><a href="">Especialidades</a></li>
-                    <li class="header__item"><a href="">Material de apoio</a></li>
-                    <li class="header__item"><a href="">Mural de comunicação</a></li>
-                    <li class="header__item"><a href="">SAVs</a></li>
-                    <li class="header__item"><a href="">Desempenho</a></li>
-                    <li class="header__item"><a href="">Galeria</a></li>
-                    <li class="header__item"><a href="">Contatos e Sugestões</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
