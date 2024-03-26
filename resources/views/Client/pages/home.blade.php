@@ -14,7 +14,45 @@
                 </li>
             </ul>
         </div>
-        </section>
+    </section>
+    <section class="telenordeste">
+        <div class="telenordeste__content">
+            <article>
+                <h1 class="telenordeste__title">O que é o Telenordeste</h1>
+    
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                
+                <div class="telenordeste__btn">
+                    <a href="">
+                        <img src="" alt="">
+                        Entre em contato
+                    </a>
+                </div>
+            </article>
+            <aside>
+                <h3 class="telenordeste__event__title">Próximos Eventos</h3>
+                
+                <ul class="telenordeste__content__event">
+                    <li class="telenordeste__content__event__list">
+                        <a href="" class="link-full"></a>
+
+                        <div class="telenordeste__content__event__date">
+                            <span class="telenordeste__content__event__day">15</span>
+                            <span class="telenordeste__content__event__month">12</span>
+                        </div>
+                        <p>Início das atividades de Apoiadores Regionais</p>                        
+                    </li>
+                </ul>   
+                
+                <div class="telenordeste__btn agenda">
+                    <a href="">
+                        <img src="" alt="">
+                        Ver agenda completa
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
     <section>
 
         @php

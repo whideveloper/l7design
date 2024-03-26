@@ -36,6 +36,25 @@
 </head>
 
 <body>
+    <header class="header">
+        <div class="header__content">
+            <div class="header__image">
+                <img src="{{ asset('Client/assets/images/cat-sqr.jpg') }}" alt="">
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__item"><a href="">Home</a></li>
+                    <li class="header__item"><a href="">Especialidades</a></li>
+                    <li class="header__item"><a href="">Material de apoio</a></li>
+                    <li class="header__item"><a href="">Mural de comunicação</a></li>
+                    <li class="header__item"><a href="">SAVs</a></li>
+                    <li class="header__item"><a href="">Desempenho</a></li>
+                    <li class="header__item"><a href="">Galeria</a></li>
+                    <li class="header__item"><a href="">Contatos e Sugestões</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main id="page">
         @yield('content')
