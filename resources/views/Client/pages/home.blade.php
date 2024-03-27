@@ -85,7 +85,7 @@
             </aside>
         </div>
     </section>
-    <section class="location">
+    <section id="location" class="location">
         <div class="location__content">
             <div class="location__column">
                 <h3 class="location__title">Localização</h3>
@@ -93,13 +93,13 @@
                 <div class="location__values">
                     <img src="{{asset('Client/assets/images/mapa.svg')}}" alt="Mapa" title="Mapa">
 
-                    <div class="lacation__values__content">
+                    <div class="location__values__content">
                         <div class="location__values__box">
-                            <h4 class="location__value__number">00</h4>
+                            <h4 id="cont-1" class="location__value__number">00</h4>
                             <p class="location__value__title">municípios atendidos</p>
                         </div>
                         <div class="location__values__box">
-                            <h4 class="location__value__number">0</h4>
+                            <h4 id="cont-2" class="location__value__number">0</h4>
                             <p class="location__value__title">regiões de <br>saúde de Sergipe</p>
                         </div>
                         <div class="location__text__area">
@@ -112,23 +112,59 @@
                 </div>
             </div>
 
-            <div class="location__column">
-                <h3 class="location__title">Objetivos específicos</h3>
+            <div class="location__column right">
+                <h3 class="location__title right">Objetivos específicos</h3>
                 
-                <div class="location__values">
+                <div class="location__values right">
                     <div class="location__values__box right">
                         <img src="{{asset('Client/assets/images/fluxo.svg')}}" alt="ícone">
-                        <p class="location__value__text">Otimizar o fluxo assistencial</p>
+                        <p class="location__area__text">Otimizar o fluxo assistencial</p>
                     </div>
                     <div class="location__values__box right">
-                        <img src="{{asset('Client/assets/images/fluxo.svg')}}" alt="ícone">
-                        <p class="location__value__text">Fortalecer processos de trabalho na APS</p>
+                        <img src="{{asset('Client/assets/images/processo.svg')}}" alt="ícone">
+                        <p class="location__area__text">Fortalecer processos de trabalho na APS</p>
+                    </div>
+                    <div class="location__values__box right">
+                        <img src="{{asset('Client/assets/images/servico.svg')}}" alt="ícone">
+                        <p class="location__area__text">Fortalecer processos de trabalho na APS</p>
+                    </div>
+                    <div class="location__values__box right">
+                        <img src="{{asset('Client/assets/images/profissionais.svg')}}" alt="ícone">
+                        <p class="location__area__text">Fortalecer processos de trabalho na APS</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+    <section class="teleinterconsulta">
+        <div class="teleinterconsulta__content">
+            <article>
+                <div class="teleinterconsulta__image">
+                    <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
+
+                    <img src="{{asset('Client/assets/images/teleinterconsulta.jpg')}}" class="hover" alt="Teleinterconsulta" title="Teleinterconsulta">
+
+                    <img src="{{asset('Client/assets/images/rendound-bottom.svg')}}" alt="redound-bottom" class="redound-bottom" title="redound-bottom">
+                </div>
+                <div class="teleinterconsulta__description">
+                    <h2 class="teleinterconsulta__title">O que é a Teleinterconsulta?</h2>
+
+                    <p class="teleinterconsulta__text">A <b>Teleinterconsulta</b> e a <b>Teleconsultoria</b> são modalidades de compartilhamento do cuidado que ocorrem de forma remota, com o objetivo de fortalecer o processo de trabalho na Atenção Primária.
+                    <br><br>
+                    Elas visam a promover a ampliação e a resolutividade das ações e serviços de forma integrada e planejada, além de expandir a oferta de serviços de atenção especializada.
+                    <br><br>
+                    Na <b>Teleinterconsulta</b>, o profissional da APS, na presença do paciente na UBS (Unidade Básica de Saúde), troca informações e opiniões com o médico especialista por meio de tecnologias digitais.
+                    <br><br>
+                    A <b>Teleconsultoria</b> também funciona com a discussão de caso, porém sem a presença do paciente. Entre as especialidades disponibilizadas no projeto estão: Neurologia adulto e pediátrica; Psiquiatria adulto e pediátrica; Cardiologia; Endocrinologia adulto e pediátrica; Urologia; Fisiatria; Medicina de Família e Comunidade; Nutrição; e Enfermagem.
+                    </p>
+
+                    <div class="teleinterconsulta__btn">
+                        <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
     <section>
 
         @php
@@ -145,4 +181,61 @@
         @endfor
 
     </section>
+
+    <script>
+        // Função para verificar se a sessão está visível na tela
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Função para iniciar a contagem quando a sessão está visível na tela
+        function startCountersWhenVisible() {
+            var locationSection = document.querySelector('.location');
+            var isCountingStarted = false;
+
+            function startCounters() {
+                if (isCountingStarted) return;
+
+                animateValue("cont-1", 0, 180, 2000); // Animação para o primeiro contador
+                animateValue("cont-2", 0, 55, 2000); // Animação para o segundo contador
+
+                isCountingStarted = true;
+            }
+
+            function handleScroll() {
+                if (isElementInViewport(locationSection)) {
+                    startCounters();
+                    window.removeEventListener('scroll', handleScroll); // Remove o ouvinte de evento de rolagem após iniciar a contagem
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        // Função para animar o contador
+        function animateValue(id, start, end, duration) {
+            var obj = document.getElementById(id);
+            var range = end - start;
+            var current = start;
+            var increment = end > start ? 1 : -1;
+            var stepTime = Math.abs(Math.floor(duration / range));
+            var timer = setInterval(function() {
+                current += increment;
+                obj.textContent = current;
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Inicia a contagem quando a sessão está visível na tela
+        startCountersWhenVisible();
+
+    </script>
 @endsection

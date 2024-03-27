@@ -68,7 +68,13 @@
     -o-transition: all $duration $timing-function;
     transition: all $duration $timing-function;
 }
-  
+@mixin scale($duration: 0.3s, $timing-function: ease) {
+    -webkit-transition: transform $duration $timing-function;
+    -moz-transition: transform $duration $timing-function;
+    -ms-transition: transform $duration $timing-function;
+    -o-transition: transform $duration $timing-function;
+    transition: transform $duration $timing-function;
+}
   
 html {
     font-size: 16px;
@@ -286,13 +292,15 @@ input, select {
         }
     }
 }
-.telenordeste{
+.telenordeste,
+.teleinterconsulta{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: baseline;
 }
-.telenordeste__content{
+.telenordeste__content,
+.teleinterconsulta__content{
     align-items: flex-start;
     background-color: var(--white);
     border-radius: 10px;
@@ -321,7 +329,8 @@ input, select {
         }
     }
     .telenordeste__title,
-    .telenordeste__event__title{
+    .telenordeste__event__title,
+    .teleinterconsulta__title{
         align-items: center;
         color: var(--pantone-3145-c);
         display: flex;
@@ -397,7 +406,7 @@ input, select {
         }
         p{
             @include transition-ease;
-            color: var(--pantone-7466-c);
+            color: var(--pantone-3145-c);
             font-size: 1.063rem;
             font-family: var(--roboto-font-family);
             font-weight: 700;
@@ -420,7 +429,8 @@ input, select {
         }
     }   
 }
-.telenordeste__btn{
+.telenordeste__btn,
+.teleinterconsulta__btn{
     align-items: center;
     background-color: var(--verde);
     border-radius: 1.875rem;
@@ -428,11 +438,13 @@ input, select {
     justify-content: center;
     height: 3.75rem;
     margin-top: 1.875rem;
-    max-width: 14rem;    
+    max-width: 14rem;  
+    overflow: hidden;  
     position: relative;
     width: 100%;
     z-index: 0;
-    &.agenda{
+    &.agenda,
+    &.consulta{
         background-color: var(--pantone-7466-c);
         bottom: 0;
         left: 50%;
@@ -456,6 +468,7 @@ input, select {
         overflow: hidden;
         position: relative;
         width: 100%;
+        z-index: 0;
         &::before{
             @include transition-ease;
             content: "";
@@ -484,9 +497,10 @@ input, select {
     align-items: flex-end;
     background-color: var(--grey);
     display: flex;
-    height: 31.25rem;
+    height: 592px;
     justify-content: center;
     margin-top: -3.625rem;
+    padding-bottom: 100px;
     width: 100%;
 }
 .location__content{
@@ -495,37 +509,102 @@ input, select {
     height: 100%;
     justify-content: center;
     max-width: 1200px;
+    position: relative;
     width: 100%;
+    &::before{
+        content: '';
+        background-image: url('../images/firula-left.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 53px;
+        position: absolute;
+        right: calc(100% - 100px);
+        top: calc(100% - 141px);
+        width: 54px;
+    }
+    &::after{
+        content: "";
+        background-image: url('../images/firula-right.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        bottom: calc(100% - 182px);
+        height: 80px;
+        left: calc(100% - 150px);
+        position: absolute;
+        width: 80px;
+    }
     .location__column{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         height: 100%;
-        width: 50%;
+        width: 35%;
+        .location__title{
+            color: var(--pantone-3145-c);
+            font-family: var(--roboto-font-family);
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin: 0 auto;
+            margin-top: 132px;
+            width: 85%;
+        }
+        .location__title{
+            &::before{
+                content: "";
+                background-color: var(--laranja);
+                border-radius: 3px;
+                display: inline-block;
+                height: 34px;
+                margin-right: 18px;
+                vertical-align: middle;
+                width: 5px;
+            }
+            &.right{
+                width: 94%;
+            }
+        }
+        &.right{
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2.8rem 0;
+        }
     }
 }
 .location__values{
+    align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 1.375rem;
     height: 100%;
     position: relative;
     img{
-        height: 415px;
+        height: 426px;
         left: 50%;
         position: absolute;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -45%);
         top: 50%;
         width: auto;
     }    
+    &.right{
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+    }
 }
-.lacation__values__content{
+.location__values__content{
     align-items: baseline;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    height: 382px;
     left: 50%;
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
-    width: 55%;
+    transform: translate(-50%, -40%);
+    width: 92%;
     a{
         @include transition-ease;
         align-items: center;
@@ -537,7 +616,8 @@ input, select {
         font-weight: 500;
         height: 3.75rem;
         justify-content: center;
-        margin-top: 1.438rem;
+        margin: 0 auto;
+        margin-top: 8px;
         max-width: 13.125rem;
         overflow: hidden;
         position: relative;
@@ -576,28 +656,44 @@ input, select {
     }
 }
 .location__values__box{
-    height: 100%;
-    width: 49%;
+    height: auto;
+    width: 41%;
+    &:nth-of-type(1) {
+        margin-left: 9px;
+    }
 }
 .location__values__box.right{
+    @include transition-ease;
     align-items: center;
     background: #FFF;
     border-radius: 100%;
     display: flex;
     flex-direction: column;
+    gap: 10px 0;
     height: 49%;
     justify-content: center;
     max-height: 170px;
     max-width: 170px;
     position: relative;
-}
-.location__values__box.right img{
-    height: inherit;
-    left: inherit;
-    position: relative;
-    transform: inherit;
-    top: inherit;
-    width: 33.33px;
+    text-align: center;
+    &:hover{
+        @include transition-ease;
+        transform: scale(1.02);
+        
+    }
+    .location__area__text{
+        padding: 0 22px;
+        width: 87%;
+        margin: 0;
+    }
+    img{
+        height: auto;
+        left: inherit;
+        position: relative;
+        transform: inherit;
+        top: inherit;
+        width: 33.33px;
+    }
 }
 .location__value__number{
     color: var(--pantone-3145-c);
@@ -615,14 +711,124 @@ input, select {
     text-align: center;
 }
 .location__text__area{
-    margin-top: 23px;
     width: 100%;
-    .location__area__text{
-        color: var(--grey-secundary);
-        font-family: var(--roboto-font-family);
-        font-weight: 400;
-        font-size: 1rem;
-        line-height: 1.625rem;
-        text-align: center;
+}
+.location__area__text{
+    color: var(--grey-secundary);
+    font-family: var(--roboto-font-family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+}
+.teleinterconsulta article{
+    align-items: center;
+    display: flex;
+    gap:  0 120px;
+    justify-content: center;
+    width: 100%;
+}
+.teleinterconsulta__content{
+    align-items: center !important;
+}
+.teleinterconsulta__image{
+    position: relative;
+    max-width: 388px;
+    width: 40%;
+    .redound-top{
+        @include transition-ease;
+        position: absolute;
+        height: auto;
+        left: calc(100% - 175px);
+        top: -53px;
+        width: 108px;
+        z-index: 1;
+    }
+    .redound-bottom{
+        @include transition-ease;
+        bottom: 103px;
+        height: auto;
+        left: -45px;
+        position: absolute;
+        width: 88px;
+        z-index: -1;
+    }
+    img{
+        @include transition-ease;
+        height: 539px;
+        width: auto;
+    }
+    &::after{
+        @include transition-ease;
+        content: '';
+        background-image: url('../images/rendound-preenchido.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 30px;
+        bottom: -46px;
+        height: 103px;
+        width: 104px;
+        z-index: 1;
+    }
+    &::before{
+        @include transition-ease;
+        content: '';
+        background-image: url('../images/meio-rendound.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: -75px;
+        bottom: 75px;
+        height: 100%;
+        width: 113px;
+        z-index: 1;
+    }
+}
+
+.teleinterconsulta__image:hover{
+    &::before{
+        @include transition-ease;
+        transform: translate(2%, 1%);
+    }
+    &::after{
+        @include transition-ease;
+        transform: translate(-6%, 6%);
+    }
+    .redound-top{
+        @include transition-ease;
+        transform: translate(-6%, -6%);
+    }
+    .redound-bottom{
+        @include transition-ease;
+        transform: translate(-6%, -6%);
+    }
+}
+
+.teleinterconsulta__description{
+    width: 44%;
+    .teleinterconsulta__title{
+        width: 95%;
+        &::before{
+            height: 94px !important;
+            width: 8px !important;
+        }
+    }
+    .teleinterconsulta__text{
+        font-size: 1rem !important;
+    }
+    .teleinterconsulta__btn{
+        max-width: 255px;
+        margin-top: 20px;
+    }
+    .teleinterconsulta__btn a {
+        background-color: var(--pantone-7466-c);
+        img{
+            width: 36px;
+        }
     }
 }
