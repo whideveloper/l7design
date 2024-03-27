@@ -100,13 +100,14 @@
                         </div>
                         <div class="location__values__box">
                             <h4 class="location__value__number">0</h4>
-                            <p class="location__value__title">regiões de saúde de Sergipe</p>
+                            <p class="location__value__title">regiões de <br>saúde de Sergipe</p>
                         </div>
                         <div class="location__text__area">
                             <p class="location__area__text">
                                 O projeto será ofertado aos 75 municípios do Estado de Sergipe, que são divididos em sete Regiões de Saúde (Itabaiana, Lagarto, Aracaju, Estância, Nossa Senhora do Socorro, Nossa Senhora da Glória e Propriá).
                             </p>
                         </div>
+                        <a href=""><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
                     </div>
                 </div>
             </div>
@@ -115,11 +116,11 @@
                 <h3 class="location__title">Objetivos específicos</h3>
                 
                 <div class="location__values">
-                    <div class="location__values__box">
+                    <div class="location__values__box right">
                         <img src="{{asset('Client/assets/images/fluxo.svg')}}" alt="ícone">
                         <p class="location__value__text">Otimizar o fluxo assistencial</p>
                     </div>
-                    <div class="location__values__box">
+                    <div class="location__values__box right">
                         <img src="{{asset('Client/assets/images/fluxo.svg')}}" alt="ícone">
                         <p class="location__value__text">Fortalecer processos de trabalho na APS</p>
                     </div>
