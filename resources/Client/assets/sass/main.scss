@@ -3,6 +3,7 @@
     --success: #28a745;
     --header: #666666;
     --white: #FFF;
+    --depoimento:#33333342;
     --grey: #F3F3F3;
     --grey-secundary: #333333;
     --text-shadow: #0000004d;
@@ -68,14 +69,7 @@
     -o-transition: all $duration $timing-function;
     transition: all $duration $timing-function;
 }
-@mixin scale($duration: 0.3s, $timing-function: ease) {
-    -webkit-transition: transform $duration $timing-function;
-    -moz-transition: transform $duration $timing-function;
-    -ms-transition: transform $duration $timing-function;
-    -o-transition: transform $duration $timing-function;
-    transition: transform $duration $timing-function;
-}
-  
+
 html {
     font-size: 16px;
 }
@@ -293,14 +287,16 @@ input, select {
     }
 }
 .telenordeste,
-.teleinterconsulta{
+.teleinterconsulta,
+.hospital{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: baseline;
 }
 .telenordeste__content,
-.teleinterconsulta__content{
+.teleinterconsulta__content,
+.hospital__content{
     align-items: flex-start;
     background-color: var(--white);
     border-radius: 10px;
@@ -832,14 +828,16 @@ input, select {
         }
     }
 }
-.funciona{
+.funciona,
+.proadi{
     align-items: center;
     background-color: var(--grey);
     display: flex;
     justify-content: center;
     margin-top: -30px;
     padding: 125px 0;
-    .funciona__content{
+    .funciona__content,
+    .proadi__content{
         align-items: center;
         display: flex;
         flex-direction: row;
@@ -910,10 +908,12 @@ input, select {
     }
 }
 .funciona__content aside p {
-    margin-top: 9px;
     width: 100%;
 }
-.funciona__title{
+.funciona__title,
+.depoimento__title,
+.hospital__title,
+.proadi__title{
     align-items: center;
     color: var(--pantone-3145-c);
     display: flex;
@@ -931,4 +931,379 @@ input, select {
         margin-right: 0.8rem;
         width: 0.5rem;
     }
+}
+.hospital__content{
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 894px;
+    position: relative;
+    &::before{
+        background-image: url('../images/firula-hospital-top.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        content: "";
+        height: 125px;
+        right: -80px;
+        position: absolute;
+        top: 225px;
+        width: 126px;
+        z-index: 1;
+    }
+    &::after{
+        background-image: url('../images/firula-hospital-bottom.svg');   
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        content: "";
+        height: 156px;
+        left: -80px;
+        position: absolute;
+        bottom: 174px;
+        width: 156px;
+    }
+    .hospital__title{
+        width: 60%;  
+        margin-bottom: 17px;
+        &::before{
+            height: 5.875rem;
+            margin-right: 0.8rem;
+            width: 0.5rem;
+        }      
+    }
+    .hospital__image,
+    .hospital__image__bottom{
+        margin: 30px 0;
+        text-align: center;
+        img{
+            height: 403px;
+            width: auto;
+        }
+    }
+    article{
+        width: 100% !important;
+    }
+}
+.hospital__image {
+    margin-bottom: 57px !important;
+    img{
+        width: 363px !important;
+        height: auto !important;
+    }
+}
+.proadi__content__items{
+    ul{
+        padding-left: 30px;
+    }
+    p, li{
+        color: var(--grey-secundary);
+        font-size: 1.063rem;
+        font-family: var(--roboto-font-family);
+        font-weight: 400;
+        line-height: 1.625rem;
+        & b{
+            color: var(--pantone-7466-c);
+            font-weight: 500;
+        }
+    }
+}
+.proadi__title{
+    &::before{
+        height: 5.875rem;
+        margin-right: 0.8rem;
+        width: 0.5rem;
+    }      
+}
+.proadi__content__items{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.proadi article{
+    width: 60%;
+}
+.proadi__image{
+    width: 35%;
+    img{
+        height: 308px;
+        width: 308px;
+    }
+}
+#depoimento{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+}
+.depoimento__content{
+    align-items: flex-start;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-top: -58px;
+    padding: 59px;
+    position: relative;
+    z-index: 1;
+    &::after{
+        content: '';
+        background-image: url('../images/firula-depoimento.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 201px;
+        position: absolute;
+        right: 140px;
+        top: -90px;
+        width: 104px;
+        z-index: 2;
+    }
+}
+.owl-carousel .owl-item .item{
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px var(--depoimento);
+    transform: scale(0.9);
+}
+.owl-theme .owl-nav{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    margin: 0 !important;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.owl-carousel .owl-nav button.owl-prev{
+    margin-left: 0;
+}
+.owl-carousel .owl-nav button.owl-next{
+    margin-right: 18px;
+}
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next{
+    @include transition-ease;
+    color: var(--white) !important;
+    font-size: 2rem !important;
+    font-family: var(--roboto-font-family) !important;
+    background-color: var(--laranja) !important;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    &:hover{
+        @include transition-ease;
+        transform: scale(1.2);
+    }
+    span{
+        margin-top: -5px;
+    }
+}
+.owl-carousel .owl-item.active.center .item{
+    transform: scale(1.2);
+    padding: 25px 0; 
+}
+.depoimento.owl-carousel .owl-stage{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 103px 0px;
+    gap: 0 20px;
+}
+.owl-carousel .owl-item.active.center .item__description{
+    height: auto;
+    margin: 0 auto;
+    max-width: 292px;
+    width: 100%;
+    padding: 0;
+    &::after{
+        content: '';
+        bottom: -9px;
+        right: -9px;
+    }
+    &::before{
+        content: '';
+        left: -13px;
+        top: -9px;
+        height: 50px;
+        width: 50px;
+    }
+    p{
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    span{
+        width: 100%;
+    }
+    .item__title{
+        width: 100%;
+    }
+}
+.item__description {
+    padding: 20px 20px 35px 20px;
+    span{
+        color: var(--header);
+        display: block;
+        font-weight: 400;
+        font-family: var(--roboto-font-family);
+        font-size: 0.875rem;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .item__title{
+        color: var(--pantone-3145-c);
+        font-family: var(--roboto-font-family);
+        font-weight: 700;
+        font-size: 1.063rem;
+        line-height: 1.875rem;
+        margin: 0 auto;
+        width: 90%;
+    }
+    &::after{
+        content: '';
+        background-image: url('../images/aspas-right.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 38px;
+        width: 38px;
+        position: absolute;
+        bottom: -9px;
+        right: -9px;
+        z-index: 33333333;
+    }
+    &::before{
+        content: '';
+        background-image: url('../images/aspas-left.svg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: -12px;
+        left: -9px;
+        z-index: 33333333;
+    }
+    p{
+        color: var(--grey-secundary);
+        font-size: 1.063rem;
+        font-family: var(--roboto-font-family);
+        font-weight: 400;
+        line-height: 1.438rem;
+        margin: 0 auto;
+        position: relative;
+        padding: 15px 0;
+        width: 90%;
+    }
+    
+}
+.depoimento__title{
+    margin: 0 !important;
+}
+.footer{
+    background-color: var(--pantone-3145-c);
+    height: 172px;
+    width: 100%;
+    .footer__logos{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px 0;
+    }
+    .footer__logos__items{
+        align-items: center;
+        background-color: var(--white);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 0 34.79px;
+        justify-content: space-between;
+        max-width: 1100px;
+        margin-top: -50px;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        li{
+            list-style-type: none;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+.footer__contact{
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    width: 100%;
+}
+.footer__contact__items{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.footer__contact__items__left{
+    width: 60%;
+    color: var(--white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 20px;
+
+    li{
+        
+        list-style-type: none;
+        a{
+            font-size: 1rem;
+            font-family: var(--roboto-font-family);
+            color: var(--white);
+            font-weight: 400;
+        }
+        b{
+            font-weight: bold;
+        }
+    }
+}
+.footer__contact__title{
+    color: var(--white);
+    font-size: 1.063rem;
+    font-weight: bold;
+    font-family: var(--roboto-font-family);
+    margin-bottom: 10px;
+    width: 100%;
+}
+.footer__contact__items__right{
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+    li{
+        list-style-type: none;
+        &:nth-child(-n+3){
+            border-right: 1px solid var(--white);
+            margin-right: 24px;
+            padding-right: 24px;
+        }
+    }
+}
+.insta, .linkedin{
+    width: 28px;
 }

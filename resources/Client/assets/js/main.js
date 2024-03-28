@@ -165,4 +165,37 @@ document.addEventListener('DOMContentLoaded', function () {
         interval: 3000, 
     }).mount();
 });
+$(document).ready(function(){
+    $(".depoimento").owlCarousel({
+        loop:true,
+        margin:25,
+        center:true,
+        nav:true,
+        dots:false,
+        autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
 

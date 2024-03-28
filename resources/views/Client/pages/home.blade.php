@@ -200,7 +200,117 @@
             </aside>
         </div>
     </section>
-    <section>
+    <section class="hospital">
+        <div class="hospital__content">
+            <h2 class="hospital__title">O Hospital Alemão Oswaldo Cruz no TeleNordeste</h2>
+            <article>
+                <div class="hospital__image">
+                    <img src="{{asset('Client/assets/images/logo-oswaldo-cruz.jpg')}}" alt="Hospital Alemão Oswaldo Cruz" title="Hospital Alemão Oswaldo Cruz">
+                </div>
+                <p>
+                    Referência na América Latina, o <b>Hospital Alemão Oswaldo Cruz</b> construiu, ao longo dos seus 126 anos de história, uma tradição que combina a excelência em atendimento e o acolhimento, e mantém a instituição na vanguarda da saúde brasileira, ocupando a terceira posição entre os hospitais brasileiros no “World's Best Hospitals 2024”, da Newsweek.
+                    <br><br>
+                    Ao assumir como missão o protagonismo no desenvolvimento da saúde, o propósito de servir à vida ganhou novas dimensões em impacto e responsabilidade social. Desta forma, a vocação social se constitui como um dos valores que norteiam a nossa essência. Por meio dessa vocação buscamos contribuir com a saúde para além de nossa instituição, compartilhando nosso conhecimento e nossas práticas com o sistema público de saúde  e outras organizações sociais, impactando ainda mais pessoas por meio do nosso compromisso social.
+                    <br><br>
+                    Adotamos as melhores práticas de governança corporativa, ética e compliance, o que nos permite aliar excelência ao Sistema Único de Saúde, por meio de parcerias de valor compartilhado, para a gestão de instituições públicas. Contribuímos ainda para o desenvolvimento de políticas públicas que fortaleçam o avanço sistêmico da Saúde no país, atuando a partir de duas frentes estratégicas: o <b>Instituto Social Hospital Alemão Oswaldo Cruz</b> (ISHAOC) e o Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde.
+                    <br><br>
+                    É por meio do PROADI-SUS que integramos o <b>TeleNordeste</b>, projeto concebido pelo Ministério da Saúde com o apoio do Conselho Nacional de Secretários de Saúde, realizado por cinco hospitais de referência do país. 
+                    <br><br>
+                    Para nós, contribuir com a ampliação do acesso ao atendimento especializado em uma das regiões brasileiras com a menor proporção de médicos por mil habitantes é exercer a nossa missão no protagonismo do desenvolvimento da saúde, impactando cada vez mais pessoas por meio do nosso compromisso social.
+                    <br><br>
+                    No Estado de Sergipe, onde atuamos com o projeto, já realizamos mais de <b>3000 atendimentos por Teleinterconsulta</b> em diversas especialidades, como Neurologia, Fisiatria, Psiquiatria, Cardiologia e Endocrinologia.
+                    <br><br>
+                    Nosso objetivo para os próximos três anos é expandir ainda mais nossa atuação, chegando a todos os municípios sergipanos. Dessa forma, esperamos contribuir significativamente para o aprimoramento das ações da Atenção Primária à Saúde, proporcionando ampliação de acesso, agilidade no atendimento e reduzindo filas e o tempo de espera.
+                </p>
+                <div class="hospital__image__bottom">
+                    <img src="{{asset('Client/assets/images/image-bottom.jpg')}}" alt="image-bottom" title="image-bottom">
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="proadi">
+        <div class="proadi__content">
+            <h2 class="proadi__title">Proadi-SUS – Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde</h2>
+            <div class="proadi__content__items">
+                <article>
+                    <p>
+                        O <b>Hospital Alemão Oswaldo Cruz</b> compõe o seleto grupo de seis instituições filantrópicas detentoras do título de Entidades de Saúde de Reconhecida Excelência (ESRE). Juntas, essas instituições participam do PROADI-SUS, instituído em 2009 pelo Ministério da Saúde, com o objetivo de qualificar e aprimorar políticas, programas e serviços do SUS por meio de parcerias público-privadas com esses hospitais de excelência. 
+                        <br><br>
+                        Atualmente o PROADI-SUS é regulamentado pela Lei Complementar nº 187, de 16 de dezembro de 2021, que estabelece as etapas de habilitação e determina a apresentação de projetos em quatro modalidades: estudos de avaliação e incorporação de tecnologias; capacitação de recursos humanos; pesquisas de interesse público; e desenvolvimento de técnicas e operação de gestão em serviços de Saúde (Brasil, 2021).
+                        <br><br>
+                        Além destas quatro modalidades, os projetos estão inseridos dentro do que chamamos de macrotemas de saúde
+                        <br><br>
+                        <ul>
+                            <li>Educação para profissionais de saúde;</li>
+                            <li>Pesquisas de interesse público;</li>
+                            <li>Apoio à organização da Rede de Atenção à Saúde (RAS);</li>
+                            <li>Fortalecimento da gestão do SUS;</li>
+                            <li>Melhoria da gestão assistencial, de qualidade e de segurança do paciente;</li>
+                            <li>Evolução de práticas na Atenção Primária à Saúde;</li>
+                            <li>Saúde digital/Inovação;</li>
+                            <li>Assistência especializada complementar;</li>
+                            <li>Telessaúde;</li>
+                            <li>Avaliação de Tecnologias em Saúde;</li>
+                            <li>Aprimoramento do Sistema Nacional de Vigilância Sanitária (SNVS);</li>
+                            <li>Ações de enfrentamento à Covid-19 (a partir de 2020).</li>
+                        </ul>
+                    </p>
+                </article>
+                <div class="proadi__image">
+                    <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="depoimento">
+        <div class="depoimento__content">
+            <h2 class="depoimento__title">Depoimentos</h2>
+
+            <div class="depoimento owl-carousel owl-theme">  
+                <div class="item">
+                    <div class="item__description">
+                        <img src="{{asset('Client/assets/images/depoimento.png')}}" alt="">
+                        <p>
+                            O paciente consegue agendar a consulta com o especialista de forma mais rápida do que pelo SUS. Então, nós realizamos uma videochamada pelo computador e temos acesso ao especialista. Dessa forma, o paciente é atendido com maior rapidez e, para mim, é uma oportunidade de aprendizado poder interagir com os especialistas.
+                        </p>
+                        <h5 class="item__title">Dr. Bruno de Deus Santos</h5>
+                        <span>Médico</span>
+                    </div>
+                </div>              
+                <div class="item">
+                    <div class="item__description">
+                        <p>
+                            Meus pacientes estão hoje satisfeitos com as consultas, já que o tratamento está sendo muito efetivo. Eu acho que o projeto está dando certo e tem grande possibilidade de continuar.
+                        </p>
+                        <h5 class="item__title">Dr. Alexey Leyva Daudinot</h5>
+                        <span>Médico</span>
+                    </div>
+                </div>    
+                <div class="item">
+                    <div class="item__description">
+                        <img src="{{asset('Client/assets/images/depoimento.png')}}" alt="">
+                        <p>
+                            O paciente consegue agendar a consulta com o especialista de forma mais rápida do que pelo SUS. Então, nós realizamos uma videochamada pelo computador e temos acesso ao especialista. Dessa forma, o paciente é atendido com maior rapidez e, para mim, é uma oportunidade de aprendizado poder interagir com os especialistas.
+                        </p>
+                        <h5 class="item__title">Dr. Bruno de Deus Santos</h5>
+                        <span>Médico</span>
+                    </div>
+                </div>            
+                <div class="item">
+                    <div class="item__description">
+                        <p>
+                            É um projeto muito interessante, pois nos permite ter essa visão prática do especialista, o que só tende a beneficiar o paciente.
+                        </p>
+                        <h5 class="item__title">Dra. Lorena Barreto Araujo</h5>
+                        <span>Médico</span>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+    
+
+    {{-- <section>
 
         @php
             $content = [
@@ -215,7 +325,7 @@
             @include('Client.models.mdl-article', $content)
         @endfor
 
-    </section>
+    </section> --}}
 
     <script>
         // Função para verificar se a sessão está visível na tela
@@ -237,8 +347,8 @@
             function startCounters() {
                 if (isCountingStarted) return;
 
-                animateValue("cont-1", 0, 180, 2000); // Animação para o primeiro contador
-                animateValue("cont-2", 0, 55, 2000); // Animação para o segundo contador
+                animateValue("cont-1", 0, 75, 2000); // Animação para o primeiro contador
+                animateValue("cont-2", 0, 7, 2000); // Animação para o segundo contador
 
                 isCountingStarted = true;
             }
@@ -273,4 +383,5 @@
         startCountersWhenVisible();
 
     </script>
+    
 @endsection
