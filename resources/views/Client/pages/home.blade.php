@@ -165,6 +165,41 @@
             </article>
         </div>
     </section>
+    <section class="funciona">
+        <div class="funciona__content">
+            <h2 class="funciona__title">Como funciona?</h2>
+
+            <div class="funciona__steps">
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">1</div>
+                    <p class="funciona__steps__step__description">
+                        Inicialmente, os municípios interessados devem assinar o Termo de Adesão e preencher o formulário on-line com dados gerais da Rede de Atenção à Saúde local. É importante que o gestor municipal realize uma conversa com os profissionais de saúde para apresentação do projeto e alinhamentos de sua implantação na rotina das equipes, podendo contar com a equipe do <b>TeleNordeste</b>, de forma virtual.
+                    </p>
+                </article>
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">2</div>
+                    <p class="funciona__steps__step__description">
+                        Após a adesão, os profissionais cadastrados devem realizar o treinamento, de forma on-line, para uso da plataforma, e assim começar a realizar os agendamentos para <b>Teleinterconsultas</b>/ <b>Teleconsultorias</b>.
+                    </p>
+                </article>
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">3</div>
+                    <p class="funciona__steps__step__description">
+                        A partir de casos selecionados pelos médicos da APS, os pacientes chegam no horário agendado na Unidade de Saúde para a consulta com o médico que, por chamada de vídeo, se conecta com o especialista do, <b>Hospital Alemão Oswaldo Cruz</b> para a condução compartilhada do caso, com a possibilidade de três desfechos: retorno por <b>Teleinterconsulta</b>, alta para APS ou encaminhamento para a Atenção Especializada presencial.
+                    </p>    
+                </article>
+            </div>
+            <aside>
+                <p class="funciona__steps__step__text">
+                    Existem ainda outras modalidades de apoio por <b>Telessaúde</b> feitas sem a presença do paciente, no formato assíncrono, ou seja, sem a necessidade de agendamento, onde o questionamento do profissional da APS ao especialista é feito via plataforma, com resposta em até 72 horas úteis.
+                    <br><br>
+                    Ainda que o projeto promova um acesso imediato do paciente, seu grande legado é o aprimoramento dos profissionais da APS. As múltiplas interações com os especialistas permitem um aprendizado no manejo de situações que anteriormente geravam encaminhamentos para a atenção especializada.
+                    <br><br>
+                    Esse processo formativo garante a sustentabilidade dos ganhos desenvolvidos ao longo do projeto, qualificando desta forma os encaminhamentos à atenção especializada, otimizando o acesso para casos de fato necessários, com tendência à diminuição das filas de espera.
+                </p>
+            </aside>
+        </div>
+    </section>
     <section>
 
         @php
