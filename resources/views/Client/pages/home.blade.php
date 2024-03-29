@@ -18,7 +18,14 @@
             </ul>
         </div>
     </section>
-    <section class="telenordeste">
+    <!--Button flutuante-->
+    <button id="rolagem__top" class="rolagem__top">
+        <a href="#header">
+            <img src="{{asset('Client/assets/images/top-1.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-1">
+            <img src="{{asset('Client/assets/images/top-2.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-2">            
+        </a>
+    </button>
+    <section id="telenordeste" class="telenordeste">
         <div class="telenordeste__content">
             <article>
                 <h1 class="telenordeste__title">O que é o Telenordeste</h1>
@@ -269,7 +276,6 @@
             <div class="depoimento owl-carousel owl-theme">  
                 <div class="item">
                     <div class="item__description">
-                        <img src="{{asset('Client/assets/images/depoimento.png')}}" alt="">
                         <p>
                             O paciente consegue agendar a consulta com o especialista de forma mais rápida do que pelo SUS. Então, nós realizamos uma videochamada pelo computador e temos acesso ao especialista. Dessa forma, o paciente é atendido com maior rapidez e, para mim, é uma oportunidade de aprendizado poder interagir com os especialistas.
                         </p>
@@ -296,6 +302,15 @@
                         <span>Médico</span>
                     </div>
                 </div>            
+                <div class="item">
+                    <div class="item__description">
+                        <p>
+                            É um projeto muito interessante, pois nos permite ter essa visão prática do especialista, o que só tende a beneficiar o paciente.
+                        </p>
+                        <h5 class="item__title">Dra. Lorena Barreto Araujo</h5>
+                        <span>Médico</span>
+                    </div>
+                </div>                
                 <div class="item">
                     <div class="item__description">
                         <p>

@@ -226,6 +226,59 @@ input, select {
         width: 10px;
     }
 }
+.rolagem__top{
+    border: 4px solid var(--pantone-7466-c);
+    background-color: transparent;
+    border-radius: 100%;
+    display: none;
+    height: 58px;
+    position: fixed;
+    right: 51px;
+    top: calc(100% - 100px);
+    width: 58px;
+    z-index: 999;
+    &.ft{
+        border-color: var(--white);
+
+        img{
+            filter: brightness(10) saturate(0.1) contrast(10);
+        }
+    }
+    a{
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        @include transition-ease;
+        .top-1,
+        .top-2{
+            @include transition-ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .top-2{
+            top: 69px;
+            @include transition-ease;
+        }
+        &:hover{
+            .top-1{
+                top: -10px;
+                @include transition-ease;
+            }
+            .top-2{
+                top: 50%;
+                @include transition-ease;
+            } 
+        }
+    }
+}
+
 .header{
     display: flex;
     height: 122px;
@@ -1068,6 +1121,7 @@ input, select {
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 1px 1px 10px var(--depoimento);
+    @include transition-medium;
     transform: scale(0.9);
 }
 .owl-theme .owl-nav{
@@ -1108,6 +1162,7 @@ input, select {
     }
 }
 .owl-carousel .owl-item.active.center .item{
+    @include transition-medium;
     transform: scale(1.2);
     padding: 25px 0; 
 }
@@ -1115,8 +1170,9 @@ input, select {
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 103px 0px;
+    padding: 40px 0px;
     gap: 0 20px;
+    height: 460px;
 }
 .owl-carousel .owl-item.active.center .item__description{
     height: auto;
@@ -1211,6 +1267,7 @@ input, select {
 }
 .footer{
     background-color: var(--pantone-3145-c);
+    border-top: 8px solid var(--pantone-7466-c);
     height: 172px;
     width: 100%;
     .footer__logos{
@@ -1236,9 +1293,14 @@ input, select {
         position: relative;
         z-index: 1;
         li{
+            @include transition-ease;
             list-style-type: none;
             img{
                 width: 100%;
+            }
+            &:hover{
+                @include transition-ease;
+                transform: scale(1.1);
             }
         }
     }
@@ -1272,10 +1334,14 @@ input, select {
         
         list-style-type: none;
         a{
+            align-items: center;
+            display: flex;
             font-size: 1rem;
             font-family: var(--roboto-font-family);
             color: var(--white);
             font-weight: 400;
+            gap: 0 10px;
+            justify-content: center;
         }
         b{
             font-weight: bold;
