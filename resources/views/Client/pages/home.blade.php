@@ -319,7 +319,6 @@
                 </div>    
                 <div class="item">
                     <div class="item__description">
-                        <img src="{{asset('Client/assets/images/depoimento.png')}}" alt="">
                         <p>
                             O paciente consegue agendar a consulta com o especialista de forma mais rápida do que pelo SUS. Então, nós realizamos uma videochamada pelo computador e temos acesso ao especialista. Dessa forma, o paciente é atendido com maior rapidez e, para mim, é uma oportunidade de aprendizado poder interagir com os especialistas.
                         </p>
