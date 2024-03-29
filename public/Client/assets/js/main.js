@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         autoplayHoverPause:true,
         speed: 3000, 
         smartSpeed: 1600,
-        interval: 2000, 
+        interval: 3000, 
     }).mount();
 
     // Função para reposicionar as "firulas" com o mesmo efeito de transição
@@ -228,74 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     var splide = new Splide('#image-carousel', {
-//         heightRatio: 0.5,
-//         loop: true,
-//         dots: true,
-//         arrows: false,
-//         type: 'fade', 
-//         autoplay: true, 
-//         autoplayTimeout:3000,
-//         autoplayHoverPause:true,
-//         speed: 3000, 
-//         smartSpeed: 1600,
-//         interval: 2000, 
-//     }).mount();
-
-//     // Função para reposicionar as "firulas" com o mesmo efeito de transição
-//     function reposicionarFirulas(slide) {
-//         slide.querySelector('.slide-fitula-1').style.transition = 'top 0.5s cubic-bezier(0, 0, 1, 1), left 0.5s cubic-bezier(0, 0, 1, 1)';
-//         slide.querySelector('.slide-fitula-2').style.transition = 'top 0.5s cubic-bezier(0, 0, 1, 1), left 0.5s cubic-bezier(0, 0, 1, 1)';
-//         slide.querySelector('.slide-fitula-3').style.transition = 'bottom 0.5s cubic-bezier(0, 0, 1, 1), left 0.5s cubic-bezier(0, 0, 1, 1)';
-
-//         switch (splide.index) {
-//             case 0:
-//                 slide.querySelector('.slide-fitula-1').style.top = '90px';
-//                 slide.querySelector('.slide-fitula-1').style.left = '366px';
-//                 slide.querySelector('.slide-fitula-2').style.top = '-121px';
-//                 slide.querySelector('.slide-fitula-2').style.left = '40px';
-//                 slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-//                 slide.querySelector('.slide-fitula-3').style.left = '40px';
-//                 break;
-//             case 1:
-//                 slide.querySelector('.slide-fitula-1').style.top = '90px';
-//                 slide.querySelector('.slide-fitula-1').style.left = '366px';
-//                 slide.querySelector('.slide-fitula-2').style.top = '-121px';
-//                 slide.querySelector('.slide-fitula-2').style.left = '40px';
-//                 slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-//                 slide.querySelector('.slide-fitula-3').style.left = '40px';
-//                 break;
-//             case 2:
-//                 slide.querySelector('.slide-fitula-1').style.top = '230px';
-//                 slide.querySelector('.slide-fitula-1').style.left = '166px';
-//                 slide.querySelector('.slide-fitula-2').style.top = '485px';
-//                 slide.querySelector('.slide-fitula-2').style.left = '485px';
-//                 slide.querySelector('.slide-fitula-3').style.bottom = '600px';
-//                 slide.querySelector('.slide-fitula-3').style.left = '600px';
-//                 break;
-//             default:
-//                 break;
-//         }
-//     }
-
-//     // Chama a função de reposicionamento ao mudar de slide
-//     splide.on('moved', function (newIndex) {
-//         var slides = splide.Components.Elements.slides;
-//         var currentSlide = slides[newIndex];
-//         reposicionarFirulas(currentSlide);
-//     });
-
-
-// });
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     // Seletor para o botão flutuante

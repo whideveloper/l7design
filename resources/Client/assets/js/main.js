@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         autoplayHoverPause:true,
         speed: 3000, 
         smartSpeed: 1600,
-        interval: 2000, 
+        interval: 3000, 
     }).mount();
 
     // Função para reposicionar as "firulas" com o mesmo efeito de transição
