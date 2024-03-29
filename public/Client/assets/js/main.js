@@ -157,15 +157,13 @@ if (document.getElementById("newslleter-message")) {
 document.addEventListener('DOMContentLoaded', function () {
     var splide = new Splide('#image-carousel', {
         heightRatio: 0.5,
-        loop: true,
         dots: true,
         arrows: false,
         type: 'fade', 
         autoplay: true, 
         autoplayTimeout:3000,
         autoplayHoverPause:true,
-        speed: 3000, 
-        smartSpeed: 1600,
+        speed: 4000, 
         interval: 3000, 
     }).mount();
 
