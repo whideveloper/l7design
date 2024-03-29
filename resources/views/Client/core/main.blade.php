@@ -76,28 +76,27 @@
     </main>
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <!--OBS: Não coloque target _blank para evitar injeção de link ao abrir um link externo-->
             <ul class="footer__logos__items">
-                <li><a href=""><img src="{{asset('Client/assets/images/haoc.jpg')}}" alt="HAOC" title="HAOC"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/csemse.jpg')}}" alt="CSEMSE" title="CSEMSE"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/conass.jpg')}}" alt="CONASS" title="CONASS"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/proadi.jpg')}}" alt="PROADI" title="PROADI"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/sus.jpg')}}" alt="SUS" title="SUS"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/msaude.jpg')}}" alt="MSAUDE" title="MSAUDE"></a></li>
-                <li><a href=""><img src="{{asset('Client/assets/images/brgov.jpg')}}" alt="BRGOV" title="BRGOV"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/haoc-footer.svg')}}" alt="HAOC" title="HAOC"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/csemse.svg')}}" alt="CSEMSE" title="CSEMSE"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/conass.svg')}}" alt="CONASS" title="CONASS"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/proadi.svg')}}" alt="PROADI" title="PROADI"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/sus.svg')}}" alt="SUS" title="SUS"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/msaude.svg')}}" alt="MSAUDE" title="MSAUDE"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/brgov.svg')}}" alt="BRGOV" title="BRGOV"></a></li>
             </ul>
             <div class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>
                 <div class="footer__contact__items">
                     <ul class="footer__contact__items__left">
-                        <li><a href=""><img src="{{asset('Client/assets/images/wpp-footer.svg')}}" alt="Whatsapp" title="Whatsapp"> <b>Whatsapp:</b> 11 99820-8297</a></li> |
-                        <li><a href=""><img src="{{asset('Client/assets/images/email-footer.svg')}}" alt="E-mail" title="E-mail"> projetotelenordeste@haoc.com.br</a></li>
+                        <li><a href="https://wa.me/5511998208297"><img src="{{asset('Client/assets/images/wpp-footer.svg')}}" alt="Whatsapp" title="Whatsapp"> <b>Whatsapp:</b> 11 99820-8297</a></li> |
+                        <li><a href="mailto:projetotelenordeste@haoc.com.br"><img src="{{asset('Client/assets/images/email-footer.svg')}}" alt="E-mail" title="E-mail"> projetotelenordeste@haoc.com.br</a></li>
                     </ul>
                     <ul class="footer__contact__items__right">
-                        <li><a href=""><img src="{{asset('Client/assets/images/proadi-footer.svg')}}" alt="PROADI" title="PROADI"></a></li> 
-                        <li><a href=""><img src="{{asset('Client/assets/images/haoc.svg')}}" alt="HAOC" title="HAOC"></a></li> 
-                        <li><a href=""><img src="{{asset('Client/assets/images/insta.svg')}}" class="insta" alt="Instagram" title="Instagram"></a></li> 
-                        <li><a href=""><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
+                        <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/proadi-footer.svg')}}" alt="PROADI" title="PROADI"></a></li> 
+                        <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/haoc.svg')}}" alt="HAOC" title="HAOC"></a></li> 
+                        <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/insta.svg')}}" class="insta" alt="Instagram" title="Instagram"></a></li> 
+                        <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
                     </ul>
                 </div>
             </div>

@@ -3,17 +3,42 @@
     <section id="image-carousel" class="splide slide splide-fade" aria-label="Beautiful Images">
         <div class="splide__track">
             <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="Conte com o time do Telenordeste" title="Conte com o time do Telenordeste">
+                
+                <li class="splide__slide"> <!--Resolucao imagem 1440x684-->
+                    <img src="{{asset('Client/assets/images/img1.jpg')}}" alt="Conte com o time do Telenordeste" title="Conte com o time do Telenordeste">
                     <div class="splide__description">
                         <h2 class="splide__title">Conte com o time <br>do Telenordeste</h2>
                     </div>
+                    <img src="{{asset('Client/assets/images/circulo.svg')}}" alt="circulo" class="slide-fitula-1">
+                    <img src="{{asset('Client/assets/images/meia-lua.svg')}}" alt="meia-lua" class="slide-fitula-2">
+                    <img src="{{asset('Client/assets/images/rosquinha.svg')}}" alt="rosquinha" class="slide-fitula-3">
                 </li>
                 <li class="splide__slide">
-                    <img src="{{asset('Client/assets/images/black.jpg')}}" alt="Telenordeste: A telesaúde abraçando Sergipe" title="Telenordeste: A telesaúde abraçando Sergipe">
+                    <img src="{{asset('Client/assets/images/img2.jpg')}}" alt="Telenordeste: A telesaúde abraçando Sergipe" title="Telenordeste: A telesaúde abraçando Sergipe">
                     <div class="splide__description">
                         <h2 class="splide__title">Telenordeste: <br> A telesaúde <br>abraçando Sergipe</h2>
                     </div>
+                    <img src="{{asset('Client/assets/images/circulo.svg')}}" alt="circulo" class="slide-fitula-1">
+                    <img src="{{asset('Client/assets/images/meia-lua.svg')}}" alt="meia-lua" class="slide-fitula-2">
+                    <img src="{{asset('Client/assets/images/rosquinha.svg')}}" alt="rosquinha" class="slide-fitula-3">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{asset('Client/assets/images/img3.jpg')}}" alt="Telenordeste: A telesaúde abraçando Sergipe" title="Telenordeste: A telesaúde abraçando Sergipe">
+                    <div class="splide__description">
+                        <h2 class="splide__title">Telenordeste: <br> A telesaúde <br>abraçando Sergipe</h2>
+                    </div>
+                    <img src="{{asset('Client/assets/images/circulo.svg')}}" alt="circulo" class="slide-fitula-1">
+                    <img src="{{asset('Client/assets/images/meia-lua.svg')}}" alt="meia-lua" class="slide-fitula-2">
+                    <img src="{{asset('Client/assets/images/rosquinha.svg')}}" alt="rosquinha" class="slide-fitula-3">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{asset('Client/assets/images/banner.jpg')}}" alt="Telenordeste: A telesaúde abraçando Sergipe" title="Telenordeste: A telesaúde abraçando Sergipe">
+                    <div class="splide__description">
+                        <h2 class="splide__title">Telenordeste: <br> A telesaúde <br>abraçando Sergipe</h2>
+                    </div>
+                    <img src="{{asset('Client/assets/images/circulo.svg')}}" alt="circulo" class="slide-fitula-1">
+                    <img src="{{asset('Client/assets/images/meia-lua.svg')}}" alt="meia-lua" class="slide-fitula-2">
+                    <img src="{{asset('Client/assets/images/rosquinha.svg')}}" alt="rosquinha" class="slide-fitula-3">
                 </li>
             </ul>
         </div>
