@@ -54,6 +54,12 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'telenordeste'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'disciplina'=>[
                 'Criar',
                 'Editar',
@@ -61,13 +67,13 @@ class PermissionsSeeder extends Seeder
                 'Remover',
                 'Visualizar outras disciplinas'
             ],
-            'professor'=>[
+            'usuario'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
                 'Restaurar dados',
-                'Visualizar outros professores',
+                'Visualizar outros usuarios',
                 'Atribuir grupos']
             ];
 

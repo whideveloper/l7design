@@ -58,6 +58,29 @@
                             </div> <!-- end col-->
                         @endcan
 
+                        @can('banners.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.banner.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Banner</h4>
+                                                        <p class="text-muted mb-1">Gerenciar Banner</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
                         @can('disciplina.visualizar')
                             <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.subject.index')}}">
@@ -130,7 +153,7 @@
                             </div> <!-- end col-->
                         @endcan
 
-                        @can('professor.visualizar')
+                        @can('usuario.visualizar')
                             <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.user.index')}}">
                                     <div class="widget-rounded-circle card">
@@ -143,8 +166,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Professores</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Professores</p>
+                                                        <h4 class="text-dark mt-1">Usuários</h4>
+                                                        <p class="text-muted mb-1">Gerenciar Usuários</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->

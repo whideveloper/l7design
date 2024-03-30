@@ -23,7 +23,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\TelenordesteController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -97,6 +98,27 @@ Route::prefix('painel/')->group(function () {
             return view('Admin.dashboard');
         })->name('admin.dashboard');
 
+        //BANNER
+        Route::resource('banner', BannerController::class)
+            ->names('admin.dashboard.banner')
+            ->parameters(['banner' => 'banner']);
+        Route::post('banner/delete', [BannerController::class, 'destroySelected'])
+            ->name('admin.dashboard.banner.destroySelected');
+        Route::post('banner/sorting', [BannerController::class, 'sorting'])
+            ->name('admin.dashboard.banner.sorting');
+        //SEARCH BANNER
+        Route::post('banner/search', [BannerController::class, 'search'])
+        ->name('admin.dashboard.banner-search');
+        //TELENORDESTE
+        Route::resource('telenordeste', TelenordesteController::class)
+            ->names('admin.dashboard.telenordeste')
+            ->parameters(['telenordeste' => 'telenordeste']);
+        Route::post('telenordeste/delete', [TelenordesteController::class, 'destroySelected'])
+            ->name('admin.dashboard.telenordeste.destroySelected');
+        Route::post('telenordeste/sorting', [TelenordesteController::class, 'sorting'])
+            ->name('admin.dashboard.telenordeste.sorting');
+        
+        
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')

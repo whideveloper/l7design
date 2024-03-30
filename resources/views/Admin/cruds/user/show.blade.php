@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.user.index')}}">Professores</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.user.index')}}">Usuário</a></li>
                                     <li class="breadcrumb-item active">Registros deletados</li>
                                 </ol>
                             </div>
@@ -77,7 +77,7 @@
                                 <td>{{$user->created_at->format('d/m/Y')}}</td>
                                 <td>
                                     <div class="row">
-                                        @can('professor.editar')
+                                        @can('usuario.editar')
                                             <div class="col-4">
                                                 <form action="{{route('admin.dashboard.user.retoreData',['user' => $user->id])}}" class="col-4" method="POST">
                                                     @csrf
@@ -87,7 +87,7 @@
                                                 </form>
                                             </div>
                                         @endcan
-                                        @can('professor.remover')
+                                        @can('usuario.remover')
                                             <form action="{{route('admin.dashboard.user.deleteForced',['user' => $user->id])}}" class="col-4" method="POST">
                                                 @csrf
                                                 @method('DELETE')
