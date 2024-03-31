@@ -53,7 +53,7 @@
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         @can('banners.remover')
-                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.banner.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>
+                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.banner.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     <div class="col-6">
@@ -80,6 +80,7 @@
 
                                     <tbody data-route="{{route('admin.dashboard.banner.sorting')}}">
                                         @foreach ($banners as $key => $banner)
+                                        {{-- {{dd($key)}} --}}
                                             <tr data-code="{{$banner->id}}">
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">

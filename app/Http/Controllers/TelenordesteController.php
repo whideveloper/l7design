@@ -16,9 +16,9 @@ class TelenordesteController extends Controller
         if(!Auth::user()->can('telenordeste.visualizar')){
             return view('Admin.error.403');
         }
-        $telenordestes = Telenordeste::sorting()->paginate();
+        $telenordeste = Telenordeste::first();
         return view('Admin.cruds.telenordeste.index', [
-            'telenordestes' => $telenordestes
+            'telenordeste' => $telenordeste
         ]);
     }
 
@@ -37,11 +37,11 @@ class TelenordesteController extends Controller
         $data['active'] = $request->active?1:0;
 
         try {
-            DB::transaction();
+            DB::beginTransaction();
                 Telenordeste::create($data);
-                Session::flash('success','Telenordeste criado com sucesso!');
-                return redirect()->back();
             DB::commit();
+            Session::flash('success','Telenordeste criado com sucesso!');
+            return redirect()->route('admin.dashboard.telenordeste.index');
         } catch (\Exception $exception) {
             DB::rollback();
             Session::flash('success','Erro ao criar Telenordeste!');
@@ -54,7 +54,7 @@ class TelenordesteController extends Controller
         if(!Auth::user()->can(['telenordeste.visualizar','telenordeste.editar'])){
             return view('Admin.error.403');
         }
-        return view('Admin.cruds.telenordeste.create', [
+        return view('Admin.cruds.telenordeste.edit', [
             'telenordeste' => $telenordeste
         ]);
     }
@@ -65,11 +65,11 @@ class TelenordesteController extends Controller
         $data['active'] = $request->active?1:0;
 
         try {
-            DB::transaction();
+            DB::beginTransaction();
                 $telenordeste->fill($data)->save();
-                Session::flash('success','Telenordeste atualizado com sucesso!');
-                return redirect()->back();
             DB::commit();
+            Session::flash('success','Telenordeste atualizado com sucesso!');
+            return redirect()->route('admin.dashboard.telenordeste.index');
         } catch (\Exception $exception) {
             DB::rollback();
             Session::flash('success','Erro ao atualizar Telenordeste!');

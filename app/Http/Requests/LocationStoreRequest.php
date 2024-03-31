@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BannerStoreRequest extends FormRequest
+class LocationStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +17,7 @@ class BannerStoreRequest extends FormRequest
         if(!Auth::check()){
             return false;
         }
-        return Auth::user()->can('banners.criar');
+        return Auth::user()->can('localizacao.criar');
     }
 
     /**
@@ -28,13 +28,13 @@ class BannerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'start_date'=>'required',
-            'end_date'=>'required',
-            'link'=>'string|url|nullable',
-            'path_image'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'active'=>'boolean',
-            'path_image_mobile'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'sorting'=>'1|0'
+            'title' => 'required|string',
+            'link' => 'nullable|string',
+            'number_county' => 'nullable|integer',
+            'number_region' => 'nullable|integer',
+            'description' => 'nullable|string',
+            'active' => 'boolean',
+            'sorting' => '1|0',
         ];
     }
 }

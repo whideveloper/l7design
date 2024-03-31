@@ -10,7 +10,8 @@ class AuditActivity extends Model
     use HasFactory;
 
     public const SUBJECTS = 'Disciplinas';
-    public const USERS = 'Professores';
+    public const USERS = 'Usuários';
+    public const BANNER = 'Banner';
     public const COURSES = 'Cursos';
     public const STUDENTS = 'Alunos';
     public const FILES = 'Atividades';
@@ -19,6 +20,8 @@ class AuditActivity extends Model
     public static function getModelName($subjectType)
     {
         switch ($subjectType) {
+            case Banner::class:
+                return self::BANNER;
             case Subject::class:
                 return self::SUBJECTS;
             case User::class:

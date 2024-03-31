@@ -24,6 +24,7 @@ use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\TelenordesteController;
 
 Route::get('painel/', function () {
@@ -105,7 +106,7 @@ Route::prefix('painel/')->group(function () {
         Route::post('banner/delete', [BannerController::class, 'destroySelected'])
             ->name('admin.dashboard.banner.destroySelected');
         Route::post('banner/sorting', [BannerController::class, 'sorting'])
-            ->name('admin.dashboard.banner.sorting');
+            ->name('admin.dashboard.banner.sorting');            
         //SEARCH BANNER
         Route::post('banner/search', [BannerController::class, 'search'])
         ->name('admin.dashboard.banner-search');
@@ -117,6 +118,14 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.telenordeste.destroySelected');
         Route::post('telenordeste/sorting', [TelenordesteController::class, 'sorting'])
             ->name('admin.dashboard.telenordeste.sorting');
+        //LOCALIZACAO
+        Route::resource('localizacao', LocationController::class)
+            ->names('admin.dashboard.location')
+            ->parameters(['localizacao' => 'location']);
+        Route::post('localizacao/delete', [LocationController::class, 'destroySelected'])
+            ->name('admin.dashboard.location.destroySelected');
+        Route::post('localizacao/sorting', [LocationController::class, 'sorting'])
+            ->name('admin.dashboard.location.sorting');
         
         
         //AUDITORIA
@@ -216,27 +225,27 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.student.sorting');
 
         //USUARIOS
-        Route::resource('professor', UserController::class)
+        Route::resource('usuario', UserController::class)
             ->names('admin.dashboard.user')
-            ->parameters(['professor'=>'user']);
+            ->parameters(['usuario'=>'user']);
         //SHOW
-        Route::get('professor/deletados/showDeleted', [UserController::class, 'deletedShow'])
+        Route::get('usuario/deletados/showDeleted', [UserController::class, 'deletedShow'])
             ->name('admin.dashboard.user.showDeleted');
-        Route::post('professor/deletados/show/search', [UserController::class, 'search'])
+        Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
         ->name('admin.dashboard.user.show.search');
-        Route::post('professor/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
+        Route::post('usuario/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
         ->name('admin.dashboard.user.destroySelectedForced');
         //RESTORE
-        Route::post('professor/retoreData/{user}', [UserController::class, 'retoreData'])
+        Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');
-        Route::post('professor/restore', [UserController::class, 'retoreDataAll'])
+        Route::post('usuario/restore', [UserController::class, 'retoreDataAll'])
             ->name('admin.dashboard.user.retoreDataAll');
         //DELETADOS
-        Route::delete('professor/deleteForced/{user}', [UserController::class, 'deleteForced'])
+        Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
-        Route::post('professor/delete', [UserController::class, 'destroySelected'])
+        Route::post('usuario/delete', [UserController::class, 'destroySelected'])
             ->name('admin.dashboard.user.destroySelected');
-        Route::post('professor/sorting', [UserController::class, 'sorting'])
+        Route::post('usuario/sorting', [UserController::class, 'sorting'])
             ->name('admin.dashboard.user.sorting');
 
         //CONTATO

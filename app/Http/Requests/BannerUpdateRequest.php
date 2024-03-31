@@ -32,9 +32,9 @@ class BannerUpdateRequest extends FormRequest
             'end_date'=>'required',
             'link'=>'string|url|nullable',
             'path_image'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'active'=>'boolean|nullable',
+            'active'=>'boolean',
             'path_image_mobile'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
-            'active'=>'boolean|nullable',
+            'sorting'=>'1|0'
         ];
     }
 }

@@ -7,39 +7,28 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Banner extends Model
+class Location extends Model
 {
-    use HasFactory;
-
     use HasFactory, SoftDeletes, LogsActivity;
+
     protected $fillable = [
+        'title',
         'link',
+        'number_county',
+        'number_region',
+        'description',
         'active',
-        'start_date',
-        'end_date',
-        'path_image',
-        'path_image_mobile',
-        'sorting'
+        'sorting',
     ];
-
-    public function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC');
-    }
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
     protected static $logAttributes = [
+        'title',
         'link',
+        'number_county',
+        'number_region',
+        'description',
         'active',
-        'start_date',
-        'end_date',
-        'path_image',
-        'path_image_mobile',
-        'sorting'
+        'sorting',
     ];
-
     protected static $logOnlyDirty = true;
 
     public function customProperties()
@@ -52,5 +41,13 @@ class Banner extends Model
         }
 
         return $properties;
+    }
+
+    public function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
     }
 }

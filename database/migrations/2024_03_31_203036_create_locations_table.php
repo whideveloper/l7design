@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBannersTable extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('link', 191)->nullable();
+            $table->string('title', 191)->nullable();
+            $table->text('description', 255)->nullable();
+            $table->string('link', 255)->nullable();
             $table->tinyInteger('active')->default(0);
             $table->integer('sorting')->default(0);
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->string('path_image', 191)->nullable();
-            $table->string('path_image_mobile', 191)->nullable();
+            $table->integer('number_county')->nullable();
+            $table->integer('number_region')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('locations');
     }
 }

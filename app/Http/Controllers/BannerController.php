@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Banner;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\BannerStoreRequest;
 use App\Http\Requests\BannerUpdateRequest;
 use App\Http\Controllers\Helpers\HelperArchive;
+use Illuminate\Support\Facades\Response;
 
 class BannerController extends Controller
 {
