@@ -115,14 +115,11 @@ class ObjectiveController extends Controller
         Session::flash('success', 'Objetivo deletado com sucesso!');
         return redirect()->back();
     }
-    public function destroySelected(Request $request)
+    public function sorting(Request $request)
     {
-        if (!Auth::user()->can(['objetivo.visualizar','objetivo.remove'])) {
-            return view('Admin.error.403');
+        foreach($request->arrId as $sorting => $id){
+            Objective::where('id', $id)->update(['sorting' => $sorting]);
         }
-
-        if($deleted = Objective::whereIn('id', $request->deleteAll)->delete()){
-            return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
-        }
+        return Response::json(['status' => 'success']);
     }
 }

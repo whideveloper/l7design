@@ -131,8 +131,6 @@ Route::prefix('painel/')->group(function () {
         Route::resource('objetivo', ObjectiveController::class)
             ->names('admin.dashboard.objective')
             ->parameters(['objetivo' => 'objective']);
-        Route::post('objetivo/delete', [ObjectiveController::class, 'destroySelected'])
-            ->name('admin.dashboard.objective.destroySelected');
         Route::post('objetivo/sorting', [ObjectiveController::class, 'sorting'])
             ->name('admin.dashboard.objective.sorting');
         
