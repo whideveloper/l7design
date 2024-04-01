@@ -66,6 +66,7 @@ class BannerController extends Controller
                 $request->file('path_image_mobile')->storeAs($this->pathUpload, $path_image_mobile);
             }
             if (!Banner::create($data)) {
+                Storage::delete($this->pathUpload . $path_image);
                 Storage::delete($this->pathUpload . $path_image_mobile);
                 throw new Exception();
             }
@@ -84,8 +85,8 @@ class BannerController extends Controller
 
     public function edit(Banner $banner)
     {
-        if (!Auth::user()->can('banners.visualizar')){
-            abort(403);
+        if (!Auth::user()->can(['banners.visualizar', 'banners.editar'])) {
+            return view('Admin.error.403');
         }
 
         return view('Admin.cruds.banner.edit', [

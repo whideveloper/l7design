@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.location.index')}}">locations</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.location.index')}}">Localização</a></li>
                                     <li class="breadcrumb-item active">Editar Localização</li>
                                 </ol>
                             </div>
@@ -27,6 +27,103 @@
                     @endcan
                     <a href="{{route('admin.dashboard.location.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Objetivos</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3 justify-content-end flex-nowrap">
+                    <div class="row col-6 d-flex justify-content-end me-3 p-0">
+                        @can('ibjetivo.criar')
+                            <div style="width: 165px">
+                                <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-objective">Adicionar novo <i class="mdi mdi-plus"></i></a>
+
+                                <div id="modal-objective" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog" style="max-width: 800px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header p-3 pt-2 pb-2">
+                                                <h4 class="page-title">Objetivo</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-3 pt-0 pb-3">
+                                                {!! Form::model(null, ['route' => 'admin.dashboard.objective.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                @include('Admin.cruds.objective.form')
+                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                <a href="{{route('admin.dashboard.location.edit', ['location' => $location])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Cancelar</a>
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endcan
+                    </div>
+                </div>
+                <div class="row pe-3">
+                    <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
+
+                        <thead class="table-light">
+                        <tr>
+                            <th></th>
+                            <th class="bs-checkbox">
+                                <label><input name="btnSelectAll" value="btnDeleteListLink" type="checkbox"></label>
+                            </th>
+                            <th class="text-center">Título</th>
+                            <th class="text-center">Imagem</th>
+                           <th class="text-center">Status</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="atividade" data-route="{{route('admin.dashboard.objective.sorting')}}">
+                            @foreach ($objectives as $key => $objective)
+                                <tr data-code="{{$objective->id}}">
+                                    <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
+                                    <td class="bs-checkbox">
+                                        <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$objective->id}}"></label>
+                                    </td>
+                                    <td>{{$objective->title}}</td>
+                                    <td class="table-user text-center">
+                                        @if ($objective->path_image)
+                                            <img src="{{ asset('storage/'.$objective->path_image) }}" name="path_image" alt="table-user" class="me-2 rounded-circle">
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <div class="row d-flex justify-content-center">  
+                                            <a class="btn-icon mdi mdi-square-edit-outline" data-bs-toggle="modal" data-bs-target="#modal-objective-edit"></a>
+
+                                            <div id="modal-objective-edit" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                <div class="modal-dialog" style="max-width: 800px;">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header p-3 pt-2 pb-2">
+                                                            <h4 class="page-title">Objetivo</h4>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body p-3 pt-0 pb-3">
+                                                            {!! Form::model($objective, ['route' => ['admin.dashboard.objective.update', $objective->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
+                                                                    @include('Admin.cruds.objective.form')
+                                                                    @can('objetivo.editar')
+                                                                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                                    @endcan
+                                                                    <a href="{{route('admin.dashboard.location.edit',['location' => $location->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                                                                {!! Form::close() !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                     
+                                            <form action="{{route('admin.dashboard.objective.destroy',['objective' => $objective->id])}}" class="col-4" method="POST">
+                                                @method('DELETE') @csrf
+                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

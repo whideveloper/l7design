@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Objective;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -51,8 +52,10 @@ class LocationController extends Controller
     }
     public function edit(Location $location)
     {
+        $objectives = Objective::sorting()->get();
         return view('Admin.cruds.location.edit', [
-            'location' => $location
+            'location' => $location,
+            'objectives' => $objectives
         ]);
     }
     public function update(LocationUpdateRequest $request, Location $location)

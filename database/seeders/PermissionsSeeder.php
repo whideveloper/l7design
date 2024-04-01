@@ -66,6 +66,12 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'objetivo'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'disciplina'=>[
                 'Criar',
                 'Editar',
