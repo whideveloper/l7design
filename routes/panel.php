@@ -29,6 +29,7 @@ use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TeleinterconsultaController;
@@ -181,6 +182,14 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.depoiment.destroySelected');
         Route::post('depoimento/sorting', [DepoimentController::class, 'sorting'])
             ->name('admin.dashboard.depoiment.sorting');
+        //PARCEIROS
+        Route::resource('parceiros', PartnerController::class)
+            ->names('admin.dashboard.partner')
+            ->parameters(['parceiros' => 'partner']);
+        Route::post('parceiros/delete', [PartnerController::class, 'destroySelected'])
+            ->name('admin.dashboard.partner.destroySelected');
+        Route::post('parceiros/sorting', [PartnerController::class, 'sorting'])
+            ->name('admin.dashboard.partner.sorting');
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

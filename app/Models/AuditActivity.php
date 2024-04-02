@@ -21,6 +21,7 @@ class AuditActivity extends Model
     public const HOSPITAL = 'Hospital';
     public const PROADI = 'Proadi';
     public const DEPOIMENTO = 'Depoimento';
+    public const PARCEIROS = 'Parceiros';
 
     public const COURSES = 'Cursos';
     public const STUDENTS = 'Alunos';
@@ -50,6 +51,8 @@ class AuditActivity extends Model
                 return self::PROADI;
             case Depoiment::class:
                 return self::DEPOIMENTO;
+            case Partner::class:
+                return self::PARCEIROS;
 
 
             case Subject::class:
