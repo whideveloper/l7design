@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\TelenordesteController;
 
 Route::get('painel/', function () {
@@ -133,7 +134,14 @@ Route::prefix('painel/')->group(function () {
             ->parameters(['objetivo' => 'objective']);
         Route::post('objetivo/sorting', [ObjectiveController::class, 'sorting'])
             ->name('admin.dashboard.objective.sorting');
-        
+         //TELEINTERCONSULTA
+         Route::resource('teleinterconsulta', TeleinterconsultaController::class)
+         ->names('admin.dashboard.teleinterconsulta')
+         ->parameters(['teleinterconsulta' => 'teleinterconsulta']);
+        Route::post('teleinterconsulta/delete', [TeleinterconsultaController::class, 'destroySelected'])
+            ->name('admin.dashboard.teleinterconsulta.destroySelected');
+        Route::post('teleinterconsulta/sorting', [TeleinterconsultaController::class, 'sorting'])
+            ->name('admin.dashboard.teleinterconsulta.sorting');
         
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

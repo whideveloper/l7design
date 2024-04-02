@@ -60,6 +60,12 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'teleinterconsulta'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'localizacao'=>[
                 'Criar',
                 'Editar',

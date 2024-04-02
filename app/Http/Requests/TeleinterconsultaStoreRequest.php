@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class LocationStoreRequest extends FormRequest
+class TeleinterconsultaStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +17,7 @@ class LocationStoreRequest extends FormRequest
         if(!Auth::check()){
             return false;
         }
-        return Auth::user()->can(['localizacao.criar', 'localizacao.visualizar']);
+        return Auth::user()->can(['teleinterconsulta.visualizar','teleinterconsulta.criar']);
     }
 
     /**
@@ -25,15 +25,15 @@ class LocationStoreRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
-            'link' => 'nullable|string',
-            'number_county' => 'nullable|integer',
-            'number_region' => 'nullable|integer',
-            'description' => 'nullable|string',
-            'active' => 'boolean',
-            'sorting' => '1|0',
+            'title'=>'required|string',
+            'text'=>'string',
+            'path_image'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'active'=>'boolean',
+            'sorting'=>'1|0'
         ];
     }
 }

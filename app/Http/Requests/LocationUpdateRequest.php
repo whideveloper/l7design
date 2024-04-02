@@ -28,7 +28,6 @@ class LocationUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
             'link' => 'nullable|string',
             'number_county' => 'nullable|integer',
             'number_region' => 'nullable|integer',

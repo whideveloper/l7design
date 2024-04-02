@@ -7,26 +7,25 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Location extends Model
+class Teleinterconsulta extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory, softDeletes, LogsActivity;
 
     protected $fillable = [
-        'link',
-        'number_county',
-        'number_region',
-        'description',
+        'title',
+        'text',
+        'path_image',
         'active',
         'sorting',
     ];
     protected static $logAttributes = [
-        'link',
-        'number_county',
-        'number_region',
-        'description',
+        'title',
+        'text',
+        'path_image',
         'active',
         'sorting',
     ];
+
     protected static $logOnlyDirty = true;
 
     public function customProperties()

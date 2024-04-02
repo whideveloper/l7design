@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocationsTable extends Migration
+class CreateTeleinterconsultasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('teleinterconsultas', function (Blueprint $table) {
             $table->id();
-            $table->text('description', 255)->nullable();
-            $table->string('link', 255)->nullable();
+            $table->string('title', 191)->nullable();
+            $table->text('text', 255)->nullable();
+            $table->string('path_image', 255)->nullable();
             $table->tinyInteger('active')->default(0);
             $table->integer('sorting')->default(0);
-            $table->integer('number_county')->nullable();
-            $table->integer('number_region')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('teleinterconsultas');
     }
 }

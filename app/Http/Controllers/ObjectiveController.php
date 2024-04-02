@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Http\Requests\objectiveStoreRequest;
+use App\Http\Requests\objectiveUpdateRequest;
 use App\Models\Location;
 
 class ObjectiveController extends Controller
@@ -25,7 +27,7 @@ class ObjectiveController extends Controller
         }
         return view('Admin.cruds.objective.create');
     }
-    public function store(Request $request)
+    public function store(objectiveStoreRequest $request)
     {
         $data = $request->all();
         $helper = new HelperArchive();
@@ -66,7 +68,7 @@ class ObjectiveController extends Controller
         ]);
     }
 
-    public function update(Request $request, Objective $objective)
+    public function update(objectiveUpdateRequest $request, Objective $objective)
     {
         $data = $request->all();
         $helper = new HelperArchive();

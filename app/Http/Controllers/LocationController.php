@@ -29,7 +29,6 @@ class LocationController extends Controller
         if(!Auth::user()->can(['localizacao.visualizar','localizacao.criar'])){
             return view('Admin.error.403');
         }
-
         return view('Admin.cruds.location.create');
     }
     public function store(LocationStoreRequest $request)
@@ -39,12 +38,12 @@ class LocationController extends Controller
 
         try{
             DB::beginTransaction();
-               Location::create($data);
+            Location::create($data);
             DB::commit();
             Session::flash('success', 'Localização criada com sucesso!');
             return redirect()->route('admin.dashboard.location.index');
         }catch(\Exception $exception){
-            dd($exception);
+            dd('Aqui');
             DB::rollback();
             Session::flash('error', 'Erro ao criar Localização!');
             return redirect()->back();
@@ -65,7 +64,7 @@ class LocationController extends Controller
 
         try{
             DB::beginTransaction();
-                $location->fill($data)->save();
+            $location->fill($data)->save();
             DB::commit();
             Session::flash('success', 'Localização atualizada com sucesso!');
             return redirect()->route('admin.dashboard.location.index');

@@ -12,6 +12,10 @@ class AuditActivity extends Model
     public const SUBJECTS = 'Disciplinas';
     public const USERS = 'Usuários';
     public const BANNER = 'Banner';
+    public const TELENORDESTE = 'Telenordeste';
+    public const OBJETIVO = 'Objetivo';
+    public const TELEINTERCONSULTA = 'Teleinterconsulta';
+    public const LOCALIZACAO = 'Localização';
     public const COURSES = 'Cursos';
     public const STUDENTS = 'Alunos';
     public const FILES = 'Atividades';
@@ -22,6 +26,14 @@ class AuditActivity extends Model
         switch ($subjectType) {
             case Banner::class:
                 return self::BANNER;
+            case Telenordeste::class:
+                return self::TELENORDESTE;
+            case Objective::class:
+                return self::OBJETIVO;
+            case Teleinterconsulta::class:
+                return self::TELEINTERCONSULTA;
+            case Location::class:
+                return self::LOCALIZACAO;
             case Subject::class:
                 return self::SUBJECTS;
             case User::class:
