@@ -27,6 +27,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\TelenordesteController;
 
@@ -149,7 +150,14 @@ Route::prefix('painel/')->group(function () {
          ->parameters(['como-funciona' => 'howItWork']);
          Route::post('como-funciona/delete', [HowItWorkController::class, 'destroySelected'])
             ->name('admin.dashboard.howItWork.destroySelected');
-        
+        //PASSO-A-PASSO
+        Route::resource('passo-a-passo', StepToStepController::class)
+        ->names('admin.dashboard.stepToStep')
+        ->parameters(['passo-a-passo' => 'stepToStep']);
+        Route::post('passo-a-passo/delete', [StepToStepController::class, 'destroySelected'])
+           ->name('admin.dashboard.stepToStep.destroySelected');
+        Route::post('passo-a-passo/sorting', [StepToStepController::class, 'sorting'])
+           ->name('admin.dashboard.stepToStep.sorting');
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')

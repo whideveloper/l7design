@@ -72,6 +72,7 @@
                             <th class="text-center">Título</th>
                             <th class="text-center">Imagem</th>
                            <th class="text-center">Status</th>
+                           <th class="text-center">Ações</th>
                         </tr>
                         </thead>
 
@@ -87,6 +88,12 @@
                                         @if ($objective->path_image)
                                             <img src="{{ asset('storage/'.$objective->path_image) }}" name="path_image" alt="table-user" class="me-2 rounded-circle">
                                         @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @switch($objective->active)
+                                            @case(0) <span class="badge bg-danger">Inativo</span> @break
+                                            @case(1) <span class="badge bg-success">Ativo</span> @break
+                                        @endswitch
                                     </td>
                                     <td>
                                         <div class="row d-flex justify-content-center">  

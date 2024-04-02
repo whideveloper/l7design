@@ -17,6 +17,7 @@ class AuditActivity extends Model
     public const TELEINTERCONSULTA = 'Teleinterconsulta';
     public const LOCALIZACAO = 'Localização';
     public const COMO_FUNCIONA = 'Como Funciona';
+    public const PASSO_A_PASSO = 'Passo a passo';
     public const COURSES = 'Cursos';
     public const STUDENTS = 'Alunos';
     public const FILES = 'Atividades';
@@ -37,6 +38,9 @@ class AuditActivity extends Model
                 return self::LOCALIZACAO;
             case HowItWork::class:
                 return self::COMO_FUNCIONA;
+            case Subject::class:
+            case StepToStep::class:
+                return self::PASSO_A_PASSO;
             case Subject::class:
                 return self::SUBJECTS;
             case User::class:

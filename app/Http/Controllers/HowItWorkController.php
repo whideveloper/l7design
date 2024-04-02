@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HowItWork;
+use App\Models\StepToStep;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -52,8 +53,11 @@ class HowItWorkController extends Controller
         if (!Auth::user()->can(['como funciona.visualizar','como funciona.editar'])) {
             return view('Admin.error.403');
         }
+        $stepToSteps = StepToStep::sorting()->get();
+
         return view('Admin.cruds.howItWork.edit', [
             'howItWork' => $howItWork,
+            'stepToSteps' => $stepToSteps,
         ]);
     }
     public function update(HowItWorkUpdateRequest $request, HowItWork $howItWork)
