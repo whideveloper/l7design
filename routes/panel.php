@@ -24,9 +24,12 @@ use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\TelenordesteController;
@@ -158,6 +161,27 @@ Route::prefix('painel/')->group(function () {
            ->name('admin.dashboard.stepToStep.destroySelected');
         Route::post('passo-a-passo/sorting', [StepToStepController::class, 'sorting'])
            ->name('admin.dashboard.stepToStep.sorting');
+        //HOSPITAL
+        Route::resource('hospital', HospitalController::class)
+        ->names('admin.dashboard.hospital')
+        ->parameters(['hospital' => 'hospital']);
+        Route::post('hospital/delete', [HospitalController::class, 'destroySelected'])
+           ->name('admin.dashboard.hospital.destroySelected');
+        //PROADI
+        Route::resource('proadi', ProadiController::class)
+        ->names('admin.dashboard.proadi')
+        ->parameters(['proadi' => 'proadi']);
+        Route::post('proadi/delete', [ProadiController::class, 'destroySelected'])
+           ->name('admin.dashboard.proadi.destroySelected');
+        //DEPOIMENTO
+        Route::resource('depoimento', DepoimentController::class)
+            ->names('admin.dashboard.depoiment')
+            ->parameters(['depoimento' => 'depoiment']);
+        Route::post('depoimento/delete', [DepoimentController::class, 'destroySelected'])
+            ->name('admin.dashboard.depoiment.destroySelected');
+        Route::post('depoimento/sorting', [DepoimentController::class, 'sorting'])
+            ->name('admin.dashboard.depoiment.sorting');
+
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')

@@ -66,6 +66,30 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'proadi'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'depoimento'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'passp a passo'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'como funciona'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'localizacao'=>[
                 'Criar',
                 'Editar',

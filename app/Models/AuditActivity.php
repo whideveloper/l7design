@@ -18,6 +18,10 @@ class AuditActivity extends Model
     public const LOCALIZACAO = 'Localização';
     public const COMO_FUNCIONA = 'Como Funciona';
     public const PASSO_A_PASSO = 'Passo a passo';
+    public const HOSPITAL = 'Hospital';
+    public const PROADI = 'Proadi';
+    public const DEPOIMENTO = 'Depoimento';
+
     public const COURSES = 'Cursos';
     public const STUDENTS = 'Alunos';
     public const FILES = 'Atividades';
@@ -38,9 +42,16 @@ class AuditActivity extends Model
                 return self::LOCALIZACAO;
             case HowItWork::class:
                 return self::COMO_FUNCIONA;
-            case Subject::class:
+            case Hospital::class:
+                return self::HOSPITAL;
             case StepToStep::class:
                 return self::PASSO_A_PASSO;
+            case Proadi::class:
+                return self::PROADI;
+            case Depoiment::class:
+                return self::DEPOIMENTO;
+
+
             case Subject::class:
                 return self::SUBJECTS;
             case User::class:

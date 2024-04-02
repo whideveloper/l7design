@@ -17,7 +17,7 @@ class BannerStoreRequest extends FormRequest
         if(!Auth::check()){
             return false;
         }
-        return Auth::user()->can('banners.criar');
+        return Auth::user()->can(['banners.visualizar','banners.criar']);
     }
 
     /**

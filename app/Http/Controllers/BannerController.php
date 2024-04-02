@@ -160,7 +160,7 @@ class BannerController extends Controller
 
     public function destroy(Banner $banner)
     {
-        if(!Auth::user()->can('banners.remove')){
+        if(!Auth::user()->can(['banners.visualizar', 'banners.remove'])){
             return view('Admin.error.403');
         }
         Storage::delete($banner->path_image);

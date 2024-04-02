@@ -7,13 +7,12 @@ use App\Models\Objective;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Node\Expr\Cast\Object_;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Http\Requests\objectiveStoreRequest;
-use App\Http\Requests\objectiveUpdateRequest;
+use App\Http\Requests\ObjectiveStoreRequest;
+use App\Http\Requests\ObjectiveUpdateRequest;
 use App\Models\Location;
 
 class ObjectiveController extends Controller
@@ -27,7 +26,7 @@ class ObjectiveController extends Controller
         }
         return view('Admin.cruds.objective.create');
     }
-    public function store(objectiveStoreRequest $request)
+    public function store(ObjectiveStoreRequest $request)
     {
         $data = $request->all();
         $helper = new HelperArchive();
@@ -68,7 +67,7 @@ class ObjectiveController extends Controller
         ]);
     }
 
-    public function update(objectiveUpdateRequest $request, Objective $objective)
+    public function update(ObjectiveUpdateRequest $request, Objective $objective)
     {
         $data = $request->all();
         $helper = new HelperArchive();

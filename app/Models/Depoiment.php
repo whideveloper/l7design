@@ -7,29 +7,23 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Banner extends Model
+class Depoiment extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity, SoftDeletes;
 
-    use HasFactory, SoftDeletes, LogsActivity;
     protected $fillable = [
-        'link',
+        'name',  
+        'cargo',
+        'text',
         'active',
-        'start_date',
-        'end_date',
-        'path_image',
-        'path_image_mobile',
-        'sorting'
+        'sorting',
     ];
-
     protected static $logAttributes = [
-        'link',
+        'name',  
+        'cargo',
+        'text',
         'active',
-        'start_date',
-        'end_date',
-        'path_image',
-        'path_image_mobile',
-        'sorting'
+        'sorting',
     ];
 
     protected static $logOnlyDirty = true;
