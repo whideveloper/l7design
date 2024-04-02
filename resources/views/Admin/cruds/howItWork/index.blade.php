@@ -11,10 +11,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Telenordeste</li>
+                                    <li class="breadcrumb-item active">Como Funciona</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Telenordeste</h4>
+                            <h4 class="page-title">Como Funciona</h4>
                         </div>
                     </div>
                 </div>
@@ -26,15 +26,15 @@
                             <div class="card-body">                                
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        @can('telenordeste.remover')
-                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.telenordeste.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
+                                        @can('como funciona.remover')
+                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.howItWork.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     
                                     <div class="col-6">
-                                        @can('telenordeste.criar')
-                                            @if (!$telenordeste)
-                                                <a href="{{route('admin.dashboard.telenordeste.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        @can('como funciona.criar')
+                                            @if (!$howItWork)
+                                                <a href="{{route('admin.dashboard.howItWork.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             @endif                                          
                                         @endcan
                                     </div>
@@ -47,35 +47,35 @@
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
-                                            <th>Título</th>
+                                            <th>Texto</th>
                                             <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
-                                    @if ($telenordeste)
-                                        <tbody data-route="{{route('admin.dashboard.telenordeste.sorting')}}">
-                                            <tr data-code="{{$telenordeste->id}}">
+                                    @if ($howItWork)
+                                        <tbody>
+                                            <tr data-code="{{$howItWork->id}}">
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
-                                                    <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$telenordeste->id}}"></label>
+                                                    <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$howItWork->id}}"></label>
                                                 </td>
-                                                <td>{{$telenordeste->title}}</td>
+                                                <td>{{substr(strip_tags($howItWork->text), 0, 180)}}...</td>
 
                                                 <td class="text-center">
-                                                    @switch($telenordeste->active)
+                                                    @switch($howItWork->active)
                                                         @case(0) <span class="badge bg-danger">Inativo</span> @break
                                                         @case(1) <span class="badge bg-success">Ativo</span> @break
                                                     @endswitch
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('telenordeste.editar')
+                                                        @can('como funciona.editar')
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.dashboard.telenordeste.edit',['telenordeste' => $telenordeste->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.dashboard.howItWork.edit',['howItWork' => $howItWork->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
                                                         @endcan
-                                                        @can('telenordeste.remover')
-                                                        <form action="{{route('admin.dashboard.telenordeste.destroy',['telenordeste' => $telenordeste->id])}}" class="col-4" method="POST">
+                                                        @can('como funciona.remover')
+                                                        <form action="{{route('admin.dashboard.howItWork.destroy',['howItWork' => $howItWork->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

@@ -217,7 +217,7 @@
                 <article class="funciona__steps__step">
                     <div class="funciona__steps__step__number">3</div>
                     <p class="funciona__steps__step__description">
-                        A partir de casos selecionados pelos médicos da APS, os pacientes chegam no horário agendado na Unidade de Saúde para a consulta com o médico que, por chamada de vídeo, se conecta com o especialista do, <b>Hospital Alemão Oswaldo Cruz</b> para a condução compartilhada do caso, com a possibilidade de três desfechos: retorno por <b>Teleinterconsulta</b>, alta para APS ou encaminhamento para a Atenção Especializada presencial.
+                        A partir de casos selecionados pelos médicos da APS, os pacientes chegam no horário agendado na Unidade de Saúde para a consulta com o médico que, por chamada de vídeo, se conecta com o especialista do, <b>Hospital Alemão Oswaldo Cruz</b> para a condução compartilhada do caso, com a possibilidade de três desfechos: <b>retorno por Teleinterconsulta</b>, <b>alta para APS</b> ou <b>encaminhamento para a Atenção Especializada presencial</b>.
                     </p>    
                 </article>
             </div>

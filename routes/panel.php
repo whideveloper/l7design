@@ -24,6 +24,7 @@ use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\TeleinterconsultaController;
@@ -135,13 +136,19 @@ Route::prefix('painel/')->group(function () {
         Route::post('objetivo/sorting', [ObjectiveController::class, 'sorting'])
             ->name('admin.dashboard.objective.sorting');
          //TELEINTERCONSULTA
-         Route::resource('teleinterconsulta', TeleinterconsultaController::class)
+         Route::resource('telenterconsulta', TeleinterconsultaController::class)
          ->names('admin.dashboard.teleinterconsulta')
          ->parameters(['teleinterconsulta' => 'teleinterconsulta']);
         Route::post('teleinterconsulta/delete', [TeleinterconsultaController::class, 'destroySelected'])
             ->name('admin.dashboard.teleinterconsulta.destroySelected');
         Route::post('teleinterconsulta/sorting', [TeleinterconsultaController::class, 'sorting'])
             ->name('admin.dashboard.teleinterconsulta.sorting');
+         //COMO FUNCIONA
+         Route::resource('como-funciona', HowItWorkController::class)
+         ->names('admin.dashboard.howItWork')
+         ->parameters(['como-funciona' => 'howItWork']);
+         Route::post('como-funciona/delete', [HowItWorkController::class, 'destroySelected'])
+            ->name('admin.dashboard.howItWork.destroySelected');
         
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

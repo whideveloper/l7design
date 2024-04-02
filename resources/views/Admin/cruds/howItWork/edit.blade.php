@@ -11,21 +11,21 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.telenordeste.index')}}">Telenordestes</a></li>
-                                    <li class="breadcrumb-item active">Editar Telenordeste</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.howItWork.index')}}">Como Funciona</a></li>
+                                    <li class="breadcrumb-item active">Editar Como Funciona</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Telenordeste</h4>
+                            <h4 class="page-title">Editar Como Funciona</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($telenordeste, ['route' => ['admin.dashboard.telenordeste.update', $telenordeste->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
-                    @include('Admin.cruds.telenordeste.form')
-                    @can('telenordestes.editar')
+                {!! Form::model($howItWork, ['route' => ['admin.dashboard.howItWork.update', $howItWork->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
+                    @include('Admin.cruds.howItWork.form')
+                    @can('como funciona.editar')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.telenordeste.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.howItWork.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->
