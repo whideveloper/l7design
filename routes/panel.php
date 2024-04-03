@@ -132,7 +132,7 @@ Route::prefix('painel/')->group(function () {
         Route::post('objetivo/sorting', [ObjectiveController::class, 'sorting'])
             ->name('admin.dashboard.objective.sorting');
          //TELEINTERCONSULTA
-         Route::resource('telenterconsulta', TeleinterconsultaController::class)
+         Route::resource('teleinterconsulta', TeleinterconsultaController::class)
          ->names('admin.dashboard.teleinterconsulta')
          ->parameters(['teleinterconsulta' => 'teleinterconsulta']);
         Route::post('teleinterconsulta/delete', [TeleinterconsultaController::class, 'destroySelected'])

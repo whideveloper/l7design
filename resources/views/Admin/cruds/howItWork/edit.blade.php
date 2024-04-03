@@ -93,27 +93,8 @@
                                     </td>
                                     <td>
                                         <div class="row d-flex justify-content-center">  
-                                            <a class="btn-icon mdi mdi-square-edit-outline col-3" data-bs-toggle="modal" data-bs-target="#modal-stepToStep-edit-{{$stepToStep->id}}"></a>
+                                            <a href="{{route('admin.dashboard.stepToStep.edit', ['stepToStep' => $stepToStep->id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
 
-                                            <div id="modal-stepToStep-edit-{{$stepToStep->id}}" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog" style="max-width: 800px;">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header p-3 pt-2 pb-2">
-                                                            <h4 class="page-title">Passo a passo</h4>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body p-3 pt-0 pb-3">
-                                                            {!! Form::model($stepToStep, ['route' => ['admin.dashboard.stepToStep.update', $stepToStep->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
-                                                                @include('Admin.cruds.stepToStep.form')
-                                                                @can('Passo a passo.editar')
-                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                                                                @endcan
-                                                                <a href="{{route('admin.dashboard.howItWork.edit',['howItWork' => $howItWork->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
-                                                            {!! Form::close() !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>                                     
                                             <form action="{{route('admin.dashboard.stepToStep.destroy',['stepToStep' => $stepToStep->id])}}" class="col-3" method="POST">
                                                 @method('DELETE') @csrf
                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

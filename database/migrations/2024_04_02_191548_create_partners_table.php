@@ -15,6 +15,7 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 191)->nullable();
             $table->string('link')->nullable();
             $table->string('path_image', 191)->nullable();
             $table->tinyInteger('active')->default(0);

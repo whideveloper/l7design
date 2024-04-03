@@ -29,8 +29,8 @@ class StepToStepStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'text'=>'string',
-            'ordem'=>'integer',
+            'text'=>'string|required',
+            'ordem'=>'integer|required',
             'active'=>'boolean',
         ];
     }

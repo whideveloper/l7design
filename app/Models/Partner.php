@@ -12,6 +12,7 @@ class Partner extends Model
     use HasFactory, SoftDeletes, LogsActivity;
     
     protected $fillable = [
+        'title',
         'link',
         'path_image',
         'sorting',
@@ -19,6 +20,7 @@ class Partner extends Model
     ];
 
     protected static $logAttributes = [
+        'title',
         'link',
         'path_image',
         'sorting',
