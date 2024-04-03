@@ -16,12 +16,6 @@ class PermissionsSeeder extends Seeder
     {
 
         $permissions = [
-            'aluno'=>[
-                'Criar',
-                'Editar',
-                'Visualizar',
-                'Remover',
-            ],
             'auditoria'=>[
                 'Visualizar',
             ],
@@ -41,18 +35,6 @@ class PermissionsSeeder extends Seeder
                 'Editar',
                 'Visualizar',
                 'Remover'
-            ],
-            'curso'=>[
-                'Criar',
-                'Editar',
-                'Visualizar',
-                'Remover',
-            ],
-            'atividade'=>[
-                'Criar',
-                'Editar',
-                'Visualizar',
-                'Remover',
             ],
             'telenordeste'=>[
                 'Criar',
@@ -78,7 +60,7 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
-            'passp a passo'=>[
+            'passo a passo'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
@@ -107,13 +89,6 @@ class PermissionsSeeder extends Seeder
                 'Editar',
                 'Visualizar',
                 'Remover',
-            ],
-            'disciplina'=>[
-                'Criar',
-                'Editar',
-                'Visualizar',
-                'Remover',
-                'Visualizar outras disciplinas'
             ],
             'usuario'=>[
                 'Criar',
