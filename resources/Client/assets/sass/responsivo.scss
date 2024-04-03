@@ -13,8 +13,85 @@
 }
 
 // Estilos para dispositivos de tela grande
-@media screen and (min-width: 1025px) {
+@media screen and (max-width: 1025px) {
+    .proadi article{
+        width: 100%;
+    }
+    .hospital__content {
+        &::before{
+            height: 99px;
+            width: 100px;
+            right: -54px
+        }
+        &::after{
+            height: 100px; 
+            width: 98px; 
+            left: -54px;
+        }
+        .hospital__title{
+            width: 100%;
+        }
+    }
+    .funciona{
+        padding: 80px 0 110px 0;
+        aside{
+            width: 100%;
+        }
+    }
+    .location__values__content{
+        width: 50%;
+    }
+    .location{
+        height: 100%;
+    }
+    .location__content,
+    .proadi__content__items,
+    .teleinterconsulta__content article,
+    .funciona__content{
+        align-items: center;
+        flex-direction: column !important;
+        .funciona__steps{
+            width: 100%;
+        }
+        .teleinterconsulta__description{
+            width: 100%;
+            margin-top: 60px;
+        }
+        .location__column{
+            width: 100%;
+            .location__title{
+                width: 50%;
+                &.right{
+                    margin-top: 250px;
+                }
+            }
+            .location__values{
+                margin-top: 210px;
+                &.right{
+                    margin-top: 0;
+                    max-height: inherit;
+                    .location__values__box.right{
+                        width: 250px;
+                        height: 250px;
+                    }
+                }
+            }
+            &.right{
+                width: 50%;                
+            }
+        }
+    }
+    .slide{
+        height: calc(100vh - 280px);
+    }
     .telenordeste__content{
         flex-direction: column;
+        gap: 30px 0;        
+        article{
+            width: 100%;
+        }
+        aside{
+            width: calc(100% - 60px);
+        }
     }
 }

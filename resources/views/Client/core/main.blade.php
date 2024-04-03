@@ -30,6 +30,7 @@
     <meta name="twitter:description" content="Descrição" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/responsivo.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
     <!--fonts google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">

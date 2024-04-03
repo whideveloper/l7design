@@ -270,6 +270,10 @@ mix.scripts(
         "resources/Client/assets/sass/main.min.css",
         "public/Client/assets/css/main.min.css"
     )
+    .styles(
+        "resources/Client/assets/sass/responsivo.min.css",
+        "public/Client/assets/css/responsivo.min.css"
+    )
     .scripts(
         "resources/Client/assets/js/splide.min.js",
         "public/Client/assets/js/splide.min.js"
