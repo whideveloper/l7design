@@ -312,20 +312,23 @@ $(function() {
             arrId.push(id)
         })
 
-        console.log(arrId)
+        
         $.ajax({
             type: 'POST',
             url: $(this).data('route'),
             data: { arrId: arrId },
             success: function(data) {
                 if (data.status) {
+                    console.log('Sucesso')
                     $.NotificationApp.send("Sucesso!", "Registro ordenado com sucesso!", "bottom-left", "#00000080", "success", '3000');
                 } else {
-                    $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro.", "bottom-left", "#00000080", "error", '10000');
+                    console.log('Primeiro erro')
+                    $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro!", "bottom-left", "#00000080", "error", '10000');
                 }
             },
             error: function() {
-                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro.", "bottom-left", "#00000080", "error", '10000');
+                console.log('Segundo erro')
+                $.NotificationApp.send("Erro!", "Ocorreu um erro ao ordenar o registro!", "bottom-left", "#00000080", "error", '10000');
             }
         })
     });

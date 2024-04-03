@@ -26,13 +26,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::query();
-        if(!Auth::user()->can('professor.visualizar')){
+        if(!Auth::user()->can('usuario.visualizar')){
             return view('Admin.error.403');
         }
-        if(Auth::user()->can(['professor.visualizar','professor.visualizar outros professores'])){
-            $users = $users->where('id', '<>', 1)->sorting();
+        if(Auth::user()->can(['usuario.visualizar','usuario.visualizar outros usuarios'])){
+            $users = $users->where('id', '<>', 1)->where('id', '<>', 2)->sorting();
         }
-        if(Auth::user()->can('professor.visualizar') && !Auth::user()->can('professor.visualizar outros professores')){
+        if(Auth::user()->can('usuario.visualizar') && !Auth::user()->can('usuario.visualizar outros usuarios')){
             $users = $users->where('id', '<>', 1)
                 ->where('id', Auth::user()->id)
                 ->sorting();
@@ -58,7 +58,7 @@ class UserController extends Controller
 
     public function create()
     {
-        if(!Auth::user()->can(['professor.visualizar','professor.criar'])){
+        if(!Auth::user()->can(['usuario.visualizar','usuario.criar'])){
             return view('Admin.error.403');
         }
 
@@ -92,13 +92,13 @@ class UserController extends Controller
             if ($userExist) {
                 Storage::delete($this->pathUpload . $path_image);
 
-                return redirect()->back()->with('error', 'Erro ao cadastrar Professor! Este e-mail já existe em nossos registros.');
+                return redirect()->back()->with('error', 'Erro ao cadastrar Usuário! Este e-mail já existe em nossos registros.');
             } else {
                 $user = User::create($data);
                 $user->syncRoles($roles);
 
                 if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
-                Session::flash('success', 'Professor cadastrado com sucesso!');
+                Session::flash('success', 'Usuário cadastrado com sucesso!');
             }
 
             DB::commit();
@@ -106,14 +106,14 @@ class UserController extends Controller
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao cadastrar o Professor!');
+            Session::flash('error', 'Erro ao cadastrar o usuario!');
             return redirect()->back();
         }
     }
 
     public function edit(User $user)
     {
-        if(!Auth::user()->can(['professor.visualizar','professor.editar'])){
+        if(!Auth::user()->can(['usuario.visualizar','usuario.editar'])){
             return view('Admin.error.403');
         }
 
@@ -128,7 +128,7 @@ class UserController extends Controller
         ]);
     }
     public function show(User $user){
-        if(!Auth::user()->can('professor.visualizar')){
+        if(!Auth::user()->can('usuario.visualizar')){
             return view('Admin.error.403');
         }
         $currentRole = Role::join('model_has_roles', 'roles.id', 'model_has_roles.role_id')
@@ -142,7 +142,7 @@ class UserController extends Controller
         ]);
     }
     public function deletedShow(User $user){
-        if(!Auth::user()->can(['professor.restaurar dados','professor.visualizar'])){
+        if(!Auth::user()->can(['usuario.restaurar dados','usuario.visualizar'])){
             return view('Admin.error.403');
         }
         $userDeleteds_at = User::onlyTrashed()->paginate(5);
@@ -153,7 +153,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        if(!Auth::user()->can('professor.visualizar')){
+        if(!Auth::user()->can('usuario.visualizar')){
             return view('Admin.error.403');
         }
         $userDeleteds_at = User::onlyTrashed();
@@ -207,12 +207,12 @@ class UserController extends Controller
             if ($path_image) {Storage::delete($this->pathUpload.$path_image);}
             if ($path_image) {$request->file('path_image')->storeAs($this->pathUpload, $path_image);}
             DB::commit();
-            Session::flash('success', 'Professor atualizado com sucesso!');
+            Session::flash('success', 'Usuário atualizado com sucesso!');
             return redirect()->route('admin.dashboard.user.index');
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao atualizar o Professor!');
+            Session::flash('error', 'Erro ao atualizar o Usuário!');
             return redirect()
                 ->back()
                 ->withInput()
@@ -220,34 +220,34 @@ class UserController extends Controller
         }
     }
 
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
-        if(!Auth::user()->can(['professor.visualizar','professor.remover'])){
+        if(!Auth::user()->can(['usuario.visualizar','usuario.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($user->path_image);
         $user->delete();
 
-        Session::flash('success','Professor deletado com sucesso!');
+        Session::flash('success','Usuário deletado com sucesso!');
         return redirect()->back();
     }
     public function deleteForced($id)
     {
-        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
 
         $user = user::withTrashed()->find($id);
         if ($user) {
-            // Verifique se o Professor autenticado tem permissão para excluir permanentemente o user (opcional)
+            // Verifique se o usuario autenticado tem permissão para excluir permanentemente o user (opcional)
             // ...
 
             try {
                 $user->forceDelete();
-                Session::flash('success', 'Professor excluído com sucesso!');
+                Session::flash('success', 'Usuário excluído com sucesso!');
                 Session::flash('reopenModal','modal-user');
             } catch (\Exception $e) {
-                Session::flash('error', 'Erro ao excluir o Professor.');
+                Session::flash('error', 'Erro ao excluir o Usuário.');
             }
         }
 
@@ -256,7 +256,7 @@ class UserController extends Controller
 
     public function destroySelectedForced(Request $request)
     {
-        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -267,7 +267,7 @@ class UserController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['professor.visualizar','professor.remover'])) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.remover'])) {
             return view('Admin.error.403');
         }
 
@@ -285,7 +285,7 @@ class UserController extends Controller
     }
 
     public function retoreData($id){
-        if (!Auth::user()->can(['professor.visualizar','professor.restaurar dados'])) {
+        if (!Auth::user()->can(['usuario.visualizar','usuario.restaurar dados'])) {
             return view('Admin.error.403');
         }
         $user = User::onlyTrashed()->where('id', $id);
@@ -298,7 +298,7 @@ class UserController extends Controller
 
     public function retoreDataAll(Request $request)
     {
-        if (!Auth::user()->can(['professor.visualizar','restaurar dados'])) {
+        if (!Auth::user()->can(['usuario.visualizar','restaurar dados'])) {
             return view('Admin.error.403');
         }
 

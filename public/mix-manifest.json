@@ -1,7 +1,7 @@
 {
     "/Admin/assets/js/vendor.min.js": "/Admin/assets/js/vendor.min.js?id=bb9ca0584ca7d7ed78f6",
     "/Admin/assets/js/app.min.js": "/Admin/assets/js/app.min.js?id=bb72b794a2ed7de930bc",
-    "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=0889da066b93ce5dd397",
+    "/Admin/assets/js/custom.js": "/Admin/assets/js/custom.js?id=cd2af9eb3be4d646aa4b",
     "/Admin/assets/libs/parsley.min.js": "/Admin/assets/libs/parsley.min.js?id=fcfe6ae30a25b06f0c24",
     "/Admin/assets/libs/fancybox.js": "/Admin/assets/libs/fancybox.js?id=0ce18f9ca64e6fdcac07",
     "/Admin/assets/libs/selectize.min.js": "/Admin/assets/libs/selectize.min.js?id=567d7ca1bb35dea2958a",
@@ -64,12 +64,12 @@
     "/Admin/assets/libs/jquery.toast.min.css": "/Admin/assets/libs/jquery.toast.min.css?id=be8a6c1b1899c2ce48fd",
     "/Admin/assets/libs/cropper.min.css": "/Admin/assets/libs/cropper.min.css?id=c33e5fcf49439f7a02cf",
     "/Client/assets/css/splide.min.css": "/Client/assets/css/splide.min.css?id=f6a86e8018fc1f6ae254",
-    "/Client/assets/css/main.min.css": "/Client/assets/css/main.min.css?id=fab1f8563983297e7e59",
+    "/Client/assets/css/main.min.css": "/Client/assets/css/main.min.css?id=40391a656df42a5e01ff",
     "/Client/assets/js/splide.min.js": "/Client/assets/js/splide.min.js?id=e182d14f4d0790c792ff",
     "/Client/assets/js/splide.min.js.map": "/Client/assets/js/splide.min.js.map?id=166a0ca35731b5d3221d",
     "/Client/assets/js/splide-extension-grid.min.js": "/Client/assets/js/splide-extension-grid.min.js?id=445ac1cba8af2d8739a1",
     "/Client/assets/js/fslightbox.js": "/Client/assets/js/fslightbox.js?id=13eca26a6e43d0485764",
     "/Client/assets/js/inputmask.min.js": "/Client/assets/js/inputmask.min.js?id=f90f36f6fd1eaf4df4fa",
     "/Client/assets/js/scroll-banner.js": "/Client/assets/js/scroll-banner.js?id=7c33a9fa3d7243b904c9",
-    "/Client/assets/js/main.js": "/Client/assets/js/main.js?id=678b56facdb1b3b39260"
+    "/Client/assets/js/main.js": "/Client/assets/js/main.js?id=6813f6fbef615d650723"
 }

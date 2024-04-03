@@ -227,8 +227,9 @@ input, select {
                 font-family: var(--roboto-font-family);
                 line-height: 4.438rem;
                 text-align: left;
-                width: calc(100% - 550px);
+                width: calc(100% - 475px);
                 word-break: break-all;
+                white-space: pre-line;
             }   
         }
     }
@@ -421,7 +422,7 @@ input, select {
             font-family: var(--roboto-font-family);
             font-weight: 400;
             line-height: 1.625rem;
-            & b{
+            & b, strong{
                 color: var(--pantone-7466-c);
                 font-weight: 500;
             }
@@ -780,7 +781,7 @@ input, select {
         transform: scale(1.02);
         
     }
-    .location__area__text{
+    .location__area__text p{
         padding: 0 22px;
         width: 87%;
         margin: 0;
@@ -941,7 +942,7 @@ input, select {
     padding: 125px 0;
     .funciona__content,
     .proadi__content{
-        align-items: center;
+        align-items: flex-start;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -1005,7 +1006,7 @@ input, select {
     font-family: var(--roboto-font-family);
     font-weight: 400;
     line-height: 1.625rem;
-    & b{
+    & b, strong{
         color: var(--pantone-7466-c);
         font-weight: 500;
     }
@@ -1345,6 +1346,7 @@ input, select {
         li{
             @include transition-ease;
             list-style-type: none;
+            position: relative;
             img{
                 width: 100%;
             }

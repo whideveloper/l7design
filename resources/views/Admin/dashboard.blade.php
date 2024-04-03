@@ -47,8 +47,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Grupos</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Grupos</p>
+                                                        <h4 class="text-dark mt-1">Grupos de Permissão</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -58,9 +58,9 @@
                             </div> <!-- end col-->
                         @endcan
 
-                        @can('disciplina.visualizar')
+                        @can('telenordeste.visualizar')
                             <div class="col-md-6 col-xl-4">
-                                <a nofollow href="{{route('admin.dashboard.subject.index')}}">
+                                <a nofollow href="{{route('admin.dashboard.telenordeste.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
                                             <div class="row">
@@ -71,8 +71,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Disciplinas</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Disciplinas</p>
+                                                        <h4 class="text-dark mt-1">Telenordeste</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -81,22 +81,21 @@
                                 </a>
                             </div> <!-- end col-->
                         @endcan
-
-                        @can('curso.visualizar')
+                        @can('banners.visualizar')
                             <div class="col-md-6 col-xl-4">
-                                <a nofollow href="{{route('admin.dashboard.course.index')}}">
+                                <a nofollow href="{{route('admin.dashboard.banner.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-school font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Cursos</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Cursos</p>
+                                                        <h4 class="text-dark mt-1">Banner</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -105,22 +104,159 @@
                                 </a>
                             </div> <!-- end col-->
                         @endcan
-
-                        @can('aluno.visualizar')
+                        @can('localizacao.visualizar')
                             <div class="col-md-6 col-xl-4">
-                                <a nofollow href="{{route('admin.dashboard.student.index')}}">
+                                <a nofollow href="{{route('admin.dashboard.location.index')}}">
                                     <div class="widget-rounded-circle card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                        <i class="mdi mdi-account-multiple font-24 avatar-title text-dark"></i>
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Alunos</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Alunos</p>
+                                                        <h4 class="text-dark mt-1">Localização</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('teleinterconsulta.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.teleinterconsulta.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Teleinterconsulta</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('parceiro.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.partner.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Parceiros</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('como funciona.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.howItWork.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Como Funciona</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('hospital.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.hospital.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Hospital Oswaldo Cruz</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('proadi.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.proadi.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Proadi</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
+                        @can('depoimento.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.depoiment.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Depoimentos</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -130,7 +266,7 @@
                             </div> <!-- end col-->
                         @endcan
 
-                        @can('professor.visualizar')
+                        @can('usuario.visualizar')
                             <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.user.index')}}">
                                     <div class="widget-rounded-circle card">
@@ -143,8 +279,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <h4 class="text-dark mt-1">Professores</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Professores</p>
+                                                        <h4 class="text-dark mt-1">Usuários</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -167,7 +303,7 @@
                                                 <div class="col-12">
                                                     <div class="text-center">
                                                         <h4 class="text-dark mt-1">Formulário de contato</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Formulário de contato</p>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
@@ -190,7 +326,7 @@
                                                 <div class="col-12">
                                                     <div class="text-center">
                                                         <h4 class="text-dark mt-1">Auditoria</h4>
-                                                        <p class="text-muted mb-1">Gerenciar Auditoria</p>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
                                                     </div>
                                                 </div>
                                             </div> <!-- end row-->
