@@ -28,8 +28,8 @@ class BannerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'start_date'=>'required',
-            'end_date'=>'required',
+            'title'=>'required|string',
+            'subtitle'=>'nullable|string',
             'link'=>'string|url|nullable',
             'path_image'=>'file|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'active'=>'boolean',

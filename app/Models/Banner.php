@@ -13,20 +13,20 @@ class Banner extends Model
 
     use HasFactory, SoftDeletes, LogsActivity;
     protected $fillable = [
+        'title',
+        'subtitle',
         'link',
         'active',
-        'start_date',
-        'end_date',
         'path_image',
         'path_image_mobile',
         'sorting'
     ];
 
     protected static $logAttributes = [
+        'title',
+        'subtitle',
         'link',
         'active',
-        'start_date',
-        'end_date',
         'path_image',
         'path_image_mobile',
         'sorting'
