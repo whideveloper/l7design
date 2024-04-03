@@ -24,32 +24,6 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row d-flex justify-content-lg-start pe-2 align-items-end mb-3">
-                                    <form action="{{route('admin.dashboard.banner-search')}}" method="POST" style="width:90%;padding-right:0;">
-                                        @csrf
-                                        <div class="d-flex align-items-end">
-                                            <div class="row ps-2 me-2 col-lg-2">
-                                                <label class="p-0">Data de inicial</label>
-                                                <input type="date" name="start_date" class="form-control">
-                                            </div>
-                                            <div class="row ps-2 me-2 col-lg-2">
-                                                <label class="p-0">Data de final</label>
-                                                <input type="date" name="end_date" class="form-control">
-                                            </div>
-                                            <select name="status" class="form-select row ms-0 me-2" aria-label="Default select example" style="height:38px;width:210px;">
-                                                <option selected disabled>Selecione o status</option>
-                                                <option value="0">Inativo</option>
-                                                <option value="1">Ativo</option>
-                                            </select>   
-                                            <div class="input-group w-auto" style="height:38px">
-                                                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
-                                            </div>                                        
-                                        </div> 
-                                    </form>
-                                    @if (route('admin.dashboard.banner-search') == url()->current())
-                                        <a href="{{route('admin.dashboard.banner.index')}}" class="btn btn-danger" style="height: 40px;width:120px;">Limpar busca</a>
-                                    @endif
-                                </div>
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         @can('banners.remover')
@@ -80,15 +54,14 @@
 
                                     <tbody data-route="{{route('admin.dashboard.banner.sorting')}}">
                                         @foreach ($banners as $key => $banner)
-                                        {{-- {{dd($key)}} --}}
                                             <tr data-code="{{$banner->id}}">
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$banner->id}}"></label>
                                                 </td>
                                                 <td><a href="{{$banner->link}}" target="_blank" class="mdi mdi-link-box-variant font-28 text-secondary"></a></td>
-                                                <td>{{Carbon\Carbon::parse($banner->start_date)->format('d/m/Y')}}</td>
-                                                <td>{{Carbon\Carbon::parse($banner->end_date)->format('d/m/Y')}}</td>
+                                                <td>{{$banner->title}}</td>
+                                                <td>{{$banner->subttitle}}</td>
                                                 <td class="table-user text-center">
                                                     @if ($banner->path_image)
                                                         <img src="{{ asset('storage/'.$banner->path_image) }}" name="path_image" alt="table-user" class="me-2 rounded-circle">

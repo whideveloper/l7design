@@ -188,27 +188,4 @@ class BannerController extends Controller
         }
         return Response::json(['status' => 'success']);
     }
-
-    public function search(Request $request){
-        if(!Auth::user()->can('banners.visualizar')){
-            return view('Admin.error.403');
-        }
-
-        $banners = Banner::query();
-
-        if ($request->start_date) {
-            $banners = $banners->whereDate('start_date', '=', $request->start_date);
-        }
-        if ($request->end_date) {
-            $banners = $banners->where('end_date', '=', $request->end_date);
-        }
-        if ($request->filled('status')) {
-            $banners->where('active', $request->input('status'));
-        }
-        $banners = $banners->paginate(12);
-
-        return view('Admin.cruds.banner.index', [
-            'banners' => $banners,
-        ]);
-    }
 }

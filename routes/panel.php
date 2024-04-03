@@ -109,9 +109,6 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.banner.destroySelected');
         Route::post('banner/sorting', [BannerController::class, 'sorting'])
             ->name('admin.dashboard.banner.sorting');            
-        //SEARCH BANNER
-        Route::post('banner/search', [BannerController::class, 'search'])
-        ->name('admin.dashboard.banner-search');
         //TELENORDESTE
         Route::resource('telenordeste', TelenordesteController::class)
             ->names('admin.dashboard.telenordeste')

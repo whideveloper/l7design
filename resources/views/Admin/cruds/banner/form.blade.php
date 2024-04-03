@@ -4,21 +4,16 @@
         <div class="card card-body">
             <div class="row">
                 <div class="mb-3 col-lg-6">
-                    {!! Form::label(null, 'Data Iinício', ['class'=>'form-label']) !!}
-                    <div class="input__date">
-                        <input type="date" name="start_date" value="{{isset($banner->start_date)?$banner->start_date:''}}">
-                    </div>
+                    {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
+                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
                 </div>
-
                 <div class="mb-3 col-lg-6">
-                    {!! Form::label(null, 'Data Final', ['class'=>'form-label']) !!}
-                    <div class="input__date">
-                        <input type="date" name="end_date" value="{{isset($banner->end_date)?$banner->end_date:''}}">
-                    </div>
+                    {!! Form::label(null, 'subtitulo', ['class'=>'form-label']) !!}
+                    {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-                    {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
+                    {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03']) !!}
                 </div>
 
             </div>
