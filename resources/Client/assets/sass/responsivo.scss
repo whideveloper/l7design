@@ -1,0 +1,20 @@
+// Estilos para dispositivos de tela pequena
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+// Estilos para dispositivos de tela média
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+}
+
+// Estilos para dispositivos de tela grande
+@media screen and (min-width: 1025px) {
+    .telenordeste__content{
+        flex-direction: column;
+    }
+}
