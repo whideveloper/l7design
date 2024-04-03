@@ -60,7 +60,11 @@
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$banner->id}}"></label>
                                                 </td>
                                                 <td><a href="{{$banner->link}}" target="_blank" class="mdi mdi-link-box-variant font-28 text-secondary"></a></td>
-                                                <td>{{$banner->title}}</td>
+                                                @php
+                                                    $title = $banner->title;
+                                                    $title = str_replace('<br>', "", $title);
+                                                @endphp
+                                                <td>{{$title}}</td>
                                                 <td>{{$banner->subttitle}}</td>
                                                 <td class="table-user text-center">
                                                     @if ($banner->path_image)

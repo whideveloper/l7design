@@ -227,8 +227,9 @@ input, select {
                 font-family: var(--roboto-font-family);
                 line-height: 4.438rem;
                 text-align: left;
-                width: calc(100% - 550px);
+                width: calc(100% - 475px);
                 word-break: break-all;
+                white-space: pre-line;
             }   
         }
     }
