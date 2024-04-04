@@ -14,6 +14,16 @@
 
 // Estilos para dispositivos de tela grande
 @media screen and (max-width: 1025px) {
+    .footer{
+        height: auto;
+        padding: 20px 0;
+        .footer__logos__items{
+            max-width: 90%;
+        }
+        .footer__contact{
+            width: 90%;
+        }
+    }
     .proadi article{
         width: 100%;
     }
