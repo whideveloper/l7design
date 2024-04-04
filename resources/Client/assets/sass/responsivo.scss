@@ -1,42 +1,245 @@
 // Estilos para dispositivos de tela pequena
 @media screen and (max-width: 768px) {
-    .container {
+    .depoimento__content{
+        margin-top: 0;
+        max-width: 90%;
+        padding: 30px 0;
+    }
+    .teleinterconsulta__image{
+        &::after{
+            bottom: -35px;
+            height: 80px;
+            width: 80px;
+        }
+        &::before{
+            right: -58px;
+            height: 100%;
+            width: 90px;
+        }
+    }
+    .depoimento__content::after{
+        display: none;
+    }
+    .teleinterconsulta__image {
+        max-width: 320px;
         width: 100%;
+        .redound-top{
+            top: -37px;
+            width: 76px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+            max-width: 320px;
+        }
+    }
+    .telenordeste__content__event{
+        width: 90% !important;
+        margin: 0 auto;
+    }
+    .footer__contact__items__left,
+    .footer__contact__items__right{
+        width: 100%;
+        justify-content: center;
+    }
+    .header{
+        display: none;
+    }
+    .footer{
+        height: auto;
+        padding: 20px 0;
+        .footer__contact__items{
+            flex-direction: column;
+            gap: 20px 0;
+        }
+        .footer__logos__items{
+            max-width: 80%;
+        }
+        .footer__contact{
+            width: 90%;
+            .footer__contact__title{
+                text-align: center;
+            }
+        }
+    }
+    .proadi {
+        padding: 30px 0;
+        margin: 0;
+        .proadi__content{
+            max-width: 90%;
+            margin: 0 auto;
+        } 
+        article{
+            width: 100%;
+        }
+    }
+    .hospital__content {
+        max-width: 90%;
+        margin: 0;
+        padding: 30px 0;
+        border-radius: inherit;
+        background: inherit;
+        .hospital__image__bottom img{
+            height: 300px;
+        }
+        &::before{
+            height: 75px;
+            width: 75px;
+            right: 11px;
+        }
+        &::after{
+            height: 90px;
+            width: 88px;
+            left: 0;
+        }
+        .hospital__title{
+            width: 100%;
+        }
+    }
+    .funciona{
+        padding: 30px 0;
+        margin: 0;
+        .funciona__content{
+            max-width: 90% !important;
+        }
+        aside{
+            width: 100%;
+        }
+    }
+    .location__values__content{
+        width: 100%;
+    }
+    .location{
+        height: 100%;
+    }    
+    .location__content,
+    .proadi__content__items,
+    .teleinterconsulta__content article,
+    .funciona__content{
+        align-items: center;
+        flex-direction: column !important;
+        .funciona__steps{
+            width: 100%;
+        }
+        .teleinterconsulta__description{
+            width: 100%;
+            margin-top: 0;
+        }
+        .location__column{
+            width: 60%;
+            .location__title{
+                width: 50%;
+                &.right{
+                    margin-top: 250px;
+                }
+            }
+            .location__values{
+                margin-top: 210px;
+                &.right{
+                    justify-content: center;
+                    margin-top: 0;
+                    max-height: inherit;
+                    .location__values__box.right{
+                        width: 250px;
+                        height: 250px;
+                    }
+                }
+            }
+            &.right{
+                width: 70%;                
+            }
+        }
+    }
+    .slide{
+        height: calc(100vh - 380px);
+    }
+    .teleinterconsulta__content{
+        margin: 0;
+        padding: 30px 0 0 0;
+        max-width: 90%;
+        border-radius: inherit;
+        background: inherit;
+        article{
+            flex-direction: column-reverse !important;
+            gap: 80px 0;
+        }
+    }
+    .telenordeste__content{
+        flex-direction: column;
+        gap: 30px 0;    
+        margin-top: 0;  
+        padding: 30px 0 0 0;
+        max-width: 100%;   
+        .telenordeste__event__title{
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        article{
+            width: 90%;
+            margin: 0 auto;
+        }
+        aside{
+            width: 100%;
+            border-radius: inherit;
+            padding: 30px 0;
+        }
+        .telenordeste__btn.agenda{
+            position: relative;
+            top: inherit;
+            left: inherit;
+            transform: inherit;
+            width: 90%;
+            margin: 0 auto;
+            margin-left: 35px;
+            margin-top: 30px;
+        }
     }
 }
 
 // Estilos para dispositivos de tela média
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        width: 80%;
+    .footer__contact__items__left,
+    .footer__contact__items__right{
+        width: 100%;
+        justify-content: center;
     }
-}
-
-// Estilos para dispositivos de tela grande
-@media screen and (max-width: 1025px) {
+    .header{
+        display: none;
+    }
     .footer{
         height: auto;
         padding: 20px 0;
+        .footer__contact__items{
+            flex-direction: column;
+            gap: 20px 0;
+        }
         .footer__logos__items{
-            max-width: 90%;
+            max-width: 80%;
         }
         .footer__contact{
             width: 90%;
+            .footer__contact__title{
+                text-align: center;
+            }
         }
     }
     .proadi article{
         width: 100%;
     }
     .hospital__content {
+        .hospital__image__bottom img{
+            height: 300px;
+        }
         &::before{
-            height: 99px;
-            width: 100px;
-            right: -54px
+            height: 75px;
+            width: 75px;
+            right: 11px;
         }
         &::after{
-            height: 100px; 
-            width: 98px; 
-            left: -54px;
+            height: 90px;
+            width: 88px;
+            left: 0;
         }
         .hospital__title{
             width: 100%;
@@ -49,11 +252,12 @@
         }
     }
     .location__values__content{
-        width: 50%;
+        width: 80%;
     }
     .location{
         height: 100%;
     }
+    
     .location__content,
     .proadi__content__items,
     .teleinterconsulta__content article,
@@ -68,7 +272,7 @@
             margin-top: 60px;
         }
         .location__column{
-            width: 100%;
+            width: 60%;
             .location__title{
                 width: 50%;
                 &.right{
@@ -78,6 +282,7 @@
             .location__values{
                 margin-top: 210px;
                 &.right{
+                    justify-content: center;
                     margin-top: 0;
                     max-height: inherit;
                     .location__values__box.right{
@@ -87,7 +292,7 @@
                 }
             }
             &.right{
-                width: 50%;                
+                width: 70%;                
             }
         }
     }
@@ -105,3 +310,4 @@
         }
     }
 }
+
