@@ -117,6 +117,7 @@
             </aside>
         </div>
     </section>
+    
     <section id="location" class="location">
         <div class="location__content">
             <div class="location__column">
