@@ -1,2 +1,2 @@
-# painel
- Painel gerenciador de conteúdo
+# L7 design
+ site institucional
