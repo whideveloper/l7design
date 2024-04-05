@@ -66,6 +66,7 @@
                     </a>
                 </div>
             </article>
+            
             <aside>
                 <h4 class="telenordeste__event__title">Próximos Eventos</h4>
                 
@@ -117,7 +118,7 @@
             </aside>
         </div>
     </section>
-    
+
     <section id="location" class="location">
         <div class="location__content">
             <div class="location__column">
