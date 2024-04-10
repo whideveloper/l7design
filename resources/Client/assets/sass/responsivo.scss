@@ -1,5 +1,29 @@
 // Estilos para dispositivos de tela pequena
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 631px) {
+    .owl-carousel .owl-item.active.center .item__description{
+        max-width: 80%;
+    }
+    .depoimento.owl-carousel .owl-stage{
+        gap: 0px 30px;
+        height: 350px;
+        max-height: 350px;
+        padding: 0;
+    }
+    .owl-carousel.owl-drag .owl-item{
+        margin: 0 !important;        
+    }
+    .owl-carousel .owl-item.active.center .item{
+        margin: 0 auto;
+        transform: scale(1);
+        width: 90%;
+    }
+    .footer__contact__items__left{
+        gap: 25px 0;
+    }
+    .linha{
+        display: none;
+    }
     .depoimento__content{
         margin-top: 0;
         max-width: 90%;
@@ -39,26 +63,345 @@
     }
     .footer__contact__items__left,
     .footer__contact__items__right{
-        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
         justify-content: center;
+        width: 100%;
+    }
+    .footer__contact__items__right{
+        flex-direction: row;
+        justify-content: flex-start;
     }
     .header{
         display: none;
     }
     .footer{
-        height: auto;
-        padding: 20px 0;
+        height: 100%;
+        padding: 0;
+        background-color: inherit;
+        border-top: inherit;
+        position: relative;
+        &::before{
+            content: '';
+            background-color: var(--pantone-3145-c);
+            border-top: 8px solid var(--pantone-7466-c);
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px 0;
+            height: 57%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .footer__logos{
+            gap: 0;
+        }
+        .footer__logos__items{
+            align-items: center;
+            background-color: inherit;
+            border-radius: inherit;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            gap: 0 34.79px;
+            justify-content: space-between;
+            max-width: 95%;
+            margin: 0 auto;
+            margin-right: 0;
+            margin-top: 0px;
+            margin-bottom: 35px;
+            padding: 20px 0 20px 20px;
+            position: relative;
+            z-index: 1;
+            li{
+                height: 100px;
+                img{
+                    width: 100%;
+                    height: 100px;
+                }
+                &:hover{
+                    transform: scale(1);
+                }
+            }
+        }
         .footer__contact__items{
             flex-direction: column;
             gap: 20px 0;
-        }
-        .footer__logos__items{
-            max-width: 80%;
+            padding: 20px 0;
         }
         .footer__contact{
             width: 90%;
+            position: relative;
+            z-index: 1;
             .footer__contact__title{
-                text-align: center;
+                text-align: left;
+                margin: 10px 0;
+            }
+        }
+    }
+    .proadi {
+        padding: 30px 0;
+        margin: 0;
+        .proadi__content{
+            max-width: 90%;
+            margin: 0 auto;
+        } 
+        article{
+            width: 100%;
+        }
+    }
+    .hospital__content {
+        max-width: 90%;
+        margin: 0;
+        padding: 30px 0;
+        border-radius: inherit;
+        background: inherit;
+        .hospital__image__bottom img{
+            height: 300px;
+        }
+        &::before{
+            height: 75px;
+            width: 75px;
+            right: 11px;
+        }
+        &::after{
+            height: 90px;
+            width: 88px;
+            left: 0;
+        }
+        .hospital__title{
+            width: 100%;
+        }
+    }
+    .funciona{
+        padding: 30px 0;
+        margin: 0;
+        .funciona__content{
+            max-width: 90% !important;
+        }
+        aside{
+            width: 100%;
+        }
+    }
+    .location__values__content{
+        width: 100%;
+    }
+    .location{
+        height: 100%;
+    }    
+    .location__content,
+    .proadi__content__items,
+    .teleinterconsulta__content article,
+    .funciona__content{
+        align-items: center;
+        flex-direction: column !important;
+        .funciona__steps{
+            width: 100%;
+        }
+        .teleinterconsulta__description{
+            width: 100%;
+            margin-top: 0;
+        }
+        .location__column{
+            width: 60%;
+            .location__title{
+                width: 50%;
+                &.right{
+                    margin-top: 250px;
+                }
+            }
+            .location__values{
+                margin-top: 210px;
+                &.right{
+                    justify-content: center;
+                    margin-top: 0;
+                    max-height: inherit;
+                    .location__values__box.right{
+                        width: 250px;
+                        height: 250px;
+                    }
+                }
+            }
+            &.right{
+                width: 70%;                
+            }
+        }
+    }
+    .slide{
+        height: calc(100vh - 380px);
+    }
+    .teleinterconsulta__content{
+        margin: 0;
+        padding: 30px 0 0 0;
+        max-width: 90%;
+        border-radius: inherit;
+        background: inherit;
+        article{
+            flex-direction: column-reverse !important;
+            gap: 80px 0;
+        }
+    }
+    .telenordeste__content{
+        flex-direction: column;
+        gap: 30px 0;    
+        margin-top: 0;  
+        padding: 30px 0 0 0;
+        max-width: 100%;   
+        .telenordeste__event__title{
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        article{
+            width: 90%;
+            margin: 0 auto;
+        }
+        aside{
+            width: 100%;
+            border-radius: inherit;
+            padding: 30px 0;
+        }
+        .telenordeste__btn.agenda{
+            position: relative;
+            top: inherit;
+            left: inherit;
+            transform: inherit;
+            width: 90%;
+            margin: 0 auto;
+            margin-left: 35px;
+            margin-top: 30px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer__contact__items__left{
+        gap: 25px 0;
+    }
+    .linha{
+        display: none;
+    }
+    .depoimento__content{
+        margin-top: 0;
+        max-width: 90%;
+        padding: 30px 0;
+    }
+    .teleinterconsulta__image{
+        &::after{
+            bottom: -35px;
+            height: 80px;
+            width: 80px;
+        }
+        &::before{
+            right: -58px;
+            height: 100%;
+            width: 90px;
+        }
+    }
+    .depoimento__content::after{
+        display: none;
+    }
+    .teleinterconsulta__image {
+        max-width: 320px;
+        width: 100%;
+        .redound-top{
+            top: -37px;
+            width: 76px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+            max-width: 320px;
+        }
+    }
+    .telenordeste__content__event{
+        width: 90% !important;
+        margin: 0 auto;
+    }
+    .footer__contact__items__left,
+    .footer__contact__items__right{
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .footer__contact__items__right{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .header{
+        display: none;
+    }
+    .footer{
+        height: 100%;
+        padding: 0;
+        background-color: inherit;
+        border-top: inherit;
+        position: relative;
+        &::before{
+            content: '';
+            background-color: var(--pantone-3145-c);
+            border-top: 8px solid var(--pantone-7466-c);
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px 0;
+            height: 57%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .footer__logos{
+            gap: 0;
+        }
+        .footer__logos__items{
+            align-items: center;
+            background-color: inherit;
+            border-radius: inherit;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            gap: 0 34.79px;
+            justify-content: space-between;
+            max-width: 95%;
+            margin: 0 auto;
+            margin-right: 0;
+            margin-top: 0px;
+            margin-bottom: 35px;
+            padding: 20px 0 20px 20px;
+            position: relative;
+            z-index: 1;
+            li{
+                height: 100px;
+                img{
+                    width: 100%;
+                    height: 100px;
+                }
+                &:hover{
+                    transform: scale(1);
+                }
+            }
+        }
+        .footer__contact__items{
+            flex-direction: column;
+            gap: 20px 0;
+            padding: 20px 0;
+        }
+        .footer__contact{
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            .footer__contact__title{
+                text-align: left;
+                margin: 10px 0;
             }
         }
     }

@@ -333,11 +333,32 @@ $(document).ready(function(){
             600:{
                 items:1
             },
+            768:{
+                items:2
+            },
             1024:{
                 items:2
             },
             1200:{
                 items:3
+            }
+        }
+    });
+
+    $(".footer__logos__items").owlCarousel({
+        loop: true,
+        autoplay: true, 
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        margin: 20,
+        responsiveClass: true,
+        smartSpeed: 1300,
+        responsive:{
+            0:{
+                items: 2, // Número de itens visíveis em resoluções menores que 768px
+            },
+            768:{
+                items: 3, // Número de itens visíveis em resoluções maiores ou igual a 768px
             }
         }
     });
