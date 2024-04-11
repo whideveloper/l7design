@@ -345,7 +345,19 @@ $(document).ready(function(){
         }
     });
 
-    $(".footer__logos__items").owlCarousel({
+    if ($(window).width() <= 768) {
+        $(".footer__logos__items").addClass("carrossel-logos");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 768) {
+            $(".footer__logos__items").addClass("carrossel-logos");
+        } else {
+            $(".footer__logos__items").removeClass("carrossel-logos");
+        }
+    });
+    
+    $(".carrossel-logos").owlCarousel({
         loop: true,
         autoplay: true, 
         autoplayTimeout: 1000,
@@ -359,6 +371,38 @@ $(document).ready(function(){
             },
             768:{
                 items: 3, // Número de itens visíveis em resoluções maiores ou igual a 768px
+            }
+        }
+    });
+
+    if ($(window).width() <= 680) {
+        $(".location-carrossel-mobile").addClass("carrossel-mobile");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 680) {
+            $(".location-carrossel-mobile").addClass("carrossel-mobile");
+        } else {
+            $(".location-carrossel-mobile").removeClass("carrossel-mobile");
+        }
+    });
+    $(".carrossel-mobile").owlCarousel({
+        loop: false,
+        autoplay: false, 
+        nav:false,
+        dots:true,
+        margin: 20,
+        responsiveClass: true,
+        smartSpeed: 1600,
+        responsive:{
+            0:{
+                items: 2,
+            },
+            475:{
+                items: 3,
+            },
+            680:{
+                items: 3,
             }
         }
     });

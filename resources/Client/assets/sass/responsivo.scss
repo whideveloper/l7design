@@ -1,6 +1,50 @@
 // Estilos para dispositivos de tela pequena
 
-@media screen and (max-width: 631px) {
+@media screen and (max-width: 680px) {
+    .carrossel-mobile.owl-carousel{
+        width: 95%;
+        .owl-dots{
+            text-align: center;
+            margin-top: 15px;
+        }
+        &.owl-drag .owl-item{
+            margin-right: 20px !important;
+        }
+        button.owl-dot{
+            background-color: var(--laranja-secundary);
+            border-radius: 100%;
+            margin: 0 5px;
+            height: 15px;
+            width: 15px;
+
+            &.active{
+                background-color: var(--laranja);
+            }
+        } 
+        .location__values__box.right{
+            margin: 0px;
+            max-height: 175px;
+            max-width: 175px;
+        }
+    }
+    .carrossel-mobile.owl-carousel .owl-item img {
+        height: 40px !important;
+    }
+    .telenordeste__btn, .teleinterconsulta__btn,
+    .location__values__content a {
+        max-width: 100%;
+        width: 100%;
+        &.agenda{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    .telenordeste__title{
+        font-size: 1.75rem !important;
+        &::before{
+            height: 2.188rem !important;
+        }
+    }
     .owl-carousel .owl-item.active.center .item__description{
         max-width: 80%;
     }
@@ -188,13 +232,30 @@
             width: 100%;
         }
     }
-    .location__values__content{
-        width: 100%;
-    }
     .location{
-        height: 100%;
-    }    
-    .location__content,
+        margin: 0 !important;
+    }
+    .location__values__content{
+        flex-direction: column;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }   
+    .location__content{
+        max-width: 90% !important;
+        &::before{
+            top: 90px;
+            left: 0;
+        }
+        .location__column{
+            width: 100% !important;
+            .location__title {
+                width: 100% !important;
+                margin: 0;
+            }
+        } 
+    }
     .proadi__content__items,
     .teleinterconsulta__content article,
     .funciona__content{
@@ -208,22 +269,22 @@
             margin-top: 0;
         }
         .location__column{
-            width: 60%;
+            width: 80% !important;
             .location__title{
-                width: 50%;
+                width: 100% !important;
                 &.right{
                     margin-top: 250px;
                 }
             }
             .location__values{
-                margin-top: 210px;
+                margin-top: 210px;            
                 &.right{
                     justify-content: center;
                     margin-top: 0;
                     max-height: inherit;
                     .location__values__box.right{
                         width: 250px;
-                        height: 250px;
+                        height: 250px;                        
                     }
                 }
             }
