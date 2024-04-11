@@ -72,6 +72,24 @@
         </div>
     </header>
 
+    @if (Route::currentRouteName() !== 'home')    
+        @php
+            if (Route::currentRouteName() == 'especialidades') {
+                # code...
+                $content = [
+                    'title' => 'Especialidades',
+                ];
+            }if(Route::currentRouteName() == 'contato'){
+                $content = [
+                    'title' => 'Contato',
+                ];
+            }
+        @endphp
+        @include('Client.models.banner-interno', $content)
+    @endif
+
+    
+
     <main id="page">
         @yield('content')
     </main>

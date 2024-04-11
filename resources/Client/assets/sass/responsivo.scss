@@ -1,6 +1,96 @@
 // Estilos para dispositivos de tela pequena
+@media screen and (max-width: 476px) {
+    .hospital__content::before{
+        display: none;
+    }
+    .rolagem__top{
+        display: block;
+        height: 48px;
+        width: 48px;
+        right: 20px;
+        top: calc(100% - 120px);
+    }
+    .teleinterconsulta__image{
+        max-width: 280px;
+        img{
+            max-width: 280px;
+        }
+    }
+    .hospital__content .hospital__image__bottom img{
+        height: 176px !important;
+    }
+    .location__values__content{
+        height: 530px !important;
+    }
+    .location__content .location__column .location__title.right{
+        margin-top: 350px !important;
+    }
+    .location__value__number{
+        font-size: 3rem;
+    }
+}
 
 @media screen and (max-width: 680px) {
+    .proadi__image{
+        width: 95%;
+        img{
+            height: 260px;
+            width: 260px;
+            margin: 0 auto;
+            display: table;
+        }
+    }
+    .hospital__content {        
+        .hospital__image img {
+            width: 250px !important;
+            height: auto !important;
+        }
+       
+    }
+    .funciona__title{
+        margin-bottom: 0;
+    }
+    .funciona__steps{
+        align-items: center !important;
+        margin-top: 35px;
+    }
+    .funciona__steps__mobile{        
+        .owl-dots{
+            text-align: center;
+            margin-top: 10px;
+        }
+        &.owl-drag .owl-item{
+            margin-right: 20px;
+        }
+        button.owl-dot{
+            background-color: var(--laranja-secundary) !important;
+            border-radius: 100%;
+            margin: 0 5px;
+            height: 15px;
+            width: 15px;
+
+            &.active{
+                background-color: var(--laranja) !important;
+            }
+        } 
+    }
+    .funciona__content .funciona__steps__step{
+        flex-direction: column;
+        padding: 84px 29px 29px 29px;
+        width: 90%;   
+        margin: 70px 0 0 0;   
+        &:hover{
+            transform: scale(1);
+        }  
+        .funciona__steps__step__number{
+            top: -50px;
+            left: 50%;
+            transform: translate(-48%, 0px)
+        }
+    }
+    .funciona aside{
+        margin-top: 35px;
+    }
     .carrossel-mobile.owl-carousel{
         width: 95%;
         .owl-dots{
@@ -31,6 +121,7 @@
         height: 40px !important;
     }
     .telenordeste__btn, .teleinterconsulta__btn,
+    .teleinterconsulta__description .teleinterconsulta__btn, 
     .location__values__content a {
         max-width: 100%;
         width: 100%;
@@ -39,11 +130,32 @@
             max-width: 100%;
         }
     }
-    .telenordeste__title{
+    .telenordeste__title,
+    .hospital__title,
+    .depoimento__title,
+    .proadi__title,
+    .teleinterconsulta__description .teleinterconsulta__title,
+    .funciona__title{
         font-size: 1.75rem !important;
         &::before{
             height: 2.188rem !important;
         }
+    }
+    .proadi__title::before{
+        height: 5.188rem !important;
+    }
+    .hospital__content{
+        &::before{
+            top: 100px;
+            height: 60px;
+            width: 60px;
+        }
+        &::after{
+            display: none;
+        }
+    }
+    .hospital__title::before{
+        height: 3.188rem !important;
     }
     .owl-carousel .owl-item.active.center .item__description{
         max-width: 80%;
@@ -54,7 +166,7 @@
         max-height: 350px;
         padding: 0;
     }
-    .owl-carousel.owl-drag .owl-item{
+    .depoimento.owl-carousel.owl-drag .owl-item{
         margin: 0 !important;        
     }
     .owl-carousel .owl-item.active.center .item{
@@ -205,9 +317,7 @@
         padding: 30px 0;
         border-radius: inherit;
         background: inherit;
-        .hospital__image__bottom img{
-            height: 300px;
-        }
+
         &::before{
             height: 75px;
             width: 75px;
@@ -234,6 +344,7 @@
     }
     .location{
         margin: 0 !important;
+        padding-bottom: 0;
     }
     .location__values__content{
         flex-direction: column;
@@ -241,6 +352,7 @@
         justify-content: center;
         align-items: center;
         gap: 15px;
+        height: 460px;
     }   
     .location__content{
         max-width: 90% !important;
@@ -253,6 +365,9 @@
             .location__title {
                 width: 100% !important;
                 margin: 0;
+                &.right{
+                    margin-top: 290px !important;
+                }
             }
         } 
     }

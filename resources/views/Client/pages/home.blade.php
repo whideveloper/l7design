@@ -203,7 +203,7 @@
         <div class="funciona__content">
             <h2 class="funciona__title">Como funciona?</h2>
 
-            <div class="funciona__steps">
+            <div class="funciona__steps owl-carousel">
                 <article class="funciona__steps__step">
                     <div class="funciona__steps__step__number">1</div>
                     <p class="funciona__steps__step__description">

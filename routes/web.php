@@ -10,10 +10,19 @@ require __DIR__ . '/panel.php';
 // });
 Route::get('/', function () {
     return view('Client.pages.home');
-});
+})->name('home');
+
+Route::get('/especialidades', function () {
+    return view('Client.pages.especialidades');
+})->name('especialidades');
+
+// Route::get('/contato', function () {
+//     return view('emails.contato');
+// });
 Route::get('/contato', function () {
-    return view('emails.contato');
-});
+    return view('Client.pages.contato');
+})->name('contato');
+
 Route::get('/contact', function () {
     return view('contact');
 });
