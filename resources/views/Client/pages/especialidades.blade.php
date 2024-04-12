@@ -3,15 +3,24 @@
     <section class="especialidades"> 
         <div class="especialidades__content">
             <h3 class="especialidades__title">Especialidades</h3>
-            <p class="especialidades__text">O projeto TeleNordeste conta com um time de especialistas para apoiá-los com as teleinterconsultas e teleconsultorias. Abaixo você pode conhecê-lo um pouco mais:</p>
+            <div class="especialidades__text">
+                <p>
+                    O projeto TeleNordeste conta com um time de especialistas para apoiá-los com as teleinterconsultas e teleconsultorias. Abaixo você pode conhecê-lo um pouco mais:
+                </p>
+            </div>
             
             <div class="especialidades__categories">
-                <ul>
-                    <li><a href="">Cardiologia</a></li>
-                    <li><a href="">Endocrinologia</a></li>
-                    <li><a href="">Psiquiatria adulto</a></li>
-                    <li><a href="">Psiquiatria infantil</a></li>
-                    <li><a href="">Neurologia adulto</a></li>
+                <ul class="especialidades__categories__list">
+                    <li class="especialidades__categories__item"><a href="">Cardiologia</a></li>
+                    <li class="especialidades__categories__item"><a href="">Endocrinologia</a></li>
+                    <li class="especialidades__categories__item"><a href="">Psiquiatria adulto</a></li>
+                    <li class="especialidades__categories__item"><a href="">Psiquiatria infantil</a></li>
+                    <li class="especialidades__categories__item"><a href="">Neurologia adulto</a></li>
+                    <li class="especialidades__categories__item"><a href="">Neurologia pediátrica</a></li>
+                    <li class="especialidades__categories__item"><a href="">Fisiatria</a></li>
+                    <li class="especialidades__categories__item"><a href="">Médico de Família e Comunidade</a></li>
+                    <li class="especialidades__categories__item"><a href="">Nutricionista</a></li>
+                    <li class="especialidades__categories__item"><a href="">Enfermagem</a></li>
                 </ul>
             </div>
             @php

@@ -58,8 +58,8 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__list">
-                        <li class="header__item"><a href="" class="active">Home</a></li>
-                        <li class="header__item"><a href="">Especialidades</a></li>
+                        <li class="header__item"><a href="" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
+                        <li class="header__item"><a href="" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
                         <li class="header__item"><a href="">Material de apoio</a></li>
                         <li class="header__item"><a href="">Mural de comunicação</a></li>
                         <li class="header__item"><a href="">SAVs</a></li>
