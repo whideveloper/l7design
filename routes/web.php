@@ -15,6 +15,9 @@ Route::get('/', function () {
 Route::get('/especialidades', function () {
     return view('Client.pages.especialidades');
 })->name('especialidades');
+Route::get('/mural-de-comunicacao', function () {
+    return view('Client.pages.mural-de-comunicacao');
+})->name('mural-de-comunicacao');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');

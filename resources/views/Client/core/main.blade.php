@@ -58,10 +58,10 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__list">
-                        <li class="header__item"><a href="" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
-                        <li class="header__item"><a href="" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
+                        <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
+                        <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
                         <li class="header__item"><a href="">Material de apoio</a></li>
-                        <li class="header__item"><a href="">Mural de comunicação</a></li>
+                        <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="">SAVs</a></li>
                         <li class="header__item"><a href="">Desempenho</a></li>
                         <li class="header__item"><a href="">Galeria</a></li>
@@ -75,13 +75,18 @@
     @if (Route::currentRouteName() !== 'home')    
         @php
             if (Route::currentRouteName() == 'especialidades') {
-                # code...
                 $content = [
                     'title' => 'Especialidades',
                 ];
-            }if(Route::currentRouteName() == 'contato'){
+            }
+            if(Route::currentRouteName() == 'contato'){
                 $content = [
                     'title' => 'Contato',
+                ];
+            }
+            if(Route::currentRouteName() == 'mural-de-comunicacao'){
+                $content = [
+                    'title' => 'Mural de comunicação',
                 ];
             }
         @endphp

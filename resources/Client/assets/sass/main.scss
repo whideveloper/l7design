@@ -108,7 +108,10 @@ time, mark, audio, video {
 body {
     line-height:1;
 }
-
+strong{
+    color: var(--pantone-7466-c);
+    font-weight: 400;
+}
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
@@ -536,7 +539,9 @@ input, select {
 }
 .telenordeste__btn,
 .teleinterconsulta__btn,
-.mdl-box__btn{
+.mdl-box__btn,
+.tutorial__item,
+.btn__tutorial{
     align-items: center;
     background-color: var(--verde);
     border-radius: 1.875rem;
@@ -551,7 +556,9 @@ input, select {
     z-index: 0;
     &.agenda,
     &.consulta,
-    &.more{
+    &.more,
+    &.tutorial__item_link,
+    &.turoriaL_more{
         background-color: var(--pantone-7466-c);
         bottom: 0;
         left: 50%;
@@ -929,15 +936,15 @@ input, select {
     .teleinterconsulta__text{
         font-size: 1rem !important;
     }
-    .teleinterconsulta__btn{
-        max-width: 255px;
-        margin-top: 20px;
-    }
-    .teleinterconsulta__btn a {
-        background-color: var(--pantone-7466-c);
-        img{
-            width: 36px;
-        }
+}
+.teleinterconsulta__btn{
+    max-width: 255px;
+    margin-top: 20px;
+}
+.teleinterconsulta__btn a{
+    background-color: var(--pantone-7466-c);
+    img{
+        width: 36px;
     }
 }
 .funciona,
@@ -1437,26 +1444,12 @@ input, select {
 .insta, .linkedin{
     width: 28px;
 }
-.especialidades{
+.especialidades,
+.agendamento{
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    padding: 0 0 80px 0;
-    .especialidades__content{
-        border-radius: 10px;
-        background-color: var(--white);
-        margin-top: -60px;
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-        max-width: calc(100% - 350px);
-        position: relative;
-        gap: 0px 10px;
-        flex-wrap: wrap;
-        padding: 65px 59px;
-        width: 100%;        
-    }
+    align-items: baseline;    
     .mdl-box{        
         max-width: 356px;
         position: relative;
@@ -1475,7 +1468,6 @@ input, select {
         .mdl-box__content{
             display: flex;
             flex-direction: column;
-            justify-self: center;
             align-items: center;
             position: relative;            
             width: 95%;
@@ -1571,6 +1563,21 @@ input, select {
         }
     }
 }
+.especialidades__content,
+    .agendamento__content{
+        border-radius: 10px;
+        background-color: var(--white);
+        margin-top: -60px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        max-width: calc(100% - 350px);
+        position: relative;
+        gap: 0px 10px;
+        flex-wrap: wrap;
+        padding: 65px 59px;
+        width: 100%;        
+    }
 .especialidade__banner__interno{
     background: var(--gradient-banner-interno);
     height: 200px;
@@ -1670,5 +1677,99 @@ input, select {
             }
         }
     }
-
+}
+.tutorial{
+    background-color: var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+    padding: 140px 0px;
+    .tutorial__content{
+        max-width: 75%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        width: 100%;
+        .tutorial__content__left,
+        .tutorial__content__right{
+            width: 100%;
+            max-width: 461px;
+        }
+        .tutorial__content__right{
+            max-width: 516px;
+        }
+        .tutorial__title{
+            align-items: center;
+            color: var(--pantone-3145-c);
+            display: flex;
+            font-family: var(--roboto-font-family);
+            font-size: 2.5rem;
+            font-weight: 500;
+            justify-content: flex-start;
+            margin-bottom: 1.563rem; 
+            &.right{
+                font-size: 1.75rem;
+                &::before{
+                    height: 3.188rem;
+                }
+            }
+            &::before{
+                background-color: var(--laranja);
+                border-radius: 0.188rem;
+                content:'';
+                height: 2.125rem;
+                margin-right: 0.8rem;
+                width: 0.385rem;
+            }  
+        }
+    }
+}
+.tutorial__text p,
+.agendamento__text p{
+    color: var(--grey-secundary);
+    font-size: 1.063rem;
+    font-family: var(--roboto-font-family);
+    font-weight: 400;
+    text-align: left;
+    line-height: 26px;
+}
+.tutorial__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 9px;
+    margin-top: 35px;
+}
+.btn__tutorial{
+    background-color: var(--pantone-7466-c);
+    width: 254px;
+    max-width: 254px;
+    justify-content: center;
+    a{
+        padding: 0;
+    }
+}
+.tutorial__item{
+    background-color: var(--pantone-7466-c);
+    height: 43px;
+    width: 100%;
+    max-width: 239px;
+    margin: 0;
+    a:hover::before{
+        height: 45px;
+        top: 9px;
+        width: 240px;
+    }
+}
+.agendamento__content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 60px;
+    align-items: center;
+    .agendamento__text{
+        width: 65%;
+    }
 }
