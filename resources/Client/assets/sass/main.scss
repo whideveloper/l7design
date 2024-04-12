@@ -3,9 +3,11 @@
     --success: #28a745;
     --header: #666666;
     --white: #FFF;
+    --ccc: #CCCCCC;
     --depoimento:#33333342;
     --grey: #F3F3F3;
     --grey-secundary: #333333;
+    --grey-terciary: #999999;
     --gradient: rgba(0, 176, 185, 1);
     --gradient-banner-interno: linear-gradient(90deg, rgba(0,119,139,1) 0%, rgba(0,176,185,1) 100%);
     --text-shadow: #0000004d;
@@ -532,7 +534,8 @@ input, select {
     }   
 }
 .telenordeste__btn,
-.teleinterconsulta__btn{
+.teleinterconsulta__btn,
+.mdl-box__btn{
     align-items: center;
     background-color: var(--verde);
     border-radius: 1.875rem;
@@ -546,7 +549,8 @@ input, select {
     width: 100%;
     z-index: 0;
     &.agenda,
-    &.consulta{
+    &.consulta,
+    &.more{
         background-color: var(--pantone-7466-c);
         bottom: 0;
         left: 50%;
@@ -1427,6 +1431,112 @@ input, select {
 .insta, .linkedin{
     width: 28px;
 }
+.especialidades{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0 0 80px 0;
+    .especialidades__content{
+        border-radius: 10px;
+        background-color: var(--white);
+        margin-top: -40px;     
+        display: flex;
+        justify-content: center;
+        align-items: baseline;   
+        max-width: 1200px;
+        position: relative;
+        gap: 30px 10px;
+        flex-wrap: wrap;
+        padding: 65px 0;
+        width: 100%;        
+    }
+    .mdl-box{        
+        position: relative;
+        gap: 10px;
+        width: 32.33%;
+        .mdl-box__content{
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            position: relative;            
+            width: 95%;
+            &::after{
+                content: "";
+                background-color: var(--white);
+                border-radius: 10px;
+                position: absolute;
+                top: calc(100% - 303px);
+                left: 0;
+                height: 75%;
+                width: 100%;
+                z-index: -1;
+                box-shadow: 1px 1px 6px -1px var(--ccc);
+            }
+        }
+        .mdl-box__btn{
+            background-color: var(--pantone-7466-c);
+            height: 43px;
+            width: 194px;
+            a:hover::before{
+                height: 45px;
+                top: 9px;
+                width: 195px;
+            }
+        }
+        .mdl-box__left{
+            border-radius: 100%;
+            max-width: 160px;
+            width: 100%;
+            height: 100%;
+
+        }
+        .mdl-box__right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 20px;
+            .mdl-box__title{
+                color: var(--pantone-3145-c);
+                font-size: 1.75rem;
+                font-family: var(--roboto-font-family);
+                font-weight: 500;
+            }
+            .mdl-box__date{
+                color: var(--ccc);
+                font-size: 1.063rem;
+                font-family: var(--roboto-font-family);
+                font-weight: 500;
+            }
+            .mdl-box__function{
+                color: var(--pantone-7466-c);
+                font-size: 1.25rem;
+                font-family: var(--roboto-font-family);
+                font-weight: 500;
+                margin: 5px 0;
+            }
+            .mdl-box__crm{
+                color: var(--grey-terciary);
+                font-size: 1.063rem;
+                font-family: var(--roboto-font-family);
+                font-weight: 500;
+            }
+            .mdl-box__text{
+                color: var(--grey-secundary);
+                font-size: 1.063rem;
+                font-family: var(--roboto-font-family);
+                font-weight: 400;
+                text-align: center;
+                width: 67%;
+                margin: 0 auto;
+                word-break: break-all;
+                margin-top: 18px;
+            }
+        }
+    }
+}
 .especialidade__banner__interno{
     background: var(--gradient-banner-interno);
     height: 180px;
@@ -1444,5 +1554,26 @@ input, select {
         font-family: var(--roboto-font-family);
         font-weight: 600;
 
+    }
+}
+
+.especialidades__title{
+    align-items: center;
+    color: var(--pantone-3145-c);
+    display: flex;
+    font-family: var(--roboto-font-family);
+    font-size: 2.5rem;
+    font-weight: 500;
+    justify-content: flex-start;
+    margin-bottom: 1.563rem;   
+    width: 100%;  
+    max-width: 1100px;           
+    &::before{
+        background-color: var(--laranja);
+        border-radius: 0.313rem;
+        content:'';
+        height: 3.188rem;
+        margin-right: 0.8rem;
+        width: 0.5rem;
     }
 }
