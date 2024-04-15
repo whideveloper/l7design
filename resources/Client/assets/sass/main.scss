@@ -1454,7 +1454,7 @@ input, select {
         max-width: 356px;
         position: relative;
         width: 100%;
-        padding: 80px 0 20px 0;;
+        padding: 80px 0 20px 0;
         &:hover{
             .mdl-box__left{
                 @include transition-medium;
@@ -1471,7 +1471,15 @@ input, select {
             align-items: center;
             position: relative;            
             width: 95%;
-            margin-bottom: 35px;
+            margin-bottom: 35px;            
+            &.mural-de-comunicacao{
+                .mdl-box__image{
+                    position: relative;
+                    top: inherit;
+                    left: inherit;
+                    transform: inherit;
+                }
+            }
             .mdl-box__image{
                 position: absolute;
                 top: -84px;

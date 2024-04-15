@@ -2,37 +2,35 @@
 @section('content')
 <section class="especialidades"> 
     <div class="especialidades__content">
-        <h3 class="especialidades__title">Especialidades</h3>
         <div class="especialidades__text">
             <p>
-                O projeto TeleNordeste conta com um time de especialistas para apoiá-los com as teleinterconsultas e teleconsultorias. Abaixo você pode conhecê-lo um pouco mais:
+                Seja bem-vindo ao nosso mural de comunicação!
+                <br><br>
+                Este é o espaço onde compartilhamos as últimas novidades, destaques do projeto, eventos emocionantes, atualizações e avisos importantes.
+                <br><br>
+                Mantenha-se informado sobre tudo o que está acontecendo.
             </p>
         </div>
         
         <div class="especialidades__categories">
             <ul class="especialidades__categories__list">
-                <li class="especialidades__categories__item"><a href="">Cardiologia</a></li>
-                <li class="especialidades__categories__item"><a href="">Endocrinologia</a></li>
-                <li class="especialidades__categories__item"><a href="">Psiquiatria adulto</a></li>
-                <li class="especialidades__categories__item"><a href="">Psiquiatria infantil</a></li>
-                <li class="especialidades__categories__item"><a href="">Neurologia adulto</a></li>
-                <li class="especialidades__categories__item"><a href="">Neurologia pediátrica</a></li>
-                <li class="especialidades__categories__item"><a href="">Fisiatria</a></li>
-                <li class="especialidades__categories__item"><a href="">Médico de Família e Comunidade</a></li>
-                <li class="especialidades__categories__item"><a href="">Nutricionista</a></li>
-                <li class="especialidades__categories__item"><a href="">Enfermagem</a></li>
+                <li class="especialidades__categories__item"><a href="">Notícias e Novidades</a></li>
+                <li class="especialidades__categories__item"><a href="">TeleNordeste em destaque</a></li>
+                <li class="especialidades__categories__item"><a href="">Eventos e Calendários</a></li>
+                <li class="especialidades__categories__item"><a href="">Treinamentos e Capacitações</a></li>
+                <li class="especialidades__categories__item"><a href="">Avisos e alertas</a></li>
             </ul>
         </div>
         @php
             $content = [
-                'title' => 'Lucas Deporon Toldo',
-                'date' => '',
-                'funcao' => 'Cardiologista',
-                'crm' => 'CRM: 0000000',            
+                'title' => 'Título lorem ipsum dolorem consectum vertun quantus',
+                'date' => '21/02/2024',
+                'funcao' => '',
+                'crm' => '',            
                 'image' => asset('Client/assets/images/doctor-image.png'),
-                'text' => 'Sexta-feira das 9h00 às 11h00 A partir de 18 anos',
+                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
                 'link' => '/servicos',
-                'btnName' => 'Ver perfil completo',
+                'btnName' => 'saiba mais',
             ];
         @endphp
     
