@@ -16,5 +16,5 @@ jobs:
         host: ${{ secrets.ftp_host }} 
         user: ${{ secrets.fto_user }}
         password: ${{ secrets.ftp_password }}
-        localDir: "/public/"
-        remoteDir: "/public_html/teste/"
+        remoteDir: "/public/"
+        serverDir: "/public_html/teste/"
