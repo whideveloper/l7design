@@ -1,0 +1,20 @@
+name: Deploy via ftp
+on: 
+  push:
+    branches:
+      - feature/front-end/v0.0.1
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: FTP Deploy Locaweb
+      uses: locaweb/ftp-deploy@1.0.0
+      with:
+        host: ${{ secrets.ftp_host }} 
+        user: ${{ secrets.fto_user }}
+        password: ${{ secrets.ftp_password }}
+        localDir: "/public/"
+        remoteDir: "/public_html/teste/"
