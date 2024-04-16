@@ -331,10 +331,107 @@ $(document).ready(function(){
                 items:1
             },
             600:{
-                items:3
+                items:1
             },
-            1000:{
+            768:{
+                items:2
+            },
+            1024:{
+                items:2
+            },
+            1200:{
                 items:3
+            }
+        }
+    });
+
+    if ($(window).width() <= 768) {
+        $(".footer__logos__items").addClass("carrossel-logos");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 768) {
+            $(".footer__logos__items").addClass("carrossel-logos");
+        } else {
+            $(".footer__logos__items").removeClass("carrossel-logos");
+        }
+    });
+    
+    $(".carrossel-logos").owlCarousel({
+        loop: true,
+        autoplay: true, 
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        margin: 20,
+        responsiveClass: true,
+        smartSpeed: 1300,
+        responsive:{
+            0:{
+                items: 2, // Número de itens visíveis em resoluções menores que 768px
+            },
+            768:{
+                items: 3, // Número de itens visíveis em resoluções maiores ou igual a 768px
+            }
+        }
+    });
+
+    if ($(window).width() <= 680) {
+        $(".location-carrossel-mobile").addClass("carrossel-mobile");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 680) {
+            $(".location-carrossel-mobile").addClass("carrossel-mobile");
+        } else {
+            $(".location-carrossel-mobile").removeClass("carrossel-mobile");
+        }
+    });
+    $(".carrossel-mobile").owlCarousel({
+        loop: false,
+        autoplay: false, 
+        nav:false,
+        dots:true,
+        margin: 20,
+        responsiveClass: true,
+        smartSpeed: 1600,
+        responsive:{
+            0:{
+                items: 2,
+            },
+            475:{
+                items: 2,
+            },
+            680:{
+                items: 3,
+            }
+        }
+    });
+    
+    if ($(window).width() <= 680) {
+        $(".funciona__steps").addClass("funciona__steps__mobile");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 680) {
+            $(".funciona__steps").addClass("funciona__steps__mobile");
+        } else {
+            $(".funciona__steps").removeClass("funciona__steps__mobile");
+        }
+    });
+    $(".funciona__steps__mobile").owlCarousel({
+        loop: false,
+        autoplay: false, 
+        nav:false,
+        dots:true,
+        margin: 20,
+        responsiveClass: true,
+        smartSpeed: 1600,
+        responsive:{
+            0:{
+                items: 1,
+            },
+            680:{
+                items: 1,
             }
         }
     });

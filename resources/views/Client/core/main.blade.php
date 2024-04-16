@@ -30,6 +30,7 @@
     <meta name="twitter:description" content="Descrição" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/responsivo.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
     <!--fonts google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,10 +58,10 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__list">
-                        <li class="header__item"><a href="" class="active">Home</a></li>
-                        <li class="header__item"><a href="">Especialidades</a></li>
+                        <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
+                        <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
                         <li class="header__item"><a href="">Material de apoio</a></li>
-                        <li class="header__item"><a href="">Mural de comunicação</a></li>
+                        <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="">SAVs</a></li>
                         <li class="header__item"><a href="">Desempenho</a></li>
                         <li class="header__item"><a href="">Galeria</a></li>
@@ -71,26 +72,48 @@
         </div>
     </header>
 
+    @if (Route::currentRouteName() !== 'home')    
+        @php
+            if (Route::currentRouteName() == 'especialidades') {
+                $content = [
+                    'title' => 'Especialidades',
+                ];
+            }
+            if(Route::currentRouteName() == 'contato'){
+                $content = [
+                    'title' => 'Contato',
+                ];
+            }
+            if(Route::currentRouteName() == 'mural-de-comunicacao'){
+                $content = [
+                    'title' => 'Mural de comunicação',
+                ];
+            }
+        @endphp
+        @include('Client.models.banner-interno', $content)
+    @endif
+
+    
+
     <main id="page">
         @yield('content')
     </main>
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <ul class="footer__logos__items">
-                @foreach($partners as $partners)
-                    <li>
-                        @if ($partners->link)
-                            <a href="{{$partners->link}}" target="_blank" class="link-full"></a>
-                        @endif
-                        <img src="{{asset('storage/' . $partners->path_image)}}" alt="{{$partners->title}}" title="{{$partners->title}}">                        
-                    </li>
-                @endforeach
+            <ul class="footer__logos__items owl-carousel">
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/haoc-footer.svg')}}" alt="HAOC" title="HAOC"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/csemse.svg')}}" alt="CSEMSE" title="CSEMSE"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/conass.svg')}}" alt="CONASS" title="CONASS"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/proadi.svg')}}" alt="PROADI" title="PROADI"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/sus.svg')}}" alt="SUS" title="SUS"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/msaude.svg')}}" alt="MSAUDE" title="MSAUDE"></a></li>
+                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/brgov.svg')}}" alt="BRGOV" title="BRGOV"></a></li>
             </ul>
             <div class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>
                 <div class="footer__contact__items">
                     <ul class="footer__contact__items__left">
-                        <li><a href="https://wa.me/5511998208297"><img src="{{asset('Client/assets/images/wpp-footer.svg')}}" alt="Whatsapp" title="Whatsapp"> <b>Whatsapp:</b> 11 99820-8297</a></li> |
+                        <li><a href="https://wa.me/5511998208297"><img src="{{asset('Client/assets/images/wpp-footer.svg')}}" alt="Whatsapp" title="Whatsapp"> <b>Whatsapp:</b> 11 99820-8297</a></li> <span class="linha">|</span>
                         <li><a href="mailto:projetotelenordeste@haoc.com.br"><img src="{{asset('Client/assets/images/email-footer.svg')}}" alt="E-mail" title="E-mail"> projetotelenordeste@haoc.com.br</a></li>
                     </ul>
                     <ul class="footer__contact__items__right">

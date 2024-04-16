@@ -40,106 +40,108 @@
         
                     <p>{!!$telenordeste->text!!}</p>
 
-                    <div class="telenordeste__btn">
-                        <a href="https://wa.me/5511998208297" target="_blank">
-                            <img src="{{asset('Client/assets/images/wpp.svg')}}" alt="Whatsapp" title="Whatsapp">
-                            Entre em contato
-                        </a>
+                <div class="telenordeste__btn">
+                    <a href="">
+                        <img src="{{asset('Client/assets/images/wpp.svg')}}" alt="Whatsapp" title="Whatsapp">
+                        Entre em contato
+                    </a>
+                </div>
+            </article>
+            
+            <aside>
+                <h4 class="telenordeste__event__title">Próximos Eventos</h4>
+                
+                <ul class="telenordeste__content__event">
+                    <li class="telenordeste__content__event__list">
+                        <a href="" class="link-full"></a>
+
+                            <div class="telenordeste__content__event__date">
+                                <span class="telenordeste__content__event__day">15</span>
+                                <span class="telenordeste__content__event__month">12</span>
+                            </div>
+                            <p>Início das atividades de Apoiadores Regionais</p>                        
+                        </li>
+                        <li class="telenordeste__content__event__list">
+                            <a href="" class="link-full"></a>
+
+                            <div class="telenordeste__content__event__date">
+                                <span class="telenordeste__content__event__day">15</span>
+                                <span class="telenordeste__content__event__month">12</span>
+                            </div>
+                            <p>Início das atividades de Apoiadores Regionais</p>                        
+                        </li>
+                        <li class="telenordeste__content__event__list">
+                            <a href="" class="link-full"></a>
+
+                            <div class="telenordeste__content__event__date">
+                                <span class="telenordeste__content__event__day">15</span>
+                                <span class="telenordeste__content__event__month">12</span>
+                            </div>
+                            <p>Início das atividades de Apoiadores Regionais</p>                        
+                        </li>
+                        <li class="telenordeste__content__event__list">
+                            <a href="" class="link-full"></a>
+
+                        <div class="telenordeste__content__event__date">
+                            <span class="telenordeste__content__event__day">15</span>
+                            <span class="telenordeste__content__event__month">12</span>
+                        </div>
+                        <p>Início das atividades de Apoiadores Regionais</p>                        
+                    </li>
+                </ul>   
+                
+                <div class="telenordeste__btn agenda">
+                    <a href="">
+                        <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
+                        Ver agenda completa
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="location__content">
+            <div class="location__column">
+                <h3 class="location__title">Localização</h3>
+                
+                <div class="location__values">
+                    <img src="{{asset('Client/assets/images/mapa.svg')}}" alt="Mapa" title="Mapa">
+
+                    <div class="location__values__content">
+                        <div class="location__values__box">
+                            <h4 id="cont-1" class="location__value__number">00</h4>
+                            <p class="location__value__title">municípios atendidos</p>
+                        </div>
+                        <div class="location__values__box">
+                            <h4 id="cont-2" class="location__value__number">0</h4>
+                            <p class="location__value__title">regiões de <br>saúde de Sergipe</p>
+                        </div>
+                        <div class="location__text__area">
+                            <p class="location__area__text">
+                                O projeto será ofertado aos 75 municípios do Estado de Sergipe, que são divididos em sete Regiões de Saúde (Itabaiana, Lagarto, Aracaju, Estância, Nossa Senhora do Socorro, Nossa Senhora da Glória e Propriá).
+                            </p>
+                        </div>
+                        <a href=""><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
                     </div>
-                </article>
-                <aside>
-                    <h4 class="telenordeste__event__title">Próximos Eventos</h4>
-                    
-                    <ul class="telenordeste__content__event">
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                    </ul>   
-                    
-                    <div class="telenordeste__btn agenda">
-                        <a href="">
-                            <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
-                            Ver agenda completa
-                        </a>
-                    </div>
-                </aside>
+                </div>
             </div>
-        </section>
-    @endif
-    @if ($location || $objectives->count() > 0)
-        <section id="location" class="location">
-            <div class="location__content">
-                @if ($location)    
-                    <div class="location__column">
-                        <h3 class="location__title">Localização</h3>
-                        
-                        <div class="location__values">
-                            <img src="{{asset('Client/assets/images/mapa.svg')}}" alt="Mapa" title="Mapa">
 
-                            <div class="location__values__content">
-                                <div class="location__values__box">
-                                    <h4 id="cont-1" class="location__value__number">00</h4>
-                                    <p class="location__value__title">municípios atendidos</p>
-                                </div>
-                                <div class="location__values__box">
-                                    <h4 id="cont-2" class="location__value__number">0</h4>
-                                    <p class="location__value__title">regiões de <br>saúde de Sergipe</p>
-                                </div>
-                                <div class="location__text__area">
-                                    <div class="location__area__text">
-                                        {!!$location->description!!}
-                                    </div>
-                                </div>
-                                <a href=""><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
-                            </div>
-                        </div>
+            <div class="location__column right">
+                <h3 class="location__title right">Objetivos específicos</h3>
+                
+                <div class="location__values right location-carrossel-mobile owl-carousel">
+                    <div class="location__values__box right">
+                        <img src="{{asset('Client/assets/images/fluxo.svg')}}" alt="ícone">
+                        <p class="location__area__text">Otimizar o fluxo assistencial</p>
                     </div>
-                @endif
-                @if ($objectives->count() > 0)    
-                    <div class="location__column right">
-                        <h3 class="location__title right">Objetivos específicos</h3>
-                        
-                        <div class="location__values right">
-                            @foreach($objectives as $objective)
-                                <div class="location__values__box right">
-                                    <img src="{{asset('storage/' . $objective->path_image)}}" alt="ícone">
-                                    <p class="location__area__text">{{$objective->title}}</p>
-                                </div>
-                            @endforeach
-                        </div>
+                    <div class="location__values__box right">
+                        <img src="{{asset('Client/assets/images/processo.svg')}}" alt="ícone">
+                        <p class="location__area__text">Fortalecer processos de trabalho na APS</p>
+                    </div>
+                    <div class="location__values__box right">
+                        <img src="{{asset('Client/assets/images/servico.svg')}}" alt="ícone">
+                        <p class="location__area__text">Fortalecer processos de trabalho na APS</p>
                     </div>
                 @endif
             </div>
@@ -173,100 +175,113 @@
                             {!!$teleinterconsulta->text!!}
                         </div>
 
-                        <div class="teleinterconsulta__btn">
-                            <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    @endif
-    @if ($howItWork || $stepToSteps->count() > 0)
-        
-        <section class="funciona">
-            <div class="funciona__content">
-                <h2 class="funciona__title">Como funciona?</h2>
-                @if (!$howItWork)
-                    <style>
-                        .funciona__steps{
-                            width: 100% !important;
-                        }
-                        .funciona__content article{
-                            width: 86% !important;    
-                        }
-                    </style>
-                @endif
-                @if ($stepToSteps->count() > 0)
-                    <div class="funciona__steps">
-                        @foreach ($stepToSteps as $stepToStep)
-                            <article class="funciona__steps__step">
-                                <div class="funciona__steps__step__number">{{isset($stepToStep->ordem) ? $stepToStep->ordem : ''}}</div>
-                                <div class="funciona__steps__step__description">
-                                    {!!$stepToStep->text!!}
-                                </div>
-                            </article>
-                            
-                        @endforeach
-                    </div>
-                @endif
-
-                @if ($stepToSteps->count() < 1)
-                    <style>
-                        .funciona aside{
-                            width: 100% !important;
-                        }
-                    </style>
-                @endif
-
-                @if ($howItWork)
-                    <aside>
-                        <div class="funciona__steps__step__text">
-                            {!!$howItWork->text!!}
-                        </div>
-                    </aside>
-                @endif
-            </div>
-        </section>        
-    @endif
-    @if ($hospital)
-        <section class="hospital">
-            <div class="hospital__content">
-                <h2 class="hospital__title">{{$hospital->title}}</h2>
-                <article>
-                    <div class="hospital__image">
-                        <img src="{{asset('Client/assets/images/logo-oswaldo-cruz.jpg')}}" alt="Hospital Alemão Oswaldo Cruz" title="Hospital Alemão Oswaldo Cruz">
-                    </div>
-                    <p>
-                        {!!$hospital->text!!}
-                    </p>
-                    <div class="hospital__image__bottom">
-                        <img src="{{asset('Client/assets/images/image-bottom.jpg')}}" alt="image-bottom" title="image-bottom">
-                    </div>
-                </article>
-            </div>
-        </section>
-    @endif
-    @if ($proadi)
-        <section class="proadi">
-            <div class="proadi__content">
-                <h2 class="proadi__title">{{$proadi->title}}</h2>
-                <div class="proadi__content__items">
-                    <article>
-                        <p>
-                            {!!$proadi->text!!}
-                        </p>
-                    </article>
-                    <div class="proadi__image">
-                        <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+                    <div class="teleinterconsulta__btn">
+                        <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
                     </div>
                 </div>
+            </article>
+        </div>
+    </section>
+    <section class="funciona">
+        <div class="funciona__content">
+            <h2 class="funciona__title">Como funciona?</h2>
+
+            <div class="funciona__steps owl-carousel">
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">1</div>
+                    <p class="funciona__steps__step__description">
+                        Inicialmente, os municípios interessados devem assinar o Termo de Adesão e preencher o formulário on-line com dados gerais da Rede de Atenção à Saúde local. É importante que o gestor municipal realize uma conversa com os profissionais de saúde para apresentação do projeto e alinhamentos de sua implantação na rotina das equipes, podendo contar com a equipe do <b>TeleNordeste</b>, de forma virtual.
+                    </p>
+                </article>
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">2</div>
+                    <p class="funciona__steps__step__description">
+                        Após a adesão, os profissionais cadastrados devem realizar o treinamento, de forma on-line, para uso da plataforma, e assim começar a realizar os agendamentos para <b>Teleinterconsultas</b>/ <b>Teleconsultorias</b>.
+                    </p>
+                </article>
+                <article class="funciona__steps__step">
+                    <div class="funciona__steps__step__number">3</div>
+                    <p class="funciona__steps__step__description">
+                        A partir de casos selecionados pelos médicos da APS, os pacientes chegam no horário agendado na Unidade de Saúde para a consulta com o médico que, por chamada de vídeo, se conecta com o especialista do, <b>Hospital Alemão Oswaldo Cruz</b> para a condução compartilhada do caso, com a possibilidade de três desfechos: retorno por <b>Teleinterconsulta</b>, alta para APS ou encaminhamento para a Atenção Especializada presencial.
+                    </p>    
+                </article>
             </div>
-        </section>
-    @endif
-    @if($depoiments->count() > 0)
-        <section id="depoimento">
-            <div class="depoimento__content">
-                <h2 class="depoimento__title">Depoimentos</h2>
+            <aside>
+                <p class="funciona__steps__step__text">
+                    Existem ainda outras modalidades de apoio por <b>Telessaúde</b> feitas sem a presença do paciente, no formato assíncrono, ou seja, sem a necessidade de agendamento, onde o questionamento do profissional da APS ao especialista é feito via plataforma, com resposta em até 72 horas úteis.
+                    <br><br>
+                    Ainda que o projeto promova um acesso imediato do paciente, seu grande legado é o aprimoramento dos profissionais da APS. As múltiplas interações com os especialistas permitem um aprendizado no manejo de situações que anteriormente geravam encaminhamentos para a atenção especializada.
+                    <br><br>
+                    Esse processo formativo garante a sustentabilidade dos ganhos desenvolvidos ao longo do projeto, qualificando desta forma os encaminhamentos à atenção especializada, otimizando o acesso para casos de fato necessários, com tendência à diminuição das filas de espera.
+                </p>
+            </aside>
+        </div>
+    </section>
+    <section class="hospital">
+        <div class="hospital__content">
+            <h2 class="hospital__title">O Hospital Alemão Oswaldo Cruz no TeleNordeste</h2>
+            <article>
+                <div class="hospital__image">
+                    <img src="{{asset('Client/assets/images/logo-oswaldo-cruz.jpg')}}" alt="Hospital Alemão Oswaldo Cruz" title="Hospital Alemão Oswaldo Cruz">
+                </div>
+                <p>
+                    Referência na América Latina, o <b>Hospital Alemão Oswaldo Cruz</b> construiu, ao longo dos seus 126 anos de história, uma tradição que combina a excelência em atendimento e o acolhimento, e mantém a instituição na vanguarda da saúde brasileira, ocupando a terceira posição entre os hospitais brasileiros no “World's Best Hospitals 2024”, da Newsweek.
+                    <br><br>
+                    Ao assumir como missão o protagonismo no desenvolvimento da saúde, o propósito de servir à vida ganhou novas dimensões em impacto e responsabilidade social. Desta forma, a vocação social se constitui como um dos valores que norteiam a nossa essência. Por meio dessa vocação buscamos contribuir com a saúde para além de nossa instituição, compartilhando nosso conhecimento e nossas práticas com o sistema público de saúde  e outras organizações sociais, impactando ainda mais pessoas por meio do nosso compromisso social.
+                    <br><br>
+                    Adotamos as melhores práticas de governança corporativa, ética e compliance, o que nos permite aliar excelência ao Sistema Único de Saúde, por meio de parcerias de valor compartilhado, para a gestão de instituições públicas. Contribuímos ainda para o desenvolvimento de políticas públicas que fortaleçam o avanço sistêmico da Saúde no país, atuando a partir de duas frentes estratégicas: o <b>Instituto Social Hospital Alemão Oswaldo Cruz</b> (ISHAOC) e o Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde.
+                    <br><br>
+                    É por meio do PROADI-SUS que integramos o <b>TeleNordeste</b>, projeto concebido pelo Ministério da Saúde com o apoio do Conselho Nacional de Secretários de Saúde, realizado por cinco hospitais de referência do país. 
+                    <br><br>
+                    Para nós, contribuir com a ampliação do acesso ao atendimento especializado em uma das regiões brasileiras com a menor proporção de médicos por mil habitantes é exercer a nossa missão no protagonismo do desenvolvimento da saúde, impactando cada vez mais pessoas por meio do nosso compromisso social.
+                    <br><br>
+                    No Estado de Sergipe, onde atuamos com o projeto, já realizamos mais de <b>3000 atendimentos por Teleinterconsulta</b> em diversas especialidades, como Neurologia, Fisiatria, Psiquiatria, Cardiologia e Endocrinologia.
+                    <br><br>
+                    Nosso objetivo para os próximos três anos é expandir ainda mais nossa atuação, chegando a todos os municípios sergipanos. Dessa forma, esperamos contribuir significativamente para o aprimoramento das ações da Atenção Primária à Saúde, proporcionando ampliação de acesso, agilidade no atendimento e reduzindo filas e o tempo de espera.
+                </p>
+                <div class="hospital__image__bottom">
+                    <img src="{{asset('Client/assets/images/image-bottom.jpg')}}" alt="image-bottom" title="image-bottom">
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="proadi">
+        <div class="proadi__content">
+            <h2 class="proadi__title">Proadi-SUS – Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde</h2>
+            <div class="proadi__content__items">
+                <article>
+                    <p>
+                        O <b>Hospital Alemão Oswaldo Cruz</b> compõe o seleto grupo de seis instituições filantrópicas detentoras do título de Entidades de Saúde de Reconhecida Excelência (ESRE). Juntas, essas instituições participam do PROADI-SUS, instituído em 2009 pelo Ministério da Saúde, com o objetivo de qualificar e aprimorar políticas, programas e serviços do SUS por meio de parcerias público-privadas com esses hospitais de excelência. 
+                        <br><br>
+                        Atualmente o PROADI-SUS é regulamentado pela Lei Complementar nº 187, de 16 de dezembro de 2021, que estabelece as etapas de habilitação e determina a apresentação de projetos em quatro modalidades: estudos de avaliação e incorporação de tecnologias; capacitação de recursos humanos; pesquisas de interesse público; e desenvolvimento de técnicas e operação de gestão em serviços de Saúde (Brasil, 2021).
+                        <br><br>
+                        Além destas quatro modalidades, os projetos estão inseridos dentro do que chamamos de macrotemas de saúde
+                        <br><br>
+                        <ul>
+                            <li>Educação para profissionais de saúde;</li>
+                            <li>Pesquisas de interesse público;</li>
+                            <li>Apoio à organização da Rede de Atenção à Saúde (RAS);</li>
+                            <li>Fortalecimento da gestão do SUS;</li>
+                            <li>Melhoria da gestão assistencial, de qualidade e de segurança do paciente;</li>
+                            <li>Evolução de práticas na Atenção Primária à Saúde;</li>
+                            <li>Saúde digital/Inovação;</li>
+                            <li>Assistência especializada complementar;</li>
+                            <li>Telessaúde;</li>
+                            <li>Avaliação de Tecnologias em Saúde;</li>
+                            <li>Aprimoramento do Sistema Nacional de Vigilância Sanitária (SNVS);</li>
+                            <li>Ações de enfrentamento à Covid-19 (a partir de 2020).</li>
+                        </ul>
+                    </p>
+                </article>
+                <div class="proadi__image">
+                    <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="depoimento">
+        <div class="depoimento__content">
+            <h2 class="depoimento__title">Depoimentos</h2>
 
                 <div class="depoimento owl-carousel owl-theme">
                     @foreach($depoiments as $depoiment)
