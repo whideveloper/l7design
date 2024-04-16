@@ -1455,6 +1455,17 @@ input, select {
         position: relative;
         width: 100%;
         padding: 80px 0 20px 0;
+        &.mural-de-comunicacao{
+            .mdl-box__content .mdl-box__image{
+                position: relative;
+                top: inherit;
+                left: inherit;
+                transform: inherit;
+                img{
+                    max-width: inherit;
+                }
+            }
+        }
         &:hover{
             .mdl-box__left{
                 @include transition-medium;
@@ -1471,15 +1482,7 @@ input, select {
             align-items: center;
             position: relative;            
             width: 95%;
-            margin-bottom: 35px;            
-            &.mural-de-comunicacao{
-                .mdl-box__image{
-                    position: relative;
-                    top: inherit;
-                    left: inherit;
-                    transform: inherit;
-                }
-            }
+            margin-bottom: 35px;                 
             .mdl-box__image{
                 position: absolute;
                 top: -84px;
