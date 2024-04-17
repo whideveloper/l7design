@@ -1690,6 +1690,9 @@ input, select {
     align-items: center;
     justify-content: center;
     .especialidades__categories__list{
+        &.mural-de-comunicacao{
+            width: 100%;
+        }
         display: flex;
         flex-wrap: wrap;
         align-items: center;

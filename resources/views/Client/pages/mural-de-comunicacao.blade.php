@@ -13,7 +13,7 @@
         </div>
         
         <div class="especialidades__categories">
-            <ul class="especialidades__categories__list">
+            <ul class="especialidades__categories__list {{ url()->current() == route('mural-de-comunicacao') ? 'mural-de-comunicacao' : ''  }}">
                 <li class="especialidades__categories__item"><a href="">Notícias e Novidades</a></li>
                 <li class="especialidades__categories__item"><a href="">TeleNordeste em destaque</a></li>
                 <li class="especialidades__categories__item"><a href="">Eventos e Calendários</a></li>
