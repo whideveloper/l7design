@@ -1456,14 +1456,54 @@ input, select {
         width: 100%;
         padding: 80px 0 20px 0;
         &.mural-de-comunicacao{
+            &:hover{
+                @include transition-medium;
+                .mdl-box__content{
+                    box-shadow: 0px -2px 25px 4px var(--ccc);
+                }
+                .mdl-box__description{
+                    box-shadow: inherit;
+                }
+                img{
+                    transform: inherit;
+                }
+            }
+            .mdl-box__right{
+                align-items: flex-start;
+                padding: 0; 
+                position: relative;
+                bottom: inherit;
+                .mdl-box__title{
+                    margin-bottom: 10px;
+                    text-align: inherit;
+                }
+                .mdl-box__text{
+                    margin-top: 0;
+                    text-align: inherit;
+                    width: 100%;
+                }
+            }
             .mdl-box__content .mdl-box__image{
+                border-radius: 10px 10px 0 0;
                 position: relative;
                 top: inherit;
                 left: inherit;
-                transform: inherit;
+                transform: inherit;                
                 img{
+                    border-radius: inherit;
                     max-width: inherit;
                 }
+            }
+            .mdl-box__description{
+                align-items: flex-start;
+                border-radius: 0 0 10px 10px;
+                padding: 0 30px 30px 30px;
+                width: 82%;
+            }
+            .mdl-box__btn{
+                position: relative;
+                bottom: inherit;
+                width: 128px;
             }
         }
         &:hover{

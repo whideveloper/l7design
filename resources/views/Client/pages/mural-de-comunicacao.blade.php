@@ -27,7 +27,7 @@
                 'date' => '21/02/2024',
                 'funcao' => '',
                 'crm' => '',            
-                'image' => asset('Client/assets/images/doctor-image.png'),
+                'image' => asset('Client/assets/images/com-1.jpg'),
                 'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
                 'link' => '/servicos',
                 'btnName' => 'saiba mais',
