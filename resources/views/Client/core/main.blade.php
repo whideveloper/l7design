@@ -60,7 +60,7 @@
                     <ul class="header__list">
                         <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
                         <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
-                        <li class="header__item"><a href="">Material de apoio</a></li>
+                        <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="">SAVs</a></li>
                         <li class="header__item"><a href="">Desempenho</a></li>
@@ -87,6 +87,11 @@
             if(Route::currentRouteName() == 'mural-de-comunicacao'){
                 $content = [
                     'title' => 'Mural de comunicação',
+                ];
+            }
+            if(Route::currentRouteName() == 'material-de-apoio'){
+                $content = [
+                    'title' => 'Material de apoio',
                 ];
             }
         @endphp

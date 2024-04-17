@@ -540,6 +540,7 @@ input, select {
 .telenordeste__btn,
 .teleinterconsulta__btn,
 .mdl-box__btn,
+.box__document__btn,
 .tutorial__item,
 .btn__tutorial{
     align-items: center;
@@ -558,6 +559,7 @@ input, select {
     &.consulta,
     &.more,
     &.tutorial__item_link,
+    &.box__document__link,
     &.turoriaL_more{
         background-color: var(--pantone-7466-c);
         bottom: 0;
@@ -1015,6 +1017,7 @@ input, select {
     }
 }
 .funciona__content article p,
+.box__document__text,
 .funciona__content aside p{
     color: var(--grey-secundary);
     font-size: 1.063rem;
@@ -1456,6 +1459,10 @@ input, select {
         width: 100%;
         padding: 80px 0 20px 0;
         &.mural-de-comunicacao{
+            padding: 0;
+            .mdl-box__content{
+                margin-bottom: 30px;
+            }
             &:hover{
                 @include transition-medium;
                 .mdl-box__content{
@@ -1476,6 +1483,7 @@ input, select {
                 .mdl-box__title{
                     margin-bottom: 10px;
                     text-align: inherit;
+                    font-size: 1.375rem;
                 }
                 .mdl-box__text{
                     margin-top: 0;
@@ -1555,7 +1563,7 @@ input, select {
             z-index: 2;
             a:hover::before{
                 height: 45px;
-                top: 9px;
+                top: 8px;
                 width: 195px;
             }
         }
@@ -1825,5 +1833,60 @@ input, select {
     align-items: center;
     .agendamento__text{
         width: 65%;
+    }
+}
+.material-de-apoio{
+    flex-direction: row-reverse;
+    .teleinterconsulta__description .teleinterconsulta__title::before{
+        height: 51px !important;
+    }
+    .teleinterconsulta__btn{
+        width: 290px;
+        max-width: 290px;
+    }
+}
+.box__document__title{
+    color: var(--pantone-3145-c);
+    font-size: 1.75rem;
+    font-family: var(--roboto-font-family);
+    font-weight: 500px;
+}
+
+.box__document__btn{
+    background-color: var(--pantone-7466-c);
+    height: 43px;
+    width: 119px;
+    max-width: 119px;
+    a:hover::before{
+        height: 45px;
+        top: 8px;
+        width: 119px;
+    }
+}
+.material{
+    background-color: var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    .material__content{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: calc(100% - 350px);
+        width: 100%;
+        .box__document{          
+            width: 48.5%;
+            margin-bottom: 15px;
+            .box__document__content{
+                background-color: var(--white);
+                border-radius: 10px;
+                width: 95%;
+                margin: 0;
+                padding: 10px;
+            }
+        }
     }
 }
