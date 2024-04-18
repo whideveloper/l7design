@@ -447,17 +447,23 @@ var closeBtn = document.querySelector(".close-btn");
 clickLead.addEventListener("click", function(event) {
     event.preventDefault();
     modal.style.display = "block";
+    // Desative a rolagem da página principal
+    document.body.style.overflow = "hidden";
 });
 
 // Função para fechar o modal
 closeBtn.addEventListener("click", function() {
     modal.style.display = "none";
+    // Reative a rolagem da página principal
+    document.body.style.overflow = "auto";
 });
 
 // Feche o modal quando clicar fora dele
 window.addEventListener("click", function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        // Reative a rolagem da página principal
+        document.body.style.overflow = "auto";
     }
 });
 

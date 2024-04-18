@@ -2039,7 +2039,7 @@ input, select {
     margin-top: -60px;
     z-index: 0;
     position: relative;
-    padding: 800px 0;
+    padding: 80px 0;
 }
 .savs__gravadas__content{
     background-color: inherit;
@@ -2133,12 +2133,18 @@ input, select {
     margin: auto;
     padding: 20px;
     width: 80%;
-    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     font-size: 20px;
     cursor: pointer;
 }

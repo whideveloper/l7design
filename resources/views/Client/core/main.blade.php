@@ -70,6 +70,20 @@
                 </nav>
             </div>
         </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                
+                <h6 class="modal-title">Para assistir digitre seu nome completo e e-mail:</h6>
+                <form action="" method="post">                    
+                    <input type="text" name="nome" placeholder="Nome completo">                     
+                    <input type="text" name="email" placeholder="E-mail">
+
+                    <button type="submit">Assistir</button>
+                    <button type="button"  class="close-btn">Sair</button>
+                </form>
+            </div>
+        </div>
     </header>
 
     @if (Route::currentRouteName() !== 'home')    

@@ -51,15 +51,8 @@
                     <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
                 </div>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div> 
+            </div>          
             
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h5>Testando</h5>
-                </div>
-            </div>
-
             <div class="savs__gravadas__item">
                 <img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">
                 <div class="image__play">
