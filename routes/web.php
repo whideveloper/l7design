@@ -21,6 +21,9 @@ Route::get('/mural-de-comunicacao', function () {
 Route::get('/material-de-apoio', function () {
     return view('Client.pages.material-de-apoio');
 })->name('material-de-apoio');
+Route::get('/savs', function () {
+    return view('Client.pages.savs');
+})->name('savs');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');

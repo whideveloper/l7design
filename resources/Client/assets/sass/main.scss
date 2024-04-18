@@ -136,6 +136,7 @@ a.link-full{
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 5;
 }
 a {
     margin:0;
@@ -408,6 +409,7 @@ input, select {
 }
 .telenordeste__content,
 .teleinterconsulta__content,
+.savs__gravadas__content,
 .hospital__content{
     align-items: flex-start;
     background-color: var(--white);
@@ -1024,7 +1026,7 @@ input, select {
     font-family: var(--roboto-font-family);
     font-weight: 400;
     line-height: 1.625rem;
-    & b{
+    & b, strong{
         color: var(--pantone-7466-c);
         font-weight: 500;
     }
@@ -1845,13 +1847,6 @@ input, select {
         max-width: 290px;
     }
 }
-.box__document__title{
-    color: var(--pantone-3145-c);
-    font-size: 1.75rem;
-    font-family: var(--roboto-font-family);
-    font-weight: 500px;
-}
-
 .box__document__btn{
     background-color: var(--pantone-7466-c);
     height: 43px;
@@ -1863,13 +1858,49 @@ input, select {
         width: 119px;
     }
 }
+.box__document__title,
+.savs__gravadas__title{
+    color: var(--pantone-3145-c);
+    font-size: 1.75rem;
+    font-family: var(--roboto-font-family);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.teleinterconsulta__content {
+    &.material-de-apoio{
+        max-width: calc(100% - 350px);
+    }
+    .material-de-apoio{
+        justify-content: flex-end;
+    }
+}
 .material{
     background-color: var(--grey);
     display: flex;
     justify-content: center;
+    padding: 130px 0 180px 0;
     align-items: center;
     flex-direction: column;
     width: 100%;
+    margin-top: -60px;
+    &:nth-of-type(odd){
+        padding: 0 0 130px 0;
+        background-color: var(--white);
+        .material__content{
+            max-width: calc(100% - 350px);
+            align-items: flex-start;
+            background-color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 100%;
+            justify-content: space-between;
+            margin-top: -58px;
+            padding: 59px;
+            z-index: 1;
+        }
+    }
     .material__content{
         display: flex;
         justify-content: flex-start;
@@ -1877,16 +1908,237 @@ input, select {
         flex-wrap: wrap;
         max-width: calc(100% - 350px);
         width: 100%;
+        .material__content__list{
+            margin-top: 53px;
+            display: flex;
+            gap: 0 20px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: baseline;            
+        }
+        .title{
+            align-items: center;
+            color: var(--pantone-3145-c);
+            display: flex;
+            font-family: var(--roboto-font-family);
+            font-size: 2.5rem;
+            font-weight: 500;
+            justify-content: flex-start;
+            margin-bottom: 1.563rem;                
+            &::before{
+                background-color: var(--laranja);
+                border-radius: 0.313rem;
+                content:'';
+                height: 3.188rem;
+                margin-right: 0.8rem;
+                width: 0.5rem;
+            }
+        }
+        .description{
+            color: var(--grey-secundary);
+            font-size: 1.063rem;
+            font-family: var(--roboto-font-family);
+            font-weight: 400;
+            line-height: 1.625rem;
+            & b, strong{
+                color: var(--pantone-7466-c);
+                font-weight: 500;
+            }
+        }
         .box__document{          
             width: 48.5%;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            min-width: 415px;
+            box-shadow: 0px -1px 30px 0px rgb(204 204 204 / 25%);
             .box__document__content{
                 background-color: var(--white);
                 border-radius: 10px;
-                width: 95%;
+                width: 89%;
                 margin: 0;
-                padding: 10px;
+                padding: 30px;                              
             }
         }
     }
+}
+.teleinterconsulta__content {
+    &.savs{
+        max-width: calc(100% - 350px);
+        .teleinterconsulta__title{
+            width: 90%;
+        }
+        .teleinterconsulta__image{
+            &:hover{
+                .redound-bottom{
+                    transform: translate(11%, 9%);
+                }
+            }
+            &::before{
+                background-image: url('../images/meio-rendound-left.svg');
+                right: inherit;
+                left: -72px;
+                bottom: -92px;
+            }
+            &::after{
+                right: 30px;
+            }
+            .redound-top{
+                left: -18px;
+                height: auto;
+            }
+            .redound-bottom{
+                height: auto;
+                top: 99px;
+                bottom: inherit;
+                left: inherit;
+                right: 0;
+            }
+            img{
+                height: 648px;
+            }
+        }
+        .savs{
+            justify-content: flex-end;
+            .teleinterconsulta__description{
+                width: 55%;
+            }
+        }
+    }
+}
+.savs{
+    flex-direction: row-reverse;
+    .row{
+        display: flex;
+        gap: 0 15px;
+    }
+    .teleinterconsulta__btn.proxima-sav{
+        width: 208px;
+        max-width: 208px;
+    }
+    .teleinterconsulta__btn{
+        width: 290px;
+        max-width: 290px;
+    }
+}
+.savs__gravadas__text{
+    color: var(--grey-secundary);
+    font-size: 1.063rem;
+    font-family: var(--roboto-font-family);
+    font-weight: 400;
+    line-height: 1.625rem;
+    & b, strong{
+        color: var(--pantone-7466-c);
+        font-weight: 500;
+    }
+}
+.savs__gravadas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--grey); 
+    margin-top: -60px;
+    z-index: 0;
+    position: relative;
+    padding: 800px 0;
+}
+.savs__gravadas__content{
+    background-color: inherit;
+    max-width: calc(100% - 350px);
+    margin-top: 0;
+}
+.savs__gravadas__list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 15px;
+    margin-top: 53px;
+    position: relative;
+    width: 100%;
+    .savs__gravadas__item{
+        @include transition-medium;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        min-width: 415px;
+        width: 48.5%;
+        &::before{
+            @include transition-medium;
+            content: '';
+            background-color: #0f0f0f66;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            z-index: 0;
+        }
+        &:hover{
+            @include transition-medium;
+            .image__play{
+                @include transition-medium;
+                .savs__gravadas__play{
+                    @include transition-medium;
+                    transform: scale(1.1);
+                }
+            }
+            &::before{
+                @include transition-medium;
+                content: '';
+                background-color: #0f0f0f66;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 1;
+                z-index: 1;
+            }
+        }   
+        .savs__gravadas__capa{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+        }
+        .image__play{
+            @include transition-medium;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            .savs__gravadas__play{
+                @include transition-medium;
+            }
+        }
+    }
+}
+/* Estilo para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }

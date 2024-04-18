@@ -300,7 +300,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 $(document).ready(function(){
     // Header flutuante
     var header = document.getElementById("header");  
@@ -435,6 +434,31 @@ $(document).ready(function(){
             }
         }
     });
+});
+
+
+//Modal
+// Obtenha os elementos HTML
+var modal = document.getElementById("myModal");
+var clickLead = document.getElementById("click-lead");
+var closeBtn = document.querySelector(".close-btn");
+
+// Função para abrir o modal
+clickLead.addEventListener("click", function(event) {
+    event.preventDefault();
+    modal.style.display = "block";
+});
+
+// Função para fechar o modal
+closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+// Feche o modal quando clicar fora dele
+window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 });
 
 

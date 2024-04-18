@@ -845,3 +845,9 @@
         max-width: calc(100% - 350px);
     }
 }
+@media screen and (min-width: 360px) and (max-width: 1200px){
+    .material .material__content .box__document{
+        width: 100%;
+        min-width: inherit;
+    }
+}

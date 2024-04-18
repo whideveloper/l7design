@@ -1,7 +1,7 @@
 @extends('Client.core.main')
 @section('content')
 <section class="teleinterconsulta">
-    <div class="teleinterconsulta__content">
+    <div class="teleinterconsulta__content {{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
         <article class="{{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
             <div class="teleinterconsulta__image">
                 <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
@@ -24,7 +24,7 @@
                 </p>
 
                 <div class="teleinterconsulta__btn">
-                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Download dos protocolos</a>
+                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Protocolos" title="Protocolos"> Download dos protocolos</a>
                 </div>
             </div>
         </article>
@@ -32,22 +32,45 @@
 </section>
 
 <section class="material">
-    <h2 class="title">Material de leitura</h2>
-    <p>Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
     
     <div class="material__content">    
-        @php
-            $content = [
-                'title' => 'Nome do documento',
-                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
-                'link' => '/servicos',
-                'btnName' => 'Download',
-            ];
-        @endphp
-    
-        @for ($i = 0; $i < 9; $i++)
-            @include('Client.models.mdl-mt-apoio', $content)
-        @endfor
+        <h2 class="title">Material de leitura</h2>
+        <p class="description">Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
+        <div class="material__content__list">
+            @php
+                $content = [
+                    'title' => 'Nome do documento',
+                    'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra.',
+                    'link' => '/servicos',
+                    'btnName' => 'Download',
+                ];
+            @endphp
+        
+            @for ($i = 0; $i < 10; $i++)
+                @include('Client.models.mdl-mt-apoio', $content)
+            @endfor
+        </div>
+    </div>
+</section>
+
+<section class="material">
+    <div class="material__content">    
+        <h2 class="title">Material de impressão</h2>
+        <p class="description">Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
+        <div class="material__content__list">
+            @php
+                $content = [
+                    'title' => 'Nome do documento',
+                    'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra.',
+                    'link' => '/servicos',
+                    'btnName' => 'Download',
+                ];
+            @endphp
+        
+            @for ($i = 0; $i < 10; $i++)
+                @include('Client.models.mdl-mt-apoio', $content)
+            @endfor
+        </div>
     </div>
 </section>
 @endsection

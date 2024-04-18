@@ -62,7 +62,7 @@
                         <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
                         <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
-                        <li class="header__item"><a href="">SAVs</a></li>
+                        <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                         <li class="header__item"><a href="">Desempenho</a></li>
                         <li class="header__item"><a href="">Galeria</a></li>
                         <li class="header__item"><a href="">Contatos e Sugestões</a></li>
@@ -92,6 +92,11 @@
             if(Route::currentRouteName() == 'material-de-apoio'){
                 $content = [
                     'title' => 'Material de apoio',
+                ];
+            }
+            if(Route::currentRouteName() == 'savs'){
+                $content = [
+                    'title' => "SAV's",
                 ];
             }
         @endphp
