@@ -73,15 +73,18 @@
 
         <div id="myModal" class="modal">
             <div class="modal-content">
-                
-                <h6 class="modal-title">Para assistir digitre seu nome completo e e-mail:</h6>
-                <form action="" method="post">                    
-                    <input type="text" name="nome" placeholder="Nome completo">                     
-                    <input type="text" name="email" placeholder="E-mail">
-
-                    <button type="submit">Assistir</button>
-                    <button type="button"  class="close-btn">Sair</button>
-                </form>
+                <div class="modal-content-form">
+                    <h6 class="modal-title">Para assistir digitre seu nome completo e e-mail:</h6>
+                    <form action="" method="post">                    
+                        <input type="text" name="nome" required placeholder="Nome completo">                     
+                        <input type="text" name="email" required placeholder="E-mail">
+                        
+                        <div class="modal-content-btn">
+                            <button type="submit" class="button"><span>Assistir</span></button>
+                            <button type="button"  class="close-btn"><span>Sair</span></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
