@@ -24,6 +24,9 @@ Route::get('/material-de-apoio', function () {
 Route::get('/savs', function () {
     return view('Client.pages.savs');
 })->name('savs');
+Route::get('/galeria', function () {
+    return view('Client.pages.galeria');
+})->name('galeria');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');

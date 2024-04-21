@@ -64,7 +64,7 @@
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                         <li class="header__item"><a href="">Desempenho</a></li>
-                        <li class="header__item"><a href="">Galeria</a></li>
+                        <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
                         <li class="header__item"><a href="">Contatos e Sugestões</a></li>
                     </ul>
                 </nav>
@@ -74,7 +74,7 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="modal-content-form">
-                    <h6 class="modal-title">Para assistir digitre seu nome completo e e-mail:</h6>
+                    <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
                     <form action="" method="post">                    
                         <input type="text" name="nome" required placeholder="Nome completo">                     
                         <input type="text" name="email" required placeholder="E-mail">
@@ -114,6 +114,11 @@
             if(Route::currentRouteName() == 'savs'){
                 $content = [
                     'title' => "SAV's",
+                ];
+            }
+            if(Route::currentRouteName() == 'galeria'){
+                $content = [
+                    'title' => "Galeria",
                 ];
             }
         @endphp
