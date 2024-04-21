@@ -2253,6 +2253,13 @@ input, select {
         width: 208px;
     }
 }
+.galeria{
+   &.evento{
+        .galeria__content .galeria__item{
+            max-width: 31%;
+        }
+   } 
+}
 .galeria__content{
     justify-content: flex-start;
     .galeria__list{

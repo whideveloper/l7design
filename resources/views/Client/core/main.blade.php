@@ -121,6 +121,11 @@
                     'title' => "Galeria",
                 ];
             }
+            if(Route::currentRouteName() == 'evento'){
+                $content = [
+                    'title' => "Evento",
+                ];
+            }
         @endphp
         @include('Client.models.banner-interno', $content)
     @endif
