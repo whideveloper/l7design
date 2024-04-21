@@ -466,7 +466,8 @@ window.addEventListener("click", function(event) {
         document.body.style.overflow = "auto";
     }
 });
-
+Fancybox.init();
+Fancybox.bind('[data-fancybox]');
 
 
 

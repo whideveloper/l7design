@@ -265,7 +265,10 @@ mix.scripts(
         "resources/Client/assets/css/splide.min.css",
         "public/Client/assets/css/splide.min.css"
     )
-
+    .styles(
+        "node_modules/@fancyapps/ui/dist/fancybox.css",
+        "public/Client/assets/css/fancybox.css"
+    )
     .styles(
         "resources/Client/assets/sass/main.min.css",
         "public/Client/assets/css/main.min.css"
@@ -277,6 +280,10 @@ mix.scripts(
     .scripts(
         "resources/Client/assets/js/splide.min.js",
         "public/Client/assets/js/splide.min.js"
+    )
+    .scripts(
+        "node_modules/@fancyapps/ui/dist/fancybox.umd.js",
+        "public/Client/assets/js/fancybox.js"
     )
     .scripts(
         "resources/Client/assets/js/splide.min.js.map",

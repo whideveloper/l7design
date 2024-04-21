@@ -9,17 +9,14 @@
             <div class="galeria__list">
                 <div class="galeria__item">
                     <div class="galeria__image">
+                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
                         <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
                     </div>
                 </div>
                 <div class="galeria__item">
                     <div class="galeria__image">
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
+                        <a href="{{asset('Client/assets/images/galeria-2.jpg')}}" data-fancybox="gallery" class="link-full"></a>
+                        <img src="{{asset('Client/assets/images/galeria-2.jpg')}}" alt="imagem galeria">
                     </div>
                 </div>
             </div>

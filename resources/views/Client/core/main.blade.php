@@ -30,6 +30,7 @@
     <meta name="twitter:description" content="Descrição" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/fancybox.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/responsivo.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
     <!--fonts google-->
@@ -164,6 +165,7 @@
         </div>
      </section>
     <script src="{{ asset(mix('Client/assets/js/main.js')) }}"></script>
+    <script src="{{ asset(mix('Client/assets/js/fancybox.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>

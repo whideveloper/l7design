@@ -32,6 +32,7 @@ $(function() {
 
 $(function() {
 
+    Fancybox.init();
     Fancybox.bind('[data-fancybox]');
 
     $.ajaxSetup({

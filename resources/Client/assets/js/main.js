@@ -467,6 +467,7 @@ window.addEventListener("click", function(event) {
     }
 });
 
+Fancybox.bind('[data-fancybox]');
 
 
 
