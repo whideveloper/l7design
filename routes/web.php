@@ -27,9 +27,9 @@ Route::get('/savs', function () {
 Route::get('/galeria', function () {
     return view('Client.pages.galeria');
 })->name('galeria');
-Route::get('/evento', function () {
-    return view('Client.pages.evento');
-})->name('evento');
+Route::get('/galeria-interna', function () {
+    return view('Client.pages.galeria-interna');
+})->name('galeria-interna');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');

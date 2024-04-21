@@ -2272,6 +2272,7 @@ input, select {
         gap: 0 24px;
         margin-top: 53px;
         .galeria__item{
+            position: relative;
             width: 100%;
             max-width: 48%;
             display: flex;
@@ -2300,4 +2301,25 @@ input, select {
             }
         }
     }
+}
+.galeria.evento{
+    .galeria__text{
+        width: 100%;
+        p{
+            width: 100%;
+        }
+    }
+}
+.galeria__text{
+    background: var(--white);
+    padding: 25px 25px 20px 25px;
+    max-width: 89%;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 4px 2px 18px -11px var(--ccc);
+}
+.carousel__button{
+    background: var(--laranja) !important;
+}
+.fancybox__backdrop{
+    background: var(--white) !important;
 }

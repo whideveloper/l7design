@@ -122,7 +122,7 @@
                     'title' => "Galeria",
                 ];
             }
-            if(Route::currentRouteName() == 'evento'){
+            if(Route::currentRouteName() == 'galeria-interna'){
                 $content = [
                     'title' => "Evento",
                 ];
