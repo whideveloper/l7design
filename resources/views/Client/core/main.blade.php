@@ -44,8 +44,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 </head>
 
 <body>
@@ -64,7 +62,7 @@
                         <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
-                        <li class="header__item"><a href="">Desempenho</a></li>
+                        <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
                         <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
                         <li class="header__item"><a href="">Contatos e Sugestões</a></li>
                     </ul>
@@ -127,15 +125,19 @@
                     'title' => "Evento",
                 ];
             }
+            if(Route::currentRouteName() == 'desempenho'){
+                $content = [
+                    'title' => "Desempenho",
+                ];
+            }
         @endphp
         @include('Client.models.banner-interno', $content)
     @endif
 
-    
-
     <main id="page">
         @yield('content')
     </main>
+
      <section id="footer" class="footer">
         <div class="footer__logos">
             <ul class="footer__logos__items owl-carousel">

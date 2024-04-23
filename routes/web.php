@@ -30,6 +30,9 @@ Route::get('/galeria', function () {
 Route::get('/galeria-interna', function () {
     return view('Client.pages.galeria-interna');
 })->name('galeria-interna');
+Route::get('/desempenho', function () {
+    return view('Client.pages.desempenho');
+})->name('desempenho');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');
