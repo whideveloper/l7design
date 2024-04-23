@@ -35,14 +35,24 @@
             <table>
                 <thead>
                     <tr>                        
-                        <th>Nome do curso</th>
-                        <th>Sub-titulo</th>
+                        <th>UBS</th>
+                        <th>CNES</th>
+                        <th>Cardiologia</th>
+                        <th>Endrocrinologista</th>
+                        <th>Psiquiatria</th>
+                        <th>Total</th>
+                        <th>Região</th>
                     </tr>
                 </thead>
 
                 <tbody>                    
                     <tr>
                         <td>Titulo</td>
+                        <td>SubTitulo</td>
+                        <td>SubTitulo</td>
+                        <td>SubTitulo</td>
+                        <td>SubTitulo</td>
+                        <td>SubTitulo</td>
                         <td>SubTitulo</td>
                     </tr>
                 </tbody>
