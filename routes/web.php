@@ -33,13 +33,13 @@ Route::get('/galeria-interna', function () {
 Route::get('/desempenho', function () {
     return view('Client.pages.desempenho');
 })->name('desempenho');
+Route::get('/contato', function () {
+    return view('Client.pages.contato');
+})->name('contato');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');
 // });
-Route::get('/contato', function () {
-    return view('Client.pages.contato');
-})->name('contato');
 
 Route::get('/contact', function () {
     return view('contact');

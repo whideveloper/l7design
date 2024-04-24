@@ -64,7 +64,7 @@
                         <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                         <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
                         <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
-                        <li class="header__item"><a href="">Contatos e Sugestões</a></li>
+                        <li class="header__item"><a href="{{route('contato')}}" class="{{ Route::currentRouteName() == 'contato' ? 'active' : ''}}">Contatos e Sugestões</a></li>
                     </ul>
                 </nav>
             </div>
@@ -128,6 +128,11 @@
             if(Route::currentRouteName() == 'desempenho'){
                 $content = [
                     'title' => "Desempenho",
+                ];
+            }
+            if(Route::currentRouteName() == 'contato'){
+                $content = [
+                    'title' => "Contato e sugestões",
                 ];
             }
         @endphp

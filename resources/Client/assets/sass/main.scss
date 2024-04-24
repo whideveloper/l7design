@@ -2391,7 +2391,7 @@ input, select {
         position: relative;
         gap: 0px 10px;
         flex-wrap: wrap;
-        padding: 130px 65px 59px 65px;
+        padding: 130px 65px 130px 65px;
         width: 100%; 
         .image{
             display: flex;
@@ -2410,7 +2410,7 @@ input, select {
     max-width: 364px;
     width: 100%;
     position: absolute;
-    bottom: 54px;
+    bottom: 120px;
     right: 155px;
     p{
         width: 100%;
