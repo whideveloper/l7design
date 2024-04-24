@@ -2416,3 +2416,33 @@ input, select {
         width: 100%;
     }
 }
+.quadro__geral__table{
+    width: 100%;
+}
+table{
+    width: 100%;
+    thead{
+        width: 100%;
+    }
+    th, td{
+        border: 1px solid #cccccc52;
+        text-align: left;
+        padding: 7px 15px;
+        width: 14.28%;
+        color: var(--ccc);
+        font-family: var(--roboto-font-family);
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    tbody{
+        tr{
+            width: 100%;
+            &:nth-of-type(even){
+                background-color: #cccccc52;
+            }
+            td{
+                color: var(--header);
+            }
+        }
+    }
+}
