@@ -74,4 +74,11 @@
             </div>
         </div>
     </section>
+    <section class="contato__wpp">
+        <div class="contato__wpp__content">
+            <div class="contato__wpp__btn contato__wpp__link">
+                <a href=""><img src="{{asset('Client/assets/images/wpp.svg')}}" alt=""> Contato pelo Whatsapp</a>
+            </div>
+        </div>
+    </section>
 @endsection

@@ -540,6 +540,7 @@ input, select {
     }   
 }
 .telenordeste__btn,
+.contato__wpp__btn,
 .teleinterconsulta__btn,
 .mdl-box__btn,
 .box__document__btn,
@@ -558,6 +559,7 @@ input, select {
     position: relative;
     width: 100%;
     z-index: 0;
+    &.contato__wpp__link,
     &.agenda,
     &.consulta,
     &.more,
@@ -1893,7 +1895,8 @@ input, select {
         justify-content: flex-end;
     }
 }
-.material{
+.material,
+.contato__wpp{
     background-color: var(--grey);
     display: flex;
     justify-content: center;
@@ -2514,4 +2517,25 @@ table{
         margin-top: 5px;
         color: var(--pantone-7466-c);
     }
+}
+.contato__wpp{
+    height: 343px;
+    padding: 0;
+}
+.contato__wpp__content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    z-index: 1;
+}
+.contato__wpp__btn.contato__wpp__link{
+    background-color: var(--verde);
+    position: relative;
+    transform: inherit;
+    left: inherit;
+    max-width: inherit;
+    width: 274px;
 }
