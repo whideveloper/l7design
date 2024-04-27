@@ -6,12 +6,69 @@
 
             <div class="contato__list">
                 <div class="contato__item">
-                    <div class="contato__image">
-                        <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
                     </div>
-                    <div class="contato__description">
-                        <p>Adriana Miyauchi</p>
-                        <span>adriana.miyauchi@haoc.com.br</span>
+                </div>
+                <div class="contato__item">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato__item">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato__item">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato__item">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato__item">
+                    <div class="contato__container">
+                        <div class="contato__image">
+                            <img src="{{asset('Client/assets/images/cont-1.jpg')}}" alt="Adriana Miyauchi" title="Adriana Miyauchi">
+                        </div>
+                        <div class="contato__description">
+                            <p>Adriana Miyauchi</p>
+                            <span>adriana.miyauchi@haoc.com.br</span>
+                        </div>
                     </div>
                 </div>
             </div>
