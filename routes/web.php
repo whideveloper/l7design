@@ -18,6 +18,9 @@ Route::get('/especialidades', function () {
 Route::get('/mural-de-comunicacao', function () {
     return view('Client.pages.mural-de-comunicacao');
 })->name('mural-de-comunicacao');
+Route::get('/mural-de-comunicacao-interna', function () {
+    return view('Client.pages.mural-de-comunicacao-interna');
+})->name('mural-de-comunicacao-interna');
 Route::get('/material-de-apoio', function () {
     return view('Client.pages.material-de-apoio');
 })->name('material-de-apoio');

@@ -29,7 +29,7 @@
                 'crm' => '',            
                 'image' => asset('Client/assets/images/com-1.jpg'),
                 'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
-                'link' => '/servicos',
+                'link' => 'mural-de-comunicacao-interna',
                 'btnName' => 'saiba mais',
             ];
         @endphp

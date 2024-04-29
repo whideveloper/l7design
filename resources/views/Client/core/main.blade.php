@@ -100,7 +100,7 @@
                     'title' => 'Contato',
                 ];
             }
-            if(Route::currentRouteName() == 'mural-de-comunicacao'){
+            if(Route::currentRouteName() == 'mural-de-comunicacao' || Route::currentRouteName() == 'mural-de-comunicacao-interna'){
                 $content = [
                     'title' => 'Mural de comunicação',
                 ];
