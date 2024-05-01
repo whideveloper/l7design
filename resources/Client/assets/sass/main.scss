@@ -22,6 +22,89 @@
     --ciano: #82D0F5;
 
 }
+// colors
+$theme-lightblue: #5db6c6;
+$theme-darkblue: #083783;
+$theme-lightgray: #f4f5f9;
+$theme-mediumgray: #e6e8ef;
+$theme-altergray: #aeb3c7;
+$theme-gray: #707070;
+$theme-purplegray: #717a9d;
+$theme-textblack: #292929;
+$theme-textdarkgray: #484848;
+$theme-yellow: #ffc229;
+$theme-green: #41d474;
+$theme-cherryred: #c7295a;
+$theme-salmon: #ffece5;
+//screen sizes
+$extra-small-width: 360px;
+$small-width: 480px;
+$medium-down-width: 601px;
+$medium-width: 801px;
+$s-large-width: 900px;
+$large-width: 1024px;
+$x-large-width: 1280px;
+// MIXIN
+@mixin extra-small {
+    @media (max-width: #{$extra-small-width - 1px}) {
+        @content;
+    }
+}
+@mixin small-down {
+    @media (max-width: #{$small-width}) {
+        @content;
+    }
+}
+@mixin small-only {
+    @media (min-width: #{$extra-small-width}) and (max-width: #{$medium-width - 1px}) {
+        @content;
+    }
+}
+@mixin medium-down {
+    @media (max-width: #{$medium-down-width}) {
+        @content;
+    }
+}
+@mixin x-medium-down {
+    @media (max-width: #{$medium-width}) {
+        @content;
+    }
+}
+@mixin medium-only {
+    @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+        @content;
+    }
+}
+@mixin s-large-down {
+    @media (max-width: #{$s-large-width}) {
+        @content;
+    }
+}
+@mixin large-down {
+    @media (max-width: #{$large-width}) {
+        @content;
+    }
+}
+@mixin large {
+    @media (min-width: #{$large-width}) {
+        @content;
+    }
+}
+@mixin x-large-down {
+    @media (max-width: #{$x-large-width}) {
+        @content;
+    }
+}
+@mixin dis-flex(
+    $direction: row,
+    $justify_content: space-between,
+    $align_items: center
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify_content;
+    align-items: $align_items;
+}
 
 @font-face {
     font-family: var(--roboto-font-family);
@@ -74,6 +157,17 @@
     -ms-transition: all $duration $timing-function;
     -o-transition: all $duration $timing-function;
     transition: all $duration $timing-function;
+}
+
+%wrap-x-large-down {
+    @include x-large-down {
+        width: calc(97.5% - 80px);
+        margin: 0 2.5% 0 80px;
+    }
+    @include medium-down {
+        width: calc(97.5% - 60px);
+        margin: 0 2.5% 0 60px;
+    }
 }
 
 html {
@@ -1458,6 +1552,7 @@ input, select {
     width: 28px;
 }
 .especialidades,
+.calendar-page__header,
 .contato,
 .quadro__geral,
 .desempenho,
@@ -1639,6 +1734,7 @@ input, select {
     }
 }
 .especialidades__content,
+.calendar__content,
 .quadro__geral__content,
 .contato__content,
 .desempenho__content,
@@ -2622,5 +2718,235 @@ table{
             height: 100%;
             top: 9px;
         }
+    }
+}
+.calendar-page{
+    .wrap {
+        padding:0;
+        display: grid;
+        grid-template-areas:
+            "title title"
+            "tags tags"
+            "calendar calendar"
+            "aside aside";
+        grid-template-columns: calc(100% - 242px) 230px;
+        gap: 12px;
+        align-items: start;
+        justify-items: stretch;
+        @extend %wrap-x-large-down;
+        @include s-large-down {
+            grid-template-areas:
+                "title"
+                "tags"
+                "calendar"
+                "aside";
+            grid-template-columns: 100%;
+        }
+    }
+    .icon-ttl {
+        grid-area: title;
+        margin-bottom: 1rem;
+    }
+    &__tags {
+        grid-area: tags;
+        @include dis-flex(row, start, center);
+        flex-wrap: wrap;
+        gap: 5px;
+        &__item {
+            border-radius: 15px;
+            overflow: hidden;
+            a {
+                font-family: var(--roboto-font-family);
+                font-size: 0.87rem;
+                font-weight: 400;
+                color: #ffffff;
+                padding: 0.25rem 0.75rem;
+                display: block;
+            }
+        }
+    }
+    .calendar {
+        grid-area: calendar;
+    }
+    &__aside {
+        grid-area: aside;
+        @include dis-flex(column, start, stretch);
+        gap: 14px;
+        padding: 15px 5px;
+        border-radius: 10px;
+    }
+    &__selected-date {
+        align-self: start;
+        font-family: var(--roboto-font-family);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--pantone-7466-c);
+        border-radius: 6px;
+        padding: 4px 8px;
+        span{
+            color: var(--grey-terciary);
+        }
+    }
+    .calendar.fc td.fc-selectedDate {
+        border: solid 1px #08378333 !important;
+    }
+}
+.calendar {
+    border-radius: 10px;
+    border: solid 1px $theme-altergray;
+    padding: 21px 15px;
+    @include medium-down {
+        padding: 16px 10px;
+    }
+    %calendarTitle {
+        font-family: var(--roboto-font-family);
+        font-weight: 500;
+        font-size: 1.25rem;
+        color: var(--pantone-3145-c);
+    }
+    .fc-toolbar-title {
+        @extend %calendarTitle;
+        @include medium-down {
+            font-size: 1.4rem !important;
+        }
+        @include small-down {
+            font-size: 1.2rem !important;
+        }
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+    .fc-col-header-cell-cushion {
+        @extend %calendarTitle;
+        font-size: 1rem;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+    .fc-event {
+        padding: 4px 6px;
+        border-radius: 13px;
+        width: 96%;
+        word-wrap: break-word;
+        @include medium-down {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+        }
+        &-title {
+            word-wrap: break-word;
+            font-family: var(--roboto-font-family);
+            font-size: 0.87rem;
+            font-weight: 400;
+            color: #ffffff;
+            display: block;
+            width: 100%;
+        }
+        &-main {
+            @include medium-down {
+                display: none;
+            }
+        }
+    }
+    &.fc .fc-daygrid-day.fc-day-today {
+        background-color: transparent;
+        .fc-daygrid-day-number {
+            background-color: var(--laranja);
+            color: #ffffff;
+        }
+    }
+    &.fc .fc-daygrid {
+        &-day-number {
+            @include dis-flex(row, center, center);
+            border-radius: 100%;
+            font-family: var(--roboto-font-family);
+            font-size: 0.87rem;
+            font-weight: 400;
+            color: $theme-textdarkgray;
+            height: 24px;
+            width: 24px;
+        }
+        &-day-events {
+            @include medium-down {
+                @include dis-flex(row, start, start);
+                flex-wrap: wrap;
+            }
+        }
+        &-event {
+            white-space: normal;
+        }
+        &-day-top {
+            flex-direction: row;
+        }
+    }
+    &.fc table,
+    &.fc th,
+    &.fc td {
+        border: none !important;
+    }
+    &.fc .fc-button {
+        @include dis-flex(row, center, center);
+        border-radius: 100%;
+        background-color: var(--laranja);
+        border: none;
+        height: 44px;
+        width: 44px;
+        @include medium-down {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+.events-list {
+    @include dis-flex(column, start, stretch);
+    overflow-y: auto;
+    height: 100%;
+    padding: 0 10px;
+    &__item {
+        width: 100%;
+        @include dis-flex(column, start, stretch);
+    }
+    &__item + &__item {
+        margin-top: 25px;
+    }
+    &__title {
+        font-family: var(--roboto-font-family);
+        font-size: 1.75rem;
+        font-weight: 500;
+        color: var(--pantone-3145-c);
+        @include dis-flex(row, start, center);
+        margin-bottom: 10px;
+    }
+    &__time {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #ffffff;
+        padding: 2px 3px;
+        margin-right: 6px;
+        border-radius: 9px;
+    }
+    &__text {
+        width: 100%;
+        max-height: 150px;
+        font-family: var(--roboto-font-family);
+        font-size: 1.063rem !important;
+        line-height: 1.5rem;
+        font-weight: 400;
+        color: var(--grey-secundary);
+        word-wrap: break-word;
+        overflow: hidden;
+        transition: all ease 0.5s 0.2s;
+        &.is-open {
+            max-height: 500px;
+        }
+    }
+    &__action-trigger {
+        align-self: end;
+        border: none;
+        background-color: transparent;
+        font-family: var(--roboto-font-family);
+        font-size: 0.62rem;
+        font-weight: 400;
+        color: $theme-lightblue;
     }
 }

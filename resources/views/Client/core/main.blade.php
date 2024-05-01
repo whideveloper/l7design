@@ -135,6 +135,11 @@
                     'title' => "Contato e sugestões",
                 ];
             }
+            if(Route::currentRouteName() == 'calendario'){
+                $content = [
+                    'title' => "Agenda",
+                ];
+            }
         @endphp
         @include('Client.models.banner-interno', $content)
     @endif

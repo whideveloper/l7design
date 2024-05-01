@@ -39,6 +39,9 @@ Route::get('/desempenho', function () {
 Route::get('/contato', function () {
     return view('Client.pages.contato');
 })->name('contato');
+Route::get('/calendario', function () {
+    return view('Client.pages.calendario');
+})->name('calendario');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');
