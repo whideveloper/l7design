@@ -6,25 +6,25 @@
     <section class="calendar-page__header">
         <div class="calendar__content">
             <div class="calendar-page">
-                <div class="wrap style">
-                    {{-- <div class="icon-ttl">
-                        <div class="icon-ttl__icon">
-                            <img src="{{ asset('Client/assets/images/icon-ttl-index-eventos.svg') }}" alt="Ícone de eventos">
-                        </div>
-                        <h3 class="icon-ttl__title">Calendário e Eventos</h3>
-                    </div>END .icon-ttl --}}
-        
+                <div class="wrap style">        
                     <ul class="calendar-page__tags"></ul>
         
                     <div class="calendar"></div>
         
-                    <aside id="eventPanel" class="calendar-page__aside">
-                        
-                        <h3 class="calendar-page__selected-date">01/05/2024 - <span>9h às 12h</span></h3>
-                        
+                    <aside id="eventPanel" class="calendar-page__aside">                        
                         <ul class="events-list">
-        
-                            @include('Client.models.events-list__item')
+                            @php
+                                $eventsListObj = [
+                                    'date' => '01/05/2024',
+                                    'time' => '9h às 12h',
+                                    'title' => '1ª Oficina do Projeto TeleNordeste – Regional de Propriá',
+                                    'text' => 'O Projeto TeleNordeste, em parceria com a Diretoria de Atenção Primária à Saúde, da Secretaria Estadual de Saúde, convida os profissionais das equipes de Saúde cadastradas no projeto a participarem do nosso primeiro encontro, que acontecerá no município de Propriá. Essa atividade aproximará a equipe do Hospital Alemão Oswaldo Cruz dos municípios da Região de Saúde de Propriá, fortalecendo a parceria das equipes de Saúde com o projeto. Abordaremos temas como: desafios da implantação do TeleNordeste e como superá-los; a plataforma do projeto na prática; debates em grupos e games. Contamos com a participação de vocês!',
+                                ];
+                            @endphp
+
+                            @for ($i = 0; $i < 4; $i++)
+                                @include('Client.models.events-list__item', $eventsListObj)
+                            @endfor
         
                         </ul>{{-- END .events-list --}}
                     </aside>{{-- END .calender-page__aside --}}
@@ -42,11 +42,16 @@
     
     const tagsInfo = {     
 
-        'Titulo da categoria do evento': {
-            friendlyUrl: 'titulo-do-evento',
-            title: 'Titulo da categoria do evento',
-            color: '#000',
+        'religioso': {
+            friendlyUrl: 'religioso',
+            title: 'Religioso',
+            color: '#00B0B9',
         },
+        'institucional': {
+            friendlyUrl: 'institucional',
+            title: 'Institucional',
+            color: '#00B0B9',
+        }
        
     }
 
@@ -57,11 +62,63 @@
     const events = [
             {
                 id: "1",
-                title: "Evento 01",
-                start: "01/05",
-                backgroundColor: tagsInfo['Titulo da categoria do evento'].color,
-                borderColor: tagsInfo['Titulo da categoria do evento'].color,
+                title: "1ª Oficina do Projeto TeleNordeste – Regional de Propriá",
+                start: "2024-05-01",
+                backgroundColor: tagsInfo['institucional'].color,
+                borderColor: tagsInfo['institucional'].color,
             },
+            {
+                id: "2",
+                title: "E1ª Oficina do Projeto TeleNordeste – Regional de Propriá 01",
+                start: "2024-05-06",
+                backgroundColor: tagsInfo['religioso'].color,
+                borderColor: tagsInfo['religioso'].color,
+            },
+            {
+                title: 'Ano Novo',
+                start: new Date().getFullYear() + '-01-01',
+                allDay: true
+            },
+            {
+                title: 'Carnaval',
+                start: new Date().getFullYear() + '-02-25',
+                allDay: true
+            },
+            {
+                title: 'Sexta-feira Santa',
+                start: new Date().getFullYear() + '-04-19',
+                allDay: true
+            },
+            {
+                title: 'Dia do Trabalhador',
+                start: new Date().getFullYear() + '-05-01',
+                allDay: true
+            },
+            {
+                title: 'Independência do Brasil',
+                start: new Date().getFullYear() + '-09-07',
+                allDay: true
+            },
+            {
+                title: 'Nossa Senhora Aparecida',
+                start: new Date().getFullYear() + '-10-12',
+                allDay: true
+            },
+            {
+                title: 'Finados',
+                start: new Date().getFullYear() + '-11-02',
+                allDay: true
+            },
+            {
+                title: 'Proclamação da República',
+                start: new Date().getFullYear() + '-11-15',
+                allDay: true
+            },
+            {
+                title: 'Natal',
+                start: new Date().getFullYear() + '-12-25',
+                allDay: true
+            }
     ]
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -123,3 +180,16 @@
         document.querySelector('[data-date="' + initialDate + '"]').classList.add('fc-selectedDate');
     })
 </script>
+
+<style>
+    .fc .fc-button-primary{
+        transition: ease 0.3s;
+    }
+    .fc .fc-button-primary:hover{
+        transition: ease 0.3s;
+        background-color: var(--laranja) !important;
+        border-color: var(--laranja) !;
+        color: var(--white) !important;
+        transform: scale(1.2);    
+    }
+</style>

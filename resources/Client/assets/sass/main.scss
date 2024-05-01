@@ -2778,17 +2778,15 @@ table{
     &__selected-date {
         align-self: start;
         font-family: var(--roboto-font-family);
-        font-weight: 700;
+        font-weight: 500;
         font-size: 1rem;
         color: var(--pantone-7466-c);
         border-radius: 6px;
         padding: 4px 8px;
-        span{
-            color: var(--grey-terciary);
-        }
+        padding-left: 0;
     }
     .calendar.fc td.fc-selectedDate {
-        border: solid 1px #08378333 !important;
+        border: solid 1px var(--pantone-7466-c) !important;
     }
 }
 .calendar {
@@ -2897,6 +2895,21 @@ table{
         }
     }
 }
+.events-list__before{
+    position: relative;
+    padding-left: 20px;
+    &::before{
+        content: "";
+        margin-right: 8px;
+        height: 57px;
+        width: 5px;
+        background-color: var(--laranja);
+        border-radius: 8px;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+}
 .events-list {
     @include dis-flex(column, start, stretch);
     overflow-y: auto;
@@ -2904,6 +2917,9 @@ table{
     padding: 0 10px;
     &__item {
         width: 100%;
+        border-bottom: 1px solid #DDDDDD;
+        margin-bottom: 23px;
+        padding-bottom: 23px;
         @include dis-flex(column, start, stretch);
     }
     &__item + &__item {
@@ -2918,12 +2934,8 @@ table{
         margin-bottom: 10px;
     }
     &__time {
-        font-size: 0.75rem;
-        font-weight: 400;
-        color: #ffffff;
-        padding: 2px 3px;
-        margin-right: 6px;
-        border-radius: 9px;
+        color: var(--grey-terciary);
+        font-weight: 500;
     }
     &__text {
         width: 100%;
