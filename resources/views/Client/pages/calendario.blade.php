@@ -10,7 +10,11 @@
                     <ul class="calendar-page__tags"></ul>
         
                     <div class="calendar"></div>
-        
+                    <legend class="page-legend__content-f">
+                        <h5 class="calendar-page__legend__title">Feriados</h5>
+                        <div class="calendar-page__legend"></div>
+                    </legend>
+                    
                     <aside id="eventPanel" class="calendar-page__aside">                        
                         <ul class="events-list">
                             @php
@@ -63,13 +67,13 @@
             {
                 id: "1",
                 title: "1ª Oficina do Projeto TeleNordeste – Regional de Propriá",
-                start: "2024-05-01",
+                start: "2024-05-02",
                 backgroundColor: tagsInfo['institucional'].color,
                 borderColor: tagsInfo['institucional'].color,
             },
             {
                 id: "2",
-                title: "E1ª Oficina do Projeto TeleNordeste – Regional de Propriá 01",
+                title: "2ª Oficina do Projeto TeleNordeste – Regional de Propriá",
                 start: "2024-05-06",
                 backgroundColor: tagsInfo['religioso'].color,
                 borderColor: tagsInfo['religioso'].color,
@@ -150,6 +154,59 @@
         //     listItems +=
         //         `<li class='calendar-page__tags__item' style='background-color: ${tagsInfo[key].color}'><a href='${route + '/categoria/' + tagsInfo[key].friendlyUrl}'>${tagsInfo[key].title}</a></li>`
         // }
+
+        // Adicione esta função para formatar a data no formato 'YYYY-MM-DD'
+        function formatDate(date) {
+            return date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+        }
+    
+        // Adicione os feriados do mês atual (você pode expandir isso para um intervalo de meses)
+        const holidays = [
+            { title: 'Ano Novo', date: new Date(new Date().getFullYear(), 0, 1) },
+            { title: 'Carnaval', date: new Date(new Date().getFullYear(), 1, 25) },
+            { title: 'Sexta-feira Santa', date: new Date(new Date().getFullYear(), 3, 19) },
+            { title: 'Dia do Trabalhador', date: new Date(new Date().getFullYear(), 4, 1) },
+            { title: 'Independência do Brasil', date: new Date(new Date().getFullYear(), 8, 7) },
+            { title: 'Nossa Senhora Aparecida', date: new Date(new Date().getFullYear(), 9, 12) },
+            { title: 'Finados', date: new Date(new Date().getFullYear(), 10, 2) },
+            { title: 'Proclamação da República', date: new Date(new Date().getFullYear(), 10, 15) },
+            { title: 'Natal', date: new Date(new Date().getFullYear(), 11, 25) }
+        ];
+    
+        // Filtrar feriados do mês atual
+        const currentMonthHolidays = holidays.filter(holiday => holiday.date.getMonth() === new Date().getMonth());
+    
+        // Montar a lista de feriados
+        // let holidayList = '<ul>';
+        // currentMonthHolidays.forEach(holiday => {
+        //     holidayList += `<li>${formatDate(holiday.date)}: ${holiday.title}</li>`;
+        // });
+        // holidayList += '</ul>';
+    
+        // // Adicionar a lista de feriados abaixo do calendário
+        // document.querySelector('.calendar-page__legend').innerHTML = holidayList;
+
+        // Função para obter o nome do mês por extenso
+        function getMonthName(date) {
+            const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            return months[date.getMonth()];
+        }
+
+        // Função para formatar o dia no formato 'DD'
+        function formatDay(date) {
+            return date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        }
+
+        // Montar a lista de feriados
+        let holidayList = `<ul>`;
+        currentMonthHolidays.forEach(holiday => {
+            holidayList += `<li>${formatDay(holiday.date)} de ${getMonthName(holiday.date)}: <span>${holiday.title}</span></li>`;
+        });
+        holidayList += '</ul>';
+
+        // Adicionar a lista de feriados abaixo do calendário
+        document.querySelector('.calendar-page__legend').innerHTML = holidayList;
+
 
         document.querySelector('.calendar-page__tags').innerHTML = listItems;
 

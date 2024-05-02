@@ -2725,9 +2725,9 @@ table{
         padding:0;
         display: grid;
         grid-template-areas:
-            "title title"
             "tags tags"
             "calendar calendar"
+            "legend legend"
             "aside aside";
         grid-template-columns: calc(100% - 242px) 230px;
         gap: 12px;
@@ -2736,9 +2736,9 @@ table{
         @extend %wrap-x-large-down;
         @include s-large-down {
             grid-template-areas:
-                "title"
                 "tags"
                 "calendar"
+                "legend"
                 "aside";
             grid-template-columns: 100%;
         }
@@ -2917,9 +2917,9 @@ table{
     padding: 0 10px;
     &__item {
         width: 100%;
-        border-bottom: 1px solid #DDDDDD;
-        margin-bottom: 23px;
-        padding-bottom: 23px;
+        border-top: 1px solid #DDDDDD;
+        margin-top: 23px;
+        padding-top: 23px;
         @include dis-flex(column, start, stretch);
     }
     &__item + &__item {
@@ -2961,4 +2961,24 @@ table{
         font-weight: 400;
         color: $theme-lightblue;
     }
+}
+.calendar-page__legend__title{
+    font-size: 1.25rem;
+    font-family: var(--roboto-font-family);
+    color: var(--laranja);
+    font-weight: 800;
+}
+.calendar-page__legend ul li{
+    margin-top: 5px;
+    list-style: none;
+    font-size: 1.063rem;
+    font-family: var(--roboto-font-family);
+    color: var(--grey-secundary);
+    font-weight: 400;
+    span{        
+        font-weight: 800;
+    }
+}
+.page-legend__content-f{
+    padding-left: 15px;
 }
