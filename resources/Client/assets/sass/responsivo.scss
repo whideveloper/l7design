@@ -1,5 +1,70 @@
 // Estilos para dispositivos de tela pequena
 @media screen and (max-width: 476px) {
+    .teleinterconsulta__image .redound-bottom{
+        left: -30px;
+    }
+    .teleinterconsulta__image img,
+    .teleinterconsulta__image{
+        max-width: 280px !important;
+    }
+    .footer__contact__items__right li:nth-child(-n+3){
+        margin-right: 16px;
+        padding-right: 16px;
+    }
+    .footer__contact__items__right{
+        li{
+            img{
+                width: 90px;
+            }
+            .insta, .linkedin {
+                width: 24px;
+            }
+        }
+    }
+    .especialidades .mdl-box .mdl-box__content{
+        width: 100%;
+    }
+    .footer .footer__contact .footer__contact__title{
+        margin-top: 35px !important;
+    }
+    .footer .footer__contact{
+        width: 100% !important;
+        max-width: 95% !important;
+    }
+    .tutorial__list{
+        width: 100%;
+        .tutorial__item{
+            max-width: inherit;
+        }
+    }
+    .tutorial{
+        .tutorial__title.right{
+            &::before{
+                height: 3.988rem;
+            }
+        }
+        .tutorial__content__right{
+            padding-top: 50px;
+        }
+    }
+    .btn__tutorial{
+        width: 100%;
+        max-width: 100%;
+    }
+    .especialidades .mdl-box{
+        max-width: inherit !important;
+        width: 95% !important;
+    }
+    .especialidades__categories{
+        .especialidades__categories__list{
+            width: 100%;
+        }
+    }
+    .especialidades__text{
+        p{
+            width: 100%;
+        }
+    }
     .hospital__content::before{
         display: none;
     }
@@ -29,8 +94,35 @@
         font-size: 3rem;
     }
 }
+@media screen and (max-width: 525px) {
+    .especialidades .mdl-box.mural-de-comunicacao{
+        width: 100%;
+        max-width: 95%;
+        .mdl-box__content{
+            width: 100%;
+        }
+        .mdl-box__image{
+            width: 100%;
+        }
+        .mdl-box__right{
+            width: 90%;
+            margin: 20px 20px 0 20px;
+        }
+        .mdl-box__description{
+            width: 100%;
+            padding: 0;
+        }
+        .mdl-box__btn{
+            margin-left: 20px;
+            margin-bottom: 20px
+        }
+    } 
+}
 
 @media screen and (max-width: 680px) {
+    .especialidades .mdl-box{
+        max-width: inherit;
+    }
     .proadi__image{
         width: 95%;
         img{
@@ -716,6 +808,88 @@
     }
 }
 
+@media screen and (max-width: 960px){
+    .mural-de-comunicacao-interna__content {
+        article{
+            width: 100%;
+        }
+        aside{
+            padding-top: 35px;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    .mural-de-comunicacao-interna__text p{
+        width: 100%;
+    }
+    .material{
+        padding: 0 !important;
+        margin: 0;
+        .box__document__content{
+            width: calc(100% - 60px) !important;
+        }
+    }
+    .btn__agendamento{
+        width: 100%;
+    }
+    .agendamento__content,
+    .material:nth-of-type(odd) .material__content,
+    .teleinterconsulta__content.material-de-apoio,
+    .mural-de-comunicacao-interna__content,
+    .material .material__content{
+        margin: 0;
+        border-radius: inherit;
+        padding: 60px 0;
+        background: inherit;
+        max-width: 95%;
+        flex-direction: column;
+        .agendamento__text{
+            width: 100%;
+        }
+    }
+    .material:nth-of-type(odd) .material__content{
+        background-color: #FFF;
+    }
+    .tutorial{
+        margin: 0;
+        padding: 50px 0;
+        .tutorial__content{
+            max-width: 95%;
+        }
+    }
+    .especialidade__banner__interno{
+        height: 120px;
+    }
+    .especialidades__content{
+        width: 100%;
+        max-width: 95%;
+        border-radius: inherit;
+        padding: 35px 0;
+        background: inherit;
+        margin: 0;
+    }
+    
+    .especialidade__banner__interno{
+        .especialidade__banner__interno__title{
+            max-width: 95%;
+            margin-top: 0;
+            font-size: 1.75rem;
+        }
+    }
+    .especialidades__title,
+    .material .material__content .title,
+    .teleinterconsulta__description .teleinterconsulta__title,
+    .mural__de__comunicacao__title,
+    .tutorial__title,
+    .tutorial__title.right{
+        font-size: 1.75rem;
+        width: 100%;
+        &::before{
+            height: 1.988rem !important;
+            width: .3rem !important;
+        }
+    }
+}
 // Estilos para dispositivos de tela média
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .footer__contact__items__left,
@@ -845,6 +1019,27 @@
         max-width: calc(100% - 350px);
     }
 }
+@media screen and (max-width: 1072px) {
+    .especialidades{
+        .mdl-box{
+            max-width: 315px;
+            width: 49%;
+            .mdl-box__right{    
+                .mdl-box__title{
+                    font-size: 1.25rem;
+                }
+                .mdl-box__function,
+                .mdl-box__crm{
+                    font-size: 1.063rem;
+                }
+                .mdl-box__text{
+                    font-size: 0.938rem;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 360px) and (max-width: 1200px){
     .material .material__content .box__document{
         width: 100%;
