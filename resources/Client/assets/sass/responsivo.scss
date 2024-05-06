@@ -616,6 +616,39 @@
     }
 }
 @media screen and (max-width: 768px) {
+    /* Estilo da barra de rolagem horizontal */
+    .quadro__geral__table::-webkit-scrollbar {
+        width: 5px; 
+        height: 5px;
+    }
+
+    .quadro__geral__table::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .quadro__geral__table::-webkit-scrollbar-thumb {
+        background: var(--pantone-3145-c);
+        border-radius: 5px;
+    }
+
+    .quadro__geral__table::-webkit-scrollbar-thumb:hover {
+        background: var(--pantone-3145-c);
+    }
+
+    /* Estilo da barra de rolagem horizontal */
+    .quadro__geral__table::-webkit-scrollbar-horizontal {
+        height: 5px;
+    }
+
+    .quadro__geral__table::-webkit-scrollbar-thumb:horizontal {
+        background-color: var(--pantone-3145-c); /* cor do manipulador (thumb) da barra horizontal */
+    }
+    .quadro__geral__table{
+        max-width: 760px;
+        height: 180px;
+        overflow: auto;
+        
+    }
     .footer__contact__items__left{
         gap: 25px 0;
     }
@@ -878,6 +911,27 @@
 }
 
 @media screen and (max-width: 960px){
+    .mapa__atuacao{
+        margin-top: 0;
+        .mapa__atuacao__content{
+            padding: 50px 0;
+            max-width: 95%;
+            .image{
+                img{
+                    max-width: inherit;
+                }
+            }
+        }
+    }
+    .mapa__atuacao__text{
+        position: relative;
+        right: inherit;
+        bottom: inherit;
+        max-width: 95%;
+    }
+    .desempenho__grafico img{
+        max-width: inherit;
+    }
     .savs__gravadas__list {
 
         .savs__gravadas__item{
@@ -911,9 +965,14 @@
             margin: 0 auto;
         }
     }
-    .mural-de-comunicacao-interna__text p{
-        width: 100%;
-    }
+    .mural-de-comunicacao-interna__text,
+    .desempenho__text,
+    .galeria__text{
+        padding: 0;
+        p{
+            width: 100%;
+        }
+    } 
     .material{
         padding: 0 !important;
         margin: 0;
@@ -925,6 +984,9 @@
         width: 100%;
     }
     .agendamento__content,
+    .galeria__content,
+    .quadro__geral__content,
+    .desempenho__content,
     .teleinterconsulta__content.savs,
     .material:nth-of-type(odd) .material__content,
     .teleinterconsulta__content.material-de-apoio,
@@ -970,6 +1032,9 @@
         }
     }
     .especialidades__title,
+    .quadro__geral__title,
+    .mapa__atuacao__title,
+    .desempenho__title,
     .material .material__content .title,
     .teleinterconsulta__description .teleinterconsulta__title,
     .mural__de__comunicacao__title,
