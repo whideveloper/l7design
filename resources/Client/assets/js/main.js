@@ -315,6 +315,49 @@ $(document).ready(function(){
         }
     });
 
+    if ($(window).width() < 961) {
+        $(".mural__de__comunicacao__aside__content").addClass("carrossel-relacionados");
+    }
+    $(window).resize(function(){
+        if ($(window).width() <= 961) {
+            $(".fmural__de__comunicacao__aside__content").addClass("carrossel-relacionados");
+        } else {
+            $(".fmural__de__comunicacao__aside__content").removeClass("carrossel-relacionados");
+        }
+    });
+    function initializeCarousel() {
+        $(".carrossel-relacionados").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 0 
+                },
+                475: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 0 // Reduz a margem para que o segundo item seja parcialmente visível
+                },
+                530: {
+                    items: 2
+                },
+                730: {
+                    items: 3
+                }
+            }
+        });
+    }
+
+    // Chama a função quando a página é carregada
+    initializeCarousel();
+
+    // Chama a função quando a janela é redimensionada
+    $(window).resize(function() {
+        initializeCarousel();
+    });   
+
     $(".depoimento").owlCarousel({
         loop:true,
         margin:25,
@@ -466,7 +509,6 @@ window.addEventListener("click", function(event) {
         document.body.style.overflow = "auto";
     }
 });
-
 
 
 

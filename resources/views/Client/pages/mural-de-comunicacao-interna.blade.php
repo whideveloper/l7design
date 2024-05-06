@@ -35,7 +35,7 @@
             </article>
             <aside>
                 <h4 class="mural__de__comunicacao__title__aside">Conteúdos relacionados</h4>
-                <div class="mural__de__comunicacao__aside__content">
+                <div class="mural__de__comunicacao__aside__content owl-carousel">
                     @php
                         $content = [
                             'title' => 'Título lorem ipsum dolorem consectum vertun quantus',

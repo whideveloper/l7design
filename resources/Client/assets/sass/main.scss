@@ -1,3 +1,43 @@
+#carregamento{
+    position: absolute;
+    left: 44%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+
+      /* CÓDIGO PARA CHAMAR A ANIMAÇÃO */
+    -webkit-animation: rodaroda 3s linear alternate 3;
+    -moz-animation: rodaroda 3.0s linear infinite;
+    -ms-animation: rodaroda 3.0s linear infinite;
+    -o-animation: rodaroda 3.0s linear infinite;
+    animation: rodaroda 3.0s linear infinite;
+}
+
+/* KEY FRAMES PARA FAZER OS GIROS */
+@-webkit-keyframes rodaroda {
+    0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
+    50% { -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); -ms-transform:rotate(180deg); -o-transform:rotate(180deg); transform:rotate(180deg); }
+    100% { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg); -o-transform:rotate(360deg); transform:rotate(360deg); }
+}
+@-moz-keyframes rodaroda {
+    0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
+    50% { -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); -ms-transform:rotate(180deg); -o-transform:rotate(180deg); transform:rotate(180deg); }
+    100% { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg); -o-transform:rotate(360deg); transform:rotate(360deg); }
+}
+@-ms-keyframes rodaroda {
+    0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
+    50% { -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); -ms-transform:rotate(180deg); -o-transform:rotate(180deg); transform:rotate(180deg); }
+    100% { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg); -o-transform:rotate(360deg); transform:rotate(360deg); }
+}
+@-o-keyframes rodaroda {
+    0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
+    50% { -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); -ms-transform:rotate(180deg); -o-transform:rotate(180deg); transform:rotate(180deg); }
+    100% { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg); -o-transform:rotate(360deg); transform:rotate(360deg); }
+}
+@keyframes rodaroda {
+    0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
+    50% { -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg); -ms-transform:rotate(180deg); -o-transform:rotate(180deg); transform:rotate(180deg); }
+    100% { -webkit-transform:rotate(360deg); -moz-transform:rotate(360deg); -ms-transform:rotate(360deg); -o-transform:rotate(360deg); transform:rotate(360deg); }
+}
 :root {
     --roboto-font-family: "Roboto", sans-serif;
     --success: #28a745;
@@ -2187,6 +2227,7 @@ input, select {
         @include transition-medium;
         border-radius: 10px;
         overflow: hidden;
+        margin-bottom: 15px;
         position: relative;
         min-width: 415px;
         width: 48.5%;
@@ -2699,6 +2740,7 @@ table{
 .mural__de__comunicacao__aside__content{
     width: 100%;
     max-width: 364px;
+    display: block !important;
     .mdl-box.mural-de-comunicacao{
         max-width: 100%;
     }
@@ -2981,4 +3023,24 @@ table{
 }
 .page-legend__content-f{
     padding-left: 15px;
+}
+.carrossel-relacionados{
+    .owl-dots{
+        text-align: center;
+        margin-top: 15px;
+    }
+    &.owl-drag .owl-item{
+        margin-right: 20px !important;
+    }
+    button.owl-dot{
+        background-color: var(--laranja-secundary) !important;
+        border-radius: 100%;
+        margin: 0 5px;
+        height: 15px;
+        width: 15px;
+
+        &.active{
+            background-color: var(--laranja) !important;
+        }
+    } 
 }
