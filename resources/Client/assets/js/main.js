@@ -477,6 +477,61 @@ $(document).ready(function(){
             }
         }
     });
+
+    if ($(window).width() <= 525) {
+        $(".material__content__list").addClass("material-mobile");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 525) {
+            $(".material__content__list").addClass("material-mobile");
+        } else {
+            $(".material__content__list").removeClass("material-mobile");
+        }
+    });
+    function initializeCarousel1() {
+        $(".material-mobile").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 10 
+                },
+                525: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 10 // Reduz a margem para que o segundo item seja parcialmente visível
+                },
+            }
+        });
+    }
+
+    // Chama a função quando a página é carregada
+    initializeCarousel1();
+
+    // Chama a função quando a janela é redimensionada
+    $(window).resize(function() {
+        initializeCarousel1();
+    });  
+    // $(".material-mobile").owlCarousel({
+    //     loop: false,
+    //     autoplay: false, 
+    //     nav:false,
+    //     dots:true,
+    //     margin: 10,
+    //     responsiveClass: true,
+    //     smartSpeed: 1600,
+    //     responsive:{
+    //         0:{
+    //             items: 1,
+    //         },
+    //         530:{
+    //             items: 1,
+    //         },
+    //     }
+    // });
 });
 
 

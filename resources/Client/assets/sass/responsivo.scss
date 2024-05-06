@@ -3,18 +3,19 @@
     .location__values__box{
         width: 50%;
     }
-    .mural__de__comunicacao__aside__content{
-        .mdl-box.mural-de-comunicacao{
-            // max-width: 90%;
-            // margin: 0 auto;
-            // margin-right: 0;
+}
+@media screen and (max-width: 476px) {    
+    .especialidades .mdl-box.mural-de-comunicacao .mdl-box__right {
+        .mdl-box__text{
+            margin-bottom: 15px;
         }
-        &.carrossel-relacionados.owl-carousel.owl-drag .owl-item{
-            // width: 380px !important;
+        .mdl-box__title{
+            font-size: 1.063rem;
         }
     }
-}
-@media screen and (max-width: 476px) {
+    .especialidades .mdl-box .mdl-box__btn{
+        margin: 0;
+    }
     .owl-carousel .owl-item.active.center .item__description::before{
         left: -17px !important;
         height: 45px !important;
@@ -44,6 +45,11 @@
     .telenordeste__content__event__list p{
         width: calc(100% - 6rem) !important;
     }
+    .teleinterconsulta .teleinterconsulta__description .teleinterconsulta__title{
+        &::before{
+            height: 30px !important;
+        }
+    }
     .proadi .proadi__content .proadi__title{
         &::before{
             height: 100px !important;
@@ -51,6 +57,10 @@
         }
     }
     .telenordeste__title,
+    .mural__de__comunicacao__title,
+    .savs__gravadas__title,
+    .material .material__content .title,
+    .box__document__title,
     .depoimento__content .depoimento__title,
     .proadi__content .proadi__title,
     .funciona__content .funciona__title,
@@ -113,6 +123,7 @@
     }
     .mdl-box__image{
         width: 100%;
+        text-align: center;
     }
     .mural__de__comunicacao__aside__content{
         width: 95%;
@@ -232,6 +243,10 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .material .material__content .box__document .box__document__content{
+        width: 90% !important;
+        padding: 20px;
+    }
     .contato__wpp__content{
         width: 95%;
     }
@@ -341,10 +356,12 @@
         align-items: center !important;
         margin-top: 35px;
     }
-    .funciona__steps__mobile{        
+    .funciona__steps__mobile,
+    .material-mobile{        
         .owl-dots{
             text-align: center;
             margin-top: 10px;
+            width: 100%;
         }
         &.owl-drag .owl-item{
             margin-right: 20px;

@@ -36,7 +36,7 @@
     <div class="material__content">    
         <h2 class="title">Material de leitura</h2>
         <p class="description">Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
-        <div class="material__content__list">
+        <div class="material__content__list owl-carousel">
             @php
                 $content = [
                     'title' => 'Nome do documento',
@@ -57,7 +57,7 @@
     <div class="material__content">    
         <h2 class="title">Material de impressão</h2>
         <p class="description">Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
-        <div class="material__content__list">
+        <div class="material__content__list owl-carousel">
             @php
                 $content = [
                     'title' => 'Nome do documento',
