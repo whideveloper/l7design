@@ -163,6 +163,14 @@
 }
 
 @media screen and (max-width: 680px) {
+    .galeria.evento{
+        .galeria__content .galeria__list .galeria__item{
+            max-width: 100%;
+            .galeria__image{
+                width: 100%;
+            }
+        }
+    }
     .savs{
         .row{
             flex-direction: column;
