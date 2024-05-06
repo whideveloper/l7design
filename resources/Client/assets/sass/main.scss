@@ -1,4 +1,5 @@
-#carregamento{
+#carregamento,
+#carregamento-savs{
     position: absolute;
     left: 44%;
     bottom: 0;
@@ -11,7 +12,9 @@
     -o-animation: rodaroda 3.0s linear infinite;
     animation: rodaroda 3.0s linear infinite;
 }
-
+#carregamento-savs{
+    bottom: -41px;
+}
 /* KEY FRAMES PARA FAZER OS GIROS */
 @-webkit-keyframes rodaroda {
     0% { -webkit-transform:rotate(0deg); -moz-transform:rotate(0deg); -ms-transform:rotate(0deg); -o-transform:rotate(0deg); transform:rotate(0deg); }
@@ -550,6 +553,7 @@ input, select {
     border-radius: 10px;
     display: flex;
     flex-direction: row;
+    position: relative;
     flex-wrap: wrap;
     height: 100%;
     justify-content: space-between;

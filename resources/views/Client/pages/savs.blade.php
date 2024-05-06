@@ -74,12 +74,51 @@
                 </div>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>  
+            
+            <!-- Elemento para mostrar o indicador de carregamento -->
+            <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div>
+            
         </div>
         <div class="row">
             <div class="teleinterconsulta__btn proxima-sav">
                 <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
             </div>
         </div>
+
     </div>
 </section>
+
+<script>
+    // Verifica se a largura da tela é menor ou igual a 530px antes de executar o código JavaScript
+    $(window).resize(function() {
+        if ($(window).width() <= 530) {
+            var carregando = false;
+            var artigoAtual = 4; // O próximo artigo a ser carregado
+
+            $(window).scroll(function() {
+                // Se o usuário rolar até o final do terceiro box e não estiver carregando
+                if ($(window).scrollTop() >= $('.savs__gravadas__item').last().offset().top + $('.savs__gravadas__item').last().outerHeight() - $(window).height() && !carregando) {
+                    carregando = true;
+                    $('#carregamento-savs').show(); // Mostra o indicador de carregamento
+            
+                    // Simula uma requisição assíncrona para carregar o próximo item
+                    setTimeout(function() {
+                        $('.savs__gravadas__list').append(
+                            '<div class="savs__gravadas__item">' +
+                            '<img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">' +
+                            '<div class="image__play">' +
+                            '<img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">' +
+                            '</div>' +
+                            '<iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
+                            '</div>'
+                        );
+                        artigoAtual++;
+                        carregando = false;
+                        $('#carregamento-savs').hide(); // Esconde o indicador de carregamento
+                    }, 2000); // Tempo simulado de carregamento
+                }
+            });
+        }
+    }).resize(); // Executa a verificação inicial ao carregar a página
+</script>
 @endsection

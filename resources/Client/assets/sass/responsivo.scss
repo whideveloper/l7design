@@ -163,6 +163,32 @@
 }
 
 @media screen and (max-width: 680px) {
+    .savs{
+        .row{
+            flex-direction: column;
+        }
+        .teleinterconsulta__btn.proxima-sav{
+            width: 100%;
+            max-width: 100%;
+        }
+    } 
+
+    .teleinterconsulta__content.savs .teleinterconsulta__image
+    {
+        .redound-bottom{
+            right: -39px;
+        }
+        img{
+            height: auto;
+        }
+    } 
+    .savs__gravadas__list{
+
+        .savs__gravadas__item{
+            width: 100%;
+            max-width: 100%!important;
+        }
+    } 
     .especialidades .mdl-box{
         max-width: inherit;
     }
@@ -776,7 +802,7 @@
             width: 100%;
         }
         .teleinterconsulta__description{
-            width: 100%;
+            width: 100% !important;
             margin-top: 0;
         }
         .location__column{
@@ -852,6 +878,14 @@
 }
 
 @media screen and (max-width: 960px){
+    .savs__gravadas__list {
+
+        .savs__gravadas__item{
+            height: 260px;
+            max-width: 380px;
+            min-width: inherit;
+        }
+    }
     .savs__gravadas__content{
         padding: 0;
         max-width: 95%;
