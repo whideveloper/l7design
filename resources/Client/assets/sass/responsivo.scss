@@ -288,6 +288,35 @@
 }
 
 @media screen and (max-width: 680px) {
+    .galeria__content .galeria__list .galeria__item{
+        width: 100%;
+        max-width: 100%;
+    }
+    .slide .splide__slide .splide__description .splide__title{
+        font-size: 1.75rem !important;
+        line-height: 32px !important;
+    }
+    .slide .slide-fitula-1{
+        max-width: 85px;
+        max-height: 85px;
+        top: 230px;
+    }
+    .slide .slide-fitula-2{
+        max-width: 85px;
+        top: -18px;
+    }
+    .slide .slide-fitula-3{
+        max-width: 85px;
+        max-height: 85px;
+        left: calc(50% - 64px);
+        bottom: 200px;
+    }
+    .telenordeste{
+        margin-top: -75px;
+    }
+    .slide{
+        height: 280px;
+    }
     .contato__wpp__btn.contato__wpp__link{
         width: 100%;
         margin: 0;
@@ -1070,6 +1099,28 @@
 }
 
 @media screen and (max-width: 960px){
+    .slide-fitula-1{
+        max-width: 85px;
+        max-height: 85px;
+        top: 130px;
+    }
+    .slide-fitula-2{
+        max-width: 85px;
+        top: -89px;
+    }
+    .slide-fitula-3{
+        max-width: 85px;
+        max-height: 85px;
+    }
+    .slide .splide__slide .splide__description{
+        max-width: 95%;
+        bottom: 38%;
+        .splide__title{
+            font-size: 2.5rem;
+            line-height: 53px;
+            width: 100%;
+        }
+    } 
     .header__nav{
         display: none;
     }
@@ -1158,6 +1209,7 @@
     }
     .agendamento__content,
     .calendar__content,
+    .telenordeste__content,
     .google__form__content,
     .contato__content,
     .galeria__content,
@@ -1358,6 +1410,10 @@
     }
 }
 @media screen and (min-width: 1025px) {
+    .slide .splide__slide .splide__description .splide__title{
+        font-size: 3.125rem;
+        line-height: 53px;
+    }
     .especialidades .especialidades__content,
     .agendamento__content{
         max-width: calc(100% - 350px);

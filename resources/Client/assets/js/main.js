@@ -184,28 +184,51 @@ document.addEventListener('DOMContentLoaded', function () {
                     slide.querySelector('.slide-fitula-3').style = '';
                     break;
                 case 1:
-                    slide.querySelector('.slide-fitula-1').style.top = '90px';
-                    slide.querySelector('.slide-fitula-1').style.left = '366px';
-                    slide.querySelector('.slide-fitula-2').style.top = '-121px';
-                    slide.querySelector('.slide-fitula-2').style.left = '40px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-                    slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    if ($(window).width() < 680) {
+                        slide.querySelector('.slide-fitula-1').style.top = '120px';
+                        slide.querySelector('.slide-fitula-1').style.left = '227px';
+                        slide.querySelector('.slide .slide-fitula-2').style.top = '300px'; 
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '20px';                       
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '90px';
+                        slide.querySelector('.slide-fitula-1').style.left = '366px';
+                        slide.querySelector('.slide-fitula-2').style.top = '-121px';
+                        slide.querySelector('.slide-fitula-2').style.left = '40px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '205px';
+                        slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    }
+                    
                     break;
                 case 2:
-                    slide.querySelector('.slide-fitula-1').style.top = '230px';
-                    slide.querySelector('.slide-fitula-1').style.left = '166px';
-                    slide.querySelector('.slide-fitula-2').style.top = '485px';
-                    slide.querySelector('.slide-fitula-2').style.left = '485px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '600px';
-                    slide.querySelector('.slide-fitula-3').style.left = '600px';
+                    if($(window).width() < 680){
+                        slide.querySelector('.slide .slide-fitula-1').style.left = '8px';
+                        slide.querySelector('.slide .slide-fitula-2').style.left = '219px';
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '225px';
+                        slide.querySelector('.slide .slide-fitula-3').style.top = '119px';
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '230px';
+                        slide.querySelector('.slide-fitula-1').style.left = '166px';
+                        slide.querySelector('.slide-fitula-2').style.top = '485px';
+                        slide.querySelector('.slide-fitula-2').style.left = '485px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '600px';
+                        slide.querySelector('.slide-fitula-3').style.left = '600px';
+                    }
                     break;
                 case 3:
-                    slide.querySelector('.slide-fitula-1').style.top = '90px';
-                    slide.querySelector('.slide-fitula-1').style.left = '366px';
-                    slide.querySelector('.slide-fitula-2').style.top = '-121px';
-                    slide.querySelector('.slide-fitula-2').style.left = '40px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-                    slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    if ($(window).width() < 680) {
+                        slide.querySelector('.slide-fitula-1').style.top = '120px';
+                        slide.querySelector('.slide-fitula-1').style.left = '227px';
+                        slide.querySelector('.slide .slide-fitula-2').style.top = '300px'; 
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '20px';  
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '90px';
+                        slide.querySelector('.slide-fitula-1').style.left = '366px';
+                        slide.querySelector('.slide-fitula-2').style.top = '-121px';
+                        slide.querySelector('.slide-fitula-2').style.left = '40px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '205px';
+                        slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    }
+                    
                     break;
                 default:
                     break;
