@@ -31,7 +31,6 @@
                     'crm' => 'CRM: 0000000',            
                     'image' => asset('Client/assets/images/doctor-image.png'),
                     'text' => 'Sexta-feira das 9h00 às 11h00 A partir de 18 anos',
-                    'link' => '/servicos',
                     'btnName' => 'Ver perfil completo',
                 ];
             @endphp
@@ -39,6 +38,14 @@
             @for ($i = 0; $i < 9; $i++)
                 @include('Client.models.mdl-box', $content)
             @endfor
+
+            <!-- The Modal -->
+            <div id="modal-especialidade" class="modal-especialidade">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <!-- Conteúdo do modal aqui -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -116,4 +123,15 @@
             </div>
         </div>
     </section>
+
+    <script>
+    // Função para abrir o modal
+    function openModal() {
+    document.getElementById("modal-especialidade").style.display = "block";
+    }
+    // Função para fechar o modal
+    function closeModal() {
+    document.getElementById("modal-especialidade").style.display = "none";
+    }
+    </script>
 @endsection

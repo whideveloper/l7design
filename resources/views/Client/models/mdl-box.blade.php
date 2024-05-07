@@ -12,7 +12,7 @@
                 <p class="mdl-box__text">{{ $text }}</p>
             </div>
             <div class="mdl-box__btn">
-                <a href="{{$link}}" class="more">{{ $btnName }}</a>
+                <a class="more" onclick="openModal()">{{ $btnName }}</a>
             </div>
         </div>
     </div>
