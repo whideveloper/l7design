@@ -309,6 +309,10 @@ mix.scripts(
         "resources/Client/assets/js/main.js",
         "public/Client/assets/js/main.js"
     )
+    .scripts(
+        "resources/Client/assets/js/jquery.menusidebar.js",
+        "public/Client/assets/js/jquery.menusidebar.js"
+    )
 
     //BROWSERSYNC
     // .browserSync("http://127.0.0.1:8000")

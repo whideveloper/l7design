@@ -65,8 +65,8 @@
     "/Admin/assets/libs/cropper.min.css": "/Admin/assets/libs/cropper.min.css?id=c33e5fcf49439f7a02cf",
     "/Client/assets/css/splide.min.css": "/Client/assets/css/splide.min.css?id=f6a86e8018fc1f6ae254",
     "/Client/assets/css/fancybox.css": "/Client/assets/css/fancybox.css?id=3a867c1ea947834b9253",
-    "/Client/assets/css/main.min.css": "/Client/assets/css/main.min.css?id=77c6aa5515adb4e78ffc",
-    "/Client/assets/css/responsivo.min.css": "/Client/assets/css/responsivo.min.css?id=e8ed83c35da76553b92e",
+    "/Client/assets/css/main.min.css": "/Client/assets/css/main.min.css?id=03a2cbdf28acdbe543da",
+    "/Client/assets/css/responsivo.min.css": "/Client/assets/css/responsivo.min.css?id=d71c43dff9eba9328e93",
     "/Client/assets/js/splide.min.js": "/Client/assets/js/splide.min.js?id=e182d14f4d0790c792ff",
     "/Client/assets/js/fancybox.js": "/Client/assets/js/fancybox.js?id=0ce18f9ca64e6fdcac07",
     "/Client/assets/js/splide.min.js.map": "/Client/assets/js/splide.min.js.map?id=166a0ca35731b5d3221d",
@@ -74,5 +74,6 @@
     "/Client/assets/js/fslightbox.js": "/Client/assets/js/fslightbox.js?id=13eca26a6e43d0485764",
     "/Client/assets/js/inputmask.min.js": "/Client/assets/js/inputmask.min.js?id=f90f36f6fd1eaf4df4fa",
     "/Client/assets/js/scroll-banner.js": "/Client/assets/js/scroll-banner.js?id=7c33a9fa3d7243b904c9",
-    "/Client/assets/js/main.js": "/Client/assets/js/main.js?id=66c5d91b0a54b0673504"
+    "/Client/assets/js/main.js": "/Client/assets/js/main.js?id=fcb9669218a0b6334a23",
+    "/Client/assets/js/jquery.menusidebar.js": "/Client/assets/js/jquery.menusidebar.js?id=c3fe849449b69e511111"
 }

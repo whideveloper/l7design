@@ -243,6 +243,16 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .sidebar.aberto .logo {
+        margin-top: 15px;
+        margin-left: 25px;
+    }
+    .closeSidebar{
+        margin: 0;
+    }
+    .header__content{
+        max-width: 90%;
+    }
     .material .material__content .box__document .box__document__content{
         width: 90% !important;
         padding: 20px;
@@ -532,9 +542,6 @@
         flex-direction: row;
         justify-content: flex-start;
     }
-    .header{
-        display: none;
-    }
     .footer{
         height: 100%;
         padding: 0;
@@ -759,6 +766,9 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .tutorial .tutorial__content .tutorial__content__left{
+        margin-bottom: 40px;
+    }
     /* Estilo da barra de rolagem horizontal */
     .quadro__geral__table::-webkit-scrollbar {
         width: 5px; 
@@ -845,9 +855,6 @@
     .footer__contact__items__right{
         flex-direction: row;
         justify-content: flex-start;
-    }
-    .header{
-        display: none;
     }
     .footer{
         height: 100%;
@@ -1054,6 +1061,15 @@
 }
 
 @media screen and (max-width: 960px){
+    .header__nav{
+        display: none;
+    }
+    .hearder__position{
+        justify-content: space-between;
+    }
+    .sandwich{
+        display: block;
+    } 
     .contato__item{
         width: 49%;
     }
@@ -1203,6 +1219,12 @@
 }
 // Estilos para dispositivos de tela média
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hearder__position{
+        justify-content: space-between;
+    }
+    .sandwich{
+        display: block;
+    }    
     .footer__contact__items__left,
     .footer__contact__items__right{
         width: 100%;
@@ -1351,7 +1373,19 @@
         }
     }
 }
+@media screen and (max-width: 1303px){
+    
+    .tutorial .tutorial__content {
 
+        .tutorial__content__left,
+        .tutorial__content__right{
+            max-width: 100%;
+        }
+    }
+    .tutorial__content__left{
+        margin-bottom: 40px;
+    }
+}
 @media screen and (min-width: 360px) and (max-width: 1200px){
     .material .material__content .box__document{
         width: 100%;

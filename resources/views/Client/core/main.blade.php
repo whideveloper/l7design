@@ -51,7 +51,7 @@
         <div class="header__content">
             <div class="hearder__position">
                 <div class="header__image">
-                    <a href="">
+                    <a href="{{route('home')}}">
                         <img src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="Telenordeste" title="Telenordeste">
                     </a>
                 </div>
@@ -67,8 +67,17 @@
                         <li class="header__item"><a href="{{route('contato')}}" class="{{ Route::currentRouteName() == 'contato' ? 'active' : ''}}">Contatos e Sugestões</a></li>
                     </ul>
                 </nav>
+                <div class="sandwich">
+                    <a class="botao-sidebar" href="#menu_sidebar" data-sidebar="#menu_sidebar">
+                        <div class="span">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
+        </div>        
 
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -87,7 +96,25 @@
             </div>
         </div>
     </header>
-
+    <div id="menu_sidebar" class="sidebar">
+        <div class="logo">
+            <a href="{{route('home')}}">
+                <img src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="Telenordeste" title="Telenordeste">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
+                <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
+                <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
+                <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
+                <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
+                <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
+                <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
+                <li class="header__item"><a href="{{route('contato')}}" class="{{ Route::currentRouteName() == 'contato' ? 'active' : ''}}">Contatos e Sugestões</a></li>
+            </ul>
+        </nav>
+    </div> 
     @if (Route::currentRouteName() !== 'home')    
         @php
             if (Route::currentRouteName() == 'especialidades') {
@@ -177,6 +204,7 @@
         </div>
      </section>
     <script src="{{ asset(mix('Client/assets/js/main.js')) }}"></script>
+    <script src="{{ asset(mix('Client/assets/js/jquery.menusidebar.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/fancybox.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

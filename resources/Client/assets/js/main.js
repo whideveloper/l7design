@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
 $(document).ready(function(){
+    sidebar(); // CHAMA A FUNCAO SIDEBAR
     // Header flutuante
     var header = document.getElementById("header");  
     // Obtém a posição inicial do cabeçalho
@@ -515,25 +515,8 @@ $(document).ready(function(){
     $(window).resize(function() {
         initializeCarousel1();
     });  
-    // $(".material-mobile").owlCarousel({
-    //     loop: false,
-    //     autoplay: false, 
-    //     nav:false,
-    //     dots:true,
-    //     margin: 10,
-    //     responsiveClass: true,
-    //     smartSpeed: 1600,
-    //     responsive:{
-    //         0:{
-    //             items: 1,
-    //         },
-    //         530:{
-    //             items: 1,
-    //         },
-    //     }
-    // });
-});
 
+});
 
 //Modal
 // Obtenha os elementos HTML
@@ -564,7 +547,6 @@ window.addEventListener("click", function(event) {
         document.body.style.overflow = "auto";
     }
 });
-
 
 
 
