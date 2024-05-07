@@ -243,6 +243,9 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .events-list__title{
+        font-size: 1.25rem !important;
+    }
     .sidebar.aberto .logo {
         margin-top: 15px;
         margin-left: 25px;
@@ -766,6 +769,12 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .events-list__title{
+        font-size: 1.625rem;
+    }
+    .fc-h-event .fc-event-title{
+        font-size: 0.75rem;
+    }
     .tutorial .tutorial__content .tutorial__content__left{
         margin-bottom: 40px;
     }
@@ -1148,6 +1157,7 @@
         width: 100%;
     }
     .agendamento__content,
+    .calendar__content,
     .google__form__content,
     .contato__content,
     .galeria__content,

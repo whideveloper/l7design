@@ -110,7 +110,7 @@
                 </ul>   
                 
                 <div class="telenordeste__btn agenda">
-                    <a href="">
+                    <a href="{{route('calendario')}}">
                         <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
                         Ver agenda completa
                     </a>
