@@ -42,8 +42,25 @@
             <!-- The Modal -->
             <div id="modal-especialidade" class="modal-especialidade">
                 <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <!-- Conteúdo do modal aqui -->
+                    <div class="modal-content-box">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <article class="modal-box">
+                            <div class="modal-box__content">
+                                <div class="modal-box__image">
+                                    <img src="{{asset('Client/assets/images/doctor-image.png')}}" alt="" class="modal-box__left">
+                                </div>
+                                <div class="modal-box__description">
+                                    <div class="modal-box__right">
+                                        <h3 class="modal-box__title">Lucas Deporon Toldo</h3>
+                                        <span class="modal-box__function">Cardiologista</span>
+                                        <span class="modal-box__crm">CRM: 0000000</span>
+                                        <span class="modal-box__text">Sexta-feira das 9h00 às 11h00 A partir de 18 anos</span>
+                                        <p class="modal-box__text__long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium. Praesent velit enim, facilisis quis suscipit vel, gravida fringilla tortor. Proin at mi congue, feugiat magna eget, faucibus enim. Etiam laoreet rhoncus feugiat. Donec et ante ut erat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,10 +145,14 @@
     // Função para abrir o modal
     function openModal() {
     document.getElementById("modal-especialidade").style.display = "block";
+    document.body.classList.add("modal-open"); // Adiciona a classe para impedir a rolagem da página
     }
+
     // Função para fechar o modal
     function closeModal() {
     document.getElementById("modal-especialidade").style.display = "none";
+    document.body.classList.remove("modal-open"); // Remove a classe para permitir a rolagem da página
     }
+
     </script>
 @endsection
