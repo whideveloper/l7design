@@ -213,7 +213,7 @@
 
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <ul class="footer__logos__items">
+            <ul class="footer__logos__items owl-carousel">
                 @foreach($partners as $partners)
                     <li>
                         @if ($partners->link)
