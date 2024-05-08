@@ -1,6 +1,6 @@
 @extends('Client.core.main')
 @section('content')
-<section class="teleinterconsulta">
+<section id="os-protocolos" class="teleinterconsulta">
     <div class="teleinterconsulta__content {{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
         <article class="{{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
             <div class="teleinterconsulta__image">
@@ -31,7 +31,7 @@
     </div>
 </section>
 
-<section class="material">
+<section id="material-de-leitura" class="material">
     
     <div class="material__content">    
         <h2 class="title">Material de leitura</h2>
@@ -53,7 +53,7 @@
     </div>
 </section>
 
-<section class="material">
+<section id="material-de-impressao"  class="material">
     <div class="material__content">    
         <h2 class="title">Material de impressão</h2>
         <p class="description">Reservamos esse espaço em nosso site para compartilhar com vocês diversos materiais de leitura como artigos, manuais, Portarias e linhas de cuidado. Nosso propósito é estabelecer um ambiente para o compartilhamento de conhecimento.</p>
@@ -73,4 +73,5 @@
         </div>
     </div>
 </section>
+
 @endsection

@@ -1099,6 +1099,24 @@
 }
 
 @media screen and (max-width: 960px){
+    .modal-open{
+        overflow: visible;
+    }
+    .modal-especialidade .modal-content {
+        top: 60px;
+        .close{
+            top: -70px;
+        }
+    }
+    .modal-content-box{
+        width: 95% !important;
+        padding: 130px 60px 60px 60px !important;
+    }
+    .modal-box__content .modal-box__image{
+        top: -260px;
+        left: 50%;
+        transform: translate(-50%, 0px);
+    }
     .slide-fitula-1{
         max-width: 85px;
         max-height: 85px;

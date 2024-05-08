@@ -1,3 +1,18 @@
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+    
+        const target = document.querySelector(this.getAttribute('href'));
+    
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 /* rolagem do btn de menu */
 if (document.querySelector(".btn-mn-mbl")) {
     const btnMenu = document.querySelector(".btn-mn-mbl");
@@ -145,7 +160,34 @@ if (document.querySelector(".ano")) {
 }
 /* Mascaras usando inputmask.js */
 
+// Material de apoio
+document.addEventListener("click", function(event) {
+    // Verifica se o elemento clicado não é o link principal "Material de apoio"
+    if (event.target.id !== "material-de-apoio-click") {
+        // Seleciona o submenu
+        var submenu = document.getElementById("submenu-material-de-apoio");
+        // Remove a classe 'active' do submenu
+        submenu.classList.remove("active");
+    }
+});
 
+document.getElementById("material-de-apoio-click").addEventListener("click", function(event) {
+    // Evita que o evento de clique se propague para o documento
+    event.stopPropagation();
+
+    // Seleciona o submenu
+    var submenu = document.getElementById("submenu-material-de-apoio");
+    // Verifica se o submenu possui a classe 'active'
+    var isActive = submenu.classList.contains("active");
+
+    // Se o submenu já estiver ativo, remove a classe 'active'; caso contrário, adiciona a classe 'active'
+    if (isActive) {
+        submenu.classList.remove("active");
+    } else {
+        submenu.classList.add("active");
+    }
+});
+//Final material de apoio
 
 if (document.getElementById("newslleter-message")) {
     // console.log('success')
@@ -570,6 +612,8 @@ window.addEventListener("click", function(event) {
         document.body.style.overflow = "auto";
     }
 });
+
+
 
 
 

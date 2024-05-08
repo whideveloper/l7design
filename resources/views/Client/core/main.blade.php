@@ -59,7 +59,22 @@
                     <ul class="header__list">
                         <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
                         <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
-                        <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
+                        <li class="header__item" id="material-de-apoio-click">
+                            <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a>
+                            <ul class="submenu" id="submenu-material-de-apoio">
+                                <li class="submenu__item">
+                                    <a href="{{route('material-de-apoio')}}#os-protocolos" class="smooth-scroll">Protocolos</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="{{route('material-de-apoio')}}#material-de-leitura" class="smooth-scroll">Material de leitura</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="{{route('material-de-apoio')}}#material-de-impressao" class="smooth-scroll">Material de impressão</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        
+                        
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                         <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                         <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
@@ -106,7 +121,23 @@
             <ul class="menu">
                 <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
                 <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
-                <li class="header__item"><a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a></li>
+                {{-- <li class="header__item">
+                    <a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">
+                        <span id="toggle-submenu">Material de apoio</span>
+                    </a>
+                    <ul class="submenu" id="submenu-material-de-apoio">
+                        <li class="submenu__item">
+                            <a href="{{route('material-de-apoio')}}#os-protocolos">Protocolos</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="{{route('material-de-apoio')}}#material-de-leitura">Material de leitura</a>
+                        </li>
+                        <li class="submenu__item">
+                            <a href="{{route('material-de-apoio')}}#material-de-impressão">Material de impressão</a>
+                        </li>
+                    </ul>
+                </li> --}}
+                
                 <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                 <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                 <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
