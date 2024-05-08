@@ -15,6 +15,15 @@ class CreateEspecialidadeProfessionalsTable extends Migration
     {
         Schema::create('especialidade_professionals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('especialidade_category_id')->constrained('bespecialidade_categories');
+            $table->string('name', 191)->nullbale();
+            $table->string('path_image', 191)->nullbale();
+            $table->text('crm', 191)->nullable();
+            $table->text('description', 191)->nullable();
+            $table->text('text')->nullable();
+            $table->boolean('active')->default(0);
+            $table->integer('sorting')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

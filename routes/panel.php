@@ -30,6 +30,7 @@ use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\TelenordesteController;
+use App\Models\EspecialidadeProfessional;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -193,14 +194,19 @@ Route::prefix('painel/')->group(function () {
         Route::post('categoria-especialidade/sorting', [EspecialidadeCategoryController::class, 'sorting'])
             ->name('admin.dashboard.especialidadeCategory.sorting');
 
-        //ESPECIALIDADE
+        //SESSAO ESPECIALIDADE
         Route::resource('especialidade', EspecialidadeSessionController::class)
             ->names('admin.dashboard.especialidadeSession')
             ->parameters(['especialidade' => 'especialidadeSession']);
-        Route::post('especialidade/delete', [EspecialidadeSessionController::class, 'destroySelected'])
-            ->name('admin.dashboard.especialidadeSession.destroySelected');
-        Route::post('especialidade/sorting', [EspecialidadeSessionController::class, 'sorting'])
-            ->name('admin.dashboard.especialidadeSession.sorting');
+
+        //ESPECIALIDADE
+        Route::resource('profissionais', EspecialidadeProfessional::class)
+            ->names('admin.dashboard.especialidadeProfessional')
+            ->parameters(['profissionais' => 'especialidadeProfessional']);
+        Route::post('profissionais/delete', [EspecialidadeProfessional::class, 'destroySelected'])
+            ->name('admin.dashboard.especialidadeProfessional.destroySelected');
+        Route::post('profissionais/sorting', [EspecialidadeProfessional::class, 'sorting'])
+            ->name('admin.dashboard.especialidadeProfessional.sorting');
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

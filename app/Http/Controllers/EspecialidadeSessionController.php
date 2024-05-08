@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EspecialidadeProfessional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\EspecialidadeSession;
@@ -57,8 +58,12 @@ class EspecialidadeSessionController extends Controller
         if (!Auth::user()->can(['especialidade.visualizar', 'especialidade.editar'])) {
             return view('Admin.error.403');
         }
+
+        $especialidadeProfessionals = EspecialidadeProfessional::sorting()->get();
+
         return view('Admin.cruds.especialidadeSession.edit', [
-            'especialidadeSession' => $especialidadeSession
+            'especialidadeSession' => $especialidadeSession,
+            'especialidadeProfessionals' => $especialidadeProfessionals
         ]);
     }
 

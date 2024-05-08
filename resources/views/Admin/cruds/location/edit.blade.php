@@ -33,7 +33,7 @@
                         <div class="page-title-box col-lg-6">
                             <h4 class="page-title">Objetivos específicos</h4>
                         </div>
-                        @can('ibjetivo.criar')
+                        @can('objetivo.criar')
                             <div class="pe-0 col-lg-6">
                                 @if ($objectives->count() < 4)                                
                                     <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-objective">Adicionar novo <i class="mdi mdi-plus"></i></a>
