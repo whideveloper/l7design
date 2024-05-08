@@ -19,6 +19,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\EspecialidadeCategoryController;
+use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\LocationController;
@@ -181,6 +183,24 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.partner.destroySelected');
         Route::post('parceiros/sorting', [PartnerController::class, 'sorting'])
             ->name('admin.dashboard.partner.sorting');
+
+        //CATEGORIA ESPECIALIDADE
+        Route::resource('categoria-especialidade', EspecialidadeCategoryController::class)
+            ->names('admin.dashboard.especialidadeCategory')
+            ->parameters(['categoria-especialidade' => 'especialidadeCategory']);
+        Route::post('categoria-especialidade/delete', [EspecialidadeCategoryController::class, 'destroySelected'])
+            ->name('admin.dashboard.especialidadeCategory.destroySelected');
+        Route::post('categoria-especialidade/sorting', [EspecialidadeCategoryController::class, 'sorting'])
+            ->name('admin.dashboard.especialidadeCategory.sorting');
+
+        //ESPECIALIDADE
+        Route::resource('especialidade', EspecialidadeSessionController::class)
+            ->names('admin.dashboard.especialidadeSession')
+            ->parameters(['especialidade' => 'especialidadeSession']);
+        Route::post('especialidade/delete', [EspecialidadeSessionController::class, 'destroySelected'])
+            ->name('admin.dashboard.especialidadeSession.destroySelected');
+        Route::post('especialidade/sorting', [EspecialidadeSessionController::class, 'sorting'])
+            ->name('admin.dashboard.especialidadeSession.sorting');
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

@@ -21,6 +21,8 @@ class AuditActivity extends Model
     public const HOSPITAL = 'Hospital';
     public const PROADI = 'Proadi';
     public const DEPOIMENTO = 'Depoimento';
+    public const CATEGORIA_ESPECIALIDADE = 'Caregoria Especialidade';
+    public const SESSAO_ESPECIALIDADE= 'Sessão Especialidade';
     public const PARCEIROS = 'Parceiros';
     public const ROLES = 'Grupos';
 
@@ -51,6 +53,10 @@ class AuditActivity extends Model
                 return self::PARCEIROS;
             case User::class:
                 return self::USERS;
+            case EspecialidadeCategory::class:
+                return self::CATEGORIA_ESPECIALIDADE;
+            case EspecialidadeSession::class:
+                return self::SESSAO_ESPECIALIDADE;
             case Role::class:
                 return self::ROLES;
             default:
