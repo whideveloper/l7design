@@ -336,7 +336,7 @@ input, select {
     margin-top: 122px;
     position: relative;
     overflow: hidden;
-    z-index: 11;
+    z-index: 31;
     .splide__slide{
         &::after{
             content: '';
@@ -430,7 +430,7 @@ input, select {
     right: 51px;
     top: calc(100% - 100px);
     width: 58px;
-    z-index: 10;
+    z-index: 30;
     &.ft{
         border-color: var(--white);
 
@@ -539,13 +539,17 @@ input, select {
         }
     }
 }
+.telenordeste{
+    z-index: 32;
+    position: relative;
+}
 .telenordeste,
 .teleinterconsulta,
 .hospital{
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: baseline;
+    align-items: baseline;    
 }
 .telenordeste__content,
 .teleinterconsulta__content,
