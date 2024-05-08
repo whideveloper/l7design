@@ -121,4 +121,36 @@
         }
     }).resize(); // Executa a verificação inicial ao carregar a página
 </script>
+
+<script>
+    //Modal
+    // Obtenha os elementos HTML
+    var modal = document.getElementById("myModal");
+    var clickLead = document.getElementById("click-lead");
+    var closeBtn = document.querySelector(".close-btn");
+
+    // Função para abrir o modal
+    clickLead.addEventListener("click", function(event) {
+        event.preventDefault();
+        modal.style.display = "block";
+        // Desative a rolagem da página principal
+        document.body.style.overflow = "hidden";
+    });
+
+    // Função para fechar o modal
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+        // Reative a rolagem da página principal
+        document.body.style.overflow = "auto";
+    });
+
+    // Feche o modal quando clicar fora dele
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            // Reative a rolagem da página principal
+            document.body.style.overflow = "auto";
+        }
+    });
+</script>
 @endsection

@@ -43,13 +43,7 @@
             </ul>
         </div>
     </section>
-    <!--Button flutuante-->
-    <button id="rolagem__top" class="rolagem__top">
-        <a href="#header">
-            <img src="{{asset('Client/assets/images/top-1.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-1">
-            <img src="{{asset('Client/assets/images/top-2.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-2">            
-        </a>
-    </button>
+    
     <section id="telenordeste" class="telenordeste">
         <div class="telenordeste__content">
             <article>

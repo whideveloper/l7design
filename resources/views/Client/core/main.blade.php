@@ -63,15 +63,15 @@
                             <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a>
                             <ul class="submenu" id="submenu-material-de-apoio">
                                 <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#os-protocolos" class="smooth-scroll">Protocolos</a>
+                                    <a href="{{route('material-de-apoio')}}#os-protocolos">Protocolos</a>
                                 </li>
                                 <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#material-de-leitura" class="smooth-scroll">Material de leitura</a>
+                                    <a href="{{route('material-de-apoio')}}#material-de-leitura">Material de leitura</a>
                                 </li>
                                 <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#material-de-impressao" class="smooth-scroll">Material de impressão</a>
+                                    <a href="{{route('material-de-apoio')}}#material-de-impressao">Material de impressão</a>
                                 </li>
-                            </ul>                            
+                            </ul>
                         </li>
                         
                         
@@ -121,11 +121,9 @@
             <ul class="menu">
                 <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
                 <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
-                {{-- <li class="header__item">
-                    <a href="{{route('material-de-apoio')}}" class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">
-                        <span id="toggle-submenu">Material de apoio</span>
-                    </a>
-                    <ul class="submenu" id="submenu-material-de-apoio">
+                <li class="header__item" id="material-de-apoio-click">
+                    <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}} dropdown-toggle" id="material-de-apoio-dropdown">Material de apoio</a>
+                    <ul class="submenu" id="submenu-material-de-apoio-mobile">
                         <li class="submenu__item">
                             <a href="{{route('material-de-apoio')}}#os-protocolos">Protocolos</a>
                         </li>
@@ -133,11 +131,10 @@
                             <a href="{{route('material-de-apoio')}}#material-de-leitura">Material de leitura</a>
                         </li>
                         <li class="submenu__item">
-                            <a href="{{route('material-de-apoio')}}#material-de-impressão">Material de impressão</a>
+                            <a href="{{route('material-de-apoio')}}#material-de-impressao">Material de impressão</a>
                         </li>
                     </ul>
-                </li> --}}
-                
+                </li>              
                 <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
                 <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
                 <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
@@ -146,6 +143,14 @@
             </ul>
         </nav>
     </div> 
+    <!--Button flutuante-->
+    <button id="rolagem__top" class="rolagem__top">
+        <a href="#header">
+            <img src="{{asset('Client/assets/images/top-1.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-1">
+            <img src="{{asset('Client/assets/images/top-2.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-2">            
+        </a>
+    </button>
+
     @if (Route::currentRouteName() !== 'home')    
         @php
             if (Route::currentRouteName() == 'especialidades') {
@@ -239,6 +244,20 @@
     <script src="{{ asset(mix('Client/assets/js/fancybox.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var dropdown = document.getElementById('material-de-apoio-dropdown');
+            var submenu = document.getElementById('submenu-material-de-apoio-mobile');
+            
+            dropdown.addEventListener('click', function() {
+                if (submenu.style.display === 'block') {
+                    submenu.style.display = 'none';
+                } else {
+                    submenu.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

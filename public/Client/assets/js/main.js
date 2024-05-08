@@ -1,18 +1,4 @@
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-    
-        const target = document.querySelector(this.getAttribute('href'));
-    
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 /* rolagem do btn de menu */
 if (document.querySelector(".btn-mn-mbl")) {
     const btnMenu = document.querySelector(".btn-mn-mbl");
@@ -295,42 +281,21 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Seletor para o botão flutuante
     var botaoFlutuante = document.getElementById('rolagem__top');
-    // Seletor para a sessão do carrossel de imagens
-    var sessaoCarousel = document.getElementById('image-carousel');
-    // Seletor para a sessão do carrossel de imagens
+    // Seletor para a sessão do rodapé
     var footer = document.getElementById('footer');
 
-    // Função para verificar a posição do scroll e mostrar o botão flutuante quando atingir a sessão do carrossel
+    // Função para verificar a posição do scroll e mostrar o botão flutuante quando necessário
     function verificarPosicaoScroll() {
-        // Obter a posição da sessão #image-carousel em relação à janela de visualização
-        var imageCarousel = document.getElementById('image-carousel');
-        var imageCarouselPos = imageCarousel.getBoundingClientRect();
-        // Obter a posição da sessão #footer em relação à janela de visualização
-        var footer = document.getElementById('footer');
-        var footerPos = footer.getBoundingClientRect();
-        
-        // Verificar se a parte inferior da sessão está visível na janela de visualização
-        if (imageCarouselPos.bottom <= window.innerHeight) {
-            // A sessão #image-carousel está totalmente visível na janela de visualização
-            // Portanto, exiba o botão flutuante
-            document.querySelector('.rolagem__top').style.display = 'block';
-        } else {
-            // A sessão #image-carousel não está totalmente visível na janela de visualização
-            // Portanto, oculte o botão flutuante
-            document.querySelector('.rolagem__top').style.display = 'none';
-        }
-        
-        var footer = document.getElementById('footer');
         var footerPos = footer.getBoundingClientRect();
 
         // Verificar se o rodapé está visível na janela de visualização
         if (footerPos.top <= window.innerHeight) {
             // O rodapé está visível na janela de visualização
-            // Portanto, adicione a classe 'footer' ao botão flutuante
+            // Portanto, adicione a classe 'ft' ao botão flutuante
             botaoFlutuante.classList.add('ft');
         } else {
             // O rodapé não está visível na janela de visualização
-            // Portanto, remova a classe 'footer' do botão flutuante
+            // Portanto, remova a classe 'ft' do botão flutuante
             botaoFlutuante.classList.remove('ft');
         }
     }
@@ -340,13 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Chamar a função verificarPosicaoScroll() após o carregamento da página para garantir que o botão flutuante seja exibido corretamente
     window.addEventListener('load', verificarPosicaoScroll);
-});
-//Ancor botao flutuante
-document.addEventListener('DOMContentLoaded', function () {
-    // Seletor para o botão flutuante
-    var botaoFlutuante = document.getElementById('rolagem__top');
 
-    // Adiciona um evento de clique ao botão flutuante
+    // Adiciona um evento de clique ao botão flutuante para rolar para o topo da página
     botaoFlutuante.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -364,6 +324,78 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+//     // Seletor para o botão flutuante
+//     var botaoFlutuante = document.getElementById('rolagem__top');
+//     // Seletor para a sessão do carrossel de imagens
+//     var sessaoCarousel = document.getElementById('image-carousel');
+//     // Seletor para a sessão do carrossel de imagens
+//     var footer = document.getElementById('footer');
+
+//     // Função para verificar a posição do scroll e mostrar o botão flutuante quando atingir a sessão do carrossel
+//     function verificarPosicaoScroll() {
+//         // Obter a posição da sessão #image-carousel em relação à janela de visualização
+//         var imageCarousel = document.getElementById('image-carousel');
+//         var imageCarouselPos = imageCarousel.getBoundingClientRect();
+//         // Obter a posição da sessão #footer em relação à janela de visualização
+//         var footer = document.getElementById('footer');
+//         var footerPos = footer.getBoundingClientRect();
+        
+//         // Verificar se a parte inferior da sessão está visível na janela de visualização
+//         if (imageCarouselPos.bottom <= window.innerHeight) {
+//             // A sessão #image-carousel está totalmente visível na janela de visualização
+//             // Portanto, exiba o botão flutuante
+//             document.querySelector('.rolagem__top').style.display = 'block';
+//         } else {
+//             // A sessão #image-carousel não está totalmente visível na janela de visualização
+//             // Portanto, oculte o botão flutuante
+//             document.querySelector('.rolagem__top').style.display = 'none';
+//         }
+        
+//         var footer = document.getElementById('footer');
+//         var footerPos = footer.getBoundingClientRect();
+
+//         // Verificar se o rodapé está visível na janela de visualização
+//         if (footerPos.top <= window.innerHeight) {
+//             // O rodapé está visível na janela de visualização
+//             // Portanto, adicione a classe 'footer' ao botão flutuante
+//             botaoFlutuante.classList.add('ft');
+//         } else {
+//             // O rodapé não está visível na janela de visualização
+//             // Portanto, remova a classe 'footer' do botão flutuante
+//             botaoFlutuante.classList.remove('ft');
+//         }
+//     }
+    
+//     // Adicionar um ouvinte de evento de rolagem ao objeto window
+//     window.addEventListener('scroll', verificarPosicaoScroll);
+    
+//     // Chamar a função verificarPosicaoScroll() após o carregamento da página para garantir que o botão flutuante seja exibido corretamente
+//     window.addEventListener('load', verificarPosicaoScroll);
+// });
+// //Ancor botao flutuante
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Seletor para o botão flutuante
+//     var botaoFlutuante = document.getElementById('rolagem__top');
+
+//     // Adiciona um evento de clique ao botão flutuante
+//     botaoFlutuante.addEventListener('click', function(e) {
+//         e.preventDefault();
+
+//         // ID do elemento para onde deseja rolar
+//         const targetId = '#header';
+//         const target = document.querySelector(targetId);
+
+//         // Calcula a posição de rolagem com uma compensação de 20 pixels para parar acima da seção
+//         const offset = 20;
+//         const targetPosition = target.offsetTop - offset;
+
+//         window.scrollTo({
+//             top: targetPosition,
+//             behavior: 'smooth'
+//         });
+//     });
+// });
 $(document).ready(function(){
     sidebar(); // CHAMA A FUNCAO SIDEBAR
     // Header flutuante
@@ -583,35 +615,6 @@ $(document).ready(function(){
 
 });
 
-//Modal
-// Obtenha os elementos HTML
-var modal = document.getElementById("myModal");
-var clickLead = document.getElementById("click-lead");
-var closeBtn = document.querySelector(".close-btn");
-
-// Função para abrir o modal
-clickLead.addEventListener("click", function(event) {
-    event.preventDefault();
-    modal.style.display = "block";
-    // Desative a rolagem da página principal
-    document.body.style.overflow = "hidden";
-});
-
-// Função para fechar o modal
-closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-    // Reative a rolagem da página principal
-    document.body.style.overflow = "auto";
-});
-
-// Feche o modal quando clicar fora dele
-window.addEventListener("click", function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        // Reative a rolagem da página principal
-        document.body.style.overflow = "auto";
-    }
-});
 
 
 

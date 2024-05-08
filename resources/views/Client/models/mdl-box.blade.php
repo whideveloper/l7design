@@ -12,7 +12,12 @@
                 <p class="mdl-box__text">{{ $text }}</p>
             </div>
             <div class="mdl-box__btn">
-                <a class="more" onclick="openModal()">{{ $btnName }}</a>
+                @if (url()->current() == route('mural-de-comunicacao') || url()->current() == route('mural-de-comunicacao-interna'))
+                    <a href="{{$link}}" class="more">{{ $btnName }}</a>
+                    @else
+                    <a class="more" onclick="openModal()">{{ $btnName }}</a>
+                @endif
+
             </div>
         </div>
     </div>
