@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EspecialidadeCategory;
 use App\Models\EspecialidadeProfessional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,10 +17,11 @@ class EspecialidadeSessionController extends Controller
         if(!Auth::user()->can('especialidade.visualizar')){
             return view('Admin.error.403');
         }
+        
         $especialidadeSession = EspecialidadeSession::first();
 
         return view('Admin.cruds.especialidadeSession.index', [
-            'especialidadeSession' => $especialidadeSession
+            'especialidadeSession' => $especialidadeSession,            
         ]);
     }
 
@@ -58,12 +60,17 @@ class EspecialidadeSessionController extends Controller
         if (!Auth::user()->can(['especialidade.visualizar', 'especialidade.editar'])) {
             return view('Admin.error.403');
         }
-
+        $categoryTitle = [];
+        $categoryEspecialidade = EspecialidadeCategory::active()->get();
+        foreach($categoryEspecialidade as $title){
+            $categoryTitle[$title->id] = $title->title;
+        }
         $especialidadeProfessionals = EspecialidadeProfessional::sorting()->get();
 
         return view('Admin.cruds.especialidadeSession.edit', [
             'especialidadeSession' => $especialidadeSession,
-            'especialidadeProfessionals' => $especialidadeProfessionals
+            'especialidadeProfessionals' => $especialidadeProfessionals,
+            'categoryEspecialidade' => $categoryTitle,
         ]);
     }
 

@@ -27,7 +27,7 @@
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         @can('especialidade.remover')
-                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.especialidadeSession.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
+                                            <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     @if (!$especialidadeSession)                                        

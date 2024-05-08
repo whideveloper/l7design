@@ -1,6 +1,6 @@
 
 <div class="row col-12">
-    <div class="col-12 col-lg-16">
+    <div class="col-12 col-lg-12">
         <div class="card card-body">
             <div class="row">
                 <div class="mb-3 col-lg-12">
@@ -11,7 +11,7 @@
                 <div class="mb-3 col-lg-6">
                     {!! Form::label('heard', 'Categoria Clube Benefício', ['class'=>'form-label']) !!}
 
-                    {!! Form::select('benefit_category_id', $categoryBenefits, isset($category)?$category:null, [
+                    {!! Form::select('especialidade_category_id', $categoryEspecialidade, isset($categoryEspecialidade)?$categoryEspecialidade:null, [
                         'class'=>'form-select',
                         'id'=>'heard',
                         'placeholder' => 'Selecione a categoria'
@@ -31,7 +31,7 @@
                         'data-height' => 200
                     ]) !!}
                 </div>
-                <div class="mb-3 col-lg-1">
+                <div class="mb-3 col-lg-12">
                     {!! Form::label('complete-editor', 'Texto', ['class'=>'form-label']) !!}
                     {!! Form::textarea('text', null, [
                         'class'=>'form-control CkEditorColumn',
@@ -46,7 +46,7 @@
             </div>
         </div> <!-- end card-body-->
     </div> <!-- end card-->
-    <div class="row col-lg-6">
+    <div class="row col-lg-12">
         <div class="col-12 col-lg-12">
             <div class="card card-body">
                 <div class="row">
