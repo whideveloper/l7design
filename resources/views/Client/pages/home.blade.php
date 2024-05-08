@@ -25,13 +25,7 @@
             </ul>
         </div>
     </section>
-    <!--Button flutuante-->
-    <button id="rolagem__top" class="rolagem__top">
-        <a href="#header">
-            <img src="{{asset('Client/assets/images/top-1.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-1">
-            <img src="{{asset('Client/assets/images/top-2.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-2">            
-        </a>
-    </button>
+    
     @if ($telenordeste)
         <section id="telenordeste" class="telenordeste">
             <div class="telenordeste__content">
@@ -284,24 +278,8 @@
             </div>
         </section>
     @endif
-    
 
-    {{-- <section>
-
-        @php
-            $content = [
-                'title' => 'porque confiar na',
-                'highlight' => 'whi',
-                'image' => asset('Client/assets/images/cat-sqr.jpg'),
-                'text' => 'Confie na gente para transformar sua marca em uma experiência digital incrível. Nossa agência une criatividade, tecnologia e compromisso para construir sua presença online de forma inovadora e impactante.',
-            ];
-        @endphp
-
-        @for ($i = 0; $i < 3; $i++)
-            @include('Client.models.mdl-article', $content)
-        @endfor
-
-    </section> --}}
+    {{-- <span id="footer"></span> --}}
 
     <script>
         // Função para verificar se a sessão está visível na tela
