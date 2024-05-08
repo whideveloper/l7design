@@ -213,14 +213,15 @@
 
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <ul class="footer__logos__items owl-carousel">
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/haoc-footer.svg')}}" alt="HAOC" title="HAOC"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/csemse.svg')}}" alt="CSEMSE" title="CSEMSE"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/conass.svg')}}" alt="CONASS" title="CONASS"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/proadi.svg')}}" alt="PROADI" title="PROADI"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/sus.svg')}}" alt="SUS" title="SUS"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/msaude.svg')}}" alt="MSAUDE" title="MSAUDE"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/brgov.svg')}}" alt="BRGOV" title="BRGOV"></a></li>
+            <ul class="footer__logos__items">
+                @foreach($partners as $partners)
+                    <li>
+                        @if ($partners->link)
+                            <a href="{{$partners->link}}" target="_blank" class="link-full"></a>
+                        @endif
+                        <img src="{{asset('storage/' . $partners->path_image)}}" alt="{{$partners->title}}" title="{{$partners->title}}">                        
+                    </li>
+                @endforeach
             </ul>
             <div class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>

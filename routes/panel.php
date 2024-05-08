@@ -1,12 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuditActivityController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\FileController;
-use App\Http\Controllers\FileResponseController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\StudentsSubjectController;
-use App\Http\Controllers\SubjectController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -23,7 +17,17 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\HowItWorkController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProadiController;
+use App\Http\Controllers\StepToStepController;
+use App\Http\Controllers\TeleinterconsultaController;
+use App\Http\Controllers\TelenordesteController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -97,39 +101,91 @@ Route::prefix('painel/')->group(function () {
             return view('Admin.dashboard');
         })->name('admin.dashboard');
 
+        //BANNER
+        Route::resource('banner', BannerController::class)
+            ->names('admin.dashboard.banner')
+            ->parameters(['banner' => 'banner']);
+        Route::post('banner/delete', [BannerController::class, 'destroySelected'])
+            ->name('admin.dashboard.banner.destroySelected');
+        Route::post('banner/sorting', [BannerController::class, 'sorting'])
+            ->name('admin.dashboard.banner.sorting');            
+        //TELENORDESTE
+        Route::resource('telenordeste', TelenordesteController::class)
+            ->names('admin.dashboard.telenordeste')
+            ->parameters(['telenordeste' => 'telenordeste']);
+        Route::post('telenordeste/delete', [TelenordesteController::class, 'destroySelected'])
+            ->name('admin.dashboard.telenordeste.destroySelected');
+        Route::post('telenordeste/sorting', [TelenordesteController::class, 'sorting'])
+            ->name('admin.dashboard.telenordeste.sorting');
+        //LOCALIZACAO
+        Route::resource('localizacao', LocationController::class)
+            ->names('admin.dashboard.location')
+            ->parameters(['localizacao' => 'location']);
+        Route::post('localizacao/delete', [LocationController::class, 'destroySelected'])
+            ->name('admin.dashboard.location.destroySelected');
+        Route::post('localizacao/sorting', [LocationController::class, 'sorting'])
+            ->name('admin.dashboard.location.sorting');
+        //OBJETIVO
+        Route::resource('objetivo', ObjectiveController::class)
+            ->names('admin.dashboard.objective')
+            ->parameters(['objetivo' => 'objective']);
+        Route::post('objetivo/sorting', [ObjectiveController::class, 'sorting'])
+            ->name('admin.dashboard.objective.sorting');
+         //TELEINTERCONSULTA
+         Route::resource('teleinterconsulta', TeleinterconsultaController::class)
+         ->names('admin.dashboard.teleinterconsulta')
+         ->parameters(['teleinterconsulta' => 'teleinterconsulta']);
+        Route::post('teleinterconsulta/delete', [TeleinterconsultaController::class, 'destroySelected'])
+            ->name('admin.dashboard.teleinterconsulta.destroySelected');
+        Route::post('teleinterconsulta/sorting', [TeleinterconsultaController::class, 'sorting'])
+            ->name('admin.dashboard.teleinterconsulta.sorting');
+         //COMO FUNCIONA
+         Route::resource('como-funciona', HowItWorkController::class)
+         ->names('admin.dashboard.howItWork')
+         ->parameters(['como-funciona' => 'howItWork']);
+         Route::post('como-funciona/delete', [HowItWorkController::class, 'destroySelected'])
+            ->name('admin.dashboard.howItWork.destroySelected');
+        //PASSO-A-PASSO
+        Route::resource('passo-a-passo', StepToStepController::class)
+        ->names('admin.dashboard.stepToStep')
+        ->parameters(['passo-a-passo' => 'stepToStep']);
+        Route::post('passo-a-passo/delete', [StepToStepController::class, 'destroySelected'])
+           ->name('admin.dashboard.stepToStep.destroySelected');
+        Route::post('passo-a-passo/sorting', [StepToStepController::class, 'sorting'])
+           ->name('admin.dashboard.stepToStep.sorting');
+        //HOSPITAL
+        Route::resource('hospital', HospitalController::class)
+        ->names('admin.dashboard.hospital')
+        ->parameters(['hospital' => 'hospital']);
+        Route::post('hospital/delete', [HospitalController::class, 'destroySelected'])
+           ->name('admin.dashboard.hospital.destroySelected');
+        //PROADI
+        Route::resource('proadi', ProadiController::class)
+        ->names('admin.dashboard.proadi')
+        ->parameters(['proadi' => 'proadi']);
+        Route::post('proadi/delete', [ProadiController::class, 'destroySelected'])
+           ->name('admin.dashboard.proadi.destroySelected');
+        //DEPOIMENTO
+        Route::resource('depoimento', DepoimentController::class)
+            ->names('admin.dashboard.depoiment')
+            ->parameters(['depoimento' => 'depoiment']);
+        Route::post('depoimento/delete', [DepoimentController::class, 'destroySelected'])
+            ->name('admin.dashboard.depoiment.destroySelected');
+        Route::post('depoimento/sorting', [DepoimentController::class, 'sorting'])
+            ->name('admin.dashboard.depoiment.sorting');
+        //PARCEIROS
+        Route::resource('parceiros', PartnerController::class)
+            ->names('admin.dashboard.partner')
+            ->parameters(['parceiros' => 'partner']);
+        Route::post('parceiros/delete', [PartnerController::class, 'destroySelected'])
+            ->name('admin.dashboard.partner.destroySelected');
+        Route::post('parceiros/sorting', [PartnerController::class, 'sorting'])
+            ->name('admin.dashboard.partner.sorting');
+
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
             ->parameters(['auditoria'=>'activitie']);
-
-        //CURSOS
-        Route::resource('cursos', CourseController::class)
-            ->names('admin.dashboard.course')
-            ->parameters(['cursos' => 'course']);
-        Route::post('cursos/delete', [CourseController::class, 'destroySelected'])
-            ->name('admin.dashboard.course.destroySelected');
-        Route::post('cursos/sorting', [CourseController::class, 'sorting'])
-            ->name('admin.dashboard.course.sorting');
-
-        //ATIVIDADE
-        Route::resource('atividades', FileController::class)
-            ->names('admin.dashboard.file')
-            ->parameters(['atividades' => 'file']);
-        Route::post('atividades/delete', [FileController::class, 'destroySelected'])
-            ->name('admin.dashboard.file.destroySelected');
-        Route::post('atividades/sorting', [FileController::class, 'sorting'])
-            ->name('admin.dashboard.file.sorting');
-
-        //RESPOSTA DA ATIVIDADE
-        Route::resource('atividades/resposta', FileResponseController::class)
-            ->names('admin.dashboard.response')
-            ->parameters(['atividades/resposta' => 'fileResponse']);
-        Route::post('atividades/resposta/delete', [FileResponseController::class, 'destroySelected'])
-            ->name('admin.dashboard.response.destroySelected');
-        Route::post('atividades/resposta/sorting', [FileResponseController::class, 'sorting'])
-            ->name('admin.dashboard.response.sorting');
-
-
         //GRUPOS
         Route::resource('grupos', RoleController::class)
         ->names('admin.dashboard.group')
@@ -138,83 +194,28 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.group.destroySelected');
         Route::post('grupos/sorting', [RoleController::class, 'sorting'])
             ->name('admin.dashboard.group.sorting');
-
-        //MATERIAS
-        Route::resource('materias', SubjectController::class)
-            ->names('admin.dashboard.subject')
-            ->parameters(['materias' => 'subject']);
-        //SHOW
-        Route::get('materias/deletados/show', [SubjectController::class, 'deletedShow'])
-            ->name('admin.dashboard.subject.show');
-//        Route::get('materias/adicionar-aluno-a-materia/{subject}', [SubjectController::class, 'addStudentSubject'])
-//            ->name('admin.dashboard.subject.addStudentSubject');
-        Route::post('materias/deletados/show/search', [SubjectController::class, 'search'])
-            ->name('admin.dashboard.subject.show.search');
-        Route::post('materias/deletados/show/delete', [SubjectController::class, 'destroySelectedForced'])
-            ->name('admin.dashboard.subject.destroySelectedForced');
-        //RESTORE
-        Route::post('materias/retoreData/{subject}', [SubjectController::class, 'retoreData'])
-            ->name('admin.dashboard.subject.retoreData');
-        Route::post('materias/restore', [SubjectController::class, 'retoreDataAll'])
-            ->name('admin.dashboard.subject.retoreDataAll');
-        //DELETADOS
-        Route::delete('materias/deleteForced/{subject}', [SubjectController::class, 'deleteForced'])
-            ->name('admin.dashboard.subject.deleteForced');
-        Route::post('materias/delete', [SubjectController::class, 'destroySelected'])
-            ->name('admin.dashboard.subject.destroySelected');
-        Route::post('materias/sorting', [SubjectController::class, 'sorting'])
-            ->name('admin.dashboard.subject.sorting');
-
-        //ALUNOS
-        Route::resource('alunos', StudentController::class)
-            ->names('admin.dashboard.student')
-            ->parameters(['alunos' => 'student']);
-        Route::post('/alunos/disciplina', [StudentsSubjectController::class, 'store'])
-            ->name('admin.dashboard.studentSubject');
-        Route::post('/alunos/disciplina/aluno', [StudentsSubjectController::class, 'storeSubjectStudent'])
-            ->name('admin.dashboard.subjectStudent');
-        //SHOW
-        Route::get('alunos/deletados/show', [StudentController::class, 'deletedShow'])
-            ->name('admin.dashboard.student.show');
-        Route::post('alunos/deletados/show/search', [StudentController::class, 'search'])
-            ->name('admin.dashboard.student.show.search');
-        Route::post('alunos/deletados/show/delete', [StudentController::class, 'destroySelectedForced'])
-            ->name('admin.dashboard.student.destroySelectedForced');
-        //RESTORE
-        Route::post('alunos/retoreData/{student}', [StudentController::class, 'retoreData'])
-            ->name('admin.dashboard.student.retoreData');
-        Route::post('alunos/restore', [StudentController::class, 'retoreDataAll'])
-            ->name('admin.dashboard.student.retoreDataAll');
-        //DELETADOS
-        Route::delete('alunos/deleteForced/{student}', [StudentController::class, 'deleteForced'])
-            ->name('admin.dashboard.student.deleteForced');
-        Route::post('alunos/delete', [StudentController::class, 'destroySelected'])
-            ->name('admin.dashboard.student.destroySelected');
-        Route::post('alunos/sorting', [StudentController::class, 'sorting'])
-            ->name('admin.dashboard.student.sorting');
-
         //USUARIOS
-        Route::resource('professor', UserController::class)
+        Route::resource('usuario', UserController::class)
             ->names('admin.dashboard.user')
-            ->parameters(['professor'=>'user']);
+            ->parameters(['usuario'=>'user']);
         //SHOW
-        Route::get('professor/deletados/showDeleted', [UserController::class, 'deletedShow'])
+        Route::get('usuario/deletados/showDeleted', [UserController::class, 'deletedShow'])
             ->name('admin.dashboard.user.showDeleted');
-        Route::post('professor/deletados/show/search', [UserController::class, 'search'])
+        Route::post('usuario/deletados/show/search', [UserController::class, 'search'])
         ->name('admin.dashboard.user.show.search');
-        Route::post('professor/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
+        Route::post('usuario/deletados/show/delete', [UserController::class, 'destroySelectedForced'])
         ->name('admin.dashboard.user.destroySelectedForced');
         //RESTORE
-        Route::post('professor/retoreData/{user}', [UserController::class, 'retoreData'])
+        Route::post('usuario/retoreData/{user}', [UserController::class, 'retoreData'])
             ->name('admin.dashboard.user.retoreData');
-        Route::post('professor/restore', [UserController::class, 'retoreDataAll'])
+        Route::post('usuario/restore', [UserController::class, 'retoreDataAll'])
             ->name('admin.dashboard.user.retoreDataAll');
         //DELETADOS
-        Route::delete('professor/deleteForced/{user}', [UserController::class, 'deleteForced'])
+        Route::delete('usuario/deleteForced/{user}', [UserController::class, 'deleteForced'])
             ->name('admin.dashboard.user.deleteForced');
-        Route::post('professor/delete', [UserController::class, 'destroySelected'])
+        Route::post('usuario/delete', [UserController::class, 'destroySelected'])
             ->name('admin.dashboard.user.destroySelected');
-        Route::post('professor/sorting', [UserController::class, 'sorting'])
+        Route::post('usuario/sorting', [UserController::class, 'sorting'])
             ->name('admin.dashboard.user.sorting');
 
         //CONTATO

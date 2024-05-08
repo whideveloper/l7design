@@ -16,12 +16,6 @@ class PermissionsSeeder extends Seeder
     {
 
         $permissions = [
-            'aluno'=>[
-                'Criar',
-                'Editar',
-                'Visualizar',
-                'Remover',
-            ],
             'auditoria'=>[
                 'Visualizar',
             ],
@@ -42,32 +36,67 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover'
             ],
-            'curso'=>[
+            'telenordeste'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
             ],
-            'atividade'=>[
+            'teleinterconsulta'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
             ],
-            'disciplina'=>[
+            'proadi'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
-                'Visualizar outras disciplinas'
             ],
-            'professor'=>[
+            'depoimento'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'passo a passo'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'como funciona'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'localizacao'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'objetivo'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'parceiro'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'usuario'=>[
                 'Criar',
                 'Editar',
                 'Visualizar',
                 'Remover',
                 'Restaurar dados',
-                'Visualizar outros professores',
+                'Visualizar outros usuarios',
                 'Atribuir grupos']
             ];
 
