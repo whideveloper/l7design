@@ -24,7 +24,9 @@ class AuditActivity extends Model
     public const CATEGORIA_ESPECIALIDADE = 'Caregoria Especialidade';
     public const SESSAO_ESPECIALIDADE = 'Sessão Especialidade';
     public const PROFESSIONAL_ESPECIALIDADE = 'Profissionais especialistas';
+    public const TUTORIAL = 'Tutorial';
     public const PARCEIROS = 'Parceiros';
+    public const TREINAMENTO_PLATAFORMA = 'Treinamento para uso da plataforma';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -60,6 +62,10 @@ class AuditActivity extends Model
                 return self::SESSAO_ESPECIALIDADE;
             case EspecialidadeProfessional::class:
                 return self::PROFESSIONAL_ESPECIALIDADE;
+            case Tutorial::class:
+                return self::TUTORIAL;
+            case TrainingForUse::class:
+                return self::TREINAMENTO_PLATAFORMA;
             case Role::class:
                 return self::ROLES;
             default:

@@ -20,6 +20,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DepoimentController;
 use App\Http\Controllers\EspecialidadeCategoryController;
+use App\Http\Controllers\EspecialidadeProfessionalController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\HowItWorkController;
@@ -30,7 +31,10 @@ use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\TelenordesteController;
+use App\Http\Controllers\TrainingForUseController;
+use App\Http\Controllers\TutorialController;
 use App\Models\EspecialidadeProfessional;
+use App\Models\Tutorial;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -200,13 +204,23 @@ Route::prefix('painel/')->group(function () {
             ->parameters(['especialidade' => 'especialidadeSession']);
 
         //ESPECIALIDADE
-        Route::resource('profissionais', EspecialidadeProfessional::class)
+        Route::resource('profissionais', EspecialidadeProfessionalController::class)
             ->names('admin.dashboard.especialidadeProfessional')
             ->parameters(['profissionais' => 'especialidadeProfessional']);
-        Route::post('profissionais/delete', [EspecialidadeProfessional::class, 'destroySelected'])
+        Route::post('profissionais/delete', [EspecialidadeProfessionalController::class, 'destroySelected'])
             ->name('admin.dashboard.especialidadeProfessional.destroySelected');
-        Route::post('profissionais/sorting', [EspecialidadeProfessional::class, 'sorting'])
+        Route::post('profissionais/sorting', [EspecialidadeProfessionalController::class, 'sorting'])
             ->name('admin.dashboard.especialidadeProfessional.sorting');
+
+        //TUTORIAL
+        Route::resource('tutorial', TutorialController::class)
+        ->names('admin.dashboard.tutorial')
+        ->parameters(['tutorial' => 'tutorial']); 
+        
+        //TREINAMENTO
+        Route::resource('treinamento', TrainingForUseController::class)
+        ->names('admin.dashboard.trainingForUse')
+        ->parameters(['treinamento' => 'trainingForUse']); 
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

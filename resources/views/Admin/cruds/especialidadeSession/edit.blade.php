@@ -66,7 +66,7 @@
                             <th class="bs-checkbox">
                                 <label><input name="btnSelectAll" value="btnDeleteListLink" type="checkbox"></label>
                             </th>
-                            <th class="text-center">Título</th>
+                            <th class="text-center">Nome</th>
                             <th class="text-center">Imagem</th>
                            <th class="text-center">Status</th>
                            <th class="text-center">Ações</th>
@@ -80,7 +80,7 @@
                                     <td class="bs-checkbox">
                                         <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$especialidadeProfessional->id}}"></label>
                                     </td>
-                                    <td>{{$especialidadeProfessional->title}}</td>
+                                    <td>{{$especialidadeProfessional->name}}</td>
                                     <td class="table-user text-center">
                                         @if ($especialidadeProfessional->path_image)
                                             <img src="{{ asset('storage/'.$especialidadeProfessional->path_image) }}" name="path_image" alt="table-user" class="me-2 rounded-circle">

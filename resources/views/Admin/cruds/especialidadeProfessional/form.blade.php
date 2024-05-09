@@ -2,16 +2,16 @@
 <div class="row col-12">
     <div class="col-12 col-lg-12">
         <div class="card card-body">
-            <div class="row">
+            <div class="row" style="text-align: left">
                 <div class="mb-3 col-lg-12">
                     {!! Form::label(null, 'Nome', ['class'=>'form-label']) !!}
-                    {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
+                    {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
                 </div> 
 
                 <div class="mb-3 col-lg-6">
                     {!! Form::label('heard', 'Categoria Clube Benefício', ['class'=>'form-label']) !!}
 
-                    {!! Form::select('especialidade_category_id', $categoryEspecialidade, isset($categoryEspecialidade)?$categoryEspecialidade:null, [
+                    {!! Form::select('especialidade_category_id', $categoryEspecialidade, isset($title)?$title:null, [
                         'class'=>'form-select',
                         'id'=>'heard',
                         'placeholder' => 'Selecione a categoria'
@@ -40,7 +40,7 @@
                     ]) !!}
                 </div>             
             </div>
-            <div class="mb-3 form-check">
+            <div class="mb-3 form-check" style="text-align: left">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
                 {!! Form::label('active', 'Ativar?', ['class'=>'form-check-label']) !!}
             </div>
@@ -49,7 +49,7 @@
     <div class="row col-lg-12">
         <div class="col-12 col-lg-12">
             <div class="card card-body">
-                <div class="row">
+                <div class="row" style="text-align: left">
                     <div class="mb-3 col-lg-12">
                         {!! Form::label('path_image', 'Imagem', ['class'=>'form-label']) !!}
                         {!! Form::file('path_image', [

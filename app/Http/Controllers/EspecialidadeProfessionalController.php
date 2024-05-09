@@ -17,15 +17,6 @@ class EspecialidadeProfessionalController extends Controller
 {
     protected $pathUpload = 'admin/uploads/images/categoria-especialidade/';
 
-    public function create()
-    {
-        if(!Auth::user()->can(['especialidade.visualizar','especialidade.criar'])){
-            return view('Admin.error.403');
-        }
-
-        return view('Admin.cruds.especialidadeProfessional.create');
-    }
-
     public function store(Request $request)
     {
         $data = $request->all();
@@ -43,36 +34,25 @@ class EspecialidadeProfessionalController extends Controller
             }
             $data['active'] = $request->active ? 1 : 0;
 
+            
+            if (!EspecialidadeProfessional::create($data)) {
+                Storage::delete($this->pathUpload . $path_image);
+                throw new Exception();
+            }
             $especialidadeSession = EspecialidadeSession::first();
 
-            EspecialidadeProfessional::create($data);
-
-            // if (!EspecialidadeProfessional::create($data)) {
-            //     Storage::delete($this->pathUpload . $path_image);
-            //     throw new Exception();
-            // }
-
-            Session::flash('success', 'Especialidade cadastrado com sucesso!');
+            Session::flash('success', 'Especialistacadastrado com sucesso!');
 
             DB::commit();
-            return redirect()->route('Admin.cruds.especialidadeSession.index', [
+            return redirect()->route('admin.dashboard.especialidadeSession.edit', [
                 'especialidadeSession' => $especialidadeSession
             ]);
         }catch(\Exception $exception){
+            dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao cadastrar o categoria!');
+            Session::flash('error', 'Erro ao cadastrar o especialista!');
             return redirect()->back();
         }
-    }
-
-    public function edit(EspecialidadeProfessional $especialidadeProfessional)
-    {
-        if (!Auth::user()->can(['especialidade.visualizar', 'especialidade.editar'])) {
-            return view('Admin.error.403');
-        }
-        return view('Admin.cruds.especialidadeProfessional.edit', [
-            'especialidadeProfessional' => $especialidadeProfessional
-        ]);
     }
 
     public function update(Request $request, EspecialidadeProfessional $especialidadeProfessional)
@@ -109,8 +89,8 @@ class EspecialidadeProfessionalController extends Controller
             }
             $especialidadeSession = EspecialidadeSession::first();
             DB::commit();
-            Session::flash('success', 'Especialidade atualizada com sucesso!');
-            return redirect()->route('Admin.cruds.especialidadeSession.index', [
+            Session::flash('success', 'Especialista atualizada com sucesso!');
+            return redirect()->route('admin.dashboard.especialidadeSession.edit', [
                 'especialidadeSession' => $especialidadeSession
             ]);
         }catch(\Exception $exception){
@@ -128,7 +108,7 @@ class EspecialidadeProfessionalController extends Controller
         
         $especialidadeProfessional->delete();
 
-        Session::flash('success','Especialidade deletado com sucesso!');
+        Session::flash('success','Especialista deletado com sucesso!');
         return redirect()->back();
     }
 

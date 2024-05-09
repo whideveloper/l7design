@@ -90,6 +90,18 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'tutorial'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'treinamento'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'parceiro'=>[
                 'Criar',
                 'Editar',

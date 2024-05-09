@@ -55,7 +55,7 @@ class EspecialidadeSessionController extends Controller
             return redirect()->back();
         }
     }
-    public function edit(EspecialidadeSession $especialidadeSession)
+    public function edit(EspecialidadeSession $especialidadeSession, Request $request)
     {
         if (!Auth::user()->can(['especialidade.visualizar', 'especialidade.editar'])) {
             return view('Admin.error.403');
@@ -71,6 +71,7 @@ class EspecialidadeSessionController extends Controller
             'especialidadeSession' => $especialidadeSession,
             'especialidadeProfessionals' => $especialidadeProfessionals,
             'categoryEspecialidade' => $categoryTitle,
+            'title' => $request->title??null,
         ]);
     }
 
