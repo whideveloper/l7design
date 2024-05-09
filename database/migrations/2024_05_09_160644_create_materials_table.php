@@ -17,8 +17,8 @@ class CreateMaterialsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('text')->nullable();
-            $table->boolean('active')->deafult(0);
-            $table->integer('sorting')->defaul(0);
+            $table->boolean('active')->default(0);
+            $table->integer('sorting')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
