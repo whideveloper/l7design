@@ -45,10 +45,12 @@ class EspecialidadeProfessionalController extends Controller
 
             $especialidadeSession = EspecialidadeSession::first();
 
-            if (!EspecialidadeProfessional::create($data)) {
-                Storage::delete($this->pathUpload . $path_image);
-                throw new Exception();
-            }
+            EspecialidadeProfessional::create($data);
+
+            // if (!EspecialidadeProfessional::create($data)) {
+            //     Storage::delete($this->pathUpload . $path_image);
+            //     throw new Exception();
+            // }
 
             Session::flash('success', 'Especialidade cadastrado com sucesso!');
 
