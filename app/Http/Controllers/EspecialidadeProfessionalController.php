@@ -41,7 +41,7 @@ class EspecialidadeProfessionalController extends Controller
             }
             $especialidadeSession = EspecialidadeSession::first();
 
-            Session::flash('success', 'Especialistacadastrado com sucesso!');
+            Session::flash('success', 'Especialista cadastrado com sucesso!');
 
             DB::commit();
             return redirect()->route('admin.dashboard.especialidadeSession.edit', [
@@ -95,7 +95,7 @@ class EspecialidadeProfessionalController extends Controller
             ]);
         }catch(\Exception $exception){
             DB::rollBack();
-            Session::flash('error', 'Erro ao atualizar o categoria!');
+            Session::flash('error', 'Erro ao atualizar o especialista!');
             return redirect()->back();
         }
     }
@@ -105,7 +105,7 @@ class EspecialidadeProfessionalController extends Controller
         if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remove'])){
             return view('Admin.error.403');
         }
-        
+        Storage::delete($especialidadeProfessional->path_image);
         $especialidadeProfessional->delete();
 
         Session::flash('success','Especialista deletado com sucesso!');

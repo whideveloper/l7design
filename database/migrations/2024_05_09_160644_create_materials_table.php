@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrainingForUsesTable extends Migration
+class CreateMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateTrainingForUsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('training_for_uses', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->text('text')->nullable();
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->deafult(0);
+            $table->integer('sorting')->defaul(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class CreateTrainingForUsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('training_for_uses');
+        Schema::dropIfExists('materials');
     }
 }

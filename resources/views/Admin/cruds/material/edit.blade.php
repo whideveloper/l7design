@@ -11,28 +11,28 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.trainingForUse.index')}}">Treinamento da plataforma</a></li>
-                                    <li class="breadcrumb-item active">Editar Treinamento da plataforma</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.material.index')}}">Material de apoio</a></li>
+                                    <li class="breadcrumb-item active">Editar Material de apoio</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Treinamento da plataforma</h4>
+                            <h4 class="page-title">Editar Material de apoio</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($trainingForUse, ['route' => ['admin.dashboard.trainingForUse.update', $trainingForUse->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
-                    @include('Admin.cruds.trainingForUse.form')
-                    @can('treinamento.editar')
+                {!! Form::model($material, ['route' => ['admin.dashboard.material.update', $material->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
+                    @include('Admin.cruds.material.form')
+                    @can('material.editar')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.trainingForUse.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.material.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
 
                 
-                <div class="row mb-3 col-12">
+                {{-- <div class="row mb-3 col-12">
                     <div class="row col-12 d-flex align-content-center justify-content-between flex-row pe-0 mt-3">
                         <div class="page-title-box col-lg-6">
-                            <h4 class="page-title">Arquivos de treinamento</h4>
+                            <h4 class="page-title">Arquivos de material</h4>
                         </div>
                         @can('especialidade.criar')
                             <div class="pe-0 col-lg-6">                              
@@ -42,7 +42,7 @@
                                     <div class="modal-dialog" style="max-width: 800px;">
                                         <div class="modal-content">
                                             <div class="modal-header p-3 pt-2 pb-2">
-                                                <h4 class="page-title">Arquivo de treinamento</h4>
+                                                <h4 class="page-title">Arquivo de material</h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body p-3 pt-0 pb-3">
@@ -137,7 +137,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

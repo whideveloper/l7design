@@ -17,7 +17,7 @@ class CreateTutorialsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('text')->nullable();
-            $table->boolean('active')->nullable();
+            $table->boolean('active')->default(0);
             $table->string('btn_title')->nullable();
             $table->string('path_file')->nullable();
             $table->softDeletes();

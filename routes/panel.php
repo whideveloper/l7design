@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuditActivityController;
 use App\Models\User;
+use App\Models\Tutorial;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,29 +12,32 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
+use App\Models\EspecialidadeProfessional;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\HowItWorkController;
+use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\StepToStepController;
+use App\Http\Controllers\TelenordesteController;
+use App\Http\Controllers\AuditActivityController;
+use App\Http\Controllers\TrainingForUseController;
+use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
-use App\Http\Controllers\EspecialidadeSessionController;
-use App\Http\Controllers\HospitalController;
-use App\Http\Controllers\HowItWorkController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\ObjectiveController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\ProadiController;
-use App\Http\Controllers\StepToStepController;
-use App\Http\Controllers\TeleinterconsultaController;
-use App\Http\Controllers\TelenordesteController;
-use App\Http\Controllers\TrainingForUseController;
-use App\Http\Controllers\TutorialController;
-use App\Models\EspecialidadeProfessional;
-use App\Models\Tutorial;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProtocolController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -221,6 +224,29 @@ Route::prefix('painel/')->group(function () {
         Route::resource('treinamento', TrainingForUseController::class)
         ->names('admin.dashboard.trainingForUse')
         ->parameters(['treinamento' => 'trainingForUse']); 
+
+        //ARQUIVO DE TREINAMENTO
+        Route::resource('arquivo-de-treinamento', TrainingController::class)
+        ->names('admin.dashboard.training')
+        ->parameters(['arquivo-de-treinamento' => 'training']); 
+        Route::post('arquivo-de-treinamento/delete', [TrainingController::class, 'destroySelected'])
+            ->name('admin.dashboard.training.destroySelected');
+        Route::post('arquivo-de-treinamento/sorting', [TrainingController::class, 'sorting'])
+            ->name('admin.dashboard.training.sorting');
+
+        //TREINAMENTO
+        Route::resource('protocolo', ProtocolController::class)
+        ->names('admin.dashboard.protocol')
+        ->parameters(['protocolo' => 'protocol']); 
+
+        //ARQUIVO DE TREINAMENTO
+        Route::resource('material-de-apoio', MaterialController::class)
+        ->names('admin.dashboard.material')
+        ->parameters(['material-de-apoio' => 'material']); 
+        Route::post('material-de-apoio/delete', [MaterialController::class, 'destroySelected'])
+            ->name('admin.dashboard.material.destroySelected');
+        Route::post('material-de-apoio/sorting', [MaterialController::class, 'sorting'])
+            ->name('admin.dashboard.material.sorting');
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

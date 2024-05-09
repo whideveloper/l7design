@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Training;
 use Illuminate\Http\Request;
 use App\Models\TrainingForUse;
 use Illuminate\Support\Facades\DB;
@@ -55,8 +56,10 @@ class TrainingForUseController extends Controller
         if(!Auth::user()->can(['treinamento.visualizar','treinamento.editar'])){
             return view('Admin.error.403');
         }
+        $trainings = Training::sorting()->get();
         return view('Admin.cruds.trainingForUse.edit', [
-            'trainingForUse' => $trainingForUse
+            'trainingForUse' => $trainingForUse,
+            'trainings' => $trainings
         ]);
     }
 

@@ -18,7 +18,7 @@ class CreateDepoimentsTable extends Migration
             $table->string('name', 191)->nullable();
             $table->string('cargo', 191)->nullable();
             $table->text('text', 255)->nullable();
-            $table->tinyInteger('active')->default(1);
+            $table->tinyInteger('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->softDeletes();
             $table->timestamps();

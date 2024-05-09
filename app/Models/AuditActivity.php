@@ -27,6 +27,9 @@ class AuditActivity extends Model
     public const TUTORIAL = 'Tutorial';
     public const PARCEIROS = 'Parceiros';
     public const TREINAMENTO_PLATAFORMA = 'Treinamento para uso da plataforma';
+    public const ARQUIVOS_TREINAMENTO = 'Arquivos de treinamentos';
+    public const PROTOCOLOS = 'Protocolos';
+    public const MATERIAL = 'Material de apoio';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -66,6 +69,12 @@ class AuditActivity extends Model
                 return self::TUTORIAL;
             case TrainingForUse::class:
                 return self::TREINAMENTO_PLATAFORMA;
+            case TrainingForUse::class:
+                return self::ARQUIVOS_TREINAMENTO;
+            case Protocol::class:
+                return self::PROTOCOLOS;
+            case Material::class:
+                return self::MATERIAL;
             case Role::class:
                 return self::ROLES;
             default:

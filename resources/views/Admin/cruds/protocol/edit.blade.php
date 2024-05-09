@@ -11,21 +11,21 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.proadi.index')}}">Proadi</a></li>
-                                    <li class="breadcrumb-item active">Editar Proadi</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.protocol.index')}}">Protocolo</a></li>
+                                    <li class="breadcrumb-item active">Editar Protocolo</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Proadi</h4>
+                            <h4 class="page-title">Editar Protocolo</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-                {!! Form::model($proadi, ['route' => ['admin.dashboard.proadi.update', $proadi->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
-                    @include('Admin.cruds.proadi.form')
-                    @can('proadi.editar')
+                {!! Form::model($protocol, ['route' => ['admin.dashboard.protocol.update', $protocol->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
+                    @include('Admin.cruds.protocol.form')
+                    @can('protocol.editar')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.proadi.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.protocol.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->
