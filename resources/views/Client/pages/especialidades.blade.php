@@ -1,5 +1,6 @@
 @extends('Client.core.main')
 @section('content')
+@if ($sessaoEspecialidade)
     <section class="especialidades"> 
         <div class="especialidades__content">
             <h3 class="especialidades__title">{{$sessaoEspecialidade->title}}</h3>
@@ -60,94 +61,82 @@
             
         </div>
     </section>
-
+@endif
+@if ($tutorial)
     <section class="tutorial">
         <div class="tutorial__content">
             <div class="tutorial__content__left">
-                <h3 class="tutorial__title">Tutoriais</h3>
+                <h3 class="tutorial__title">{{$tutorial->title}}</h3>
                 <div class="tutorial__text">
                     <p>
-                        O tutorial para uso da plataforma virtual do <strong>TeleNordeste</strong> é um documento simples e intuitivo, que apoiará você em caso de dúvidas para realizar o cadastro de pacientes, agendamentos, acessar consultas, prontuários, relatórios, receitas e <strong>teleconsultorias assíncronas</strong>, entre outras funcionalidades.
-                        <br><br>
-                        Clique no botão abaixo para acessar o documento e, em caso de dúvidas, entre em contato conosco.
+                        {!! $tutorial->text !!}
                     </p>
                 </div>
-                <div class="btn__tutorial">                    
-                    <a href="" class="turoriaL_more"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Ícone de pdf"> Download do tutorial</a>
-                </div>
+                @if ($tutorial->path_file)
+                    <div class="btn__tutorial">                    
+                        <a href="{{asset('storage/' . $tutorial->path_file)}}" download="" class="turoriaL_more"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Ícone de pdf"> {{ $tutorial->btn_title}}</a>
+                    </div>
+                @endif
             </div>
             <div class="tutorial__content__right">
-                <h3 class="tutorial__title right">Treinamento para uso da plataforma de teleatendimento:</h3>
+                <h3 class="tutorial__title right">{{$trainingForUse->title}}</h3>
                 <div class="tutorial__text right">
                     <p>
-                        Em caso de dúvidas, erros ou sugestões na plataforma, nos <strong>contate!</strong>
+                        {!! $trainingForUse->text !!}
                     </p>
                 </div>
                 <ul class="tutorial__list">
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
-                    <li class="tutorial__item">
-                        <a href="http://" class="tutorial__item_link">Botão Link Vídeo ou PDF</a>
-                    </li>
+                    @foreach ($arquivoTreinamentos as $arquivo)
+                        <li class="tutorial__item">
+                            @if ($arquivo->link_youtube || $arquivo->link_vimeo && !$arquivo->path_file)
+                                <a href="{{isset($arquivo->link_youtube) ? $arquivo->link_youtube : $arquivo->link_vimeo}}" target="_blank" class="tutorial__item_link">{{$arquivo->btn_title}}</a>     
+                                @else
+                                <a href="{{asset('storage/' . $arquivo->path_file)}}" download="" class="tutorial__item_link">{{$arquivo->btn_title}}</a>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
     </section>
-
+@endif
+@if (!$sessaoEspecialidade && !$tutorial)
+    <style>
+        .agendamento__content{
+            margin-top: 33px
+        }
+    </style>
+@endif
+@if ($agendamento)
     <section class="agendamento">
         <div class="agendamento__content">
             <div class="agendamento__text">
                 <p>
-                    O <strong>agendamento das teleinterconsultas</strong> pode ser feito através do botão ao lado.
-                    <br><br>    
-                    Consulte a disponibilidade das <strong>teleinterconsultas</strong> conforme a escala dos dias de atendimentos das especialidades, disponível nas abas específicas de cada especialidade.
+                    {!! $agendamento->text !!}
                 </p>
             </div>
             <div class="btn__agendamento">
                 <div class="teleinterconsulta__btn">
-                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
+                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> {{$agendamento->btn_title}}</a>
                 </div>
             </div>
         </div>
     </section>
+@endif
 
     <script>
-    // Função para abrir o modal
-    function openModal() {
-    document.getElementById("modal-especialidade-{{$especialista->id}}").style.display = "block";
-    document.body.classList.add("modal-open"); // Adiciona a classe para impedir a rolagem da página
-    }
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById("modal-especialidade").style.display = "block";
+            document.body.classList.add("modal-open"); // Adiciona a classe para impedir a rolagem da página
+        }
 
-    // Função para fechar o modal
-    function closeModal() {
-    document.getElementById("modal-especialidade-{{$especialista->id}}").style.display = "none";
-    document.body.classList.remove("modal-open"); // Remove a classe para permitir a rolagem da página
-    }
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal-especialidade").style.display = "none";
+            document.body.classList.remove("modal-open"); // Remove a classe para permitir a rolagem da página
+        }
 
     </script>
+  
 @endsection

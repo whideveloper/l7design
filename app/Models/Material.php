@@ -14,6 +14,7 @@ class Material extends Model
     protected $fillable = [
         'title',
         'text',
+        'slug',
         'active',
         'sorting'
     ];
@@ -21,6 +22,7 @@ class Material extends Model
     protected static $logAttributes = [
         'title',
         'text',
+        'slug',
         'active',
         'sorting'
     ];

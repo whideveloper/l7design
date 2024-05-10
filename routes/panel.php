@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendamentoController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -257,6 +258,11 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.materialDocument.sorting');
 
         //AUDITORIA
+        Route::resource('agendamento', AgendamentoController::class)
+            ->names('admin.dashboard.agendamento')
+            ->parameters(['agendamento'=>'agendamento']);
+        
+            //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
             ->parameters(['auditoria'=>'activitie']);

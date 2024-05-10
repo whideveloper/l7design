@@ -1,11 +1,14 @@
 <?php
 
 use App\Models\Partner;
+use App\Models\Material;
+use App\Models\Protocol;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Client\HomePageController;
 use App\Http\Controllers\Client\EspecialidadePageController;
+use App\Http\Controllers\Client\MaterialDeApoioPageController;
 
 require __DIR__ . '/panel.php';
 
@@ -25,9 +28,9 @@ Route::get('/mural-de-comunicacao', function () {
 Route::get('/mural-de-comunicacao-interna', function () {
     return view('Client.pages.mural-de-comunicacao-interna');
 })->name('mural-de-comunicacao-interna');
-Route::get('/material-de-apoio', function () {
-    return view('Client.pages.material-de-apoio');
-})->name('material-de-apoio');
+// Route::get('/material-de-apoio', function () {
+//     return view('Client.pages.material-de-apoio');
+// })->name('material-de-apoio');
 Route::get('/savs', function () {
     return view('Client.pages.savs');
 })->name('savs');
@@ -59,9 +62,13 @@ Route::get('/contact', function () {
 });
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::get('/especialidades', [EspecialidadePageController::class, 'index'])->name('especialidades');
+Route::get('/material-de-apoio', [MaterialDeApoioPageController::class, 'index'])->name('material-de-apoio');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
     $partners = Partner::sorting()->active()->get();
-    return $view->with('partners', $partners);
+    $materialSections = Material::active()->get();
+    $protocolo = Protocol::active()->first();
+    return $view->with('partners', $partners)
+    ->with('protocolo', $protocolo)->with('materialSections', $materialSections);
 });

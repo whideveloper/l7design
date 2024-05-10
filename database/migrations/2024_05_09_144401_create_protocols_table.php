@@ -18,6 +18,7 @@ class CreateProtocolsTable extends Migration
             $table->string('title')->nullable();
             $table->text('text')->nullable();
             $table->boolean('active')->default(0);
+            $table->string('slug', 191)->nullable();
             $table->string('btn_title')->nullable();
             $table->string('path_file')->nullable();
             $table->string('path_image')->nullable();

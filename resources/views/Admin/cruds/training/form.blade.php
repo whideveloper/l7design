@@ -12,10 +12,10 @@
                     {!! Form::text('link_youtube', null, ['class'=>'form-control embedLinkYoutube', 'id'=>'validationCustom02']) !!}
                 </div>
     
-                <div class="mb-3 col-lg-12">
+                {{-- <div class="mb-3 col-lg-12">
                     {!! Form::label(null, 'Link Vímeo', ['class'=>'form-label']) !!}
                     {!! Form::text('link_vimeo', null, ['class'=>'form-control', 'id'=>'linkVimeoEmbed']) !!}
-                </div>                           
+                </div>                            --}}
             </div>
             
             <div class="mb-3 form-check" style="text-align: left">

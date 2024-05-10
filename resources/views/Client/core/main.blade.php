@@ -62,15 +62,16 @@
                         <li class="header__item" id="material-de-apoio-click">
                             <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a>
                             <ul class="submenu" id="submenu-material-de-apoio">
-                                <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#os-protocolos">Protocolos</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#material-de-leitura">Material de leitura</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="{{route('material-de-apoio')}}#material-de-impressao">Material de impressão</a>
-                                </li>
+                                @if ($protocolo)                    
+                                    <li class="submenu__item">
+                                        <a href="{{route('material-de-apoio')}}#{{$protocolo->slug}}">{{$protocolo->title}}</a>
+                                    </li>
+                                @endif
+                                @foreach ($materialSections as $materialSection)                                    
+                                    <li class="submenu__item">
+                                        <a href="{{route('material-de-apoio')}}#{{$materialSection->slug}}">{{$materialSection->title}}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
                         
@@ -124,15 +125,16 @@
                 <li class="header__item" id="material-de-apoio-click">
                     <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}} dropdown-toggle" id="material-de-apoio-dropdown">Material de apoio</a>
                     <ul class="submenu" id="submenu-material-de-apoio-mobile">
-                        <li class="submenu__item">
-                            <a href="{{route('material-de-apoio')}}#os-protocolos">Protocolos</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="{{route('material-de-apoio')}}#material-de-leitura">Material de leitura</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="{{route('material-de-apoio')}}#material-de-impressao">Material de impressão</a>
-                        </li>
+                        @if ($protocolo)                    
+                            <li class="submenu__item">
+                                <a href="{{route('material-de-apoio')}}#{{$protocolo->slug}}">{{$protocolo->title}}</a>
+                            </li>
+                        @endif
+                        @foreach ($materialSections as $materialSection)                                    
+                            <li class="submenu__item">
+                                <a href="{{route('material-de-apoio')}}#{{$materialSection->slug}}">{{$materialSection->title}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>              
                 <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
@@ -210,19 +212,30 @@
     <main id="page">
         @yield('content')
     </main>
-
+    @if ($partners->count() < 1)
+        <style>
+            .footer{
+                height: 140px;
+            } 
+            .footer .footer__logos{
+                height: 100%;
+            }
+        </style>
+    @endif
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <ul class="footer__logos__items owl-carousel">
-                @foreach($partners as $partners)
-                    <li>
-                        @if ($partners->link)
-                            <a href="{{$partners->link}}" target="_blank" class="link-full"></a>
-                        @endif
-                        <img src="{{asset('storage/' . $partners->path_image)}}" alt="{{$partners->title}}" title="{{$partners->title}}">                        
-                    </li>
-                @endforeach
-            </ul>
+            @if ($partners->count())
+                <ul class="footer__logos__items owl-carousel">
+                    @foreach($partners as $partners)
+                        <li>
+                            @if ($partners->link)
+                                <a href="{{$partners->link}}" target="_blank" class="link-full"></a>
+                            @endif
+                            <img src="{{asset('storage/' . $partners->path_image)}}" alt="{{$partners->title}}" title="{{$partners->title}}">                        
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
             <div class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>
                 <div class="footer__contact__items">

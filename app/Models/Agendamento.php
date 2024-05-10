@@ -2,39 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Protocol extends Model
+class Agendamento extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory;
 
     protected $fillable = [
-        'title',
         'text',
-        'active',
         'btn_title',
-        'slug',
-        'path_file',
-        'path_image',
+        'active',
     ];
-
     protected static $logAttributes = [
-        'title',
         'text',
-        'active',
         'btn_title',
-        'slug',
-        'path_file',
-        'path_image',
+        'active',
     ];
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
 
     protected static $logOnlyDirty = true;
 
@@ -48,5 +32,10 @@ class Protocol extends Model
         }
 
         return $properties;
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
     }
 }

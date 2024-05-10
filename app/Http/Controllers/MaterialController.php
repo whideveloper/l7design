@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
-use App\Models\MaterialDocument;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\MaterialDocument;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -35,6 +36,7 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['slug'] = Str::slug($request->title,'-','pt-BR');
         $data['active'] = $request->active?1:0;
         try {
             DB::beginTransaction();
@@ -66,6 +68,7 @@ class MaterialController extends Controller
     public function update(Request $request, Material $material)
     {
         $data = $request->all();
+        $data['slug'] = Str::slug($request->title,'-','pt-BR');
         $data['active'] = $request->active?1:0;
         try {
             DB::beginTransaction();

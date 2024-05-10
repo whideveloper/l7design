@@ -32,6 +32,7 @@ class AuditActivity extends Model
     public const PROTOCOLOS = 'Protocolos';
     public const MATERIAL = 'Material de apoio';
     public const MATERIAL_DOCUMENTO = 'Documento do Material de apoio';
+    public const AGENDAMENTO = 'Agendamento';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -79,6 +80,8 @@ class AuditActivity extends Model
                 return self::MATERIAL;
             case MaterialDocument::class:
                 return self::MATERIAL_DOCUMENTO;
+            case Agendamento::class:
+                return self::AGENDAMENTO;
             case Role::class:
                 return self::ROLES;
             default:

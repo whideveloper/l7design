@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Protocol;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -58,6 +59,7 @@ class ProtocolController extends Controller
             }
 
             $data['active'] = $request->active ? 1 : 0;
+            $data['slug'] = Str::slug($request->title,'-','pt-BR');
 
             $path_image = $helper->renameArchiveUpload($request, 'path_image');
             if ($path_image) {
@@ -117,6 +119,7 @@ class ProtocolController extends Controller
             }
 
             $data['active'] = $request->active ? 1 : 0;
+            $data['slug'] = Str::slug($request->title,'-','pt-BR');
 
             $path_image = $helper->renameArchiveUpload($request, 'path_image');
             if ($path_image) {

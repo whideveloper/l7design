@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialsTable extends Migration
+class CreateAgendamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
             $table->text('text')->nullable();
-            $table->string('slug', 191)->nullable();
-            $table->boolean('active')->default(0);
-            $table->integer('sorting')->default(0);
-            $table->softDeletes();
+            $table->string('btn_title', 191)->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('agendamentos');
     }
 }
