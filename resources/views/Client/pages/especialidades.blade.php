@@ -2,67 +2,62 @@
 @section('content')
     <section class="especialidades"> 
         <div class="especialidades__content">
-            <h3 class="especialidades__title">Especialidades</h3>
+            <h3 class="especialidades__title">{{$sessaoEspecialidade->title}}</h3>
             <div class="especialidades__text">
                 <p>
-                    O projeto TeleNordeste conta com um time de especialistas para apoiá-los com as teleinterconsultas e teleconsultorias. Abaixo você pode conhecê-lo um pouco mais:
+                    {!!$sessaoEspecialidade->text!!}
                 </p>
             </div>
             
             <div class="especialidades__categories">
                 <ul class="especialidades__categories__list">
-                    <li class="especialidades__categories__item"><a href="">Cardiologia</a></li>
-                    <li class="especialidades__categories__item"><a href="">Endocrinologia</a></li>
-                    <li class="especialidades__categories__item"><a href="">Psiquiatria adulto</a></li>
-                    <li class="especialidades__categories__item"><a href="">Psiquiatria infantil</a></li>
-                    <li class="especialidades__categories__item"><a href="">Neurologia adulto</a></li>
-                    <li class="especialidades__categories__item"><a href="">Neurologia pediátrica</a></li>
-                    <li class="especialidades__categories__item"><a href="">Fisiatria</a></li>
-                    <li class="especialidades__categories__item"><a href="">Médico de Família e Comunidade</a></li>
-                    <li class="especialidades__categories__item"><a href="">Nutricionista</a></li>
-                    <li class="especialidades__categories__item"><a href="">Enfermagem</a></li>
+                    @foreach ($categorias as $category)
+                        <li class="especialidades__categories__item"><a href="">{{$category->title}}</a></li>
+                    @endforeach
                 </ul>
             </div>
-            @php
-                $content = [
-                    'title' => 'Lucas Deporon Toldo',
-                    'date' => '',
-                    'funcao' => 'Cardiologista',
-                    'crm' => 'CRM: 0000000',            
-                    'image' => asset('Client/assets/images/doctor-image.png'),
-                    'text' => 'Sexta-feira das 9h00 às 11h00 A partir de 18 anos',
-                    'btnName' => 'Ver perfil completo',
-                ];
-            @endphp
-        
-            @for ($i = 0; $i < 9; $i++)
+            @foreach ($especialistas as $especialista)    
+                @php
+                    $content = [
+                        'title' => $especialista->name,
+                        'date' => '',
+                        'funcao' => $especialista->function,
+                        'crm' => 'CRM:'. $especialista->crm,            
+                        'image' => asset('storage/'. $especialista->path_image),
+                        'text' => $especialista->description,
+                        'btnName' => 'Ver perfil completo',
+                    ];
+                @endphp
                 @include('Client.models.mdl-box', $content)
-            @endfor
-
-            <!-- The Modal -->
-            <div id="modal-especialidade" class="modal-especialidade">
-                <div class="modal-content">
-                    <div class="modal-content-box">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <article class="modal-box">
-                            <div class="modal-box__content">
-                                <div class="modal-box__image">
-                                    <img src="{{asset('Client/assets/images/doctor-image.png')}}" alt="" class="modal-box__left">
-                                </div>
-                                <div class="modal-box__description">
-                                    <div class="modal-box__right">
-                                        <h3 class="modal-box__title">Lucas Deporon Toldo</h3>
-                                        <span class="modal-box__function">Cardiologista</span>
-                                        <span class="modal-box__crm">CRM: 0000000</span>
-                                        <span class="modal-box__text">Sexta-feira das 9h00 às 11h00 A partir de 18 anos</span>
-                                        <p class="modal-box__text__long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium. Praesent velit enim, facilisis quis suscipit vel, gravida fringilla tortor. Proin at mi congue, feugiat magna eget, faucibus enim. Etiam laoreet rhoncus feugiat. Donec et ante ut erat.</p>
+                
+                <!-- The Modal -->
+                <div id="modal-especialidade-{{$especialista->id}}" class="modal-especialidade">
+                    <div class="modal-content">
+                        <div class="modal-content-box">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <article class="modal-box">
+                                <div class="modal-box__content">
+                                    <div class="modal-box__image">
+                                        <img src="{{asset('storage/' . $especialista->path_image)}}" alt="{{$especialista->name}}" title="{{$especialista->name}}" class="modal-box__left">
+                                    </div>
+                                    <div class="modal-box__description">
+                                        <div class="modal-box__right">
+                                            <h3 class="modal-box__title">{{$especialista->name}}</h3>
+                                            <span class="modal-box__function">{{$especialista->function}}</span>
+                                            <span class="modal-box__crm">CRM: {{$especialista->crm}}</span>
+                                            <span class="modal-box__text">{!!$especialista->description!!}</span>
+                                            <div class="modal-box__text__long">
+                                                {!! $especialista->text !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
+            
         </div>
     </section>
 
@@ -144,13 +139,13 @@
     <script>
     // Função para abrir o modal
     function openModal() {
-    document.getElementById("modal-especialidade").style.display = "block";
+    document.getElementById("modal-especialidade-{{$especialista->id}}").style.display = "block";
     document.body.classList.add("modal-open"); // Adiciona a classe para impedir a rolagem da página
     }
 
     // Função para fechar o modal
     function closeModal() {
-    document.getElementById("modal-especialidade").style.display = "none";
+    document.getElementById("modal-especialidade-{{$especialista->id}}").style.display = "none";
     document.body.classList.remove("modal-open"); // Remove a classe para permitir a rolagem da página
     }
 

@@ -28,10 +28,10 @@ class EspecialidadeCategory extends Model
         return $properties;
     }
     public function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('especialidade_categories.sorting', 'ASC');
     }
     public function scopeActive($query){
-        return $query->where('active', 1);
+        return $query->where('especialidade_categories.active', 1);
     }
 
 }

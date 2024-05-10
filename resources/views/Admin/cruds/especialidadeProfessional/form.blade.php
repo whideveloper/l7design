@@ -25,7 +25,7 @@
                 
                 <div class="mb-3 col-lg-12">
                     {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('text', null, [
+                    {!! Form::textarea('description', null, [
                         'class'=>'form-control CkEditorColumn',
                         'id'=>'basic-editor',
                         'data-height' => 200

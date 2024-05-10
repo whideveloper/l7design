@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Client\HomePageController;
+use App\Http\Controllers\Client\EspecialidadePageController;
 
 require __DIR__ . '/panel.php';
 
@@ -15,9 +16,9 @@ Route::get('/', function () {
     return view('Client.pages.home');
 })->name('home');
 
-Route::get('/especialidades', function () {
-    return view('Client.pages.especialidades');
-})->name('especialidades');
+// Route::get('/especialidades', function () {
+//     return view('Client.pages.especialidades');
+// })->name('especialidades');
 Route::get('/mural-de-comunicacao', function () {
     return view('Client.pages.mural-de-comunicacao');
 })->name('mural-de-comunicacao');
@@ -57,6 +58,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('/especialidades', [EspecialidadePageController::class, 'index'])->name('especialidades');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
