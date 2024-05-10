@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Repositories\EspecialidadeRepository;
 use App\Http\Controllers\Controller;
 use App\Models\Agendamento;
 use App\Models\EspecialidadeCategory;
@@ -15,23 +16,7 @@ class EspecialidadePageController extends Controller
 {
     public function index(){
 
-        $categorias = EspecialidadeCategory::join('especialidade_professionals', 'especialidade_categories.id', 'especialidade_professionals.especialidade_category_id')
-        ->sorting()->active()
-        ->select([
-            'especialidade_categories.id', 
-            'especialidade_categories.title',
-            'especialidade_categories.slug',
-            'especialidade_categories.active',
-            ])
-        ->orderBy('especialidade_categories.id',)
-        ->orderBy('especialidade_categories.title')
-        ->orderBy('especialidade_categories.slug')
-        ->orderBy('especialidade_categories.active')
-        ->groupBy('especialidade_categories.id',)
-        ->groupBy('especialidade_categories.title')
-        ->groupBy('especialidade_categories.slug')
-        ->groupBy('especialidade_categories.active')
-        ->get();
+        $categorias = (new EspecialidadeRepository())->getEspecialidadeCategories();
         $sessaoEspecialidade = EspecialidadeSession::active()->first();
         $especialistas = EspecialidadeProfessional::sorting()->active()->get();
         $tutorial = Tutorial::active()->first();
@@ -49,8 +34,13 @@ class EspecialidadePageController extends Controller
             'agendamento' => $agendamento
         ]);
     }
-    
-    public function filter(){
 
+    public function filter(){
+        $categorias = (new EspecialidadeCategory())->getEspecialidadeCategories();
+        $especialistas = EspecialidadeProfessional::sorting()->active();
+
+        return view('Client.pages.especialidades',[
+            
+        ]);
     }
 }
