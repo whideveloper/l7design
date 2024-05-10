@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
+use App\Models\MaterialDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +57,7 @@ class MaterialController extends Controller
         if(!Auth::user()->can(['material.visualizar','material.editar'])){
             return view('Admin.error.403');
         }
-
+        
         return view('Admin.cruds.material.edit', [
             'material' => $material
         ]);

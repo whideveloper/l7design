@@ -2,30 +2,34 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
-class Material extends Model
+class MaterialDocument extends Model
 {
     use HasFactory, SoftDeletes, LogsActivity;
 
     protected $fillable = [
         'title',
-        'text',
+        'description',
         'active',
-        'sorting'
+        'sorting',
+        'path_file',
+        'material_id',
     ];
-
+    
     protected static $logAttributes = [
         'title',
-        'text',
+        'description',
         'active',
-        'sorting'
+        'sorting',
+        'path_file',
+        'material_id',
     ];
-    public function document(){
-        return $this->hasMany(MaterialDocument::class, 'material_id');
+    public function material(){
+        return $this->belongsTo(Material::class, 'material_id');
     }
     public function scopeSorting($query){
         return $query->orderBy('sorting', 'ASC');

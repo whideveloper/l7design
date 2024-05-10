@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\User;
-use App\Models\Tutorial;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +11,6 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
-use App\Models\EspecialidadeProfessional;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProadiController;
@@ -20,6 +18,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProtocolController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\DepoimentController;
@@ -30,14 +30,13 @@ use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\TelenordesteController;
 use App\Http\Controllers\AuditActivityController;
 use App\Http\Controllers\TrainingForUseController;
+use App\Http\Controllers\MaterialDocumentController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
-use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\ProtocolController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -247,6 +246,15 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.material.destroySelected');
         Route::post('material-de-apoio/sorting', [MaterialController::class, 'sorting'])
             ->name('admin.dashboard.material.sorting');
+
+        //DOCOUMENTO DE MATERIAL DE APOIO
+        Route::resource('documento-material-de-apoio', MaterialDocumentController::class)
+        ->names('admin.dashboard.materialDocument')
+        ->parameters(['documento-material-de-apoio' => 'materialDocument']); 
+        Route::post('documento-material-de-apoio/delete', [MaterialDocumentController::class, 'destroySelected'])
+            ->name('admin.dashboard.materialDocument.destroySelected');
+        Route::post('documento-material-de-apoio/sorting', [MaterialDocumentController::class, 'sorting'])
+            ->name('admin.dashboard.materialDocument.sorting');
 
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)

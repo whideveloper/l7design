@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Models\Training;
+use App\Models\Material;
 use Illuminate\Http\Request;
-use App\Models\TrainingForUse;
+use App\Models\MaterialDocument;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
 
-class TrainingController extends Controller
+class MaterialDocumentController extends Controller
 {
-    protected $pathUpload = 'admin/uploads/files/treinamento/';
+    protected $pathUpload = 'admin/uploads/files/doumento-de-material-de-apoio/';
     public function store(Request $request)
     {
         $data = $request->all();
@@ -31,30 +31,27 @@ class TrainingController extends Controller
             if ($path_file) {
                 $request->file('path_file')->storeAs($this->pathUpload, $path_file);
             }
+
             $data['active'] = $request->active ? 1 : 0;
 
             
-            if (!Training::create($data)) {
+            if (!MaterialDocument::create($data)) {
                 Storage::delete($this->pathUpload . $path_file);
                 throw new Exception();
             }
-            $trainingForUse = TrainingForUse::first();
 
-            Session::flash('success', 'Informação cadastrada com sucesso!');
+            Session::flash('success', 'Arquivo cadastrado com sucesso!');
 
             DB::commit();
-            return redirect()->route('admin.dashboard.trainingForUse.edit', [
-                'trainingForUse' => $trainingForUse
-            ]);
+            return redirect()->back();
         }catch(\Exception $exception){
-            dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao cadastrar o Informação!');
+            Session::flash('error', 'Erro ao cadastrar o Arquivo!');
             return redirect()->back();
         }
     }
 
-    public function update(Request $request, Training $training)
+    public function update(Request $request, MaterialDocument $materialDocument)
     {
         $data = $request->all();
         $helper = new HelperArchive();
@@ -68,17 +65,17 @@ class TrainingController extends Controller
             }
             if ($path_file) {
                 $request->file('path_file')->storeAs($this->pathUpload, $path_file);
-                Storage::delete($training->path_file);
+                Storage::delete($materialDocument->path_file);
             }
             if(isset($request->delete_path_file) && !$path_file){
                 $inputFile = $request->delete_path_file;
-                Storage::delete($training->$inputFile);
+                Storage::delete($materialDocument->$inputFile);
                 $data['path_file'] = null;
             }
 
             $data['active'] = $request->active ? 1 : 0;
 
-            $training->fill($data)->save();
+            $materialDocument->fill($data)->save();
 
             if ($path_file) {
                 Storage::delete($this->pathUpload . $path_file);
@@ -86,38 +83,37 @@ class TrainingController extends Controller
             if ($path_file) {
                 $request->file('path_file')->storeAs($this->pathUpload, $path_file);
             }
-            $trainingForUse = TrainingForUse::first();
+            
             DB::commit();
-            Session::flash('success', 'Informação atualizada com sucesso!');
-            return redirect()->route('admin.dashboard.trainingForUse.edit', [
-                'trainingForUse' => $trainingForUse
-            ]);
+            Session::flash('success', 'Arquivo atualizada com sucesso!');
+            return redirect()->back();
         }catch(\Exception $exception){
             DB::rollBack();
-            Session::flash('error', 'Erro ao atualizar Informação!');
+            Session::flash('error', 'Erro ao atualizar Arquivo!');
             return redirect()->back();
         }
     }
 
 
-    public function destroy(Training $training)
+    public function destroy(MaterialDocument $materialDocument)
     {
-        if(!Auth::user()->can(['treinamento.visualizar', 'treinamento.remove'])){
+        if(!Auth::user()->can(['material de apoio.visualizar', 'material de apoio.remove'])){
             return view('Admin.error.403');
         }
-        Storage::delete($training->path_file);
-        $training->delete();
+        Storage::delete($materialDocument->path_file);
+        $materialDocument->delete();
 
-        Session::flash('success','Informação deletada com sucesso!');
+        Session::flash('success','Arquivo deletado com sucesso!');
         return redirect()->back();
     }
+
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['treinamento.visualizar','treinamento.remove'])) {
+        if (!Auth::user()->can(['material de apoio.visualizar','material de apoio.remove'])) {
             return view('Admin.error.403');
         }
 
-        if($deleted = Training::whereIn('id', $request->deleteAll)->delete()){
+        if($deleted = MaterialDocument::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
         }
     }
@@ -125,7 +121,7 @@ class TrainingController extends Controller
     public function sorting(Request $request)
     {
         foreach($request->arrId as $sorting => $id){
-            Training::where('id', $id)->update(['sorting' => $sorting]);
+            MaterialDocument::where('id', $id)->update(['sorting' => $sorting]);
         }
         return Response::json(['status' => 'success']);
     }

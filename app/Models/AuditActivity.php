@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Banner;
+use App\Models\Protocol;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -30,6 +31,7 @@ class AuditActivity extends Model
     public const ARQUIVOS_TREINAMENTO = 'Arquivos de treinamentos';
     public const PROTOCOLOS = 'Protocolos';
     public const MATERIAL = 'Material de apoio';
+    public const MATERIAL_DOCUMENTO = 'Documento do Material de apoio';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -75,6 +77,8 @@ class AuditActivity extends Model
                 return self::PROTOCOLOS;
             case Material::class:
                 return self::MATERIAL;
+            case MaterialDocument::class:
+                return self::MATERIAL_DOCUMENTO;
             case Role::class:
                 return self::ROLES;
             default:
