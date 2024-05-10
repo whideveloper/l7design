@@ -49,4 +49,8 @@ class EspecialidadePageController extends Controller
             'agendamento' => $agendamento
         ]);
     }
+    
+    public function filter(){
+
+    }
 }

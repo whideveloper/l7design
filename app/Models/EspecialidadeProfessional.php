@@ -50,9 +50,9 @@ class EspecialidadeProfessional extends Model
         return $properties;
     }
     public function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('especialidade_professionals.sorting', 'ASC');
     }
     public function scopeActive($query){
-        return $query->where('active', 1);
+        return $query->where('especialidade_professionals.active', 1);
     }
 }

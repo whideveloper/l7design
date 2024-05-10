@@ -5,18 +5,29 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\EspecialidadeSession;
 use Illuminate\Support\Facades\Auth;
+use App\Models\EspecialidadeCategory;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\EspecialidadeProfessional;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\EspecialidadeSession;
 
 class EspecialidadeProfessionalController extends Controller
 {
     protected $pathUpload = 'admin/uploads/images/categoria-especialidade/';
 
+    public function create(){
+        $categoryTitle = [];
+        $categoryEspecialidade = EspecialidadeCategory::active()->get();
+        foreach($categoryEspecialidade as $title){
+            $categoryTitle[$title->id] = $title->title;
+        }
+        return view('Admin.cruds.especialidadeProfessional.create', [
+            'categoryEspecialidade' => $categoryTitle
+        ]);
+    }
     public function store(Request $request)
     {
         $data = $request->all();
@@ -53,6 +64,22 @@ class EspecialidadeProfessionalController extends Controller
             Session::flash('error', 'Erro ao cadastrar o especialista!');
             return redirect()->back();
         }
+    }
+
+    public function edit(Request $request, EspecialidadeProfessional $especialidadeProfessional){
+        $categoryTitle = [];
+        $categoryEspecialidade = EspecialidadeCategory::active()->get();
+        foreach($categoryEspecialidade as $title){
+            $categoryTitle[$title->id] = $title->title;
+        }
+        $especialidadeSession = EspecialidadeSession::first();
+
+        return view('Admin.cruds.especialidadeProfessional.edit', [
+            'especialidadeProfessional' => $especialidadeProfessional,
+            'categoryEspecialidade' => $categoryTitle,
+            'title' => $request->title??null,
+            'especialidadeSession' => $especialidadeSession
+        ]);
     }
 
     public function update(Request $request, EspecialidadeProfessional $especialidadeProfessional)

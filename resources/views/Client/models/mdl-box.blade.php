@@ -15,7 +15,7 @@
                 @if (url()->current() == route('mural-de-comunicacao') || url()->current() == route('mural-de-comunicacao-interna'))
                     <a href="{{$link}}" class="more">{{ $btnName }}</a>
                     @else
-                    <a href="#" class="more" onclick="openModal({{$id}})">{{ $btnName }}</a>
+                    <a class="more" onclick="openModal({{$id}})">{{ $btnName }}</a>
                 @endif
 
             </div>

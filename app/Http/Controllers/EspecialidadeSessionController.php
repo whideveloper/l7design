@@ -65,8 +65,14 @@ class EspecialidadeSessionController extends Controller
         foreach($categoryEspecialidade as $title){
             $categoryTitle[$title->id] = $title->title;
         }
-        $especialidadeProfessionals = EspecialidadeProfessional::sorting()->get();
-
+        $especialidadeProfessionals = EspecialidadeProfessional::join('especialidade_categories', 'especialidade_professionals.especialidade_category_id', 'especialidade_categories.id')
+        ->select(
+            'especialidade_categories.id', 
+            'especialidade_categories.title as categoria',
+            'especialidade_professionals.name',
+            'especialidade_professionals.path_image',
+            'especialidade_professionals.active',
+            )->sorting()->get();
         return view('Admin.cruds.especialidadeSession.edit', [
             'especialidadeSession' => $especialidadeSession,
             'especialidadeProfessionals' => $especialidadeProfessionals,
