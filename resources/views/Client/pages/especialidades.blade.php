@@ -17,15 +17,19 @@
                     @endforeach
                 </ul>
             </div>
-            @foreach ($especialistas as $especialista)    
-                @php
+            @foreach ($especialistas as $especialista)
+                @php  
+                $description = $especialista->description;
+                $descricao = strip_tags($description);   
+
                     $content = [
+                        'id' => $especialista->id,
                         'title' => $especialista->name,
                         'date' => '',
                         'funcao' => $especialista->function,
                         'crm' => 'CRM:'. $especialista->crm,            
                         'image' => asset('storage/'. $especialista->path_image),
-                        'text' => $especialista->description,
+                        'text' => $descricao,
                         'btnName' => 'Ver perfil completo',
                     ];
                 @endphp
@@ -35,7 +39,7 @@
                 <div id="modal-especialidade-{{$especialista->id}}" class="modal-especialidade">
                     <div class="modal-content">
                         <div class="modal-content-box">
-                            <span class="close" onclick="closeModal()">&times;</span>
+                            <span class="close" onclick="closeModal({{$especialista->id}})">&times;</span>
                             <article class="modal-box">
                                 <div class="modal-box__content">
                                     <div class="modal-box__image">
@@ -66,6 +70,13 @@
     <section class="tutorial">
         <div class="tutorial__content">
             <div class="tutorial__content__left">
+                @if (!$trainingForUse && $arquivoTreinamentos->count() < 1)
+                    <style>
+                        .tutorial .tutorial__content .tutorial__content__left{
+                            max-width: 100%;
+                        }
+                    </style>
+                @endif
                 <h3 class="tutorial__title">{{$tutorial->title}}</h3>
                 <div class="tutorial__text">
                     <p>
@@ -78,25 +89,29 @@
                     </div>
                 @endif
             </div>
-            <div class="tutorial__content__right">
-                <h3 class="tutorial__title right">{{$trainingForUse->title}}</h3>
-                <div class="tutorial__text right">
-                    <p>
-                        {!! $trainingForUse->text !!}
-                    </p>
+            @if ($trainingForUse || $arquivoTreinamentos->count() > 0)                    
+                <div class="tutorial__content__right">
+                    @if ($trainingForUse)
+                        <h3 class="tutorial__title right">{{$trainingForUse->title}}</h3>
+                        <div class="tutorial__text right">
+                            <p>
+                                {!! $trainingForUse->text !!}
+                            </p>
+                        </div>
+                    @endif
+                    <ul class="tutorial__list">
+                        @foreach ($arquivoTreinamentos as $arquivo)
+                            <li class="tutorial__item">
+                                @if ($arquivo->link_youtube || $arquivo->link_vimeo && !$arquivo->path_file)
+                                    <a href="{{isset($arquivo->link_youtube) ? $arquivo->link_youtube : $arquivo->link_vimeo}}" target="_blank" class="tutorial__item_link">{{$arquivo->btn_title}}</a>     
+                                    @else
+                                    <a href="{{asset('storage/' . $arquivo->path_file)}}" download="" class="tutorial__item_link">{{$arquivo->btn_title}}</a>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-                <ul class="tutorial__list">
-                    @foreach ($arquivoTreinamentos as $arquivo)
-                        <li class="tutorial__item">
-                            @if ($arquivo->link_youtube || $arquivo->link_vimeo && !$arquivo->path_file)
-                                <a href="{{isset($arquivo->link_youtube) ? $arquivo->link_youtube : $arquivo->link_vimeo}}" target="_blank" class="tutorial__item_link">{{$arquivo->btn_title}}</a>     
-                                @else
-                                <a href="{{asset('storage/' . $arquivo->path_file)}}" download="" class="tutorial__item_link">{{$arquivo->btn_title}}</a>
-                            @endif
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+            @endif
         </div>
     </section>
 @endif
@@ -124,19 +139,29 @@
     </section>
 @endif
 
-    <script>
-        // Função para abrir o modal
-        function openModal() {
-            document.getElementById("modal-especialidade").style.display = "block";
+<script>
+    // Função para abrir o modal
+    function openModal(id) {
+        var modal = document.getElementById("modal-especialidade-" + id);
+        if (modal) {
+            modal.style.display = "block";
             document.body.classList.add("modal-open"); // Adiciona a classe para impedir a rolagem da página
+        } else {
+            console.error("Modal element not found for ID: " + id);
         }
+    }
 
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById("modal-especialidade").style.display = "none";
+    // Função para fechar o modal
+    function closeModal(id) {
+        var modal = document.getElementById("modal-especialidade-" + id);
+        if (modal) {
+            modal.style.display = "none";
             document.body.classList.remove("modal-open"); // Remove a classe para permitir a rolagem da página
+        } else {
+            console.error("Modal element not found for ID: " + id);
         }
+    }
+</script>
 
-    </script>
   
 @endsection
