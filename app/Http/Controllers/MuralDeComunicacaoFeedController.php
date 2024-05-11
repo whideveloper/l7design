@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class MuralDeComunicacaoFeedController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $pathUpload = 'admin/uploads/images/categoria-mural-de-comunicacao/';
     public function index()
     {
         //
