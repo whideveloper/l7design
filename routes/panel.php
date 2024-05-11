@@ -38,6 +38,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
+use App\Http\Controllers\MuralDeApoioController;
+use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -219,6 +221,20 @@ Route::prefix('painel/')->group(function () {
         Route::resource('tutorial', TutorialController::class)
         ->names('admin.dashboard.tutorial')
         ->parameters(['tutorial' => 'tutorial']); 
+        
+        //MURAL DE APOIO
+        Route::resource('mural-de-apoio', MuralDeApoioController::class)
+        ->names('admin.dashboard.muralDeApoio')
+        ->parameters(['mural-de-apoio' => 'muralDeApoio']); 
+
+        //CATEGORIA MURAL DE COMUNICACAO
+        Route::resource('categoria-mural-de-comunicacao', MuralDeComunicacaoCategoryController::class)
+            ->names('admin.dashboard.muralDeComunicacaoCategory')
+            ->parameters(['categoria-mural-de-comunicacao' => 'muralDeComunicacaoCategory']);
+        Route::post('categoria-mural-de-comunicacao/delete', [MuralDeComunicacaoCategoryController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
+        Route::post('categoria-mural-de-comunicacao/sorting', [EspecialidadeCategoryController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
         
         //TREINAMENTO
         Route::resource('treinamento', TrainingForUseController::class)

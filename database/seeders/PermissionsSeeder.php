@@ -126,6 +126,12 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'mural de comunicacao'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'usuario'=>[
                 'Criar',
                 'Editar',

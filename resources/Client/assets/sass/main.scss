@@ -1887,6 +1887,13 @@ input, select {
         justify-content: center;
         width: 73%;
         .especialidades__categories__item{
+            &.active{
+                background-color: var(--laranja);
+                border-color: transparent;
+                a{
+                    color: var(--white)
+                }
+            }
             @include transition-ease;
             color: var(--pantone-3145-c);
             display: flex;
@@ -3302,4 +3309,86 @@ table{
 }
 .header__item{
     position: relative;
+}
+/*Estilo paginate*/
+.pagi{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav[aria-label="Pagination Navigation"]{
+    display: flex;
+    flex-direction: column;
+}
+.hidden div path, .hidden div svg{
+    width: 15px;
+    margin-bottom: -2px;
+}
+nav .flex.justify-between{
+    display: none;
+}
+.hidden div .hidden span, .hidden p{
+    display: none;
+}
+.hidden div a:hover{
+    background: transparent;
+    color: var(--pantone-3145-c);
+    font-weight: 700;
+}
+.hidden div a {
+    background: transparent;
+    margin-right: 12px;
+    padding: 8px 9px 8px 12px;
+    font-family: var(--roboto-font-family);
+    font-size: .87rem;
+    color: var(--header);
+    border-radius: 100%;
+    font-weight: 700;
+}
+.hidden div span span[aria-current="page"]{
+    border-radius: inherit;
+    border: inherit;
+}
+
+.hidden div span span[aria-current="page"] span{
+    background: transparent;
+    border: 2px solid var(--laranja);
+    border-radius: 100%;
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-family: var(--roboto-font-family);
+    font-size: 0.87rem;
+    color: var(--laranja);
+    font-weight: 700;
+}
+a[rel="next"],
+a[rel="prev"] {
+    background: var(--laranja) !important;
+    color: var(--white) !important;
+    padding: 10px !important;
+    @include transition-ease;
+    &:hover{
+        @include transition-ease;
+        transform: scale(1.2);
+    }
+}
+.hidden div span span[aria-disabled="true"] span{
+    background: var(--ccc);
+    border-radius: 100%;
+    margin: 0 5px;
+    padding: 10px 10px 10px 12px;
+    font-family: var(--roboto-font-family);
+    font-size: .87rem;
+    color: var(--white);
+    font-weight: 700;
+}
+.hidden div{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: end;
 }

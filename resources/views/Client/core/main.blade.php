@@ -155,7 +155,7 @@
 
     @if (Route::currentRouteName() !== 'home')    
         @php
-            if (Route::currentRouteName() == 'especialidades') {
+            if (Route::currentRouteName() == 'especialidades' || Route::currentRouteName() == 'especialidades-category') {
                 $content = [
                     'title' => 'Especialidades',
                 ];

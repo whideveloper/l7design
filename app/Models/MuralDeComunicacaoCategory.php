@@ -2,25 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Agendamento extends Model
+class MuralDeComunicacaoCategory extends Model
 {
     use HasFactory, SoftDeletes, LogsActivity;
 
-    protected $fillable = [
-        'text',
-        'btn_title',
-        'active',
-    ];
-    protected static $logAttributes = [
-        'text',
-        'btn_title',
-        'active',
-    ];
+    protected $fillable = ['title', 'slug', 'sorting', 'active'];
+    protected static $logAttributes = ['title', 'slug', 'sorting', 'active'];
 
     protected static $logOnlyDirty = true;
 
@@ -35,9 +27,10 @@ class Agendamento extends Model
 
         return $properties;
     }
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
+    public function scopeSorting($query){
+        return $query->orderBy('mural_de_comunicacao_categories.sorting', 'ASC');
+    }
+    public function scopeActive($query){
+        return $query->where('mural_de_comunicacao_categories.active', 1);
     }
 }

@@ -79,9 +79,9 @@
                                     </td>
                                     <td>
                                         <div class="row d-flex justify-content-center">  
-                                            <a href="{{route('admin.dashboard.especialidadeProfessional.edit',['especialidadeProfessional' => $especialidadeProfessional->id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
+                                            <a href="{{route('admin.dashboard.especialidadeProfessional.edit',['especialidadeProfessional' => $especialidadeProfessional->especialidade_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
 
-                                            <form action="{{route('admin.dashboard.especialidadeProfessional.destroy',['especialidadeProfessional' => $especialidadeProfessional->id])}}" class="col-3" method="POST">
+                                            <form action="{{route('admin.dashboard.especialidadeProfessional.destroy',['especialidadeProfessional' => $especialidadeProfessional->especialidade_id])}}" class="col-3" method="POST">
                                                 @method('DELETE') @csrf
                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                             </form>

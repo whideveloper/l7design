@@ -13,7 +13,9 @@
             <div class="especialidades__categories">
                 <ul class="especialidades__categories__list">
                     @foreach ($categorias as $category)
-                        <li class="especialidades__categories__item"><a href="">{{$category->title}}</a></li>
+                        <li class="especialidades__categories__item {{ request()->category == $category->slug ? 'active' : '' }}">
+                            <a href="{{route('especialidades-category', [$category->slug])}}">{{$category->title}}</a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -33,7 +35,7 @@
                         'btnName' => 'Ver perfil completo',
                     ];
                 @endphp
-                @include('Client.models.mdl-box', $content)
+                @include('Client.models.mdl-box', $content)                
                 
                 <!-- The Modal -->
                 <div id="modal-especialidade-{{$especialista->id}}" class="modal-especialidade">
@@ -62,34 +64,46 @@
                     </div>
                 </div>
             @endforeach
-            
+            {{-- PAGINATION --}}
+            <div class="pagi">
+                {{$especialistas->links()}}
+             </div>
         </div>
     </section>
 @endif
-@if ($tutorial)
+
     <section class="tutorial">
         <div class="tutorial__content">
-            <div class="tutorial__content__left">
-                @if (!$trainingForUse && $arquivoTreinamentos->count() < 1)
+            @if (!$trainingForUse && $arquivoTreinamentos->count() < 1)
+                <style>
+                    .tutorial .tutorial__content .tutorial__content__left{
+                        max-width: 100%;
+                    }
+                </style>
+            @endif
+            @if ($tutorial)
+                <div class="tutorial__content__left">
+                    <h3 class="tutorial__title">{{$tutorial->title}}</h3>
+                    <div class="tutorial__text">
+                        <p>
+                            {!! $tutorial->text !!}
+                        </p>
+                    </div>
+                    @if ($tutorial->path_file)
+                        <div class="btn__tutorial">                    
+                            <a href="{{asset('storage/' . $tutorial->path_file)}}" download="" class="turoriaL_more"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Ícone de pdf"> {{ $tutorial->btn_title}}</a>
+                        </div>
+                    @endif
+                </div>
+            @endif
+            @if ($trainingForUse || $arquivoTreinamentos->count() > 0)   
+                @if (!$tutorial)
                     <style>
-                        .tutorial .tutorial__content .tutorial__content__left{
+                        .tutorial .tutorial__content .tutorial__content__right{
                             max-width: 100%;
                         }
                     </style>
-                @endif
-                <h3 class="tutorial__title">{{$tutorial->title}}</h3>
-                <div class="tutorial__text">
-                    <p>
-                        {!! $tutorial->text !!}
-                    </p>
-                </div>
-                @if ($tutorial->path_file)
-                    <div class="btn__tutorial">                    
-                        <a href="{{asset('storage/' . $tutorial->path_file)}}" download="" class="turoriaL_more"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Ícone de pdf"> {{ $tutorial->btn_title}}</a>
-                    </div>
-                @endif
-            </div>
-            @if ($trainingForUse || $arquivoTreinamentos->count() > 0)                    
+                @endif                 
                 <div class="tutorial__content__right">
                     @if ($trainingForUse)
                         <h3 class="tutorial__title right">{{$trainingForUse->title}}</h3>
@@ -114,7 +128,7 @@
             @endif
         </div>
     </section>
-@endif
+
 @if (!$sessaoEspecialidade && !$tutorial)
     <style>
         .agendamento__content{

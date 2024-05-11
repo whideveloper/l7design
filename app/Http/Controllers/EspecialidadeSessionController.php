@@ -67,12 +67,14 @@ class EspecialidadeSessionController extends Controller
         }
         $especialidadeProfessionals = EspecialidadeProfessional::join('especialidade_categories', 'especialidade_professionals.especialidade_category_id', 'especialidade_categories.id')
         ->select(
-            'especialidade_categories.id', 
+            'especialidade_categories.id as category_id', 
             'especialidade_categories.title as categoria',
             'especialidade_professionals.name',
             'especialidade_professionals.path_image',
             'especialidade_professionals.active',
+            'especialidade_professionals.id as especialidade_id',
             )->sorting()->get();
+            // dd($especialidadeProfessionals);
         return view('Admin.cruds.especialidadeSession.edit', [
             'especialidadeSession' => $especialidadeSession,
             'especialidadeProfessionals' => $especialidadeProfessionals,

@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\EspecialidadeCategory;
+use App\Models\EspecialidadeProfessional;
 
 class EspecialidadeRepository
 {

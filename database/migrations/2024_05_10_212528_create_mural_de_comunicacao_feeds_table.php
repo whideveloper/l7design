@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgendamentosTable extends Migration
+class CreateMuralDeComunicacaoFeedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateAgendamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('agendamentos', function (Blueprint $table) {
+        Schema::create('mural_de_comunicacao_feeds', function (Blueprint $table) {
             $table->id();
-            $table->text('text')->nullable();
-            $table->string('btn_title', 191)->nullable();
-            $table->boolean('active')->default(1);
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateAgendamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agendamentos');
+        Schema::dropIfExists('mural_de_comunicacao_feeds');
     }
 }

@@ -62,6 +62,7 @@ Route::get('/contact', function () {
 });
 Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::get('/especialidades', [EspecialidadePageController::class, 'index'])->name('especialidades');
+Route::get('/especialidades/{category}', [EspecialidadePageController::class, 'index'])->name('especialidades-category');
 Route::get('/material-de-apoio', [MaterialDeApoioPageController::class, 'index'])->name('material-de-apoio');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
