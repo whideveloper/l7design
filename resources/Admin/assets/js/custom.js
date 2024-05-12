@@ -529,3 +529,34 @@ $(document).ready(function () {
     }, 1000);
 });
 
+
+var toolbarOptions = [
+    ['bold', 'italic', 'underline'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }],      // custom button values
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],  // superscript/subscript
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['image'],                                         // botão para inserir imagem
+    ['clean']                                         // remove formatting button
+];
+var quill = new Quill('#snow-editor', {
+    modules: {
+        toolbar: toolbarOptions,
+    },
+    theme: 'snow'
+});
+// Atualize o valor do input escondido sempre que o conteúdo do editor mudar
+quill.on('text-change', function() {
+    document.querySelector('input[name="text"]').value = quill.root.innerHTML;
+});

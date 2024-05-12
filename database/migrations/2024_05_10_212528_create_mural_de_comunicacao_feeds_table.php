@@ -18,7 +18,7 @@ class CreateMuralDeComunicacaoFeedsTable extends Migration
             $table->foreignId('mural_category_id')->constrained('mural_de_comunicacao_categories')->onDelete('cascade');
             $table->string('title', 191)->nullbale();
             $table->text('description', 191)->nullable();
-            $table->text('text')->nullable();
+            $table->longText('text')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
             $table->date('publish_date')->nullable();

@@ -21,8 +21,8 @@
             </div>
             @foreach ($especialistas as $especialista)
                 @php  
-                $description = $especialista->description;
-                $descricao = strip_tags($description);   
+                    $description = $especialista->description;
+                    $descricao = strip_tags($description);   
 
                     $content = [
                         'id' => $especialista->id,

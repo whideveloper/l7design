@@ -4,49 +4,47 @@
     <div class="especialidades__content">
         <div class="especialidades__text">
             <p>
-                Seja bem-vindo ao nosso mural de comunicação!
-                <br><br>
-                Este é o espaço onde compartilhamos as últimas novidades, destaques do projeto, eventos emocionantes, atualizações e avisos importantes.
-                <br><br>
-                Mantenha-se informado sobre tudo o que está acontecendo.
+                {!! $sessaoMuralDeComunicacao->text !!}
             </p>
         </div>
         
         <div class="especialidades__categories">
             <ul class="especialidades__categories__list {{ url()->current() == route('mural-de-comunicacao') ? 'mural-de-comunicacao' : ''  }}">
-                <li class="especialidades__categories__item"><a href="">Notícias e Novidades</a></li>
-                <li class="especialidades__categories__item"><a href="">TeleNordeste em destaque</a></li>
-                <li class="especialidades__categories__item"><a href="">Eventos e Calendários</a></li>
-                <li class="especialidades__categories__item"><a href="">Treinamentos e Capacitações</a></li>
-                <li class="especialidades__categories__item"><a href="">Avisos e alertas</a></li>
+                @foreach ($categorias as $category)
+                    <li class="especialidades__categories__item {{ request()->category == $category->slug ? 'active' : '' }}"><a href="{{route('mural-de-comunicacao-category', [$category->slug])}}">{{$category->title}}</a></li>
+                @endforeach
             </ul>
         </div>
-        
-        @php
-            $imagePath = asset('Client/assets/images/com-1.jpg');
+        @foreach ($muralDeComunicacoes as $mural)
+            @php
+                $imagePath = asset('storage/'. $mural->path_image);
+                $description = $mural->description;
+                $descricao = strip_tags($description);  
+                // Verifica se $mural->publish_date é uma instância de Carbon ou se é nulo
+                $data = $mural->publish_date instanceof Carbon ? $mural->publish_date->format('d/m/Y') : 'Data não disponível';
 
-            $content = [
-                'title' => 'Título lorem ipsum dolorem consectum vertun quantus',
-                'date' => '21/02/2024',
-                'funcao' => '',
-                'crm' => '',            
-                'image' => $imagePath,
-                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
-                'link' => 'mural-de-comunicacao-interna',
-                'btnName' => 'saiba mais',
-            ];
-        @endphp
-    
-        @for ($i = 0; $i < 3; $i++)
+                $content = [
+                    'id' => $mural->id,
+                    'title' => $mural->title,
+                    'date' => $data,
+                    'funcao' => '',
+                    'crm' => '',            
+                    'image' => $imagePath,
+                    'text' => substr(strip_tags($descricao),0,150),
+                    'link' => 'mural-de-comunicacao-interna',
+                    'btnName' => 'saiba mais',
+                ];
+            @endphp    
             @include('Client.models.mdl-box', $content)
-        @endfor
+        @endforeach
+       
         
         <!-- Elemento para mostrar o indicador de carregamento -->
         <div id="carregamento" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div>
     </div>
 </section>
 
-<script>
+{{-- <script>
     // Verifica se a largura da tela é maior ou igual a 530px antes de executar o código JavaScript
     $(window).resize(function() {
         if ($(window).width() <= 530) {
@@ -90,7 +88,7 @@
             });
         }
     }).resize(); // Executa a verificação inicial ao carregar a página
-</script>
+</script> --}}
 
 @endsection
 

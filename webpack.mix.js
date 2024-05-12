@@ -12,7 +12,11 @@ mix.scripts(
         "resources/Admin/assets/js/custom.js",
         "public/Admin/assets/js/custom.js"
     )
-    // plugins
+    .scripts(
+        "resources/Admin/assets/js/quill.min.js",
+        "public/Admin/assets/js/quill.min.js"
+    )
+    // plugins    
     .scripts(
         "node_modules/parsleyjs/dist/parsley.min.js",
         "public/Admin/assets/libs/parsley.min.js"
@@ -117,7 +121,12 @@ mix.scripts(
         "node_modules/cropper/dist/cropper.min.js",
         "public/Admin/assets/libs/cropper.min.js"
     )
+
     // Pages
+    .scripts(
+        "resources/Admin/assets/js/pages/form-quilljs.init.js",
+        "public/Admin/assets/js/pages/form-quilljs.init.js"
+    )
     .scripts(
         "resources/Admin/assets/js/pages/form-validation.init.js",
         "public/Admin/assets/js/pages/form-validation.init.js"
@@ -164,6 +173,7 @@ mix.scripts(
     )
 
     //CSS
+
     .styles(
         "resources/Admin/assets/css/config/bootstrap.min.css",
         "public/Admin/assets/css/config/bootstrap.min.css"
@@ -187,6 +197,18 @@ mix.scripts(
     .styles(
         "resources/Admin/assets/css/custom.css",
         "public/Admin/assets/css/custom.css"
+    )
+    .scripts(
+        "resources/Admin/assets/css/quill.core.css",
+        "public/Admin/assets/css/quill.core.css"
+    )
+    .scripts(
+        "resources/Admin/assets/css/quill.bubble.css",
+        "public/Admin/assets/css/quill.bubble.css"
+    )
+    .scripts(
+        "resources/Admin/assets/css/quill.snow.css",
+        "public/Admin/assets/css/quill.snow.css"
     )
     //Plugins
     .styles(
@@ -240,6 +262,10 @@ mix.scripts(
     .styles(
         "node_modules/quill/dist/quill.snow.css",
         "public/Admin/assets/libs/quill.snow.css"
+    )
+    .styles(
+        "node_modules/quill/dist/quill.bubble.css",
+        "public/Admin/assets/libs/quill.bubble.css"
     )
     .styles(
         "node_modules/dropify/dist/css/dropify.min.css",

@@ -16,14 +16,10 @@ class EspecialidadeRepository
             'especialidade_categories.slug',
             'especialidade_categories.active',
             ])
-        ->orderBy('especialidade_categories.id',)
+        ->orderBy('especialidade_categories.id')
         ->orderBy('especialidade_categories.title')
         ->orderBy('especialidade_categories.slug')
         ->orderBy('especialidade_categories.active')
-        ->groupBy('especialidade_categories.id',)
-        ->groupBy('especialidade_categories.title')
-        ->groupBy('especialidade_categories.slug')
-        ->groupBy('especialidade_categories.active')
         ->get();
     }
 }

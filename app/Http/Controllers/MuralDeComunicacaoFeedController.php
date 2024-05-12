@@ -16,7 +16,7 @@ use App\Models\MuralDeApoio;
 
 class MuralDeComunicacaoFeedController extends Controller
 {
-    protected $pathUpload = 'admin/uploads/images/categoria-mural-de-comunicacao/';
+    protected $pathUpload = 'admin/uploads/images/mural-de-comunicacao/';
     public function index()
     {
         $muralDeComunicacaoFeeds = MuralDeComunicacaoFeed::sorting()->get();
@@ -39,6 +39,7 @@ class MuralDeComunicacaoFeedController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $texto = $request->input('text');
         $helper = new HelperArchive();
 
         try {
@@ -55,7 +56,7 @@ class MuralDeComunicacaoFeedController extends Controller
 
             $muralDeApoio = MuralDeApoio::first();
 
-            if (!MuralDeComunicacaoFeed::create($data)) {
+            if (!MuralDeComunicacaoFeed::create($data, $texto)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
             }
@@ -92,6 +93,7 @@ class MuralDeComunicacaoFeedController extends Controller
     public function update(Request $request, MuralDeComunicacaoFeed $muralDeComunicacaoFeed)
     {
         $data = $request->all();
+        $texto = $request->input('text');
         $helper = new HelperArchive();
 
         try {
@@ -113,7 +115,8 @@ class MuralDeComunicacaoFeedController extends Controller
 
             $data['active'] = $request->active ? 1 : 0;
 
-            $muralDeComunicacaoFeed->fill($data)->save();
+
+            $muralDeComunicacaoFeed->fill($data, $texto)->save();
 
             if ($path_image) {
                 Storage::delete($this->pathUpload . $path_image);
@@ -128,7 +131,6 @@ class MuralDeComunicacaoFeedController extends Controller
                 'muralDeApoio' => $muralDeApoio
             ]);
         }catch(\Exception $exception){
-            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o Mural de comunicação!');
             return redirect()->back();

@@ -38,14 +38,20 @@
                         'data-height' => 200
                     ]) !!}
                 </div>
+
                 <div class="mb-3 col-lg-12">
-                    {!! Form::label('complete-editor', 'Texto', ['class'=>'form-label']) !!}
-                    {!! Form::textarea('text', null, [
-                        'class'=>'form-control CkEditorColumn',
-                        'id'=>'complete-editor',
-                        'data-height' => 200
-                    ]) !!}
-                </div>             
+                    <h4 class="header-title">Texto</h4>
+                    <p class="sub-header">Snow is a clean, flat toolbar theme.</p>
+
+                    <!-- Editor Quill.js -->
+                    <div id="snow-editor" style="height: 300px;">
+                        {!! isset($muralDeComunicacaoFeed) ? $muralDeComunicacaoFeed->text : '' !!}
+                    </div>
+
+                    <!-- Campo escondido para armazenar o conteúdo do editor -->
+                    <input type="hidden" name="text">
+
+                </div> <!-- end card-body-->
             </div>
             <div class="mb-3 form-check" style="text-align: left">
                 {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}
@@ -74,3 +80,6 @@
 
 </div>
 <!-- end row -->
+
+
+

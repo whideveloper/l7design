@@ -9,6 +9,7 @@ use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Client\HomePageController;
 use App\Http\Controllers\Client\EspecialidadePageController;
 use App\Http\Controllers\Client\MaterialDeApoioPageController;
+use App\Http\Controllers\Client\MuralDeComunicacaoPageController;
 
 require __DIR__ . '/panel.php';
 
@@ -22,9 +23,9 @@ Route::get('/', function () {
 // Route::get('/especialidades', function () {
 //     return view('Client.pages.especialidades');
 // })->name('especialidades');
-Route::get('/mural-de-comunicacao', function () {
-    return view('Client.pages.mural-de-comunicacao');
-})->name('mural-de-comunicacao');
+// Route::get('/mural-de-comunicacao', function () {
+//     return view('Client.pages.mural-de-comunicacao');
+// })->name('mural-de-comunicacao');
 Route::get('/mural-de-comunicacao-interna', function () {
     return view('Client.pages.mural-de-comunicacao-interna');
 })->name('mural-de-comunicacao-interna');
@@ -64,6 +65,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::get('/especialidades', [EspecialidadePageController::class, 'index'])->name('especialidades');
 Route::get('/especialidades/{category}', [EspecialidadePageController::class, 'index'])->name('especialidades-category');
 Route::get('/material-de-apoio', [MaterialDeApoioPageController::class, 'index'])->name('material-de-apoio');
+Route::get('/mural-de-comunicacao', [MuralDeComunicacaoPageController::class, 'index'])->name('mural-de-comunicacao');
+Route::get('/mural-de-comunicacao/{category}', [MuralDeComunicacaoPageController::class, 'index'])->name('mural-de-comunicacao-category');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
