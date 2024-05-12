@@ -40,6 +40,7 @@ use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
 use App\Http\Controllers\MuralDeApoioController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
+use App\Http\Controllers\MuralDeComunicacaoFeedController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -235,6 +236,15 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
         Route::post('categoria-mural-de-comunicacao/sorting', [EspecialidadeCategoryController::class, 'sorting'])
             ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
+
+        // MURAL DE COMUNICACAO
+        Route::resource('mural-de-comunicacao', MuralDeComunicacaoCategoryController::class)
+            ->names('admin.dashboard.muralDeComunicacaoCategory')
+            ->parameters(['mural-de-comunicacao' => 'muralDeComunicacaoCategory']);
+        Route::post('mural-de-comunicacao/delete', [MuralDeComunicacaoCategoryController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
+        Route::post('mural-de-comunicacao/sorting', [EspecialidadeCategoryController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
         
         //TREINAMENTO
         Route::resource('treinamento', TrainingForUseController::class)
@@ -265,13 +275,13 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.material.sorting');
 
         //DOCOUMENTO DE MATERIAL DE APOIO
-        Route::resource('documento-material-de-apoio', MaterialDocumentController::class)
-        ->names('admin.dashboard.materialDocument')
-        ->parameters(['documento-material-de-apoio' => 'materialDocument']); 
-        Route::post('documento-material-de-apoio/delete', [MaterialDocumentController::class, 'destroySelected'])
-            ->name('admin.dashboard.materialDocument.destroySelected');
-        Route::post('documento-material-de-apoio/sorting', [MaterialDocumentController::class, 'sorting'])
-            ->name('admin.dashboard.materialDocument.sorting');
+        Route::resource('documento-material-de-apoio', MuralDeComunicacaoFeedController::class)
+        ->names('admin.dashboard.muralDeComunicacaoFeed')
+        ->parameters(['documento-material-de-apoio' => 'muralDeComunicacaoFeed']); 
+        Route::post('documento-material-de-apoio/delete', [MuralDeComunicacaoFeedController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.destroySelected');
+        Route::post('documento-material-de-apoio/sorting', [MuralDeComunicacaoFeedController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.sorting');
 
         //AUDITORIA
         Route::resource('agendamento', AgendamentoController::class)

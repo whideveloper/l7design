@@ -74,7 +74,7 @@ class EspecialidadeSessionController extends Controller
             'especialidade_professionals.active',
             'especialidade_professionals.id as especialidade_id',
             )->sorting()->get();
-            // dd($especialidadeProfessionals);
+
         return view('Admin.cruds.especialidadeSession.edit', [
             'especialidadeSession' => $especialidadeSession,
             'especialidadeProfessionals' => $especialidadeProfessionals,

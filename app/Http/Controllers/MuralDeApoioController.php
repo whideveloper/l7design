@@ -6,7 +6,9 @@ use App\Models\MuralDeApoio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\MuralDeComunicacaoFeed;
 use Illuminate\Support\Facades\Session;
+use App\Models\MuralDeComunicacaoCategory;
 
 class MuralDeApoioController extends Controller
 {
@@ -56,8 +58,23 @@ class MuralDeApoioController extends Controller
         if(!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.editar'])){
             return view('Admin.error.403');
         }
+        $categoryTitle = [];
+        $categoryEspecialidade = MuralDeComunicacaoCategory::active()->get();
+        foreach($categoryEspecialidade as $title){
+            $categoryTitle[$title->id] = $title->title;
+        }
+        $muralDeComunicacaoFeeds = MuralDeComunicacaoFeed::join('mural_de_comunicacao_categories', 'mural_de_comunicacao_feeds.mural_category_id', 'mural_de_comunicacao_categories.id')
+        ->select(
+            'mural_de_comunicacao_categories.id as category_id', 
+            'mural_de_comunicacao_categories.title as categoria',
+            'mural_de_comunicacao_feeds.title',
+            'mural_de_comunicacao_feeds.path_image',
+            'mural_de_comunicacao_feeds.active',
+            'mural_de_comunicacao_feeds.id as mural_de_comunicacao_id',
+            )->sorting()->get();
         return view('Admin.cruds.muralDeApoio.edit', [
-            'muralDeApoio' => $muralDeApoio
+            'muralDeApoio' => $muralDeApoio,
+            'muralDeComunicacaoFeeds' => $muralDeComunicacaoFeeds
         ]);
     }
 
