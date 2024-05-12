@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}">Usuários</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}">Mural de comunicação</a></li>
                                     <li class="breadcrumb-item active">Cadastro de Mural de comunicação</li>
                                 </ol>
                             </div>

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\MuralDeComunicacaoCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\MuralDeApoio;
 
 class MuralDeComunicacaoFeedController extends Controller
 {
@@ -52,7 +53,8 @@ class MuralDeComunicacaoFeedController extends Controller
             }
             $data['active'] = $request->active ? 1 : 0;
 
-            
+            $muralDeApoio = MuralDeApoio::first();
+
             if (!MuralDeComunicacaoFeed::create($data)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
@@ -61,7 +63,9 @@ class MuralDeComunicacaoFeedController extends Controller
             Session::flash('success', 'Mural de comunicação cadastrado com sucesso!');
 
             DB::commit();
-            return redirect()->route('admin.dashboard.muralDeComunicacaoFeed.index');
+            return redirect()->route('admin.dashboard.muralDeApoio.edit', [
+                'muralDeApoio' => $muralDeApoio
+            ]);
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -117,11 +121,14 @@ class MuralDeComunicacaoFeedController extends Controller
             if ($path_image) {
                 $request->file('path_image')->storeAs($this->pathUpload, $path_image);
             }
-
+            $muralDeApoio = MuralDeApoio::first();
             DB::commit();
             Session::flash('success', 'Mural de comunicação atualizada com sucesso!');
-            return redirect()->route('admin.dashboard.especialidadeSession.index');
+            return redirect()->route('admin.dashboard.muralDeApoio.edit', [
+                'muralDeApoio' => $muralDeApoio
+            ]);
         }catch(\Exception $exception){
+            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o Mural de comunicação!');
             return redirect()->back();
@@ -130,7 +137,7 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function destroy(MuralDeComunicacaoFeed $muralDeComunicacaoFeed)
     {
-        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remove'])){
+        if(!Auth::user()->can(['mural de comunicacao.visualizar', 'mural de comunicacao.remove'])){
             return view('Admin.error.403');
         }
         Storage::delete($muralDeComunicacaoFeed->path_image);
@@ -142,7 +149,7 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['especialidade.visualizar','especialidade.remove'])) {
+        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remove'])) {
             return view('Admin.error.403');
         }
 

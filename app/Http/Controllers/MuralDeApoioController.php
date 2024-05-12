@@ -91,7 +91,7 @@ class MuralDeApoioController extends Controller
             return redirect()->route('admin.dashboard.muralDeApoio.edit', [
                 'muralDeApoio' => $muralDeApoio
             ]);
-        } catch (\Exception $exception) {
+        } catch (\Exception $exception) {            
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar Informção!');
             return redirect()->back();

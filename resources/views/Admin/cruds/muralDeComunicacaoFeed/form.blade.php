@@ -3,10 +3,17 @@
     <div class="col-12 col-lg-12">
         <div class="card card-body">
             <div class="row" style="text-align: left">
-                <div class="mb-3 col-lg-12">
+                <div class="mb-3 col-lg-6">
                     {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
                     {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
                 </div> 
+
+                <div class="mb-3 col-lg-6">
+                    {!! Form::label(null, 'Data', ['class'=>'form-label']) !!}
+                    <div class="input__date">
+                        <input type="date" name="publish_date" value="{{isset($muralDeComunicacaoFeed->publish_date)?$muralDeComunicacaoFeed->publish_date:''}}">
+                    </div>
+                </div>
 
                 <div class="mb-3 col-lg-6">
                     {!! Form::label('heard', 'Categoria Clube Benefício', ['class'=>'form-label']) !!}

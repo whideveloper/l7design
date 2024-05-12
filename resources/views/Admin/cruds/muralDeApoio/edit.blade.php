@@ -64,7 +64,7 @@
                                     <td class="bs-checkbox">
                                         <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$muralDeComunicacaoFeed->id}}"></label>
                                     </td>
-                                    <td>{{$muralDeComunicacaoFeed->name}}</td>
+                                    <td>{{$muralDeComunicacaoFeed->title}}</td>
                                     <td>{{$muralDeComunicacaoFeed->categoria}}</td>
                                     <td class="table-user text-center">
                                         @if ($muralDeComunicacaoFeed->path_image)
@@ -79,9 +79,9 @@
                                     </td>
                                     <td>
                                         <div class="row d-flex justify-content-center">  
-                                            <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.edit',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_category_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
+                                            <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.edit',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
 
-                                            <form action="{{route('admin.dashboard.muralDeComunicacaoFeed.destroy',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_category_id])}}" class="col-3" method="POST">
+                                            <form action="{{route('admin.dashboard.muralDeComunicacaoFeed.destroy',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="col-3" method="POST">
                                                 @method('DELETE') @csrf
                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                             </form>
