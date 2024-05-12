@@ -21,6 +21,7 @@ class CreateMuralDeComunicacaoFeedsTable extends Migration
             $table->longText('text')->nullable();
             $table->boolean('active')->default(0);
             $table->integer('sorting')->default(0);
+            $table->string('slug', 191)->nullable();
             $table->date('publish_date')->nullable();
             $table->string('path_image', 191)->nullbale();
             $table->string('btn_title')->nullable();

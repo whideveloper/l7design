@@ -20,8 +20,7 @@
                 $imagePath = asset('storage/'. $mural->path_image);
                 $description = $mural->description;
                 $descricao = strip_tags($description);  
-                // Verifica se $mural->publish_date é uma instância de Carbon ou se é nulo
-                $data = $mural->publish_date instanceof Carbon ? $mural->publish_date->format('d/m/Y') : 'Data não disponível';
+                $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y');                
 
                 $content = [
                     'id' => $mural->id,

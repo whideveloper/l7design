@@ -12,11 +12,12 @@ class MuralDeComunicacaoPageController extends Controller
 {
     public function index($category = null){
         $categorias = (new MuralDeComunicacao())->getMuralDeComunicacaoCategories();
-        $muralDeComunicacoes = MuralDeComunicacaoFeed::sorting()->active();
+        $muralDeComunicacoes = MuralDeComunicacaoFeed::with('category')->sorting()->active();
         $sessaoMuralDeComunicacao = MuralDeApoio::active()->first();
         
         if ($category) {
             $muralDeComunicacoes->join('mural_de_comunicacao_categories', 'mural_de_comunicacao_feeds.mural_category_id', 'mural_de_comunicacao_categories.id')
+            ->select('mural_de_comunicacao_categories.id', 'mural_de_comunicacao_categories.title','mural_de_comunicacao_categories.slug', 'mural_de_comunicacao_categories.active')
             ->where('mural_de_comunicacao_categories.slug', $category);
         }
 

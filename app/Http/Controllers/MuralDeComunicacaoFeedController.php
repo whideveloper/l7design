@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use Illuminate\Support\Str;
+use App\Models\MuralDeApoio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +14,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\MuralDeComunicacaoCategory;
 use App\Http\Controllers\Helpers\HelperArchive;
-use App\Models\MuralDeApoio;
 
 class MuralDeComunicacaoFeedController extends Controller
 {
@@ -52,6 +53,7 @@ class MuralDeComunicacaoFeedController extends Controller
             if ($path_image) {
                 $request->file('path_image')->storeAs($this->pathUpload, $path_image);
             }
+            $data['slug'] = Str::slug($request->title,'-','pt-BR');
             $data['active'] = $request->active ? 1 : 0;
 
             $muralDeApoio = MuralDeApoio::first();
@@ -112,7 +114,7 @@ class MuralDeComunicacaoFeedController extends Controller
                 Storage::delete($muralDeComunicacaoFeed->$inputFile);
                 $data['path_image'] = null;
             }
-
+            $data['slug'] = Str::slug($request->title,'-','pt-BR');
             $data['active'] = $request->active ? 1 : 0;
 
 
