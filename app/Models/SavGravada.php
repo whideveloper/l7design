@@ -7,35 +7,36 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Sav extends Model
+class SavGravada extends Model
 {
     use HasFactory, SoftDeletes, LogsActivity;
 
     protected $fillable = [
         'title',
-        'text',
+        'link',
         'active',
-        'path_file',
         'path_image',
-        'date_sav',
+        'sorting'
     ];
 
     protected static $logAttributes = [
         'title',
-        'text',
+        'link',
         'active',
-        'path_file',
         'path_image',
-        'date_sav',
+        'sorting'
     ];
 
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
+    public function scopeSorting($query)
+    {
+        return $query->orderBy('sorting', 'ASC');
+    }
 
     protected static $logOnlyDirty = true;
-
     public function customProperties()
     {
         $properties = [];

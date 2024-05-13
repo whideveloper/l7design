@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AgendamentoController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -8,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SavController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -28,6 +28,8 @@ use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\StepToStepController;
+use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\MuralDeApoioController;
 use App\Http\Controllers\TelenordesteController;
 use App\Http\Controllers\AuditActivityController;
 use App\Http\Controllers\TrainingForUseController;
@@ -35,12 +37,14 @@ use App\Http\Controllers\MaterialDocumentController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
-use App\Http\Controllers\EspecialidadeProfessionalController;
-use App\Http\Controllers\MuralDeApoioController;
-use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
+use App\Http\Controllers\EspecialidadeProfessionalController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\MuralDeComunicacaoCategoryController;
+use App\Http\Controllers\SavGravadaController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -283,12 +287,31 @@ Route::prefix('painel/')->group(function () {
         Route::post('documento-material-de-apoio/sorting', [MuralDeComunicacaoFeedController::class, 'sorting'])
             ->name('admin.dashboard.muralDeComunicacaoFeed.sorting');
 
-        //AUDITORIA
+        //AGENDAMENTO
         Route::resource('agendamento', AgendamentoController::class)
             ->names('admin.dashboard.agendamento')
             ->parameters(['agendamento'=>'agendamento']);
         
-            //AUDITORIA
+        //SAV
+        Route::resource('sav', SavController::class)
+        ->names('admin.dashboard.sav')
+        ->parameters(['sav' => 'sav']);
+        
+        //SAV GRAVADA
+        Route::resource('sav-gravada', SavGravadaController::class)
+        ->names('admin.dashboard.savGravada')
+        ->parameters(['sav-gravada' => 'savGravada']); 
+        Route::post('sav-gravada/delete', [SavGravadaController::class, 'destroySelected'])
+            ->name('admin.dashboard.savGravada.destroySelected');
+        Route::post('sav-gravada/sorting', [SavGravadaController::class, 'sorting'])
+            ->name('admin.dashboard.savGravada.sorting');
+
+        //LEADS
+        Route::get('leads', [SavPageController::class, 'index'])
+            ->name('admin.dashboard.lead.index');
+        Route::post('lead', [SavPageController::class, 'leadSave'])
+            ->name('admin.dashboard.lead.leadSave');
+        //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
             ->parameters(['auditoria'=>'activitie']);

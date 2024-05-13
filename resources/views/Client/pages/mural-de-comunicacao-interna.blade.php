@@ -34,9 +34,7 @@
 
                                 $content = [
                                     'title' => $relacionados->title,
-                                    'date' => $data,
-                                    'funcao' => '',
-                                    'crm' => '',            
+                                    'date' => $data,          
                                     'image' => $imagePath,
                                     'text' => substr(strip_tags($descricao),0,150),
                                     'link' => route('mural-de-comunicacao-interna', [$relacionados->category_slug, $relacionados->mural_slug]),

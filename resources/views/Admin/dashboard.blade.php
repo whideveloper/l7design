@@ -496,6 +496,29 @@
                                 </a>
                             </div> <!-- end col-->
                         @endcan
+                        @can('sav.visualizar')
+                            <div class="col-md-6 col-xl-4">
+                                <a nofollow href="{{route('admin.dashboard.sav.index')}}">
+                                    <div class="widget-rounded-circle card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
+                                                        <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <h4 class="text-dark mt-1">Sav</h4>
+                                                        <p class="text-muted mb-1">Gerenciar</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div> <!-- end widget-rounded-circle-->
+                                </a>
+                            </div> <!-- end col-->
+                        @endcan
                         @can('formulario de contato.visualizar')
                             <div class="col-md-6 col-xl-4">
                                 <a nofollow href="{{route('admin.dashboard.contact.index')}}">

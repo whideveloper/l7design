@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Sav;
 use App\Models\Banner;
 use App\Models\Protocol;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,8 @@ class AuditActivity extends Model
     public const MATERIAL_DOCUMENTO = 'Documento do Material de apoio';
     public const AGENDAMENTO = 'Agendamento';
     public const MURAL_DE_APOIO = 'Mural de apoio';
+    public const SAV = 'Sav';
+    public const LEAD = 'Leads';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -87,6 +90,10 @@ class AuditActivity extends Model
                 return self::MURAL_DE_APOIO;
             case Role::class:
                 return self::ROLES;
+            case Sav::class:
+                return self::SAV;
+            case Lead::class:
+                return self::LEAD;
             default:
                 return 'Desconhecido';
         }

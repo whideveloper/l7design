@@ -94,23 +94,6 @@
                 </div>
             </div>
         </div>        
-
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-content-form">
-                    <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
-                    <form action="" method="post">                    
-                        <input type="text" name="nome" required placeholder="Nome completo">                     
-                        <input type="text" name="email" required placeholder="E-mail">
-                        
-                        <div class="modal-content-btn">
-                            <button type="submit" class="button"><span>Assistir</span></button>
-                            <button type="button"  class="close-btn"><span>Sair</span></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </header>
     <div id="menu_sidebar" class="sidebar">
         <div class="logo">

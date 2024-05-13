@@ -6,6 +6,7 @@ use App\Models\Protocol;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
+use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\Client\HomePageController;
 use App\Http\Controllers\Client\EspecialidadePageController;
 use App\Http\Controllers\Client\MaterialDeApoioPageController;
@@ -33,9 +34,9 @@ Route::get('/mural-de-comunicacao-interna', function () {
 // Route::get('/material-de-apoio', function () {
 //     return view('Client.pages.material-de-apoio');
 // })->name('material-de-apoio');
-Route::get('/savs', function () {
-    return view('Client.pages.savs');
-})->name('savs');
+// Route::get('/savs', function () {
+//     return view('Client.pages.savs');
+// })->name('savs');
 Route::get('/galeria', function () {
     return view('Client.pages.galeria');
 })->name('galeria');
@@ -70,6 +71,7 @@ Route::get('/mural-de-comunicacao', [MuralDeComunicacaoPageController::class, 'i
 Route::get('/mural-de-comunicacao/{category}', [MuralDeComunicacaoPageController::class, 'index'])->name('mural-de-comunicacao-category');
 Route::get('/mural-de-comunicacao-interna/{slug}/{title}', [MuralDeComunicacaoInternaPageController::class, 'index'])->name('mural-de-comunicacao-interna');
 Route::get('/mural-de-comunicacao-interna/{slug}/relacionados', [MuralDeComunicacaoInternaPageController::class, 'relacionados'])->name('mural-de-comunicacao-interna-relacionados');
+Route::get('/savs', [SavPageController::class, 'index'])->name('savs');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {

@@ -7,35 +7,25 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Sav extends Model
+class Lead extends Model
 {
     use HasFactory, SoftDeletes, LogsActivity;
 
     protected $fillable = [
-        'title',
-        'text',
-        'active',
-        'path_file',
-        'path_image',
-        'date_sav',
+        'video_id',
+        'video_title',
+        'name',
+        'email',
     ];
 
     protected static $logAttributes = [
-        'title',
-        'text',
-        'active',
-        'path_file',
-        'path_image',
-        'date_sav',
+        'video_id',
+        'video_title',
+        'name',
+        'email',
     ];
 
-    public function scopeActive($query)
-    {
-        return $query->where('active', 1);
-    }
-
     protected static $logOnlyDirty = true;
-
     public function customProperties()
     {
         $properties = [];

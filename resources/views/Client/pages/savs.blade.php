@@ -1,82 +1,87 @@
 @extends('Client.core.main')
 @section('content')
-<section class="teleinterconsulta">
-    <div class="teleinterconsulta__content savs">
-        <article class="{{ url()->current() == route('savs') ? 'savs' : ''  }}">
-            <div class="teleinterconsulta__image">
-                <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
+@if ($sav)
+    <section class="teleinterconsulta">
+        <div class="teleinterconsulta__content savs">
+            <article class="{{ url()->current() == route('savs') ? 'savs' : ''  }}">
+                @if ($sav->path_image)
+                    <div class="teleinterconsulta__image">
+                        <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
 
-                <img src="{{asset('Client/assets/images/sav.jpg')}}" class="hover" alt="Material de apoio" title="Material de apoio">
+                        <img src="{{asset('storage/'. $sav->path_image)}}" class="hover" alt="Sav" title="Sav">
 
-                <img src="{{asset('Client/assets/images/rendound-bottom.svg')}}" alt="redound-bottom" class="redound-bottom" title="redound-bottom">
-            </div>
-            <div class="teleinterconsulta__description">
-                <h2 class="teleinterconsulta__title">Sessões de Aprendizado Virtual (SAVs)</h2>
-
-                <p class="teleinterconsulta__text">
-                    As sessões de aprendizagem virtual (SAV) realizadas são aulas preparadas pelos especialistas do projeto com foco em temas relevantes para os profissionais da Atenção Primária. Essas sessões visam a fornecer conhecimento e habilidades práticas para os profissionais de Saúde que trabalham nesse contexto específico.
-                    <br><br>
-                    Durante essas sessões, os especialistas abordam uma variedade de tópicos que podem incluir, por exemplo, diagnóstico e manejo de condições de saúde comuns no dia a dia na Atenção Primária, diretrizes de prática clínica atualizadas, estratégias de prevenção da doença e promoção da saúde, entre outros.
-                    <br><br>
-                    As aulas ficam gravadas, permitindo que os profissionais acessem o conteúdo de forma flexível, adaptando-se aos seus horários e necessidades individuais.
-                    <br><br>
-                    Em resumo, as sessões de aprendizagem virtual do projeto oferecem uma oportunidade valiosa para os profissionais aprimorarem suas habilidades e conhecimentos, contribuindo assim para uma prestação de cuidados de saúde mais eficaz e de qualidade para os pacientes.
-                    <br><br>
-                    Não esqueça de colocar em sua agenda nossas próximas aulas, podendo participar em tempo real, junto ao especialista, tirando dúvidas e discutindo casos do dia a dia. Para conhecer a datas e temas, clique no botão abaixo.
-                </p>
-
-                <div class="row">
-                    <div class="teleinterconsulta__btn sav-gravada">
-                        <a href="" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
+                        <img src="{{asset('Client/assets/images/rendound-bottom.svg')}}" alt="redound-bottom" class="redound-bottom" title="redound-bottom">
                     </div>
-                    <div class="teleinterconsulta__btn proxima-sav">
-                        <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                    @else
+                    <style>
+                        .teleinterconsulta__content.savs .savs .teleinterconsulta__description{
+                            width: 100%;
+                        }
+                    </style>
+                @endif
+                <div class="teleinterconsulta__description">
+                    <h2 class="teleinterconsulta__title">{{$sav->title}}</h2>
+
+                    <p class="teleinterconsulta__text">
+                        {!! $sav->text !!}
+                    </p>
+
+                    <div class="row">
+                        <div class="teleinterconsulta__btn sav-gravada">
+                            <a href="#savs__gravadas" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
+                        </div>
+                        <div class="teleinterconsulta__btn proxima-sav">
+                            <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </article>
-    </div>
-</section>
+            </article>
+        </div>
+    </section>
+@endif
 
-<section class="savs__gravadas">
+<section id="savs__gravadas" class="savs__gravadas">
     <div class="savs__gravadas__content">
         <h2 class="savs__gravadas__title">SAVs gravadas</h2>
         <p class="savs__gravadas__text">Selecione a SAV (sessão de aprendizagem virtual) desejada e clique no link para acessar a gravação. Será necessário o preenchimento de um breve formulário para acessar a aula.</p>
         
         <div class="savs__gravadas__list">
-            <div class="savs__gravadas__item">
-                <a href="#video-lead" id="click-lead" class="link-full"></a>
-                <img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">
-                <div class="image__play">
-                    <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
+            @foreach ($savGravadas as $savGravada)
+                <div class="savs__gravadas__item">
+                    <a id="myModal-{{$savGravada->id}}" class="link-full click-lead"></a>
+                    <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
+                    <div class="image__play">
+                        <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
+                    </div>
+                    <iframe width="100%" height="315" src="{{$savGravada->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>      
+                
+                <div id="myModal-{{$savGravada->id}}-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-content-form">
+                            <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
+                            <form action="{{route('admin.dashboard.lead.leadSave')}}" method="post">   
+                                @csrf 
+                                <input type="hidden" name="link" value="{{$savGravada->link}}">
+                                <input type="hidden" id="videoId" name="video_id" value="{{$savGravada->id}}">
+                                <input type="hidden" id="videoTitle" name="video_title" value="{{$savGravada->title}}">                
+                                <input type="text" name="name" required placeholder="Nome completo">                     
+                                <input type="text" name="email" required placeholder="E-mail">
+                                
+                                <div class="modal-content-btn">
+                                    <button type="submit" class="button"><span>Assistir</span></button>
+                                    <button type="button"  class="close-btn"><span>Sair</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>          
-            
-            <div class="savs__gravadas__item">
-                <img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">
-                <div class="image__play">
-                    <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
-                </div>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>  
-            <div class="savs__gravadas__item">
-                <img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">
-                <div class="image__play">
-                    <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
-                </div>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>  
-            <div class="savs__gravadas__item">
-                <img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">
-                <div class="image__play">
-                    <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
-                </div>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>  
+
+            @endforeach
+
             
             <!-- Elemento para mostrar o indicador de carregamento -->
-            <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div>
+            {{-- <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div> --}}
             
         </div>
         <div class="row">
@@ -89,68 +94,46 @@
 </section>
 
 <script>
-    // Verifica se a largura da tela é menor ou igual a 530px antes de executar o código JavaScript
-    $(window).resize(function() {
-        if ($(window).width() <= 530) {
-            var carregando = false;
-            var artigoAtual = 4; // O próximo artigo a ser carregado
+    // Obtenha todos os links que abrem o modal
+    const modalLinks = document.querySelectorAll('.click-lead');
 
-            $(window).scroll(function() {
-                // Se o usuário rolar até o final do terceiro box e não estiver carregando
-                if ($(window).scrollTop() >= $('.savs__gravadas__item').last().offset().top + $('.savs__gravadas__item').last().outerHeight() - $(window).height() && !carregando) {
-                    carregando = true;
-                    $('#carregamento-savs').show(); // Mostra o indicador de carregamento
-            
-                    // Simula uma requisição assíncrona para carregar o próximo item
-                    setTimeout(function() {
-                        $('.savs__gravadas__list').append(
-                            '<div class="savs__gravadas__item">' +
-                            '<img src="{{asset('Client/assets/images/v1.jpg')}}" class="savs__gravadas__capa" alt="Imagem de capa">' +
-                            '<div class="image__play">' +
-                            '<img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">' +
-                            '</div>' +
-                            '<iframe width="100%" height="315" src="https://www.youtube.com/embed/Smgi8rJOO2E?si=nuM3xexSreI09keX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' +
-                            '</div>'
-                        );
-                        artigoAtual++;
-                        carregando = false;
-                        $('#carregamento-savs').hide(); // Esconde o indicador de carregamento
-                    }, 2000); // Tempo simulado de carregamento
-                }
-            });
-        }
-    }).resize(); // Executa a verificação inicial ao carregar a página
-</script>
+    // Para cada link, adicione um evento de clique
+    modalLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+            const modalId = this.getAttribute('id'); // Obtenha o ID do modal a partir do atributo ID do link
+            const modal = document.getElementById(modalId + '-modal'); // Obtenha o modal com base no ID
 
-<script>
-    //Modal
-    // Obtenha os elementos HTML
-    var modal = document.getElementById("myModal");
-    var clickLead = document.getElementById("click-lead");
-    var closeBtn = document.querySelector(".close-btn");
-
-    // Função para abrir o modal
-    clickLead.addEventListener("click", function(event) {
-        event.preventDefault();
-        modal.style.display = "block";
-        // Desative a rolagem da página principal
-        document.body.style.overflow = "hidden";
+            // Verifique se o modal foi encontrado
+            if (modal) {
+                modal.style.display = "block"; // Exiba o modal
+                document.body.style.overflow = "hidden"; // Desative a rolagem da página principal
+            }
+        });
     });
 
-    // Função para fechar o modal
-    closeBtn.addEventListener("click", function() {
-        modal.style.display = "none";
-        // Reative a rolagem da página principal
-        document.body.style.overflow = "auto";
+    // Obtenha todos os botões de fechar o modal
+    const closeButtons = document.querySelectorAll('.close-btn');
+
+    // Para cada botão de fechar, adicione um evento de clique
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal'); // Obtenha o modal pai do botão de fechar
+            if (modal) {
+                modal.style.display = "none"; // Oculte o modal
+                document.body.style.overflow = "auto"; // Reative a rolagem da página principal
+            }
+        });
     });
 
     // Feche o modal quando clicar fora dele
     window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            // Reative a rolagem da página principal
-            document.body.style.overflow = "auto";
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none"; // Oculte o modal clicado
+            document.body.style.overflow = "auto"; // Reative a rolagem da página principal
         }
     });
 </script>
+
+
 @endsection

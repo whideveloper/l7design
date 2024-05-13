@@ -3,37 +3,38 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Models\Protocol;
-use Illuminate\Support\Str;
+use App\Models\Sav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Helpers\HelperArchive;
+use App\Models\SavGravada;
 
-class ProtocolController extends Controller
+class SavController extends Controller
 {
-    protected $pathUpload = 'admin/uploads/files/protocolo/';
-    protected $pathUploadImage = 'admin/uploads/images/protocolo/';
+    protected $pathUpload = 'admin/uploads/files/sav/';
+    protected $pathUploadImage = 'admin/uploads/images/sav/';
     public function index()
     {
-        if(!Auth::user()->can('protocolo.visualizar')){
+        if(!Auth::user()->can('sav.visualizar')){
             return view('Admin.error.403');
         }
-        $protocol = Protocol::first();
+        $sav = Sav::first();
 
-        return view('Admin.cruds.protocol.index', [
-            'protocol' => $protocol
+        return view('Admin.cruds.sav.index', [
+            'sav' => $sav
         ]);
     }
+
     public function create()
     {
-        if(!Auth::user()->can('protocolo.visualizar')){
+        if(!Auth::user()->can('sav.visualizar')){
             return view('Admin.error.403');
         }
 
-        return view('Admin.cruds.protocol.create');
+        return view('Admin.cruds.sav.create');
     }
 
     public function store(Request $request)
@@ -53,7 +54,6 @@ class ProtocolController extends Controller
             }
 
             $data['active'] = $request->active ? 1 : 0;
-            $data['slug'] = Str::slug($request->title,'-','pt-BR');
 
             $path_image = $helper->renameArchiveUpload($request, 'path_image');
             if ($path_image) {
@@ -63,34 +63,37 @@ class ProtocolController extends Controller
                 $request->file('path_image')->storeAs($this->pathUploadImage, $path_image);
             }
             
-            if (!Protocol::create($data)) {
+            if (!Sav::create($data)) {
                 Storage::delete($this->pathUpload . $path_file);
                 Storage::delete($this->pathUploadImage . $path_image);
                 throw new Exception();
             }
 
-            Session::flash('success', 'Protocolo cadastrada com sucesso!');
+            Session::flash('success', 'Sav cadastrada com sucesso!');
 
             DB::commit();
-            return redirect()->route('admin.dashboard.protocol.index');
+            return redirect()->route('admin.dashboard.sav.index');
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao cadastrar o Protocolo!');
+            Session::flash('error', 'Erro ao cadastrar o Sav!');
             return redirect()->back();
         }
     }
-    public function edit(Protocol $protocol)
+
+    public function edit(Sav $sav)
     {
-        if(!Auth::user()->can(['protocolo.visualizar','protocolo.editar'])){
+        if(!Auth::user()->can(['sav.visualizar','sav.editar'])){
             return view('Admin.error.403');
         }
-        return view('Admin.cruds.protocol.edit', [
-            'protocol' => $protocol
+        $savGravadas = SavGravada::sorting()->get();
+        
+        return view('Admin.cruds.sav.edit', [
+            'sav' => $sav,
+            'savGravadas' => $savGravadas,
         ]);
     }
-
-    public function update(Request $request, Protocol $protocol)
+    public function update(Request $request, Sav $sav)
     {
         $data = $request->all();
         $helper = new HelperArchive();
@@ -104,16 +107,15 @@ class ProtocolController extends Controller
             }
             if ($path_file) {
                 $request->file('path_file')->storeAs($this->pathUpload, $path_file);
-                Storage::delete($protocol->path_file);
+                Storage::delete($sav->path_file);
             }
             if(isset($request->delete_path_file) && !$path_file){
                 $inputFile = $request->delete_path_file;
-                Storage::delete($protocol->$inputFile);
+                Storage::delete($sav->$inputFile);
                 $data['path_file'] = null;
             }
 
             $data['active'] = $request->active ? 1 : 0;
-            $data['slug'] = Str::slug($request->title,'-','pt-BR');
 
             $path_image = $helper->renameArchiveUpload($request, 'path_image');
             if ($path_image) {
@@ -121,15 +123,15 @@ class ProtocolController extends Controller
             }
             if ($path_image) {
                 $request->file('path_image')->storeAs($this->pathUploadImage, $path_image);
-                Storage::delete($protocol->path_image);
+                Storage::delete($sav->path_image);
             }
             if(isset($request->delete_path_image) && !$path_image){
                 $inputFile = $request->delete_path_image;
-                Storage::delete($protocol->$inputFile);
+                Storage::delete($sav->$inputFile);
                 $data['path_image'] = null;
             }
 
-            $protocol->fill($data)->save();
+            $sav->fill($data)->save();
 
             if ($path_file) {
                 Storage::delete($this->pathUpload . $path_file);
@@ -145,27 +147,26 @@ class ProtocolController extends Controller
             }
 
             DB::commit();
-            Session::flash('success', 'Protocolo atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.protocol.index');
+            Session::flash('success', 'Sav atualizado com sucesso!');
+            return redirect()->route('admin.dashboard.sav.index');
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
-            Session::flash('error', 'Erro ao atualizar Protocolo!');
+            Session::flash('error', 'Erro ao atualizar Sav!');
             return redirect()->back();
         }
     }
 
-
-    public function destroy(Protocol $protocol)
+    public function destroy(Sav $sav)
     {
-        if(!Auth::user()->can(['protocolo.visualizar', 'protocolo.remove'])){
+        if(!Auth::user()->can(['sav.visualizar', 'sav.remove'])){
             return view('Admin.error.403');
         }
-        Storage::delete($protocol->path_file);
-        Storage::delete($protocol->path_image);
-        $protocol->delete();
+        Storage::delete($sav->path_file);
+        Storage::delete($sav->path_image);
+        $sav->delete();
 
-        Session::flash('success','Protocolo deletada com sucesso!');
+        Session::flash('success','Sav deletada com sucesso!');
         return redirect()->back();
     }
 }
