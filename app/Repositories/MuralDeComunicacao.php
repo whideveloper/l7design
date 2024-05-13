@@ -19,6 +19,10 @@ class MuralDeComunicacao
         ->orderBy('mural_de_comunicacao_categories.title')
         ->orderBy('mural_de_comunicacao_categories.slug')
         ->orderBy('mural_de_comunicacao_categories.active')
+        ->groupBy('mural_de_comunicacao_categories.id',)
+        ->groupBy('mural_de_comunicacao_categories.title')
+        ->groupBy('mural_de_comunicacao_categories.slug')
+        ->groupBy('mural_de_comunicacao_categories.active')
         ->get();
     }
 }
