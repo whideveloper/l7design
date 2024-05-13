@@ -1753,6 +1753,7 @@ input, select {
                 text-align: center;
             }
             .mdl-box__date{
+                margin-bottom: 15px;
                 color: var(--ccc);
                 font-size: 1.063rem;
                 font-family: var(--roboto-font-family);
@@ -3391,4 +3392,11 @@ a[rel="prev"] {
     margin-top: 20px;
     align-items: center;
     justify-content: end;
+}
+.content-body{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }

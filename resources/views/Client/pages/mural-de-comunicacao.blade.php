@@ -19,29 +19,33 @@
                 </ul>
             </div>
         @endif
-
+        
         @if ($muralDeComunicacoes->count() > 0)
-            @foreach ($muralDeComunicacoes as $mural)
-                @php
-                    $imagePath = asset('storage/'. $mural->path_image);
-                    $description = $mural->description;
-                    $descricao = strip_tags($description);  
-                    $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y');                
+            <div class="content-body">
+                @foreach ($muralDeComunicacoes as $mural)
+                    @php
+                        $imagePath = asset('storage/'. $mural->path_image);
+                        $description = $mural->description;
+                        $descricao = strip_tags($description);  
+                        $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y');                
 
-                    $content = [
-                        'id' => $mural->id,
-                        'title' => $mural->title,
-                        'date' => $data,
-                        'funcao' => '',
-                        'crm' => '',            
-                        'image' => $imagePath,
-                        'text' => substr(strip_tags($descricao),0,150),
-                        'link' => "{{route('mural-de-comunicacao-interna')}}",
-                        'btnName' => 'saiba mais',
-                    ];
-                @endphp    
-                @include('Client.models.mdl-box', $content)
-            @endforeach
+                        $content = [
+                            'id' => $mural->id,
+                            'title' => $mural->title,
+                            'date' => $data,         
+                            'image' => $imagePath,
+                            'text' => substr(strip_tags($descricao),0,150),
+                            'link' => route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
+                            'btnName' => isset($mural->btn_title)?$mural->btn_title:'saiba mais',
+                        ];
+                    @endphp    
+                    @include('Client.models.mdl-box-interna', $content)
+                @endforeach
+            </div>
+            {{-- PAGINATION --}}
+            <div class="pagi">
+                {{$muralDeComunicacoes->links()}}
+             </div>
         @endif
        
         

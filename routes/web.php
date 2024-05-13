@@ -68,7 +68,8 @@ Route::get('/especialidades/{category}', [EspecialidadePageController::class, 'i
 Route::get('/material-de-apoio', [MaterialDeApoioPageController::class, 'index'])->name('material-de-apoio');
 Route::get('/mural-de-comunicacao', [MuralDeComunicacaoPageController::class, 'index'])->name('mural-de-comunicacao');
 Route::get('/mural-de-comunicacao/{category}', [MuralDeComunicacaoPageController::class, 'index'])->name('mural-de-comunicacao-category');
-Route::get('/mural-de-comunicacao-interna/{category}/{feed}', [MuralDeComunicacaoInternaPageController::class, 'index'])->name('mural-de-comunicacao-interna');
+Route::get('/mural-de-comunicacao-interna/{slug}/{title}', [MuralDeComunicacaoInternaPageController::class, 'index'])->name('mural-de-comunicacao-interna');
+Route::get('/mural-de-comunicacao-interna/{slug}/relacionados', [MuralDeComunicacaoInternaPageController::class, 'relacionados'])->name('mural-de-comunicacao-interna-relacionados');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {

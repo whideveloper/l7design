@@ -243,6 +243,9 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .content-body{
+        justify-content: center;
+    }
     .events-list__title{
         font-size: 1.25rem !important;
     }

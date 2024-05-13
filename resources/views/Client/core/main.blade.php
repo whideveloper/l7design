@@ -156,57 +156,57 @@
     @if (Route::currentRouteName() !== 'home')    
         @php
             if (Route::currentRouteName() == 'especialidades' || Route::currentRouteName() == 'especialidades-category') {
-                $content = [
+                $contentTitle = [
                     'title' => 'Especialidades',
                 ];
             }
             if(Route::currentRouteName() == 'contato'){
-                $content = [
+                $contentTitle = [
                     'title' => 'Contato',
                 ];
             }
-            if(Route::currentRouteName() == 'mural-de-comunicacao' || Route::currentRouteName() == 'mural-de-comunicacao-interna'){
-                $content = [
+            if(Route::currentRouteName() == 'mural-de-comunicacao' || Route::currentRouteName() == 'mural-de-comunicacao-category' ||Route::currentRouteName() == 'mural-de-comunicacao-interna'){
+                $contentTitle = [
                     'title' => 'Mural de comunicação',
                 ];
             }
             if(Route::currentRouteName() == 'material-de-apoio'){
-                $content = [
+                $contentTitle = [
                     'title' => 'Material de apoio',
                 ];
             }
             if(Route::currentRouteName() == 'savs'){
-                $content = [
+                $contentTitle = [
                     'title' => "SAV's",
                 ];
             }
             if(Route::currentRouteName() == 'galeria'){
-                $content = [
+                $contentTitle = [
                     'title' => "Galeria",
                 ];
             }
             if(Route::currentRouteName() == 'galeria-interna'){
-                $content = [
+                $contentTitle = [
                     'title' => "Evento",
                 ];
             }
             if(Route::currentRouteName() == 'desempenho'){
-                $content = [
+                $contentTitle = [
                     'title' => "Desempenho",
                 ];
             }
             if(Route::currentRouteName() == 'contato'){
-                $content = [
+                $contentTitle = [
                     'title' => "Contato e sugestões",
                 ];
             }
             if(Route::currentRouteName() == 'calendario'){
-                $content = [
+                $contentTitle = [
                     'title' => "Agenda",
                 ];
             }
         @endphp
-        @include('Client.models.banner-interno', $content)
+        @include('Client.models.banner-interno', $contentTitle)
     @endif
 
     <main id="page">

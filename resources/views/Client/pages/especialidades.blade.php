@@ -27,7 +27,6 @@
                     $content = [
                         'id' => $especialista->id,
                         'title' => $especialista->name,
-                        'date' => '',
                         'funcao' => $especialista->function,
                         'crm' => 'CRM:'. $especialista->crm,            
                         'image' => asset('storage/'. $especialista->path_image),
