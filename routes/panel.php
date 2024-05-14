@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SavController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
@@ -27,24 +28,26 @@ use App\Http\Controllers\DepoimentController;
 use App\Http\Controllers\HowItWorkController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\GoogleFormController;
+use App\Http\Controllers\SavGravadaController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\MuralDeApoioController;
 use App\Http\Controllers\TelenordesteController;
 use App\Http\Controllers\AuditActivityController;
+use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\TrainingForUseController;
 use App\Http\Controllers\MaterialDocumentController;
 use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Client\SavPageController;
+use App\Http\Controllers\ContactTelenordesteController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
-use App\Http\Controllers\LeadController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
-use App\Http\Controllers\SavGravadaController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -307,11 +310,39 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.savGravada.sorting');
 
         //LEADS
-        Route::get('leads', [SavPageController::class, 'index'])
-            ->name('admin.dashboard.lead.index');
+        Route::resource('leads', LeadController::class)
+        ->names('admin.dashboard.lead')
+        ->parameters(['leads' => 'lead']);
+        Route::post('leads/delete', [LeadController::class, 'destroySelected'])
+            ->name('admin.dashboard.lead.destroySelected');
+        Route::get('lead-search', [LeadController::class, 'index'])
+            ->name('admin.dashboard.lead.lead-search');
         Route::post('lead', [SavPageController::class, 'leadSave'])
             ->name('admin.dashboard.lead.leadSave');
-        //AUDITORIA
+
+        //GRUPOS
+        Route::resource('contato-telenordeste', ContactTelenordesteController::class)
+        ->names('admin.dashboard.contactTelenordeste')
+        ->parameters(['contato-telenordeste' => 'contactTelenordeste']);
+        Route::post('contato-telenordeste/delete', [ContactTelenordesteController::class, 'destroySelected'])
+            ->name('admin.dashboard.contactTelenordeste.destroySelected');
+        Route::post('contato-telenordeste/sorting', [ContactTelenordesteController::class, 'sorting'])
+            ->name('admin.dashboard.contactTelenordeste.sorting');
+        //GALRIA
+        Route::resource('galeria', GalleryController::class)
+        ->names('admin.dashboard.gallery')
+        ->parameters(['galeria' => 'gallery']);
+        Route::post('galeria/delete', [GalleryController::class, 'destroySelected'])
+            ->name('admin.dashboard.gallery.destroySelected');
+        Route::post('galeria/sorting', [GalleryController::class, 'sorting'])
+            ->name('admin.dashboard.gallery.sorting');
+
+        //SESSAO FORMULARIO
+        Route::resource('sessao-formulario', GoogleFormController::class)
+            ->names('admin.dashboard.googleForm')
+            ->parameters(['sessao-formulario'=>'googleForm']);
+        
+            //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
             ->parameters(['auditoria'=>'activitie']);

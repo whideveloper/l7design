@@ -28,6 +28,7 @@ class SavPageController extends Controller
         $video_title = $request->video_title;
         $video_id = $request->video_id;
 
+        // dd($video_title, $video_id);
         $lead = Lead::create([
             'name' => $name,
             'email' => $email,

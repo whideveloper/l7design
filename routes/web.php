@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\ContactTelenordestePageController;
 use App\Models\Partner;
 use App\Models\Material;
 use App\Models\Protocol;
@@ -28,9 +29,9 @@ Route::get('/', function () {
 // Route::get('/mural-de-comunicacao', function () {
 //     return view('Client.pages.mural-de-comunicacao');
 // })->name('mural-de-comunicacao');
-Route::get('/mural-de-comunicacao-interna', function () {
-    return view('Client.pages.mural-de-comunicacao-interna');
-})->name('mural-de-comunicacao-interna');
+// Route::get('/mural-de-comunicacao-interna', function () {
+//     return view('Client.pages.mural-de-comunicacao-interna');
+// })->name('mural-de-comunicacao-interna');
 // Route::get('/material-de-apoio', function () {
 //     return view('Client.pages.material-de-apoio');
 // })->name('material-de-apoio');
@@ -49,9 +50,9 @@ Route::get('/desempenho', function () {
 // Route::get('/', function () {
 //     return view('Client.pages.home');
 // });
-Route::get('/contato', function () {
-    return view('Client.pages.contato');
-})->name('contato');
+// Route::get('/contato', function () {
+//     return view('Client.pages.contato');
+// })->name('contato');
 Route::get('/calendario', function () {
     return view('Client.pages.calendario');
 })->name('calendario');
@@ -72,6 +73,7 @@ Route::get('/mural-de-comunicacao/{category}', [MuralDeComunicacaoPageController
 Route::get('/mural-de-comunicacao-interna/{slug}/{title}', [MuralDeComunicacaoInternaPageController::class, 'index'])->name('mural-de-comunicacao-interna');
 Route::get('/mural-de-comunicacao-interna/{slug}/relacionados', [MuralDeComunicacaoInternaPageController::class, 'relacionados'])->name('mural-de-comunicacao-interna-relacionados');
 Route::get('/savs', [SavPageController::class, 'index'])->name('savs');
+Route::get('/contato', [ContactTelenordestePageController::class, 'index'])->name('contato');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {

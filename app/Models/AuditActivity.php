@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Models\Sav;
 use App\Models\Banner;
+use App\Models\Gallery;
 use App\Models\Protocol;
+use App\Models\ContactTelenordeste;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -37,6 +39,9 @@ class AuditActivity extends Model
     public const MURAL_DE_APOIO = 'Mural de apoio';
     public const SAV = 'Sav';
     public const LEAD = 'Leads';
+    public const CONTACT_TELENORDESTE = 'Contatos Telenordeste';
+    public const CONTACT_FORM = 'Sessão do formulário';
+    public const GALERIA = 'Galeria';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -92,8 +97,14 @@ class AuditActivity extends Model
                 return self::ROLES;
             case Sav::class:
                 return self::SAV;
+            case ContactTelenordeste::class:
+                return self::CONTACT_TELENORDESTE;
             case Lead::class:
                 return self::LEAD;
+            case GoogleForm::class:
+                return self::CONTACT_FORM;
+            case Gallery::class:
+                return self::GALERIA;
             default:
                 return 'Desconhecido';
         }

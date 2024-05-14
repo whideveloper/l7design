@@ -4,28 +4,38 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Lead extends Model
+class Gallery extends Model
 {
-    use HasFactory, LogsActivity;
+    use HasFactory, SoftDeletes, LogsActivity;
 
     protected $fillable = [
-        'video_id',
-        'video_title',
-        'name',
-        'email',
+        'title',
+        'text',
+        'active',
+        'slug',
+        'sorting',
+        'path_image',
     ];
-
     protected static $logAttributes = [
-        'video_id',
-        'video_title',
-        'name',
-        'email',
+        'title',
+        'text',
+        'active',
+        'slug',
+        'sorting',
+        'path_image',
     ];
+    public function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
+    public function scopeActive($query){
+        return $query->where('active', 1);
+    }
 
     protected static $logOnlyDirty = true;
+
     public function customProperties()
     {
         $properties = [];

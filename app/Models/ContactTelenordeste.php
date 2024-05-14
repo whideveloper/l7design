@@ -4,28 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Lead extends Model
+class ContactTelenordeste extends Model
 {
     use HasFactory, LogsActivity;
 
     protected $fillable = [
-        'video_id',
-        'video_title',
         'name',
         'email',
+        'active',
+        'sorting',
+        'path_image'
     ];
-
     protected static $logAttributes = [
-        'video_id',
-        'video_title',
         'name',
         'email',
+        'active',
+        'sorting',
+        'path_image'
     ];
+    public function scopeSorting($query){
+        return $query->orderBy('sorting', 'ASC');
+    }
+    public function scopeActive($query){
+        return $query->where('active', 1);
+    }
 
     protected static $logOnlyDirty = true;
+
     public function customProperties()
     {
         $properties = [];

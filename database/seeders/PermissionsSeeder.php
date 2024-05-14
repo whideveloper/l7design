@@ -138,6 +138,30 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'lead'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'contato'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'google form'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
+            'galeria'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'usuario'=>[
                 'Criar',
                 'Editar',

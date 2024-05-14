@@ -16,7 +16,7 @@ use App\Http\Controllers\Helpers\HelperArchive;
 
 class EspecialidadeProfessionalController extends Controller
 {
-    protected $pathUpload = 'admin/uploads/images/categoria-especialidade/';
+    protected $pathUpload = 'admin/uploads/images/especialista/';
 
     public function create(){
         $categoryTitle = [];
@@ -45,7 +45,6 @@ class EspecialidadeProfessionalController extends Controller
             }
             $data['active'] = $request->active ? 1 : 0;
 
-            
             if (!EspecialidadeProfessional::create($data)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
