@@ -21,13 +21,13 @@
         @stack('createEditCss')
         @stack('indexCss')
         @stack('dashboardCss')
-<!-- Plugins css -->
-        {{-- <link href="{{url(mix('Admin/assets/css/quill.core.css'))}}" rel="stylesheet" type="text/css" />
-        <link href="{{url(mix('Admin/assets/css/quill.bubble.css'))}}" rel="stylesheet" type="text/css" />
-        <link href="{{url(mix('Admin/assets/css/quill.snow.css'))}}" rel="stylesheet" type="text/css" /> --}}
+    <!-- Plugins css -->
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
+        {{-- <link href="{{url(mix('Admin/assets/libs/dropzone.min.css'))}}" rel="stylesheet" type="text/css" /> --}}
 
+        {{-- <link href="{{url(mix('Admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" /> --}}
         <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
         <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
@@ -262,14 +262,16 @@
         <!-- Plugins js -->
         <script src="{{url(mix('Admin/assets/js/quill.min.js'))}}"></script>
         <!-- App js -->
-        <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/fancybox.js'))}}"></script>
+        {{-- <script src="{{url(mix('Admin/assets/libs/dropzone.min.js'))}}"></script> --}}
+        
+        {{-- <script src="{{url(mix('Admin/assets/libs/dropify.min.js'))}}"></script> --}}
         <script src="{{url(mix('Admin/assets/libs/tippy.all.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/jquery.sortable.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/jquery.toast.min.js'))}}"></script>
-        <!-- Init js-->
+        <script src="{{url(mix('Admin/assets/js/pages/form-fileuploads.init.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/js/pages/toastr.init.js'))}}"></script>
-        {{-- <script src="{{url(mix('Admin/assets/js/pages/form-quilljs.init.js'))}}"></script> --}}
+        <script src="{{url(mix('Admin/assets/js/app.min.js'))}}"></script>
         <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
         @stack('createEditJs')

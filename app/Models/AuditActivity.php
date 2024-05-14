@@ -6,6 +6,7 @@ use App\Models\Sav;
 use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Protocol;
+use App\Models\GalleryImage;
 use App\Models\ContactTelenordeste;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,6 +43,7 @@ class AuditActivity extends Model
     public const CONTACT_TELENORDESTE = 'Contatos Telenordeste';
     public const CONTACT_FORM = 'Sessão do formulário';
     public const GALERIA = 'Galeria';
+    public const GALERIA_IMAGE = 'imagens da Galeria';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -105,6 +107,8 @@ class AuditActivity extends Model
                 return self::CONTACT_FORM;
             case Gallery::class:
                 return self::GALERIA;
+            case GalleryImage::class:
+                return self::GALERIA_IMAGE;
             default:
                 return 'Desconhecido';
         }

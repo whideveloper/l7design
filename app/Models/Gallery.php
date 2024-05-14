@@ -27,6 +27,10 @@ class Gallery extends Model
         'sorting',
         'path_image',
     ];
+    public function galleryImage()
+    {
+        return $this->hasMany(GalleryImage::class, 'gallery_id');
+    }
     public function scopeSorting($query){
         return $query->orderBy('sorting', 'ASC');
     }

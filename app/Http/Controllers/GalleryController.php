@@ -77,6 +77,7 @@ class GalleryController extends Controller
         if (!Auth::user()->can(['galeria.visualizar','galeria.editar'])) {
             return view('Admin.error.403');
         }
+
         return view('Admin.cruds.gallery.edit', [
             'gallery' => $gallery
         ]);

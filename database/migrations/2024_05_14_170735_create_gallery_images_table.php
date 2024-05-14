@@ -15,6 +15,10 @@ class CreateGalleryImagesTable extends Migration
     {
         Schema::create('gallery_images', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('gallery_id')->constrained('galleries')->onDelete('cascade');
+            $table->string('path_image', 191)->nullable();
+            $table->integer('sorting')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

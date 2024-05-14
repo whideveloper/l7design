@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,6 +18,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\LocationController;
@@ -32,6 +34,7 @@ use App\Http\Controllers\GoogleFormController;
 use App\Http\Controllers\SavGravadaController;
 use App\Http\Controllers\StepToStepController;
 use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\GalleryImageController;
 use App\Http\Controllers\MuralDeApoioController;
 use App\Http\Controllers\TelenordesteController;
 use App\Http\Controllers\AuditActivityController;
@@ -46,7 +49,6 @@ use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
-use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 
 Route::get('painel/', function () {
@@ -336,13 +338,21 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.gallery.destroySelected');
         Route::post('galeria/sorting', [GalleryController::class, 'sorting'])
             ->name('admin.dashboard.gallery.sorting');
+        //GALRIA IMAGEM
+        Route::resource('imagem-galeria', GalleryImageController::class)
+        ->names('admin.dashboard.galleryImage')
+        ->parameters(['imagem-galeria' => 'galleryImage']);
+        Route::post('imagem-galeria/delete', [GalleryImageController::class, 'destroySelected'])
+            ->name('admin.dashboard.galleryImage.destroySelected');
+        Route::post('imagem-galeria/sorting', [GalleryImageController::class, 'sorting'])
+            ->name('admin.dashboard.galleryImage.sorting');
 
         //SESSAO FORMULARIO
         Route::resource('sessao-formulario', GoogleFormController::class)
             ->names('admin.dashboard.googleForm')
             ->parameters(['sessao-formulario'=>'googleForm']);
         
-            //AUDITORIA
+        //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
             ->parameters(['auditoria'=>'activitie']);
