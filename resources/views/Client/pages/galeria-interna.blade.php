@@ -6,16 +6,18 @@
                 <p>{!! $galleryImages->text !!}</p>
             </div>
 
-            <div class="galeria__list">
-                @foreach ($galleryImages->galleryImage as $img)
-                    <div class="galeria__item">
-                        <div class="galeria__image">
-                            <a href="{{asset('storage/'. $img->path_image)}}" data-fancybox="gallery" class="link-full"></a>
-                            <img src="{{asset('storage/'. $img->path_image)}}" alt="imagem galeria">
+            @if ($galleryImages->galleryImage)
+                <div class="galeria__list">
+                    @foreach ($galleryImages->galleryImage as $img)
+                        <div class="galeria__item">
+                            <div class="galeria__image">
+                                <a href="{{asset('storage/'. $img->path_image)}}" data-fancybox="gallery" class="link-full"></a>
+                                <img src="{{asset('storage/'. $img->path_image)}}" alt="imagem galeria">
+                            </div>
                         </div>
-                    </div>
-                @endforeach                        
-            </div>
+                    @endforeach                        
+                </div>
+            @endif
         </div>
     </section>
 

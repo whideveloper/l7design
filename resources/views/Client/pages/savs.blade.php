@@ -39,59 +39,60 @@
         </div>
     </section>
 @endif
-
-<section id="savs__gravadas" class="savs__gravadas">
-    <div class="savs__gravadas__content">
-        <h2 class="savs__gravadas__title">SAVs gravadas</h2>
-        <p class="savs__gravadas__text">Selecione a SAV (sessão de aprendizagem virtual) desejada e clique no link para acessar a gravação. Será necessário o preenchimento de um breve formulário para acessar a aula.</p>
-        
-        <div class="savs__gravadas__list">
-            @foreach ($savGravadas as $savGravada)
-                <div class="savs__gravadas__item">
-                    <a id="myModal-{{$savGravada->id}}" class="link-full click-lead"></a>
-                    <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
-                    <div class="image__play">
-                        <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
-                    </div>
-                    <iframe width="100%" height="315" src="{{$savGravada->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>      
-                
-                <div id="myModal-{{$savGravada->id}}-modal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-content-form">
-                            <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
-                            <form action="{{route('admin.dashboard.lead.leadSave')}}" method="post">   
-                                @csrf 
-                                <input type="hidden" name="link" value="{{$savGravada->link}}">
-                                <input type="hidden" id="videoId" name="video_id" value="{{$savGravada->id}}">
-                                <input type="hidden" id="videoTitle" name="video_title" value="{{$savGravada->title}}">                
-                                <input type="text" name="name" required placeholder="Nome completo">                     
-                                <input type="text" name="email" required placeholder="E-mail">
-                                
-                                <div class="modal-content-btn">
-                                    <button type="submit" class="button"><span>Assistir</span></button>
-                                    <button type="button"  class="close-btn"><span>Sair</span></button>
-                                </div>
-                            </form>
+@if ($savGravadas->count() > 0)
+    <section id="savs__gravadas" class="savs__gravadas">
+        <div class="savs__gravadas__content">
+            <h2 class="savs__gravadas__title">SAVs gravadas</h2>
+            <p class="savs__gravadas__text">Selecione a SAV (sessão de aprendizagem virtual) desejada e clique no link para acessar a gravação. Será necessário o preenchimento de um breve formulário para acessar a aula.</p>
+            
+            <div class="savs__gravadas__list">
+                @foreach ($savGravadas as $savGravada)
+                    <div class="savs__gravadas__item">
+                        <a id="myModal-{{$savGravada->id}}" class="link-full click-lead"></a>
+                        <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
+                        <div class="image__play">
+                            <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
+                        </div>
+                        <iframe width="100%" height="315" src="{{$savGravada->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>      
+                    
+                    <div id="myModal-{{$savGravada->id}}-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-content-form">
+                                <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
+                                <form action="{{route('admin.dashboard.lead.leadSave')}}" method="post">   
+                                    @csrf 
+                                    <input type="hidden" name="link" value="{{$savGravada->link}}">
+                                    <input type="hidden" id="videoId" name="video_id" value="{{$savGravada->id}}">
+                                    <input type="hidden" id="videoTitle" name="video_title" value="{{$savGravada->title}}">                
+                                    <input type="text" name="name" required placeholder="Nome completo">                     
+                                    <input type="text" name="email" required placeholder="E-mail">
+                                    
+                                    <div class="modal-content-btn">
+                                        <button type="submit" class="button"><span>Assistir</span></button>
+                                        <button type="button"  class="close-btn"><span>Sair</span></button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            @endforeach
+                @endforeach
 
-            
-            <!-- Elemento para mostrar o indicador de carregamento -->
-            {{-- <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div> --}}
-            
-        </div>
-        <div class="row">
-            <div class="teleinterconsulta__btn proxima-sav">
-                <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                
+                <!-- Elemento para mostrar o indicador de carregamento -->
+                {{-- <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div> --}}
+                
             </div>
-        </div>
+            <div class="row">
+                <div class="teleinterconsulta__btn proxima-sav">
+                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                </div>
+            </div>
 
-    </div>
-</section>
+        </div>
+    </section>
+@endif
 
 <script>
     // Obtenha todos os links que abrem o modal
