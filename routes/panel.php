@@ -49,6 +49,7 @@ use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 
 Route::get('painel/', function () {
@@ -346,7 +347,14 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.galleryImage.destroySelected');
         Route::post('imagem-galeria/sorting', [GalleryImageController::class, 'sorting'])
             ->name('admin.dashboard.galleryImage.sorting');
-
+        //EVENTO
+        Route::resource('evento', EventController::class)
+        ->names('admin.dashboard.event')
+        ->parameters(['evento' => 'event']);
+        Route::post('evento/delete', [EventController::class, 'destroySelected'])
+            ->name('admin.dashboard.event.destroySelected');
+        Route::post('evento/sorting', [EventController::class, 'sorting'])
+            ->name('admin.dashboard.event.sorting');
         //SESSAO FORMULARIO
         Route::resource('sessao-formulario', GoogleFormController::class)
             ->names('admin.dashboard.googleForm')

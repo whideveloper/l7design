@@ -17,18 +17,24 @@
                     
                     <aside id="eventPanel" class="calendar-page__aside">                        
                         <ul class="events-list">
-                            @php
-                                $eventsListObj = [
-                                    'date' => '01/05/2024',
-                                    'time' => '9h às 12h',
-                                    'title' => '1ª Oficina do Projeto TeleNordeste – Regional de Propriá',
-                                    'text' => 'O Projeto TeleNordeste, em parceria com a Diretoria de Atenção Primária à Saúde, da Secretaria Estadual de Saúde, convida os profissionais das equipes de Saúde cadastradas no projeto a participarem do nosso primeiro encontro, que acontecerá no município de Propriá. Essa atividade aproximará a equipe do Hospital Alemão Oswaldo Cruz dos municípios da Região de Saúde de Propriá, fortalecendo a parceria das equipes de Saúde com o projeto. Abordaremos temas como: desafios da implantação do TeleNordeste e como superá-los; a plataforma do projeto na prática; debates em grupos e games. Contamos com a participação de vocês!',
-                                ];
-                            @endphp
+                            @foreach ($events as $event)                                
+                                @php
+                                    $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y'); 
+                                    $text = $event->text;
+                                    $texto = strip_tags($text); 
 
-                            @for ($i = 0; $i < 4; $i++)
+                                    $eventsListObj = [
+                                        'date' => $data,
+                                        'time' => $event->description,
+                                        'title' => $event->title,
+                                        'text' => $texto,
+                                    ];
+                                @endphp
                                 @include('Client.models.events-list__item', $eventsListObj)
-                            @endfor
+                            @endforeach
+
+                            
+                           
         
                         </ul>{{-- END .events-list --}}
                     </aside>{{-- END .calender-page__aside --}}

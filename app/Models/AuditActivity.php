@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Sav;
+use App\Models\Event;
 use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Protocol;
@@ -44,6 +45,7 @@ class AuditActivity extends Model
     public const CONTACT_FORM = 'Sessão do formulário';
     public const GALERIA = 'Galeria';
     public const GALERIA_IMAGE = 'imagens da Galeria';
+    public const EVENTO = 'Evento';
     public const ROLES = 'Grupos';
 
     public static function getModelName($subjectType)
@@ -109,6 +111,8 @@ class AuditActivity extends Model
                 return self::GALERIA;
             case GalleryImage::class:
                 return self::GALERIA_IMAGE;
+            case Event::class:
+                return self::EVENTO;
             default:
                 return 'Desconhecido';
         }

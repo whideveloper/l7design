@@ -70,7 +70,7 @@
         </div>
     </section>
 @endif
-
+@if ($tutorial || $trainingForUse || $arquivoTreinamentos->count() > 0)
     <section class="tutorial">
         <div class="tutorial__content">
             @if (!$trainingForUse && $arquivoTreinamentos->count() < 1)
@@ -127,6 +127,7 @@
             @endif
         </div>
     </section>
+@endif
 
 @if (!$sessaoEspecialidade && !$tutorial)
     <style>

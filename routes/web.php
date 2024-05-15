@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Client\ContactTelenordestePageController;
 use App\Models\Partner;
 use App\Models\Material;
 use App\Models\Protocol;
@@ -9,10 +8,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\Client\HomePageController;
-use App\Http\Controllers\Client\EspecialidadePageController;
+use App\Http\Controllers\Client\EventPageController;
 use App\Http\Controllers\Client\GalleryPageController;
+use App\Http\Controllers\Client\EspecialidadePageController;
 use App\Http\Controllers\Client\MaterialDeApoioPageController;
 use App\Http\Controllers\Client\MuralDeComunicacaoPageController;
+use App\Http\Controllers\Client\ContactTelenordestePageController;
 use App\Http\Controllers\Client\MuralDeComunicacaoInternaPageController;
 
 require __DIR__ . '/panel.php';
@@ -54,9 +55,9 @@ Route::get('/desempenho', function () {
 // Route::get('/contato', function () {
 //     return view('Client.pages.contato');
 // })->name('contato');
-Route::get('/calendario', function () {
-    return view('Client.pages.calendario');
-})->name('calendario');
+// Route::get('/calendario', function () {
+//     return view('Client.pages.calendario');
+// })->name('calendario');
 
 // Route::get('/contato', function () {
 //     return view('emails.contato');
@@ -77,6 +78,7 @@ Route::get('/savs', [SavPageController::class, 'index'])->name('savs');
 Route::get('/contato', [ContactTelenordestePageController::class, 'index'])->name('contato');
 Route::get('/galeria', [GalleryPageController::class, 'index'])->name('galeria');
 Route::get('/galeria-interna/{gallery}', [GalleryPageController::class, 'galeriaInterna'])->name('galeria-interna');
+Route::get('/calendario', [EventPageController::class, 'index'])->name('calendario');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
