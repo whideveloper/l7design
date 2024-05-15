@@ -243,11 +243,14 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .calendar .fc-toolbar-title{
+        margin-top: -25px !important;
+    }
     .content-body{
         justify-content: center;
     }
     .events-list__title{
-        font-size: 1.25rem !important;
+        font-size: 1.125rem !important;
     }
     .sidebar.aberto .logo {
         margin-top: 15px;

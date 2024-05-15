@@ -50,6 +50,7 @@ use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
 use App\Http\Controllers\EspecialidadeProfessionalController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 
 Route::get('painel/', function () {
@@ -355,6 +356,14 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.event.destroySelected');
         Route::post('evento/sorting', [EventController::class, 'sorting'])
             ->name('admin.dashboard.event.sorting');
+        //FERIADO
+        Route::resource('feriados', HolidayController::class)
+        ->names('admin.dashboard.holiday')
+        ->parameters(['feriados' => 'holiday']);
+        Route::post('feriados/delete', [HolidayController::class, 'destroySelected'])
+            ->name('admin.dashboard.holiday.destroySelected');
+        Route::post('feriados/sorting', [HolidayController::class, 'sorting'])
+            ->name('admin.dashboard.holiday.sorting');
         //SESSAO FORMULARIO
         Route::resource('sessao-formulario', GoogleFormController::class)
             ->names('admin.dashboard.googleForm')

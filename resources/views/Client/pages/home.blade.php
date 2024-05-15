@@ -45,46 +45,25 @@
                     <h4 class="telenordeste__event__title">Próximos Eventos</h4>
                     
                     <ul class="telenordeste__content__event">
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
+                        @foreach($eventAll as $event)
+                            @php
+                                $dia = Carbon\Carbon::parse($event->date_start)->format('d'); 
+                                $mes = Carbon\Carbon::parse($event->date_start)->format('m'); 
+                            @endphp
+                            <li class="telenordeste__content__event__list">
+                                <a href="" class="link-full"></a>
 
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
-                        <li class="telenordeste__content__event__list">
-                            <a href="" class="link-full"></a>
-
-                            <div class="telenordeste__content__event__date">
-                                <span class="telenordeste__content__event__day">15</span>
-                                <span class="telenordeste__content__event__month">12</span>
-                            </div>
-                            <p>Início das atividades de Apoiadores Regionais</p>                        
-                        </li>
+                                <div class="telenordeste__content__event__date">
+                                    <span class="telenordeste__content__event__day">{{$dia}}</span>
+                                    <span class="telenordeste__content__event__month">{{$mes}}</span>
+                                </div>
+                                <p>{{$event->title}}</p>                        
+                            </li>
+                        @endforeach
                     </ul>   
                     
                     <div class="telenordeste__btn agenda">
-                        <a href="">
+                        <a href="{{route('calendario')}}">
                             <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
                             Ver agenda completa
                         </a>

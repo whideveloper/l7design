@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Client;
 
+use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Banner;
+use App\Models\Proadi;
 use App\Models\Hospital;
 use App\Models\Location;
+use App\Models\Depoiment;
 use App\Models\HowItWork;
 use App\Models\Objective;
 use App\Models\StepToStep;
 use App\Models\Telenordeste;
-use Illuminate\Http\Request;
 use App\Models\Teleinterconsulta;
 use App\Http\Controllers\Controller;
-use App\Models\Depoiment;
-use App\Models\Proadi;
 
 class HomePageController extends Controller
 {
@@ -29,7 +30,13 @@ class HomePageController extends Controller
         $hospital = Hospital::active()->first();
         $proadi = Proadi::active()->first();
         $depoiments = Depoiment::sorting()->active()->get();
-
+        $eventAll = Event::whereMonth('date_start', '=', date('m'))->startOfWeek()
+        ->sorting()
+        ->active()
+        ->get();    
+        // $eventsByWeek = $eventAll->groupBy(function ($event) {
+        //     return Carbon::parse($event->date_start)->startOfWeek(); 
+        // });
         return view('Client.pages.home', [
             'slides' => $slides,
             'telenordeste' => $telenordeste,
@@ -41,6 +48,7 @@ class HomePageController extends Controller
             'hospital' => $hospital,
             'proadi' => $proadi,
             'depoiments' => $depoiments,
+            'eventAll' => $eventAll,
         ]);
     }
 }

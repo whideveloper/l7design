@@ -2789,7 +2789,7 @@ table{
         padding:0;
         display: grid;
         grid-template-areas:
-            "tags tags"
+            // "tags tags"
             "calendar calendar"
             "legend legend"
             "aside aside";
@@ -2800,7 +2800,7 @@ table{
         @extend %wrap-x-large-down;
         @include s-large-down {
             grid-template-areas:
-                "tags"
+                // "tags"
                 "calendar"
                 "legend"
                 "aside";
