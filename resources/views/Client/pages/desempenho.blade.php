@@ -23,31 +23,36 @@
         <h3 class="mapa__atuacao__title">Mapa de Atuação</h3>
 
         <div id="map" style="width: 100%; height: 600px;z-index:0;"></div>
-
         <script>
             // Cria um mapa Leaflet com centro na Bahia
-            var map = L.map('map').setView([-12.9714, -38.5014], 4);
+            var map = L.map('map').setView([-12.9714, -38.5014], 9);
         
             // Adiciona um mapa de fundo
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
         
-            // Array de pings com coordenadas [latitude, longitude] e pop-ups associados
+            // Array de pings com coordenadas [latitude, longitude], título e descrição associados
             var pings = [
-                { coords: [-12.9714, -38.5014], popup: "Salvador" },
-                { coords: [-13.0068, -38.5267], popup: "Lauro de Freitas" },
-                { coords: [-12.7777, -38.5014], popup: "Camaçari" }
+                @foreach ($maps as $map)
+                    { 
+                        coords: [{!! $map->latitude !!}, {!! $map->longitude !!}], 
+                        title: "{!! $map->title !!}", 
+                        description: "{!! $map->text !!}" 
+                    },
+                @endforeach
                 // Adicione mais pings conforme necessário
             ];
         
             // Loop através dos pings e adiciona marcadores ao mapa
             for (var i = 0; i < pings.length; i++) {
                 var ping = pings[i];
-                L.marker(ping.coords).addTo(map).bindPopup(ping.popup);
+                var marker = L.marker(ping.coords).addTo(map);
+                var popupContent = "<b>" + ping.title + "</b><br>" + ping.description;
+                marker.bindPopup(popupContent);
             }
         </script>
-        
+         
         <!-- Biblioteca do Leaflet -->
         {{-- <div class="image">
             <img src="{{asset('Client/assets/images/map.png')}}" alt="">

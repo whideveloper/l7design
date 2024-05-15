@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Map;
 use App\Models\Sav;
 use App\Models\Event;
 use App\Models\Banner;
@@ -49,6 +50,7 @@ class AuditActivity extends Model
     public const EVENTO = 'Eventos';
     public const HOLIDAY = 'Feriados';
     public const ROLES = 'Grupos';
+    public const MAPA = 'Mapa';
 
     public static function getModelName($subjectType)
     {
@@ -117,6 +119,8 @@ class AuditActivity extends Model
                 return self::EVENTO;
             case Holiday::class:
                 return self::HOLIDAY;
+            case Map::class:
+                return self::MAPA;
             default:
                 return 'Desconhecido';
         }

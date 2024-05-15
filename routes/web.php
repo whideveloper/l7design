@@ -10,6 +10,7 @@ use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\Client\HomePageController;
 use App\Http\Controllers\Client\EventPageController;
 use App\Http\Controllers\Client\GalleryPageController;
+use App\Http\Controllers\Client\DesempenhoPageController;
 use App\Http\Controllers\Client\EspecialidadePageController;
 use App\Http\Controllers\Client\MaterialDeApoioPageController;
 use App\Http\Controllers\Client\MuralDeComunicacaoPageController;
@@ -46,9 +47,9 @@ Route::get('/', function () {
 // Route::get('/galeria-interna', function () {
 //     return view('Client.pages.galeria-interna');
 // })->name('galeria-interna');
-Route::get('/desempenho', function () {
-    return view('Client.pages.desempenho');
-})->name('desempenho');
+// Route::get('/desempenho', function () {
+//     return view('Client.pages.desempenho');
+// })->name('desempenho');
 // Route::get('/', function () {
 //     return view('Client.pages.home');
 // });
@@ -80,6 +81,7 @@ Route::get('/galeria', [GalleryPageController::class, 'index'])->name('galeria')
 Route::get('/galeria-interna/{gallery}', [GalleryPageController::class, 'galeriaInterna'])->name('galeria-interna');
 Route::get('/calendario', [EventPageController::class, 'index'])->name('calendario');
 Route::get('/calendario/{slug}', [EventPageController::class, 'calendarioDate'])->name('calendario-evento');
+Route::get('/desempenho', [DesempenhoPageController::class, 'index'])->name('desempenho');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
