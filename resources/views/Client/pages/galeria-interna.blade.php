@@ -3,66 +3,23 @@
     <section class="galeria evento">
         <div class="galeria__content">
             <div class="galeria__text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium. Praesent velit enim, facilisis quis suscipit vel, gravida fringilla tortor. Proin at mi congue, feugiat magna eget, faucibus enim. Etiam laoreet rhoncus feugiat. Donec et ante ut erat convallis mattis.</p>
+                <p>{!! $galleryImages->text !!}</p>
             </div>
 
             <div class="galeria__list">
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
+                @foreach ($galleryImages->galleryImage as $img)
+                    <div class="galeria__item">
+                        <div class="galeria__image">
+                            <a href="{{asset('storage/'. $img->path_image)}}" data-fancybox="gallery" class="link-full"></a>
+                            <img src="{{asset('storage/'. $img->path_image)}}" alt="imagem galeria">
+                        </div>
                     </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-2.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-2.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <div class="galeria__image">
-                        <a href="{{asset('Client/assets/images/galeria-1.jpg')}}" data-fancybox="gallery" class="link-full"></a>
-                        <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                    </div>
-                </div>
+                @endforeach                        
             </div>
-
-            <!-- Elemento para mostrar o indicador de carregamento -->
-            <div id="carregamento" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div>
         </div>
     </section>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             var carregando = false;
             var artigoAtual = 4; // O próximo artigo a ser carregado
@@ -103,5 +60,5 @@
             carregarArtigos();
         });
 
-    </script>
+    </script> --}}
 @endsection

@@ -10,6 +10,7 @@ use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Client\SavPageController;
 use App\Http\Controllers\Client\HomePageController;
 use App\Http\Controllers\Client\EspecialidadePageController;
+use App\Http\Controllers\Client\GalleryPageController;
 use App\Http\Controllers\Client\MaterialDeApoioPageController;
 use App\Http\Controllers\Client\MuralDeComunicacaoPageController;
 use App\Http\Controllers\Client\MuralDeComunicacaoInternaPageController;
@@ -38,12 +39,12 @@ Route::get('/', function () {
 // Route::get('/savs', function () {
 //     return view('Client.pages.savs');
 // })->name('savs');
-Route::get('/galeria', function () {
-    return view('Client.pages.galeria');
-})->name('galeria');
-Route::get('/galeria-interna', function () {
-    return view('Client.pages.galeria-interna');
-})->name('galeria-interna');
+// Route::get('/galeria', function () {
+//     return view('Client.pages.galeria');
+// })->name('galeria');
+// Route::get('/galeria-interna', function () {
+//     return view('Client.pages.galeria-interna');
+// })->name('galeria-interna');
 Route::get('/desempenho', function () {
     return view('Client.pages.desempenho');
 })->name('desempenho');
@@ -74,6 +75,8 @@ Route::get('/mural-de-comunicacao-interna/{slug}/{title}', [MuralDeComunicacaoIn
 Route::get('/mural-de-comunicacao-interna/{slug}/relacionados', [MuralDeComunicacaoInternaPageController::class, 'relacionados'])->name('mural-de-comunicacao-interna-relacionados');
 Route::get('/savs', [SavPageController::class, 'index'])->name('savs');
 Route::get('/contato', [ContactTelenordestePageController::class, 'index'])->name('contato');
+Route::get('/galeria', [GalleryPageController::class, 'index'])->name('galeria');
+Route::get('/galeria-interna/{gallery}', [GalleryPageController::class, 'galeriaInterna'])->name('galeria-interna');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {

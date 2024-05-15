@@ -459,69 +459,6 @@ $(function() {
 })
 
 $(document).ready(function () {
-    // $('body').on('change', '.uploadMultipleImage .inputGetImage', function(){
-    //     var $this = $(this),
-    //         contentPreview = $(this).data('content-preview'),
-    //         route = $this.parents('form').attr('action')
-    //         formData = new FormData($this.parents('form')[0])
-
-    //     $.ajax({
-    //         xhr: function() {
-    //             var xhr = new window.XMLHttpRequest();
-
-    //             xhr.upload.addEventListener("progress", function(evt) {
-    //                 if (evt.lengthComputable) {
-    //                     var percentComplete = evt.loaded / evt.total,
-    //                         percent = percentComplete * 100
-
-    //                     $this.parent().parent().find('.progressBar .barr').css('width', percent + '%')
-    //                 }
-    //             }, false);
-
-    //             return xhr;
-    //         },
-    //         type: 'POST',
-    //         url: route,
-    //         data: formData,
-    //         dataType: 'JSON',
-    //         contentType: false,
-    //         processData: false,
-    //         beforeSend: function() {
-    //             $this.parent().parent().append(`<div class="progressBar"><span class="barr"></span></div>`)
-    //             $this.parent().parent().find('.progressBar').fadeIn('fast')
-    //         },
-    //         success: function(response) {
-    //             if(response.status == 'success'){
-    //                 $.NotificationApp.send("Sucesso!", response.countUploads+" imagens carregadas com sucesso, a página será atualizada", "bottom-right", "#00000080", "success", '8000')
-    //                 $this.parent().parent().find('.progressBar').fadeOut('fast', function(){
-    //                     $(this).remove()
-    //                 })
-    //                 setTimeout(() => {
-    //                     window.location.href = window.location.href;
-    //                 }, 5000);
-    //             }else{
-    //                 $.NotificationApp.send("Erro!", "Erro ao subir imagens, atualize a página e tente novamente.", "bottom-right", "#00000080", "error", '8000');
-    //                 $this.parent().parent().find('.progressBar').fadeOut('fast', function(){
-    //                     $(this).remove()
-    //                 })
-    //             }
-
-    //         },
-    //         error: function(){
-    //             $.NotificationApp.send("Erro!", "Erro ao subir imagens, atualize a página e tente novamente.", "bottom-right", "#00000080", "error", '8000');
-    //             $this.parent().parent().find('.progressBar').fadeOut('fast', function(){
-    //                 $(this).remove()
-    //             })
-    //         }
-    //     })
-    // })
-
-    // $('body').on('click', '.deleteImageUploadMultiple', function(){
-    //     $(this).parents('.contentPreview').fadeOut('slow', function(){
-    //         $(this).remove()
-    //     })
-    // })
-    
     $("#loading-indicator").fadeIn("slow");
 
     setTimeout(function () {

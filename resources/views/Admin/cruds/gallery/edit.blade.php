@@ -113,7 +113,7 @@
     @include('Admin.components.links.resourcesCreateEdit')
     <style>
         /* Estilizando o input file */
-        input[type='file'] {
+        #imageInput[type='file'] {
             display: none; /* Oculta o input file nativo */
         }
 

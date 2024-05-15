@@ -7,61 +7,29 @@
             </div>
 
             <div class="galeria__list">
-                <div class="galeria__item">
-                    <a href="{{route('galeria-interna')}}" class="link-full"></a>
-                    <h2 class="galeria__title">Evento</h2>
-                    <div class="description">
-                        <div class="galeria__image">
-                            <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                        </div>
-                        <div class="galeria__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <a href="{{route('galeria-interna')}}" class="link-full"></a>
-                    <h2 class="galeria__title">Evento</h2>
-                    <div class="description">
-                        <div class="galeria__image">
-                            <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                        </div>
-                        <div class="galeria__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium.</p>
+                @foreach ($galleries as $gallery)
+                    <div class="galeria__item">
+                        <a href="{{route('galeria-interna', ['gallery' => $gallery->slug])}}" class="link-full"></a>
+                        <h2 class="galeria__title">{{$gallery->title}}</h2>
+                        <div class="description">
+                            <div class="galeria__image">
+                                <img src="{{asset('storage/'. $gallery->path_image)}}" alt="imagem galeria">
+                            </div>
+                            <div class="galeria__text">
+                                <p>{!! substr(strip_tags($gallery->text), 0, 180) !!}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="galeria__item">
-                    <a href="{{route('galeria-interna')}}" class="link-full"></a>
-                    <h2 class="galeria__title">Evento</h2>
-                    <div class="description">
-                        <div class="galeria__image">
-                            <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                        </div>
-                        <div class="galeria__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="galeria__item">
-                    <a href="{{route('galeria-interna')}}" class="link-full"></a>
-                    <h2 class="galeria__title">Evento</h2>
-                    <div class="description">
-                        <div class="galeria__image">
-                            <img src="{{asset('Client/assets/images/galeria-1.jpg')}}" alt="imagem galeria">
-                        </div>
-                        <div class="galeria__text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ex vel ligula aliquam pharetra. Morbi id quam eget elit convallis sodales. Mauris imperdiet erat id velit porttitor pretium.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <!-- Elemento para mostrar o indicador de carregamento -->
-            <div id="carregamento" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div>
+            {{-- PAGINATION --}}
+            <div class="pagi">
+                {{$galleries->links()}}
+            </div>
         </div>
     </section>
 
-    <script>
+    {{-- <script>
        $(window).resize(function() {
             if ($(window).width() <= 530) {
                 var carregando = false;
@@ -107,5 +75,5 @@
             }
         }).resize(); // Executa a verificação inicial ao carregar a página
 
-    </script>
+    </script> --}}
 @endsection
