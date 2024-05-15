@@ -134,21 +134,21 @@
                     <div class="logo-box" style="background-color: #fff !important">
                         <a href="{{route('admin.dashboard')}}" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="42">
+                                <img src="{{asset('Admin/assets/images/logo-telenordeste-sm.svg')}}" alt="WHI - Web de alta inspiração" height="42">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
-                                <h2>WHI - Web de alta inspiração</h2>
+                                <img src="{{asset('Admin/assets/images/logo-telenordeste.svg')}}" alt="WHI - Web de alta inspiração" height="40">
+                                {{-- <h2>WHI - Web de alta inspiração</h2> --}}
                             </span>
                         </a>
 
                         <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="42">
+                                <img src="{{asset('Admin/assets/images/logo-telenordeste-sm.svg')}}" alt="WHI - Web de alta inspiração" height="42">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
-                                <h2>WHI <span>Web de alta inspiração</span> </h2>
+                                <img src="{{asset('Admin/assets/images/logo-telenordeste.svg')}}" alt="WHI - Web de alta inspiração" height="40">
+                                {{-- <h2>WHI <span>Web de alta inspiração</span> </h2> --}}
                             </span>
                         </a>
                     </div>
@@ -255,7 +255,19 @@
         </div>
         <!-- END wrapper -->
         {{-- @include('Admin.components.models.settingsTheme') --}}
-
+        <footer>
+            <div class="footer" style="display: flex;justify-content: center;align-items: center;">
+                <div class="image">
+                    <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
+                </div>
+                <div class="copyright">
+                    <script>
+                        var currentYear = new Date().getFullYear();
+                        document.write('© ' + currentYear + ' WHI - Web de Alta Inspiração. Todos os direitos reservados.');
+                    </script>
+                </div>
+            </div>
+        </footer>
 
         <!-- Vendor js -->
         <script src="{{url(mix('Admin/assets/js/vendor.min.js'))}}"></script>
@@ -304,22 +316,6 @@
                 })
             })
         </script>
-
-        {{-- <script>
-            $('.embedLinkYoutube').on('change', function(){
-                let val = $(this).val() //Pega o valor do input
-                let result = val.includes("watch?v="); //Verifique se uma string inclui watch?v=
-
-                if (result) { //Verifique se uma string inclui watch?v= , troca por embed e retorna novo valor com o embed
-                    newLink = val.replace('watch?v=', 'embed/')
-                    $(this).val(newLink)
-                } else if(val) { //Verifica o valor do input, monta um array e retorna novo valor com o embed
-                    arrayLink = val.split('/'),
-                    id = arrayLink[arrayLink.length - 1]
-                    $(this).val(`https://www.youtube.com/embed/${id}`)
-                }
-            });
-        </script> --}}
 
         <script>
             $(function(){
