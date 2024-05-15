@@ -47,12 +47,12 @@
                     <ul class="telenordeste__content__event">
                         @foreach($eventAll as $event)
                             @php
+                                $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y'); 
                                 $dia = Carbon\Carbon::parse($event->date_start)->format('d'); 
                                 $mes = Carbon\Carbon::parse($event->date_start)->format('m'); 
                             @endphp
                             <li class="telenordeste__content__event__list">
-                                <a href="" class="link-full"></a>
-
+                                {{-- <a href="{{route('calendario', $event->slug)}}" class="link-full"></a> --}}
                                 <div class="telenordeste__content__event__date">
                                     <span class="telenordeste__content__event__day">{{$dia}}</span>
                                     <span class="telenordeste__content__event__month">{{$mes}}</span>

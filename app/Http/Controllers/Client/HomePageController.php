@@ -30,13 +30,13 @@ class HomePageController extends Controller
         $hospital = Hospital::active()->first();
         $proadi = Proadi::active()->first();
         $depoiments = Depoiment::sorting()->active()->get();
-        $eventAll = Event::whereMonth('date_start', '=', date('m'))->startOfWeek()
+        $currentDate = Carbon::now();
+        $startOfWeek = $currentDate->startOfWeek(Carbon::SUNDAY)->format('Y-m-d');
+        $endOfWeek = $currentDate->endOfWeek(Carbon::SATURDAY)->format('Y-m-d');
+        $eventAll = Event::whereMonth('date_start', '=', date('m'))->whereBetween('date_start', [$startOfWeek, $endOfWeek])
         ->sorting()
         ->active()
         ->get();    
-        // $eventsByWeek = $eventAll->groupBy(function ($event) {
-        //     return Carbon::parse($event->date_start)->startOfWeek(); 
-        // });
         return view('Client.pages.home', [
             'slides' => $slides,
             'telenordeste' => $telenordeste,

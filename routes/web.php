@@ -79,6 +79,7 @@ Route::get('/contato', [ContactTelenordestePageController::class, 'index'])->nam
 Route::get('/galeria', [GalleryPageController::class, 'index'])->name('galeria');
 Route::get('/galeria-interna/{gallery}', [GalleryPageController::class, 'galeriaInterna'])->name('galeria-interna');
 Route::get('/calendario', [EventPageController::class, 'index'])->name('calendario');
+Route::get('/calendario/{slug}', [EventPageController::class, 'calendarioDate'])->name('calendario-evento');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
 View::composer('Client.core.main', function ($view) {
