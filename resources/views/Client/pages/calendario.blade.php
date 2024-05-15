@@ -31,11 +31,7 @@
                                     ];
                                 @endphp
                                 @include('Client.models.events-list__item', $eventsListObj)
-                            @endforeach
-
-                            
-                           
-        
+                            @endforeach                           
                         </ul>{{-- END .events-list --}}
                     </aside>{{-- END .calender-page__aside --}}
                 </div>
