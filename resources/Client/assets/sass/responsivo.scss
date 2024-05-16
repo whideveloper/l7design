@@ -6,6 +6,9 @@
     }
 }
 @media screen and (max-width: 476px) {   
+    .footer__contact__items__left{
+        max-width: 100%;
+    }
     #image-carousel.slide .splide__slide .splide__description .splide__title{
         font-size: 2rem !important;
         line-height: 45px !important;
@@ -41,6 +44,7 @@
         }
         article p{
             width: 90%;
+            margin: 0 auto;
         }
     }
     .location__values img{
