@@ -114,9 +114,9 @@
                     <div class="location__column right">
                         <h3 class="location__title right">Objetivos específicos</h3>
                         
-                        <div class="location__values right">
+                        <div class="location__values right location-carrossel-mobile">
                             @foreach($objectives as $objective)
-                                <div class="location__values__box right location-carrossel-mobile">
+                                <div class="location__values__box right">
                                     <img src="{{asset('storage/' . $objective->path_image)}}" alt="ícone">
                                     <p class="location__area__text">{{$objective->title}}</p>
                                 </div>
