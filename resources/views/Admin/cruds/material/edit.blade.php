@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.material.index')}}">Material de apoio</a></li>
-                                    <li class="breadcrumb-item active">Editar Material de apoio</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.material.index')}}">Sessão Material de apoio</a></li>
+                                    <li class="breadcrumb-item active">Editar Sessão Material de apoio</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Material de apoio</h4>
+                            <h4 class="page-title">Editar Sessão Material de apoio</h4>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
                                         @endcan
                                     </div>
                                     
-                                    <div class="col-6" style="width: 54%;">
+                                    <div class="col-6 pe-0" style="width: 51.7%;">
                                         @can('evento.criar')
                                             <div class="pe-0 col-lg-12">                              
                                                 <a class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-holiday">Adicionar feriado <i class="mdi mdi-plus"></i></a>
@@ -116,7 +116,7 @@
                                             </div>                                        
                                         @endcan
                                     </div>
-                                    <div class="col-2" style="width: 170px;">
+                                    <div class="col-2 pe-0" style="width: 170px;">
                                         @can('evento.criar')
                                             <a href="{{route('admin.dashboard.event.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>                                        
                                         @endcan

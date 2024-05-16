@@ -38,7 +38,8 @@
     }
     .loading-indicator .row img{
         width: 100%;
-        max-width: 100px;
+        max-width: 70px;
+        margin-bottom: 15px;
     }
     .loading-indicator .row{
         display:flex;

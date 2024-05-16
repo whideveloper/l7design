@@ -44,8 +44,8 @@
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
                                             <th>Link</th>
-                                            <th>Data inicial</th>
-                                            <th>Data final</th>
+                                            <th>Título</th>
+                                            <th>Subtitulo</th>
                                             <th>Imagem</th>
                                             <th>Status</th>
                                             <th>Ações</th>
@@ -63,9 +63,11 @@
                                                 @php
                                                     $title = $banner->title;
                                                     $title = str_replace('<br>', "", $title);
+                                                    $subtitle = $banner->subtitle;
+                                                    $subtitle = str_replace('<br>', "", $subtitle);
                                                 @endphp
                                                 <td>{{$title}}</td>
-                                                <td>{{$banner->subttitle}}</td>
+                                                <td>{{$subtitle}}</td>
                                                 <td class="table-user text-center">
                                                     @if ($banner->path_image)
                                                         <img src="{{ asset('storage/'.$banner->path_image) }}" name="path_image" alt="table-user" class="me-2 rounded-circle">

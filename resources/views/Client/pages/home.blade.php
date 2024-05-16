@@ -27,6 +27,13 @@
     </section>
     
     @if ($telenordeste)
+    @if ($eventAll->count() < 1)
+        <style>
+            .telenordeste__content article{
+                width: 100%;
+            }
+        </style>
+    @endif
         <section id="telenordeste" class="telenordeste">
             <div class="telenordeste__content">
                 <article>
@@ -41,34 +48,36 @@
                         </a>
                     </div>
                 </article>
-                <aside>
-                    <h4 class="telenordeste__event__title">Próximos Eventos</h4>
-                    
-                    <ul class="telenordeste__content__event">
-                        @foreach($eventAll as $event)
-                            @php
-                                $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y'); 
-                                $dia = Carbon\Carbon::parse($event->date_start)->format('d'); 
-                                $mes = Carbon\Carbon::parse($event->date_start)->format('m'); 
-                            @endphp
-                            <li class="telenordeste__content__event__list">
-                                {{-- <a href="{{route('calendario', $event->slug)}}" class="link-full"></a> --}}
-                                <div class="telenordeste__content__event__date">
-                                    <span class="telenordeste__content__event__day">{{$dia}}</span>
-                                    <span class="telenordeste__content__event__month">{{$mes}}</span>
-                                </div>
-                                <p>{{$event->title}}</p>                        
-                            </li>
-                        @endforeach
-                    </ul>   
-                    
-                    <div class="telenordeste__btn agenda">
-                        <a href="{{route('calendario')}}">
-                            <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
-                            Ver agenda completa
-                        </a>
-                    </div>
-                </aside>
+                @if ($eventAll->count() > 0)
+                    <aside>
+                        <h4 class="telenordeste__event__title">Próximos Eventos</h4>
+                        
+                        <ul class="telenordeste__content__event">
+                            @foreach($eventAll as $event)
+                                @php
+                                    $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y'); 
+                                    $dia = Carbon\Carbon::parse($event->date_start)->format('d'); 
+                                    $mes = Carbon\Carbon::parse($event->date_start)->format('m'); 
+                                @endphp
+                                <li class="telenordeste__content__event__list">
+                                    {{-- <a href="{{route('calendario', $event->slug)}}" class="link-full"></a> --}}
+                                    <div class="telenordeste__content__event__date">
+                                        <span class="telenordeste__content__event__day">{{$dia}}</span>
+                                        <span class="telenordeste__content__event__month">{{$mes}}</span>
+                                    </div>
+                                    <p>{{$event->title}}</p>                        
+                                </li>
+                            @endforeach
+                        </ul>   
+                        
+                        <div class="telenordeste__btn agenda">
+                            <a href="{{route('calendario')}}">
+                                <img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Agenda" title="Agenda">
+                                Ver agenda completa
+                            </a>
+                        </div>
+                    </aside>
+                @endif
             </div>
         </section>
     @endif

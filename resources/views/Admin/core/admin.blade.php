@@ -16,18 +16,12 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{asset('Admin/assets/images/whi.png')}}">
 
-{{--        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
-
         @stack('createEditCss')
         @stack('indexCss')
         @stack('dashboardCss')
     <!-- Plugins css -->
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
-        {{-- <link href="{{url(mix('Admin/assets/libs/dropzone.min.css'))}}" rel="stylesheet" type="text/css" /> --}}
-
-        {{-- <link href="{{url(mix('Admin/assets/libs/dropify.min.css'))}}" rel="stylesheet" type="text/css" /> --}}
         <link href="{{url(mix('Admin/assets/libs/jquery.toast.min.css'))}}" rel="stylesheet" type="text/css" />
         <link href="{{url(mix('Admin/assets/libs/fancybox.css'))}}" rel="stylesheet" type="text/css" />
 
@@ -322,14 +316,14 @@
                                     </a>
                                     <div class="collapse" id="mural-de-comunicacao">
                                         <ul class="nav-second-level">
-                                            @can('protocolo.visualizar')
-                                                <li class="{{ route('admin.dashboard.protocol.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.protocol.index')}}"><i class="fas fa-sitemap"></i> Categoria mural de comunicação</a>
+                                            @can('mural de comunicacao.visualizar')
+                                                <li class="{{ route('admin.dashboard.muralDeComunicacaoCategory.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}"><i class="fas fa-sitemap"></i> Categoria mural de comunicação</a>
                                                 </li>
                                             @endcan
-                                            @can('material de apoio.visualizar')
-                                                <li class="{{ route('admin.dashboard.material.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.material.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
+                                            @can('mural de comunicacao.visualizar')
+                                                <li class="{{ route('admin.dashboard.muralDeComunicacaoFeed.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
                                                 </li>
                                             @endcan                                            
                                         </ul>
@@ -361,7 +355,7 @@
                                 <li>
                                     <a href="#desempenho" data-bs-toggle="collapse">
                                         <i class="fas fa-handshake"></i>
-                                        <span> Parceiros </span>
+                                        <span> Mapa/Parceiros </span>
                                         <span class="menu-arrow"></span>
                                     </a>
                                     <div class="collapse" id="desempenho">
@@ -504,9 +498,6 @@
         <script src="{{url(mix('Admin/assets/js/quill.min.js'))}}"></script>
         <!-- App js -->
         <script src="{{url(mix('Admin/assets/libs/fancybox.js'))}}"></script>
-        {{-- <script src="{{url(mix('Admin/assets/libs/dropzone.min.js'))}}"></script> --}}
-        
-        {{-- <script src="{{url(mix('Admin/assets/libs/dropify.min.js'))}}"></script> --}}
         <script src="{{url(mix('Admin/assets/libs/tippy.all.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/jquery.sortable.min.js'))}}"></script>
         <script src="{{url(mix('Admin/assets/libs/jquery.toast.min.js'))}}"></script>

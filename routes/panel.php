@@ -246,17 +246,17 @@ Route::prefix('painel/')->group(function () {
             ->parameters(['categoria-mural-de-comunicacao' => 'muralDeComunicacaoCategory']);
         Route::post('categoria-mural-de-comunicacao/delete', [MuralDeComunicacaoCategoryController::class, 'destroySelected'])
             ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
-        Route::post('categoria-mural-de-comunicacao/sorting', [EspecialidadeCategoryController::class, 'sorting'])
+        Route::post('categoria-mural-de-comunicacao/sorting', [MuralDeComunicacaoCategoryController::class, 'sorting'])
             ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
 
         // MURAL DE COMUNICACAO
-        Route::resource('mural-de-comunicacao', MuralDeComunicacaoCategoryController::class)
-            ->names('admin.dashboard.muralDeComunicacaoCategory')
-            ->parameters(['mural-de-comunicacao' => 'muralDeComunicacaoCategory']);
-        Route::post('mural-de-comunicacao/delete', [MuralDeComunicacaoCategoryController::class, 'destroySelected'])
-            ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
-        Route::post('mural-de-comunicacao/sorting', [EspecialidadeCategoryController::class, 'sorting'])
-            ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
+        Route::resource('mural-de-comunicacao', MuralDeComunicacaoFeedController::class)
+        ->names('admin.dashboard.muralDeComunicacaoFeed')
+        ->parameters(['mural-de-comunicacao' => 'muralDeComunicacaoFeed']); 
+        Route::post('mural-de-comunicacao/delete', [MuralDeComunicacaoFeedController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.destroySelected');
+        Route::post('mural-de-comunicacao/sorting', [MuralDeComunicacaoFeedController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.sorting');
         
         //TREINAMENTO
         Route::resource('treinamento', TrainingForUseController::class)
@@ -286,14 +286,14 @@ Route::prefix('painel/')->group(function () {
         Route::post('material-de-apoio/sorting', [MaterialController::class, 'sorting'])
             ->name('admin.dashboard.material.sorting');
 
-        //DOCOUMENTO DE MATERIAL DE APOIO
-        Route::resource('documento-material-de-apoio', MuralDeComunicacaoFeedController::class)
-        ->names('admin.dashboard.muralDeComunicacaoFeed')
-        ->parameters(['documento-material-de-apoio' => 'muralDeComunicacaoFeed']); 
-        Route::post('documento-material-de-apoio/delete', [MuralDeComunicacaoFeedController::class, 'destroySelected'])
-            ->name('admin.dashboard.muralDeComunicacaoFeed.destroySelected');
-        Route::post('documento-material-de-apoio/sorting', [MuralDeComunicacaoFeedController::class, 'sorting'])
-            ->name('admin.dashboard.muralDeComunicacaoFeed.sorting');
+        //DOCUMENTO DE MATERIAL DE APOIO
+        Route::resource('documento-material-de-apoio', MaterialDocumentController::class)
+        ->names('admin.dashboard.materialDocument')
+        ->parameters(['documento-material-de-apoio' => 'materialDocument']); 
+        Route::post('documento-material-de-apoio/delete', [MaterialDocumentController::class, 'destroySelected'])
+            ->name('admin.dashboard.materialDocument.destroySelected');
+        Route::post('documento-material-de-apoio/sorting', [MaterialDocumentController::class, 'sorting'])
+            ->name('admin.dashboard.materialDocument.sorting');
 
         //AGENDAMENTO
         Route::resource('agendamento', AgendamentoController::class)

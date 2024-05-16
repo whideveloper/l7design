@@ -58,7 +58,6 @@ class EspecialidadeProfessionalController extends Controller
                 'especialidadeSession' => $especialidadeSession
             ]);
         }catch(\Exception $exception){
-            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao cadastrar o especialista!');
             return redirect()->back();

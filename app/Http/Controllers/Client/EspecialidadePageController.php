@@ -24,7 +24,7 @@ class EspecialidadePageController extends Controller
             ->where('especialidade_categories.slug', $category);
         }
         
-        $especialistas = $especialistas->paginate(3);
+        $especialistas = $especialistas->paginate(9);
         $sessaoEspecialidade = EspecialidadeSession::active()->first();       
         $tutorial = Tutorial::active()->first();
         $trainingForUse = TrainingForUse::active()->first();

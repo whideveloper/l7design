@@ -26,8 +26,8 @@
                 <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title">Dashboard TeleNordeste</h4>
+                        <div class="page-title-box" style="background: #FFF;padding: 0 15px;border-radius: 10px;margin-top: 20px;">
+                            <h4 class="page-title"><span class="mdi mdi-desktop-mac-dashboard"></span> Dashboard </h4>
                         </div>
                     </div>
                 </div>

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EspecialidadeCategory;
-use App\Models\EspecialidadeProfessional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\EspecialidadeSession;
 use Illuminate\Support\Facades\Auth;
+use App\Models\EspecialidadeCategory;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
+use App\Models\EspecialidadeProfessional;
 
 class EspecialidadeSessionController extends Controller
 {
@@ -69,12 +70,13 @@ class EspecialidadeSessionController extends Controller
         ->select(
             'especialidade_categories.id as category_id', 
             'especialidade_categories.title as categoria',
+            'especialidade_categories.sorting as categoria_sorting',
             'especialidade_professionals.name',
             'especialidade_professionals.path_image',
             'especialidade_professionals.active',
             'especialidade_professionals.id as especialidade_id',
-            )->sorting()->get();
-
+            'especialidade_professionals.sorting',
+            )->sorting()->paginate(10);
         return view('Admin.cruds.especialidadeSession.edit', [
             'especialidadeSession' => $especialidadeSession,
             'especialidadeProfessionals' => $especialidadeProfessionals,

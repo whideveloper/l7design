@@ -379,7 +379,10 @@ body[data-sidebar-size=condensed] .left-side-menu #sidebar-menu>ul>li:hover>.col
     color: #e6761e;
 }
 .logo span.authl.logo-lg{box-shadow: inherit;}
-.logo span.authl.logo-lg img{height: 80px;margin-left: -15px;}
+.logo span.authl.logo-lg img{
+    height: 60px;
+    margin-left: 0px;
+}
 .logo span.authl.logo-lg h2{
 
     font-size: 28px;
@@ -438,4 +441,16 @@ a.btn-success:hover{
 a.btn-success:hover{
     background-color: #F18318 !important;
     border-color: #F18318;
+}
+body[data-sidebar-size=condensed] .left-side-menu #sidebar-menu>ul>li{
+    white-space: wrap;
+}
+body[data-sidebar-size=condensed] .left-side-menu .simplebar-content-wrapper{
+    position: fixed;
+    height: 100%;
+    top: 90px;
+    left: 0;
+}
+.content-page{
+    padding: 0 15px 125px 15px;
 }
