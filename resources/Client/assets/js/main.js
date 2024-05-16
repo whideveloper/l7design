@@ -60,6 +60,15 @@ window.addEventListener('resize', function() {
     changeBanner(banners);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
+    changeBanner(banners);
+
+    window.addEventListener('resize', function() {
+        changeBanner(banners);
+    });
+});
+
 // function changeBanner(c) {
 //     for (let i = 0; i < c.length; i++) {
 //         if (window.innerWidth < 720) {

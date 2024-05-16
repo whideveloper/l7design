@@ -275,17 +275,10 @@
     @endif
 
     {{-- <span id="footer"></span> --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
-            changeBanner(banners);
+    {{-- <script>
         
-            window.addEventListener('resize', function() {
-                changeBanner(banners);
-            });
-        });
-    </script>
-    
+    </script> --}}
+
     <script>
         // Função para verificar se a sessão está visível na tela
         function isElementInViewport(el) {
