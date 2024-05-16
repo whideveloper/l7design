@@ -1,3 +1,4 @@
+
 /* rolagem do btn de menu */
 if (document.querySelector(".btn-mn-mbl")) {
     const btnMenu = document.querySelector(".btn-mn-mbl");
@@ -145,7 +146,34 @@ if (document.querySelector(".ano")) {
 }
 /* Mascaras usando inputmask.js */
 
+// Material de apoio
+document.addEventListener("click", function(event) {
+    // Verifica se o elemento clicado não é o link principal "Material de apoio"
+    if (event.target.id !== "material-de-apoio-click") {
+        // Seleciona o submenu
+        var submenu = document.getElementById("submenu-material-de-apoio");
+        // Remove a classe 'active' do submenu
+        submenu.classList.remove("active");
+    }
+});
 
+document.getElementById("material-de-apoio-click").addEventListener("click", function(event) {
+    // Evita que o evento de clique se propague para o documento
+    event.stopPropagation();
+
+    // Seleciona o submenu
+    var submenu = document.getElementById("submenu-material-de-apoio");
+    // Verifica se o submenu possui a classe 'active'
+    var isActive = submenu.classList.contains("active");
+
+    // Se o submenu já estiver ativo, remove a classe 'active'; caso contrário, adiciona a classe 'active'
+    if (isActive) {
+        submenu.classList.remove("active");
+    } else {
+        submenu.classList.add("active");
+    }
+});
+//Final material de apoio
 
 if (document.getElementById("newslleter-message")) {
     // console.log('success')
@@ -184,28 +212,51 @@ document.addEventListener('DOMContentLoaded', function () {
                     slide.querySelector('.slide-fitula-3').style = '';
                     break;
                 case 1:
-                    slide.querySelector('.slide-fitula-1').style.top = '90px';
-                    slide.querySelector('.slide-fitula-1').style.left = '366px';
-                    slide.querySelector('.slide-fitula-2').style.top = '-121px';
-                    slide.querySelector('.slide-fitula-2').style.left = '40px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-                    slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    if ($(window).width() < 680) {
+                        slide.querySelector('.slide-fitula-1').style.top = '120px';
+                        slide.querySelector('.slide-fitula-1').style.left = '227px';
+                        slide.querySelector('.slide .slide-fitula-2').style.top = '300px'; 
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '20px';                       
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '90px';
+                        slide.querySelector('.slide-fitula-1').style.left = '366px';
+                        slide.querySelector('.slide-fitula-2').style.top = '-121px';
+                        slide.querySelector('.slide-fitula-2').style.left = '40px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '205px';
+                        slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    }
+                    
                     break;
                 case 2:
-                    slide.querySelector('.slide-fitula-1').style.top = '230px';
-                    slide.querySelector('.slide-fitula-1').style.left = '166px';
-                    slide.querySelector('.slide-fitula-2').style.top = '485px';
-                    slide.querySelector('.slide-fitula-2').style.left = '485px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '600px';
-                    slide.querySelector('.slide-fitula-3').style.left = '600px';
+                    if($(window).width() < 680){
+                        slide.querySelector('.slide .slide-fitula-1').style.left = '8px';
+                        slide.querySelector('.slide .slide-fitula-2').style.left = '219px';
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '225px';
+                        slide.querySelector('.slide .slide-fitula-3').style.top = '119px';
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '230px';
+                        slide.querySelector('.slide-fitula-1').style.left = '166px';
+                        slide.querySelector('.slide-fitula-2').style.top = '485px';
+                        slide.querySelector('.slide-fitula-2').style.left = '485px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '600px';
+                        slide.querySelector('.slide-fitula-3').style.left = '600px';
+                    }
                     break;
                 case 3:
-                    slide.querySelector('.slide-fitula-1').style.top = '90px';
-                    slide.querySelector('.slide-fitula-1').style.left = '366px';
-                    slide.querySelector('.slide-fitula-2').style.top = '-121px';
-                    slide.querySelector('.slide-fitula-2').style.left = '40px';
-                    slide.querySelector('.slide-fitula-3').style.bottom = '205px';
-                    slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    if ($(window).width() < 680) {
+                        slide.querySelector('.slide-fitula-1').style.top = '120px';
+                        slide.querySelector('.slide-fitula-1').style.left = '227px';
+                        slide.querySelector('.slide .slide-fitula-2').style.top = '300px'; 
+                        slide.querySelector('.slide .slide-fitula-3').style.left = '20px';  
+                    }else{
+                        slide.querySelector('.slide-fitula-1').style.top = '90px';
+                        slide.querySelector('.slide-fitula-1').style.left = '366px';
+                        slide.querySelector('.slide-fitula-2').style.top = '-121px';
+                        slide.querySelector('.slide-fitula-2').style.left = '40px';
+                        slide.querySelector('.slide-fitula-3').style.bottom = '205px';
+                        slide.querySelector('.slide-fitula-3').style.left = '40px';
+                    }
+                    
                     break;
                 default:
                     break;
@@ -230,42 +281,21 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Seletor para o botão flutuante
     var botaoFlutuante = document.getElementById('rolagem__top');
-    // Seletor para a sessão do carrossel de imagens
-    var sessaoCarousel = document.getElementById('image-carousel');
-    // Seletor para a sessão do carrossel de imagens
+    // Seletor para a sessão do rodapé
     var footer = document.getElementById('footer');
 
-    // Função para verificar a posição do scroll e mostrar o botão flutuante quando atingir a sessão do carrossel
+    // Função para verificar a posição do scroll e mostrar o botão flutuante quando necessário
     function verificarPosicaoScroll() {
-        // Obter a posição da sessão #image-carousel em relação à janela de visualização
-        var imageCarousel = document.getElementById('image-carousel');
-        var imageCarouselPos = imageCarousel.getBoundingClientRect();
-        // Obter a posição da sessão #footer em relação à janela de visualização
-        var footer = document.getElementById('footer');
-        var footerPos = footer.getBoundingClientRect();
-        
-        // Verificar se a parte inferior da sessão está visível na janela de visualização
-        if (imageCarouselPos.bottom <= window.innerHeight) {
-            // A sessão #image-carousel está totalmente visível na janela de visualização
-            // Portanto, exiba o botão flutuante
-            document.querySelector('.rolagem__top').style.display = 'block';
-        } else {
-            // A sessão #image-carousel não está totalmente visível na janela de visualização
-            // Portanto, oculte o botão flutuante
-            document.querySelector('.rolagem__top').style.display = 'none';
-        }
-        
-        var footer = document.getElementById('footer');
         var footerPos = footer.getBoundingClientRect();
 
         // Verificar se o rodapé está visível na janela de visualização
         if (footerPos.top <= window.innerHeight) {
             // O rodapé está visível na janela de visualização
-            // Portanto, adicione a classe 'footer' ao botão flutuante
+            // Portanto, adicione a classe 'ft' ao botão flutuante
             botaoFlutuante.classList.add('ft');
         } else {
             // O rodapé não está visível na janela de visualização
-            // Portanto, remova a classe 'footer' do botão flutuante
+            // Portanto, remova a classe 'ft' do botão flutuante
             botaoFlutuante.classList.remove('ft');
         }
     }
@@ -275,13 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Chamar a função verificarPosicaoScroll() após o carregamento da página para garantir que o botão flutuante seja exibido corretamente
     window.addEventListener('load', verificarPosicaoScroll);
-});
-//Ancor botao flutuante
-document.addEventListener('DOMContentLoaded', function () {
-    // Seletor para o botão flutuante
-    var botaoFlutuante = document.getElementById('rolagem__top');
 
-    // Adiciona um evento de clique ao botão flutuante
+    // Adiciona um evento de clique ao botão flutuante para rolar para o topo da página
     botaoFlutuante.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -300,8 +325,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 $(document).ready(function(){
+    sidebar(); // CHAMA A FUNCAO SIDEBAR
     // Header flutuante
     var header = document.getElementById("header");  
     // Obtém a posição inicial do cabeçalho
@@ -315,6 +340,49 @@ $(document).ready(function(){
             header.classList.remove("flutuante");
         }
     });
+
+    if ($(window).width() < 961) {
+        $(".mural__de__comunicacao__aside__content").addClass("carrossel-relacionados");
+    }
+    $(window).resize(function(){
+        if ($(window).width() <= 961) {
+            $(".fmural__de__comunicacao__aside__content").addClass("carrossel-relacionados");
+        } else {
+            $(".fmural__de__comunicacao__aside__content").removeClass("carrossel-relacionados");
+        }
+    });
+    function initializeCarousel() {
+        $(".carrossel-relacionados").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 0 
+                },
+                475: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 0 // Reduz a margem para que o segundo item seja parcialmente visível
+                },
+                530: {
+                    items: 2
+                },
+                730: {
+                    items: 3
+                }
+            }
+        });
+    }
+
+    // Chama a função quando a página é carregada
+    initializeCarousel();
+
+    // Chama a função quando a janela é redimensionada
+    $(window).resize(function() {
+        initializeCarousel();
+    });   
 
     $(".depoimento").owlCarousel({
         loop:true,
@@ -435,7 +503,47 @@ $(document).ready(function(){
             }
         }
     });
+
+    if ($(window).width() <= 525) {
+        $(".material__content__list").addClass("material-mobile");
+    }
+    
+    $(window).resize(function(){
+        if ($(window).width() <= 525) {
+            $(".material__content__list").addClass("material-mobile");
+        } else {
+            $(".material__content__list").removeClass("material-mobile");
+        }
+    });
+    function initializeCarousel1() {
+        $(".material-mobile").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 10 
+                },
+                525: {
+                    items: 1.1, // Exibe uma parte do segundo item
+                    margin: 10 // Reduz a margem para que o segundo item seja parcialmente visível
+                },
+            }
+        });
+    }
+
+    // Chama a função quando a página é carregada
+    initializeCarousel1();
+
+    // Chama a função quando a janela é redimensionada
+    $(window).resize(function() {
+        initializeCarousel1();
+    });  
+
 });
+
 
 
 

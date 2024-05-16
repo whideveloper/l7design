@@ -26,13 +26,13 @@
                             <div class="card-body">                                
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        @can('localizacao.remover')
+                                        @can('proadi.remover')
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.proadi.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     
                                     <div class="col-6">
-                                        @can('localizacao.criar')
+                                        @can('proadi.criar')
                                             @if (!$proadi)
                                                 <a href="{{route('admin.dashboard.proadi.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                             @endif                                          
@@ -75,12 +75,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('localizacao.editar')
+                                                        @can('proadi.editar')
                                                         <div class="col-4">
                                                             <a href="{{route('admin.dashboard.proadi.edit',['proadi' => $proadi->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
                                                         @endcan
-                                                        @can('localizacao.remover')
+                                                        @can('proadi.remover')
                                                         <form action="{{route('admin.dashboard.proadi.destroy',['proadi' => $proadi->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

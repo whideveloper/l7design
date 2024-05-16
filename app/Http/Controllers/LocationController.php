@@ -38,12 +38,13 @@ class LocationController extends Controller
 
         try{
             DB::beginTransaction();
-            Location::create($data);
+            $location = Location::create($data);
             DB::commit();
             Session::flash('success', 'Localização criada com sucesso!');
-            return redirect()->route('admin.dashboard.location.index');
+            return redirect()->route('admin.dashboard.location.edit', [
+                'location' => $location
+            ]);
         }catch(\Exception $exception){
-            dd('Aqui');
             DB::rollback();
             Session::flash('error', 'Erro ao criar Localização!');
             return redirect()->back();
@@ -67,7 +68,9 @@ class LocationController extends Controller
             $location->fill($data)->save();
             DB::commit();
             Session::flash('success', 'Localização atualizada com sucesso!');
-            return redirect()->route('admin.dashboard.location.index');
+            return redirect()->route('admin.dashboard.location.edit', [
+                'location' => $location
+            ]);
         }catch(\Exception $exception){
             DB::rollback();
             Session::flash('error', 'Erro ao atualizar Localização!');

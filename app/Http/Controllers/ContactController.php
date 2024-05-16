@@ -52,11 +52,6 @@ class ContactController extends Controller
         
     }
 
-    public function show(Contact $contact)
-    {
-        //
-    }
-
     public function edit(Contact $contact)
     {   
         if(!Auth::user()->can(['formulario de contato.visualizar','formulario de contato.editar'])){

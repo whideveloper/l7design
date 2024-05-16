@@ -1,42 +1,56 @@
 @extends('Client.core.main')
 @section('content')
-<section class="especialidades"> 
-    <div class="especialidades__content">
-        <div class="especialidades__text">
-            <p>
-                Seja bem-vindo ao nosso mural de comunicação!
-                <br><br>
-                Este é o espaço onde compartilhamos as últimas novidades, destaques do projeto, eventos emocionantes, atualizações e avisos importantes.
-                <br><br>
-                Mantenha-se informado sobre tudo o que está acontecendo.
-            </p>
+@if ($categorias->count() > 0 || $sessaoMuralDeComunicacao || $muralDeComunicacoes->count())
+    <section class="especialidades"> 
+        <div class="especialidades__content">
+            @if ($sessaoMuralDeComunicacao)
+                <div class="especialidades__text">
+                    <p>
+                        {!! $sessaoMuralDeComunicacao->text !!}
+                    </p>
+                </div>
+            @endif
+            
+            @if ($categorias->count() > 0)
+                <div class="especialidades__categories">
+                    <ul class="especialidades__categories__list {{ url()->current() == route('mural-de-comunicacao') ? 'mural-de-comunicacao' : ''  }}">
+                        @foreach ($categorias as $category)
+                            <li class="especialidades__categories__item {{ request()->category == $category->slug ? 'active' : '' }}"><a href="{{route('mural-de-comunicacao-category', [$category->slug])}}">{{$category->title}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
+            @if ($muralDeComunicacoes->count() > 0)
+                <div class="content-body">
+                    @foreach ($muralDeComunicacoes as $mural)
+                        @php
+                            $imagePath = asset('storage/'. $mural->path_image);
+                            $description = $mural->description;
+                            $descricao = strip_tags($description);  
+                            $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y');                
+
+                            $content = [
+                                'id' => $mural->id,
+                                'title' => $mural->title,
+                                'date' => $data,         
+                                'image' => $imagePath,
+                                'text' => substr(strip_tags($descricao),0,150),
+                                'link' => route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
+                                'btnName' => isset($mural->btn_title)?$mural->btn_title:'saiba mais',
+                            ];
+                        @endphp    
+                        @include('Client.models.mdl-box-interna', $content)
+                    @endforeach
+                </div>
+                {{-- PAGINATION --}}
+                <div class="pagi">
+                    {{$muralDeComunicacoes->links()}}
+                </div>
+            @endif
         </div>
-        
-        <div class="especialidades__categories">
-            <ul class="especialidades__categories__list">
-                <li class="especialidades__categories__item"><a href="">Notícias e Novidades</a></li>
-                <li class="especialidades__categories__item"><a href="">TeleNordeste em destaque</a></li>
-                <li class="especialidades__categories__item"><a href="">Eventos e Calendários</a></li>
-                <li class="especialidades__categories__item"><a href="">Treinamentos e Capacitações</a></li>
-                <li class="especialidades__categories__item"><a href="">Avisos e alertas</a></li>
-            </ul>
-        </div>
-        @php
-            $content = [
-                'title' => 'Título lorem ipsum dolorem consectum vertun quantus',
-                'date' => '21/02/2024',
-                'funcao' => '',
-                'crm' => '',            
-                'image' => asset('Client/assets/images/doctor-image.png'),
-                'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim tincidunt porttitor...',
-                'link' => '/servicos',
-                'btnName' => 'saiba mais',
-            ];
-        @endphp
-    
-        @for ($i = 0; $i < 9; $i++)
-            @include('Client.models.mdl-box', $content)
-        @endfor
-    </div>
-</section>
+    </section>
+@endif
 @endsection
+
+

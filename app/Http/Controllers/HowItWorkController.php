@@ -37,10 +37,12 @@ class HowItWorkController extends Controller
         try {
             DB::beginTransaction();
             $data['active'] = $request->active ? 1 : 0;
-            HowItWork::create($data);
+            $howItWork = HowItWork::create($data);
             DB::commit();
             Session::flash('success', 'Registro criado com sucesso!');
-            return redirect()->route('admin.dashboard.howItWork.index');
+            return redirect()->route('admin.dashboard.howItWork.edit', [
+                'howItWork' => $howItWork
+            ]);
         } catch (\Exception $exception) {
             dd($exception);
             DB::rollback();
@@ -69,7 +71,9 @@ class HowItWorkController extends Controller
             $howItWork->fill($data)->save();
             DB::commit();
             Session::flash('success', 'Registro atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.howItWork.index');
+            return redirect()->route('admin.dashboard.howItWork.edit', [
+                'howItWork' => $howItWork
+            ]);
         } catch (\Exception $exception) {
             DB::rollback();
             Session::flash('error', 'Erro ao atualizar Registro!');

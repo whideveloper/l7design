@@ -30,6 +30,7 @@
     <meta name="twitter:description" content="Descrição" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/fancybox.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/responsivo.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
     <!--fonts google-->
@@ -43,8 +44,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 </head>
 
 <body>
@@ -52,7 +51,7 @@
         <div class="header__content">
             <div class="hearder__position">
                 <div class="header__image">
-                    <a href="">
+                    <a href="{{route('home')}}">
                         <img src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="Telenordeste" title="Telenordeste">
                     </a>
                 </div>
@@ -60,55 +59,166 @@
                     <ul class="header__list">
                         <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
                         <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
-                        <li class="header__item"><a href="">Material de apoio</a></li>
+                        <li class="header__item" id="material-de-apoio-click">
+                            <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a>
+                            <ul class="submenu" id="submenu-material-de-apoio">
+                                @if ($protocolo)                    
+                                    <li class="submenu__item">
+                                        <a href="{{route('material-de-apoio')}}#{{$protocolo->slug}}">{{$protocolo->title}}</a>
+                                    </li>
+                                @endif
+                                @foreach ($materialSections as $materialSection)                                    
+                                    <li class="submenu__item">
+                                        <a href="{{route('material-de-apoio')}}#{{$materialSection->slug}}">{{$materialSection->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        
+                        
                         <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
-                        <li class="header__item"><a href="">SAVs</a></li>
-                        <li class="header__item"><a href="">Desempenho</a></li>
-                        <li class="header__item"><a href="">Galeria</a></li>
-                        <li class="header__item"><a href="">Contatos e Sugestões</a></li>
+                        <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
+                        <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
+                        <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
+                        <li class="header__item"><a href="{{route('contato')}}" class="{{ Route::currentRouteName() == 'contato' ? 'active' : ''}}">Contatos e Sugestões</a></li>
                     </ul>
                 </nav>
+                <div class="sandwich">
+                    <a class="botao-sidebar" href="#menu_sidebar" data-sidebar="#menu_sidebar">
+                        <div class="span">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
+        </div>        
     </header>
+    <div id="menu_sidebar" class="sidebar">
+        <div class="logo">
+            <a href="{{route('home')}}">
+                <img src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="Telenordeste" title="Telenordeste">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
+                <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
+                <li class="header__item" id="material-de-apoio-click">
+                    <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}} dropdown-toggle" id="material-de-apoio-dropdown">Material de apoio</a>
+                    <ul class="submenu" id="submenu-material-de-apoio-mobile">
+                        @if ($protocolo)                    
+                            <li class="submenu__item">
+                                <a href="{{route('material-de-apoio')}}#{{$protocolo->slug}}">{{$protocolo->title}}</a>
+                            </li>
+                        @endif
+                        @foreach ($materialSections as $materialSection)                                    
+                            <li class="submenu__item">
+                                <a href="{{route('material-de-apoio')}}#{{$materialSection->slug}}">{{$materialSection->title}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>              
+                <li class="header__item"><a href="{{route('mural-de-comunicacao')}}" class="{{ Route::currentRouteName() == 'mural-de-comunicacao' ? 'active' : ''}}">Mural de comunicação</a></li>
+                <li class="header__item"><a href="{{route('savs')}}" class="{{ Route::currentRouteName() == 'savs' ? 'active' : ''}}">SAVs</a></li>
+                <li class="header__item"><a href="{{route('desempenho')}}" class="{{ Route::currentRouteName() == 'desempenho' ? 'active' : ''}}">Desempenho</a></li>
+                <li class="header__item"><a href="{{route('galeria')}}" class="{{ Route::currentRouteName() == 'galeria' ? 'active' : ''}}">Galeria</a></li>
+                <li class="header__item"><a href="{{route('contato')}}" class="{{ Route::currentRouteName() == 'contato' ? 'active' : ''}}">Contatos e Sugestões</a></li>
+            </ul>
+        </nav>
+    </div> 
+    <!--Button flutuante-->
+    <button id="rolagem__top" class="rolagem__top">
+        <a href="#header">
+            <img src="{{asset('Client/assets/images/top-1.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-1">
+            <img src="{{asset('Client/assets/images/top-2.svg')}}" alt="Rolagem Top" title="Rolagem Top" class="top-2">            
+        </a>
+    </button>
 
     @if (Route::currentRouteName() !== 'home')    
         @php
-            if (Route::currentRouteName() == 'especialidades') {
-                $content = [
+            if (Route::currentRouteName() == 'especialidades' || Route::currentRouteName() == 'especialidades-category') {
+                $contentTitle = [
                     'title' => 'Especialidades',
                 ];
             }
             if(Route::currentRouteName() == 'contato'){
-                $content = [
+                $contentTitle = [
                     'title' => 'Contato',
                 ];
             }
-            if(Route::currentRouteName() == 'mural-de-comunicacao'){
-                $content = [
+            if(Route::currentRouteName() == 'mural-de-comunicacao' || Route::currentRouteName() == 'mural-de-comunicacao-category' ||Route::currentRouteName() == 'mural-de-comunicacao-interna'){
+                $contentTitle = [
                     'title' => 'Mural de comunicação',
                 ];
             }
+            if(Route::currentRouteName() == 'material-de-apoio'){
+                $contentTitle = [
+                    'title' => 'Material de apoio',
+                ];
+            }
+            if(Route::currentRouteName() == 'savs'){
+                $contentTitle = [
+                    'title' => "SAV's",
+                ];
+            }
+            if(Route::currentRouteName() == 'galeria'){
+                $contentTitle = [
+                    'title' => "Galeria",
+                ];
+            }
+            if(Route::currentRouteName() == 'galeria-interna'){
+                $contentTitle = [
+                    'title' => "Evento",
+                ];
+            }
+            if(Route::currentRouteName() == 'desempenho'){
+                $contentTitle = [
+                    'title' => "Desempenho",
+                ];
+            }
+            if(Route::currentRouteName() == 'contato'){
+                $contentTitle = [
+                    'title' => "Contato e sugestões",
+                ];
+            }
+            if(Route::currentRouteName() == 'calendario'){
+                $contentTitle = [
+                    'title' => "Agenda",
+                ];
+            }
         @endphp
-        @include('Client.models.banner-interno', $content)
+        @include('Client.models.banner-interno', $contentTitle)
     @endif
-
-    
 
     <main id="page">
         @yield('content')
     </main>
+    @if ($partners->count() < 1)
+        <style>
+            .footer{
+                height: 140px;
+            } 
+            .footer .footer__logos{
+                height: 100%;
+            }
+        </style>
+    @endif
      <section id="footer" class="footer">
         <div class="footer__logos">
-            <ul class="footer__logos__items owl-carousel">
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/haoc-footer.svg')}}" alt="HAOC" title="HAOC"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/csemse.svg')}}" alt="CSEMSE" title="CSEMSE"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/conass.svg')}}" alt="CONASS" title="CONASS"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/proadi.svg')}}" alt="PROADI" title="PROADI"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/sus.svg')}}" alt="SUS" title="SUS"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/msaude.svg')}}" alt="MSAUDE" title="MSAUDE"></a></li>
-                <li><a href="" target="_blank"><img src="{{asset('Client/assets/images/brgov.svg')}}" alt="BRGOV" title="BRGOV"></a></li>
-            </ul>
+            @if ($partners->count())
+                <ul class="footer__logos__items owl-carousel">
+                    @foreach($partners as $partners)
+                        <li>
+                            @if ($partners->link)
+                                <a href="{{$partners->link}}" target="_blank" class="link-full"></a>
+                            @endif
+                            <img src="{{asset('storage/' . $partners->path_image)}}" alt="{{$partners->title}}" title="{{$partners->title}}">                        
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
             <div class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>
                 <div class="footer__contact__items">
@@ -127,8 +237,24 @@
         </div>
      </section>
     <script src="{{ asset(mix('Client/assets/js/main.js')) }}"></script>
+    <script src="{{ asset(mix('Client/assets/js/jquery.menusidebar.js')) }}"></script>
+    <script src="{{ asset(mix('Client/assets/js/fancybox.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var dropdown = document.getElementById('material-de-apoio-dropdown');
+            var submenu = document.getElementById('submenu-material-de-apoio-mobile');
+            
+            dropdown.addEventListener('click', function() {
+                if (submenu.style.display === 'block') {
+                    submenu.style.display = 'none';
+                } else {
+                    submenu.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

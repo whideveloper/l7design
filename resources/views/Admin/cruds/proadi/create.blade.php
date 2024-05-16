@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.dashboard.proadi.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.proadi.form')
-                    @can('proadis.criar')
+                    @can('proadi.criar')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.proadi.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

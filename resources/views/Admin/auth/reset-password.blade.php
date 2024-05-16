@@ -11,15 +11,15 @@
                         <div class="auth-logo">
                             <a href="{{route('admin.dashboard.painel')}}" class="logo logo-dark text-center">
                                 <span class="authl logo-lg">
-                                    <img src="{{asset('Admin/assets/images/whi.png')}}" alt="" height="22">
-                                    <h2>WHI <span>Web de alta inspiração</span></h2>
+                                    <img src="{{asset('Admin/assets/images/logo-telenordeste.svg')}}" alt="" height="22">
+                                    {{-- <h2>WHI <span>Web de alta inspiração</span></h2> --}}
                                 </span>
                             </a>
         
                             <a href="{{route('admin.dashboard.painel')}}" class="logo logo-light text-center">
                                 <span class="authl logo-lg">
-                                    <img src="{{asset('Admin/assets/images/whit.png')}}" alt="" height="22">
-                                    <h2>WHI - Web de alta inspiração</h2>
+                                    <img src="{{asset('Admin/assets/images/logo-telenordeste.svg')}}" alt="" height="22">
+                                    {{-- <h2>WHI - Web de alta inspiração</h2> --}}
                                 </span>
                             </a>
                         </div>
@@ -75,17 +75,27 @@
         <!-- end auth-fluid-form-box-->
 
         <!-- Auth fluid right content -->
-        <div class="auth-fluid-right text-center" style="background-image: url({{asset('Admin/assets/images/bg-login.jpeg')}})">
+        <div class="auth-fluid-right text-center" style="background-image: url({{asset('Admin/assets/images/bg-material.png')}})">
             <div class="auth-user-testimonial">
-                {{-- <h2 class="mb-3 text-white">I love the color!</h2>
-                <p class="lead"><i class="mdi mdi-format-quote-open"></i> I've been using your theme from the previous developer for our web app, once I knew new version is out, I immediately bought with no hesitation. Great themes, good documentation with lots of customization available and sample app that really fit our need. <i class="mdi mdi-format-quote-close"></i>
+                <h2 class="mb-3 text-white">TeleNordeste</h2>
+                <p class="lead"><i class="mdi mdi-format-quote-open"></i> A telessaúde abraçando Sergipe <i class="mdi mdi-format-quote-close"></i>
                 </p>
                 <h5 class="text-white">
-                    - Fadlisaad (Ubold Admin User)
-                </h5> --}}
+                    {{-- - Fadlisaad (Ubold Admin User) --}}
+                </h5>
             </div> <!-- end auth-user-testimonial-->
         </div>
         <!-- end Auth fluid right content -->
     </div>
     <!-- end auth-fluid-->
+    <style>
+        button:hover{
+            background: #F18318 !important;
+            border-color:#00B0B9 !important;
+        }
+        button{
+            background: #00B0B9 !important;
+            border-color:#00B0B9 !important;
+        }
+    </style>
 @endsection

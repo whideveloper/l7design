@@ -23,7 +23,7 @@ class BannerController extends Controller
         if(!Auth::user()->can('banners.visualizar')){
             return view('Admin.error.403');
         }
-        $banners = Banner::sorting()->paginate();
+        $banners = Banner::sorting()->paginate(30);
         return view('Admin.cruds.banner.index', [
             'banners' => $banners
         ]);

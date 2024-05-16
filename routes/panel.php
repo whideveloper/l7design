@@ -1,33 +1,58 @@
 <?php
 
-use App\Http\Controllers\AuditActivityController;
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SavController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProadiController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProtocolController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\DepoimentController;
+use App\Http\Controllers\HowItWorkController;
+use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\User\AuthController;
+use App\Http\Controllers\GoogleFormController;
+use App\Http\Controllers\SavGravadaController;
+use App\Http\Controllers\StepToStepController;
+use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\GalleryImageController;
+use App\Http\Controllers\MuralDeApoioController;
+use App\Http\Controllers\TelenordesteController;
+use App\Http\Controllers\AuditActivityController;
+use App\Http\Controllers\Client\SavPageController;
+use App\Http\Controllers\TrainingForUseController;
+use App\Http\Controllers\MaterialDocumentController;
+use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\DepoimentController;
-use App\Http\Controllers\HospitalController;
-use App\Http\Controllers\HowItWorkController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\ObjectiveController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\ProadiController;
-use App\Http\Controllers\StepToStepController;
-use App\Http\Controllers\TeleinterconsultaController;
-use App\Http\Controllers\TelenordesteController;
+use App\Http\Controllers\ContactTelenordesteController;
+use App\Http\Controllers\EspecialidadeSessionController;
+use App\Http\Controllers\EspecialidadeCategoryController;
+use App\Http\Controllers\MuralDeComunicacaoFeedController;
+use App\Http\Controllers\EspecialidadeProfessionalController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -182,6 +207,177 @@ Route::prefix('painel/')->group(function () {
         Route::post('parceiros/sorting', [PartnerController::class, 'sorting'])
             ->name('admin.dashboard.partner.sorting');
 
+        //CATEGORIA ESPECIALIDADE
+        Route::resource('categoria-especialidade', EspecialidadeCategoryController::class)
+            ->names('admin.dashboard.especialidadeCategory')
+            ->parameters(['categoria-especialidade' => 'especialidadeCategory']);
+        Route::post('categoria-especialidade/delete', [EspecialidadeCategoryController::class, 'destroySelected'])
+            ->name('admin.dashboard.especialidadeCategory.destroySelected');
+        Route::post('categoria-especialidade/sorting', [EspecialidadeCategoryController::class, 'sorting'])
+            ->name('admin.dashboard.especialidadeCategory.sorting');
+
+        //SESSAO ESPECIALIDADE
+        Route::resource('especialidade', EspecialidadeSessionController::class)
+            ->names('admin.dashboard.especialidadeSession')
+            ->parameters(['especialidade' => 'especialidadeSession']);
+
+        //ESPECIALIDADE
+        Route::resource('profissionais', EspecialidadeProfessionalController::class)
+            ->names('admin.dashboard.especialidadeProfessional')
+            ->parameters(['profissionais' => 'especialidadeProfessional']);
+        Route::post('profissionais/delete', [EspecialidadeProfessionalController::class, 'destroySelected'])
+            ->name('admin.dashboard.especialidadeProfessional.destroySelected');
+        Route::post('profissionais/sorting', [EspecialidadeProfessionalController::class, 'sorting'])
+            ->name('admin.dashboard.especialidadeProfessional.sorting');
+
+        //TUTORIAL
+        Route::resource('tutorial', TutorialController::class)
+        ->names('admin.dashboard.tutorial')
+        ->parameters(['tutorial' => 'tutorial']); 
+        
+        //MURAL DE APOIO
+        Route::resource('mural-de-apoio', MuralDeApoioController::class)
+        ->names('admin.dashboard.muralDeApoio')
+        ->parameters(['mural-de-apoio' => 'muralDeApoio']); 
+
+        //CATEGORIA MURAL DE COMUNICACAO
+        Route::resource('categoria-mural-de-comunicacao', MuralDeComunicacaoCategoryController::class)
+            ->names('admin.dashboard.muralDeComunicacaoCategory')
+            ->parameters(['categoria-mural-de-comunicacao' => 'muralDeComunicacaoCategory']);
+        Route::post('categoria-mural-de-comunicacao/delete', [MuralDeComunicacaoCategoryController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.destroySelected');
+        Route::post('categoria-mural-de-comunicacao/sorting', [MuralDeComunicacaoCategoryController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoCategory.sorting');
+
+        // MURAL DE COMUNICACAO
+        Route::resource('mural-de-comunicacao', MuralDeComunicacaoFeedController::class)
+        ->names('admin.dashboard.muralDeComunicacaoFeed')
+        ->parameters(['mural-de-comunicacao' => 'muralDeComunicacaoFeed']); 
+        Route::post('mural-de-comunicacao/delete', [MuralDeComunicacaoFeedController::class, 'destroySelected'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.destroySelected');
+        Route::post('mural-de-comunicacao/sorting', [MuralDeComunicacaoFeedController::class, 'sorting'])
+            ->name('admin.dashboard.muralDeComunicacaoFeed.sorting');
+        
+        //TREINAMENTO
+        Route::resource('treinamento', TrainingForUseController::class)
+        ->names('admin.dashboard.trainingForUse')
+        ->parameters(['treinamento' => 'trainingForUse']); 
+
+        //ARQUIVO DE TREINAMENTO
+        Route::resource('arquivo-de-treinamento', TrainingController::class)
+        ->names('admin.dashboard.training')
+        ->parameters(['arquivo-de-treinamento' => 'training']); 
+        Route::post('arquivo-de-treinamento/delete', [TrainingController::class, 'destroySelected'])
+            ->name('admin.dashboard.training.destroySelected');
+        Route::post('arquivo-de-treinamento/sorting', [TrainingController::class, 'sorting'])
+            ->name('admin.dashboard.training.sorting');
+
+        //TREINAMENTO
+        Route::resource('protocolo', ProtocolController::class)
+        ->names('admin.dashboard.protocol')
+        ->parameters(['protocolo' => 'protocol']); 
+
+        //ARQUIVO DE TREINAMENTO
+        Route::resource('material-de-apoio', MaterialController::class)
+        ->names('admin.dashboard.material')
+        ->parameters(['material-de-apoio' => 'material']); 
+        Route::post('material-de-apoio/delete', [MaterialController::class, 'destroySelected'])
+            ->name('admin.dashboard.material.destroySelected');
+        Route::post('material-de-apoio/sorting', [MaterialController::class, 'sorting'])
+            ->name('admin.dashboard.material.sorting');
+
+        //DOCUMENTO DE MATERIAL DE APOIO
+        Route::resource('documento-material-de-apoio', MaterialDocumentController::class)
+        ->names('admin.dashboard.materialDocument')
+        ->parameters(['documento-material-de-apoio' => 'materialDocument']); 
+        Route::post('documento-material-de-apoio/delete', [MaterialDocumentController::class, 'destroySelected'])
+            ->name('admin.dashboard.materialDocument.destroySelected');
+        Route::post('documento-material-de-apoio/sorting', [MaterialDocumentController::class, 'sorting'])
+            ->name('admin.dashboard.materialDocument.sorting');
+
+        //AGENDAMENTO
+        Route::resource('agendamento', AgendamentoController::class)
+            ->names('admin.dashboard.agendamento')
+            ->parameters(['agendamento'=>'agendamento']);
+        
+        //SAV
+        Route::resource('sav', SavController::class)
+        ->names('admin.dashboard.sav')
+        ->parameters(['sav' => 'sav']);
+        
+        //SAV GRAVADA
+        Route::resource('sav-gravada', SavGravadaController::class)
+        ->names('admin.dashboard.savGravada')
+        ->parameters(['sav-gravada' => 'savGravada']); 
+        Route::post('sav-gravada/delete', [SavGravadaController::class, 'destroySelected'])
+            ->name('admin.dashboard.savGravada.destroySelected');
+        Route::post('sav-gravada/sorting', [SavGravadaController::class, 'sorting'])
+            ->name('admin.dashboard.savGravada.sorting');
+
+        //LEADS
+        Route::resource('leads', LeadController::class)
+        ->names('admin.dashboard.lead')
+        ->parameters(['leads' => 'lead']);
+        Route::post('leads/delete', [LeadController::class, 'destroySelected'])
+            ->name('admin.dashboard.lead.destroySelected');
+        Route::get('lead-search', [LeadController::class, 'index'])
+            ->name('admin.dashboard.lead.lead-search');
+        Route::post('lead', [SavPageController::class, 'leadSave'])
+            ->name('admin.dashboard.lead.leadSave');
+
+        //GRUPOS
+        Route::resource('contato-telenordeste', ContactTelenordesteController::class)
+        ->names('admin.dashboard.contactTelenordeste')
+        ->parameters(['contato-telenordeste' => 'contactTelenordeste']);
+        Route::post('contato-telenordeste/delete', [ContactTelenordesteController::class, 'destroySelected'])
+            ->name('admin.dashboard.contactTelenordeste.destroySelected');
+        Route::post('contato-telenordeste/sorting', [ContactTelenordesteController::class, 'sorting'])
+            ->name('admin.dashboard.contactTelenordeste.sorting');
+        //GALRIA
+        Route::resource('galeria', GalleryController::class)
+        ->names('admin.dashboard.gallery')
+        ->parameters(['galeria' => 'gallery']);
+        Route::post('galeria/delete', [GalleryController::class, 'destroySelected'])
+            ->name('admin.dashboard.gallery.destroySelected');
+        Route::post('galeria/sorting', [GalleryController::class, 'sorting'])
+            ->name('admin.dashboard.gallery.sorting');
+        //GALRIA IMAGEM
+        Route::resource('imagem-galeria', GalleryImageController::class)
+        ->names('admin.dashboard.galleryImage')
+        ->parameters(['imagem-galeria' => 'galleryImage']);
+        Route::post('imagem-galeria/delete', [GalleryImageController::class, 'destroySelected'])
+            ->name('admin.dashboard.galleryImage.destroySelected');
+        Route::post('imagem-galeria/sorting', [GalleryImageController::class, 'sorting'])
+            ->name('admin.dashboard.galleryImage.sorting');
+        //EVENTO
+        Route::resource('evento', EventController::class)
+        ->names('admin.dashboard.event')
+        ->parameters(['evento' => 'event']);
+        Route::post('evento/delete', [EventController::class, 'destroySelected'])
+            ->name('admin.dashboard.event.destroySelected');
+        Route::post('evento/sorting', [EventController::class, 'sorting'])
+            ->name('admin.dashboard.event.sorting');
+        //FERIADO
+        Route::resource('feriados', HolidayController::class)
+        ->names('admin.dashboard.holiday')
+        ->parameters(['feriados' => 'holiday']);
+        Route::post('feriados/delete', [HolidayController::class, 'destroySelected'])
+            ->name('admin.dashboard.holiday.destroySelected');
+        Route::post('feriados/sorting', [HolidayController::class, 'sorting'])
+            ->name('admin.dashboard.holiday.sorting');
+        //MAPA
+        Route::resource('mapa', MapController::class)
+        ->names('admin.dashboard.map')
+        ->parameters(['mapa' => 'map']);
+        Route::post('mapa/delete', [MapController::class, 'destroySelected'])
+            ->name('admin.dashboard.map.destroySelected');
+        Route::post('mapa/sorting', [MapController::class, 'sorting'])
+            ->name('admin.dashboard.map.sorting');
+        //SESSAO FORMULARIO
+        Route::resource('sessao-formulario', GoogleFormController::class)
+            ->names('admin.dashboard.googleForm')
+            ->parameters(['sessao-formulario'=>'googleForm']);
+        
         //AUDITORIA
         Route::resource('auditoria', AuditActivityController::class)
             ->names('admin.dashboard.audit')
