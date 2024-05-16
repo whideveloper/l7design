@@ -179,7 +179,7 @@
                     </style>
                 @endif
                 @if ($stepToSteps->count() > 0)
-                    <div class="funciona__steps">
+                    <div class="funciona__steps owl-carousel">
                         @foreach ($stepToSteps as $stepToStep)
                             <article class="funciona__steps__step">
                                 <div class="funciona__steps__step__number">{{isset($stepToStep->ordem) ? $stepToStep->ordem : ''}}</div>
