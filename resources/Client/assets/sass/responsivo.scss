@@ -243,6 +243,9 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .location{
+        padding-bottom: 35px;
+    }
     .calendar .fc-toolbar-title{
         margin-top: -25px !important;
     }
