@@ -56,6 +56,8 @@ class MuralDeComunicacaoFeedController extends Controller
             $data['slug'] = Str::slug($request->title,'-','pt-BR');
             $data['active'] = $request->active ? 1 : 0;
 
+            $muralDeApoio = MuralDeApoio::first();
+
             if (!MuralDeComunicacaoFeed::create($data, $texto)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
@@ -64,7 +66,9 @@ class MuralDeComunicacaoFeedController extends Controller
             Session::flash('success', 'Mural de comunicação cadastrado com sucesso!');
 
             DB::commit();
-            return redirect()->route('admin.dashboard.muralDeComunicacaoFeed.index');
+            return redirect()->route('admin.dashboard.muralDeApoio.edit', [
+                'muralDeApoio' => $muralDeApoio
+            ]);
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
@@ -80,11 +84,13 @@ class MuralDeComunicacaoFeedController extends Controller
         foreach($muralDeComunicacaoCategory as $title){
             $categoryTitle[$title->id] = $title->title;
         }
+        $muralDeApoio = MuralDeApoio::first();
 
         return view('Admin.cruds.muralDeComunicacaoFeed.edit', [
             'muralDeComunicacaoFeed' => $muralDeComunicacaoFeed,
             'muralDeComunicacaoCategory' => $categoryTitle,
             'title' => $request->title??null,
+            'muralDeApoio' => $muralDeApoio
         ]);
     }
 
@@ -122,10 +128,12 @@ class MuralDeComunicacaoFeedController extends Controller
             if ($path_image) {
                 $request->file('path_image')->storeAs($this->pathUpload, $path_image);
             }
-
+            $muralDeApoio = MuralDeApoio::first();
             DB::commit();
             Session::flash('success', 'Mural de comunicação atualizada com sucesso!');
-            return redirect()->route('admin.dashboard.muralDeComunicacaoFeed.index');
+            return redirect()->route('admin.dashboard.muralDeApoio.edit', [
+                'muralDeApoio' => $muralDeApoio
+            ]);
         }catch(\Exception $exception){
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o Mural de comunicação!');

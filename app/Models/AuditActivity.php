@@ -9,9 +9,11 @@ use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Holiday;
 use App\Models\Protocol;
+use App\Models\SavGravada;
 use App\Models\GalleryImage;
 use App\Models\ContactTelenordeste;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\MuralDeComunicacaoCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AuditActivity extends Model
@@ -41,7 +43,10 @@ class AuditActivity extends Model
     public const MATERIAL_DOCUMENTO = 'Documento do Material de apoio';
     public const AGENDAMENTO = 'Agendamento';
     public const MURAL_DE_APOIO = 'Mural de apoio';
+    public const MURAL_DE_COMUNICACAO = 'Mural de comunicação';
+    public const CATEGORIA_MURAL_DE_COMUNICACAO = 'Categoria Mural de comunicação';
     public const SAV = 'Sav';
+    public const SAV_GRAVADA = 'Savs gravadas';
     public const LEAD = 'Leads';
     public const CONTACT_TELENORDESTE = 'Contatos Telenordeste';
     public const CONTACT_FORM = 'Sessão do formulário';
@@ -89,7 +94,7 @@ class AuditActivity extends Model
                 return self::TUTORIAL;
             case TrainingForUse::class:
                 return self::TREINAMENTO_PLATAFORMA;
-            case TrainingForUse::class:
+            case Training::class:
                 return self::ARQUIVOS_TREINAMENTO;
             case Protocol::class:
                 return self::PROTOCOLOS;
@@ -101,10 +106,16 @@ class AuditActivity extends Model
                 return self::AGENDAMENTO;
             case MuralDeApoio::class:
                 return self::MURAL_DE_APOIO;
+            case MuralDeComunicacaoFeed::class:
+                return self::MURAL_DE_COMUNICACAO;
+            case MuralDeComunicacaoCategory::class:
+                return self::CATEGORIA_MURAL_DE_COMUNICACAO;
             case Role::class:
                 return self::ROLES;
             case Sav::class:
                 return self::SAV;
+            case SavGravada::class:
+                return self::SAV_GRAVADA;
             case ContactTelenordeste::class:
                 return self::CONTACT_TELENORDESTE;
             case Lead::class:

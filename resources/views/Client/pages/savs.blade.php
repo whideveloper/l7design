@@ -27,9 +27,11 @@
                     </p>
 
                     <div class="row">
-                        <div class="teleinterconsulta__btn sav-gravada">
-                            <a href="#savs__gravadas" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
-                        </div>
+                        @if ($savGravadas->count() > 0)
+                            <div class="teleinterconsulta__btn sav-gravada">
+                                <a href="#savs__gravadas" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
+                            </div>
+                        @endif
                         <div class="teleinterconsulta__btn proxima-sav">
                             <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
                         </div>

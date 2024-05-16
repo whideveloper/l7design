@@ -69,7 +69,9 @@ class MuralDeApoioController extends Controller
             'mural_de_comunicacao_categories.title as categoria',
             'mural_de_comunicacao_feeds.title',
             'mural_de_comunicacao_feeds.path_image',
+            'mural_de_comunicacao_feeds.sorting',
             'mural_de_comunicacao_feeds.active',
+            'mural_de_comunicacao_feeds.text',
             'mural_de_comunicacao_feeds.id as mural_de_comunicacao_id',
             )->sorting()->get();
         return view('Admin.cruds.muralDeApoio.edit', [

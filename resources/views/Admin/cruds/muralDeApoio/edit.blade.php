@@ -59,10 +59,10 @@
 
                         <tbody data-route="{{route('admin.dashboard.muralDeComunicacaoFeed.sorting')}}">
                             @foreach ($muralDeComunicacaoFeeds as $key => $muralDeComunicacaoFeed)
-                                <tr data-code="{{$muralDeComunicacaoFeed->id}}">
+                                <tr data-code="{{$muralDeComunicacaoFeed->mural_de_comunicacao_id}}">
                                     <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                     <td class="bs-checkbox">
-                                        <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$muralDeComunicacaoFeed->id}}"></label>
+                                        <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$muralDeComunicacaoFeed->mural_de_comunicacao_id}}"></label>
                                     </td>
                                     <td>{{$muralDeComunicacaoFeed->title}}</td>
                                     <td>{{$muralDeComunicacaoFeed->categoria}}</td>

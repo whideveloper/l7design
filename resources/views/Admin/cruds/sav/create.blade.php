@@ -12,10 +12,10 @@
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard.sav.index')}}">Sav</a></li>
-                                    <li class="breadcrumb-item active">Cadastro de Sav</li>
+                                    <li class="breadcrumb-item active">Cadastro da Sessão Sav</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Cadastro de Sav</h4>
+                            <h4 class="page-title">Cadastro da Sessão Sav</h4>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
         <div id="map" style="width: 100%; height: 600px;z-index:0;"></div>
         <script>
             // Cria um mapa Leaflet com centro na Bahia
-            var map = L.map('map').setView([-12.9714, -38.5014], 9);
+            var map = L.map('map').setView([-23.5489, -46.6388], 6);
         
             // Adiciona um mapa de fundo
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

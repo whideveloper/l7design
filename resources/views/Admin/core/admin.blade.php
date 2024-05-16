@@ -322,8 +322,8 @@
                                                 </li>
                                             @endcan
                                             @can('mural de comunicacao.visualizar')
-                                                <li class="{{ route('admin.dashboard.muralDeComunicacaoFeed.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
+                                                <li class="{{ route('admin.dashboard.muralDeApoio.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.muralDeApoio.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
                                                 </li>
                                             @endcan                                            
                                         </ul>

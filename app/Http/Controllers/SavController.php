@@ -63,18 +63,19 @@ class SavController extends Controller
                 $request->file('path_image')->storeAs($this->pathUploadImage, $path_image);
             }
             
-            if (!Sav::create($data)) {
+            if (!$sav = Sav::create($data)) {
                 Storage::delete($this->pathUpload . $path_file);
                 Storage::delete($this->pathUploadImage . $path_image);
                 throw new Exception();
             }
 
             Session::flash('success', 'Sav cadastrada com sucesso!');
-
+            return redirect()->route('admin.dashboard.sav.edit', [
+                'sav' => $sav
+            ]);
             DB::commit();
             return redirect()->route('admin.dashboard.sav.index');
         }catch(\Exception $exception){
-            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao cadastrar o Sav!');
             return redirect()->back();
@@ -148,7 +149,9 @@ class SavController extends Controller
 
             DB::commit();
             Session::flash('success', 'Sav atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.sav.index');
+            return redirect()->route('admin.dashboard.sav.edit', [
+                'sav' => $sav
+            ]);
         }catch(\Exception $exception){
             dd($exception);
             DB::rollBack();
