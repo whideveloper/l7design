@@ -418,3 +418,24 @@ body[data-sidebar-size=condensed] .left-side-menu #sidebar-menu>ul>li:hover>.col
     width: 20%;
 }
 .data-search input{width: 100%;box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);color: #6c757d;background-color: #fff;height: 38px;border-radius: 0.25rem;border: 1px solid #ced4da;padding: 0 10px;}
+
+a.btn-success{
+    background-color: #00B0B9 !important;
+    border-color: #00B0B9;
+}
+button.btn-primary{
+    background-color: #41A935 !important;
+    border-color: #41A935 !important;
+}
+button.btn-primary:hover{
+    background-color: #41A935 !important;
+    border-color: #41A935 !important;
+}
+a.btn-success:hover{
+    background-color: #F18318 !important;
+    border-color: #F18318;
+}
+a.btn-success:hover{
+    background-color: #F18318 !important;
+    border-color: #F18318;
+}

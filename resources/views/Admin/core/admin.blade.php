@@ -99,14 +99,16 @@
                                 @endif
 
                                 <span class="pro-user-name ms-1">
-                                    {{explode(' ', Auth::user()->name)[0] }}
-                                    {{-- {{explode(' ', Auth::user()->name)[1] }} --}}
+                                    {{$names = collect(explode(' ', Auth::user()->name))->slice(0, 2)->implode(' ')}}
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                                 <!-- item-->
                                 <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Bem Vindo !</h6>
+                                    <h5 class="text-overflow m-0">Bem Vindo,</h5>                                    
+                                    <h6 class="text-overflow m-0">
+                                        {{$names = collect(explode(' ', Auth::user()->name))->slice(0, 2)->implode(' ')}}!
+                                    </h6>
                                 </div>
 
                                 <!-- item-->
@@ -203,6 +205,16 @@
                                     </a>
                                     <div class="collapse" id="sidebarDashboard">
                                         <ul class="nav-second-level">
+                                            @can('lead.visualizar')
+                                                <li class="{{ route('admin.dashboard.lead.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.lead.index')}}"><i class="mdi mdi-bullseye-arrow"></i> Leads</a>
+                                                </li>
+                                            @endcan
+                                            @can('auditoria.visualizar')
+                                                <li class="{{ route('admin.dashboard.audit.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.audit.index')}}"><i class="mdi mdi-file-search-outline"></i> Auditoria</a>
+                                                </li>
+                                            @endcan
                                             @can('grupo.visualizar')
                                                 <li class="{{ route('admin.dashboard.group.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.group.index')}}"><i class="mdi mdi-account-group"></i> Grupos</a>
@@ -212,12 +224,6 @@
                                             @can('usuario.visualizar')
                                                 <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-account-tie"></i> Usuários</a>
-                                                </li>
-                                            @endcan
-
-                                            @can('formulario de contato.visualizar')
-                                                <li class="{{ route('admin.dashboard.contact.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.contact.index')}}"><i class="mdi mdi-form-select"></i> Contato</a>
                                                 </li>
                                             @endcan
                                         </ul>
@@ -256,11 +262,11 @@
         <!-- END wrapper -->
         {{-- @include('Admin.components.models.settingsTheme') --}}
         <footer>
-            <div class="footer" style="display: flex;justify-content: center;align-items: center;">
+            <div class="footer" style="display: flex;justify-content: center;align-items: center; background: #00778B;border-top: 5px solid #00B0B9;">
                 <div class="image">
                     <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" height="40">
                 </div>
-                <div class="copyright">
+                <div class="copyright" style="color: #FFF;">
                     <script>
                         var currentYear = new Date().getFullYear();
                         document.write('© ' + currentYear + ' WHI - Web de Alta Inspiração. Todos os direitos reservados.');

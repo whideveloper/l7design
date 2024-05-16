@@ -46,7 +46,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-image-multiple-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -69,7 +69,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-lan font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -92,7 +92,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-message-text font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -115,7 +115,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-hospital-box-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -138,7 +138,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-map-marker-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -161,7 +161,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-layers-triple-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -184,7 +184,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-layers-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -207,7 +207,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-layers-minus font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -237,7 +237,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-sitemap font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -260,7 +260,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-user-nurse font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -283,7 +283,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-project-diagram font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -306,7 +306,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-shapes font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -329,7 +329,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -359,7 +359,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-file-document font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -382,7 +382,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-file-document-multiple font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -412,7 +412,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-sitemap font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -465,7 +465,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-video font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -488,7 +488,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-bullseye-arrow font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -518,7 +518,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-map-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -541,7 +541,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-notebook font-24 avatar-title text-dark"></i>
+                                                    <i class="d-flex fas fa-handshake font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -571,7 +571,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-calendar-month font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -594,7 +594,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-folder-multiple-image font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -624,7 +624,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-clipboard-list-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -647,7 +647,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-gmail font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -686,7 +686,7 @@
                         </div> <!-- end col-->
                     @endcan --}}
                 </div>
-                <div class="row mt-4">
+                <div class="row mb-4 mt-4">
                     <div class="col-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Outros</h4>
@@ -746,7 +746,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
+                                                    <i class="mdi mdi-file-search-outline font-24 avatar-title text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="col-12">
