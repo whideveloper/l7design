@@ -5,7 +5,13 @@
             <ul class="splide__list">
                 @foreach($slides as $slide)
                     <li class="splide__slide"> <!--Resolucao imagem 1440x684-->
-                        <img src="{{asset('storage/'. $slide->path_image)}}" alt="{{$slide->title.' '.$slide->subtitle}}" title="{{$slide->title.' '.$slide->subtitle}}">
+                        <img 
+                            src="{{ asset('storage/' . $slide->path_image) }}" 
+                            alt="{{ $slide->title . ' ' . $slide->subtitle }}" 
+                            title="{{ $slide->title . ' ' . $slide->subtitle }}"
+                            data-banner-mobile="{{ asset('storage/' . $slide->path_image_mobile) }}"
+                            data-banner-desktop="{{ asset('storage/' . $slide->path_image) }}"
+                        >
                         <div class="splide__description">
                             @php
                                 $title = $slide->title;
@@ -15,16 +21,17 @@
                                 $subtitle = str_replace('<br>', "\n", $subtitle);
                             @endphp
 
-                            <h2 class="splide__title">{{$title}} <br>{{$subtitle}}</h2>
+                            <h2 class="splide__title">{{ $title }} <br>{{ $subtitle }}</h2>
                         </div>
-                        <img src="{{asset('Client/assets/images/circulo.svg')}}" alt="circulo" class="slide-fitula-1">
-                        <img src="{{asset('Client/assets/images/meia-lua.svg')}}" alt="meia-lua" class="slide-fitula-2">
-                        <img src="{{asset('Client/assets/images/rosquinha.svg')}}" alt="rosquinha" class="slide-fitula-3">
+                        <img src="{{ asset('Client/assets/images/circulo.svg') }}" alt="circulo" class="slide-fitula-1">
+                        <img src="{{ asset('Client/assets/images/meia-lua.svg') }}" alt="meia-lua" class="slide-fitula-2">
+                        <img src="{{ asset('Client/assets/images/rosquinha.svg') }}" alt="rosquinha" class="slide-fitula-3">
                     </li>
                 @endforeach
             </ul>
         </div>
     </section>
+
     
     @if ($telenordeste)
     @if ($eventAll->count() < 1)
@@ -325,5 +332,15 @@
         startCountersWhenVisible();
 
     </script>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
+            changeBanner(banners);
+        
+            window.addEventListener('resize', function() {
+                changeBanner(banners);
+            });
+        });
+    </script>
+        
 @endsection

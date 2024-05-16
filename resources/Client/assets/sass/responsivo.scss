@@ -1,10 +1,15 @@
 // Estilos para dispositivos de tela pequena
 @media screen and (max-width: 415px) {
+
     .location__values__box{
         width: 50%;
     }
 }
-@media screen and (max-width: 476px) {    
+@media screen and (max-width: 476px) {   
+    #image-carousel.slide .splide__slide .splide__description .splide__title{
+        font-size: 2rem !important;
+        line-height: 45px !important;
+    } 
     .especialidades .mdl-box.mural-de-comunicacao .mdl-box__right {
         .mdl-box__text{
             margin-bottom: 15px;
@@ -321,34 +326,41 @@
 }
 
 @media screen and (max-width: 680px) {
+    .slide .splide__slide .splide__description{
+        
+    }
     .galeria__content .galeria__list .galeria__item{
         width: 100%;
         max-width: 100%;
     }
     .slide .splide__slide .splide__description .splide__title{
-        font-size: 1.75rem !important;
-        line-height: 32px !important;
-    }
-    .slide .slide-fitula-1{
-        max-width: 85px;
-        max-height: 85px;
-        top: 230px;
-    }
-    .slide .slide-fitula-2{
-        max-width: 85px;
-        top: -18px;
-    }
-    .slide .slide-fitula-3{
-        max-width: 85px;
-        max-height: 85px;
-        left: calc(50% - 64px);
-        bottom: 200px;
-    }
-    .telenordeste{
-        margin-top: -75px;
+        font-size: 2.75rem !important;
+        line-height: 60px !important;
     }
     .slide{
-        height: 280px;
+        .slide-fitula-1,
+        .slide-fitula-2,
+        .slide-fitula-3{
+            display: none;
+        }
+    } 
+
+    .telenordeste{
+        margin-top: 0px;
+        z-index: 10;
+        .telenordeste__content{
+            padding-top: 35px;
+        }
+    }
+    .slide{
+        height: 535px !important;
+        .splide__slide{
+            height:535px  !important;
+            &::after{
+                background-image: inherit;
+                background-color: #00b0b945;
+            }
+        }
     }
     .contato__wpp__btn.contato__wpp__link{
         width: 100%;

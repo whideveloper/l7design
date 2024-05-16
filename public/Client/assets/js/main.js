@@ -33,23 +33,50 @@ if (document.querySelector(".btn-mn-mbl")) {
 
 
 /* BANNER HOME */
-function changeBanner(c) {
-    for (let i = 0; i < c.length; i++) {
-        if (window.innerWidth < 720) {
-            if (c[i].dataset.mobileBanner != "") {
-                /*verifica se há um banner mobile, caso sim, troca a img, caso não ele mantem o banner grande*/
-                c[i].style.backgroundImage =
-                    "url(" + c[i].dataset.bannerMobile + ")";
+function changeBanner(images) {
+    for (let i = 0; i < images.length; i++) {
+        if (window.innerWidth <= 680) {
+            if (images[i].dataset.bannerMobile != "") {
+                // Verifica se há um banner mobile, caso sim, troca o src
+                images[i].src = images[i].dataset.bannerMobile;
             }
         } else {
-            if (c[i].dataset.desktopBanner != "") {
-                /*volta para o banner grande caso o banner mude a resolução da tela*/
-                c[i].style.backgroundImage =
-                    "url(" + c[i].dataset.bannerDesktop + ")";
+            if (images[i].dataset.bannerDesktop != "") {
+                // Volta para o banner grande caso a resolução da tela mude
+                images[i].src = images[i].dataset.bannerDesktop;
             }
         }
     }
 }
+
+// Para executar a função ao carregar a página e ao redimensionar a janela
+window.addEventListener('load', function() {
+    const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
+    changeBanner(banners);
+});
+
+window.addEventListener('resize', function() {
+    const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
+    changeBanner(banners);
+});
+
+// function changeBanner(c) {
+//     for (let i = 0; i < c.length; i++) {
+//         if (window.innerWidth < 720) {
+//             if (c[i].dataset.mobileBanner != "") {
+//                 /*verifica se há um banner mobile, caso sim, troca a img, caso não ele mantem o banner grande*/
+//                 c[i].style.backgroundImage =
+//                     "url(" + c[i].dataset.bannerMobile + ")";
+//             }
+//         } else {
+//             if (c[i].dataset.desktopBanner != "") {
+//                 /*volta para o banner grande caso o banner mude a resolução da tela*/
+//                 c[i].style.backgroundImage =
+//                     "url(" + c[i].dataset.bannerDesktop + ")";
+//             }
+//         }
+//     }
+// }
 
 if (document.querySelector("#banner")) {
     //carousel  com splide para o banner
