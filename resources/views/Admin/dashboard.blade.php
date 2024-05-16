@@ -34,8 +34,8 @@
                 <!-- end page title -->
                 <div class="row mt-0">
                     <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title">Home</h4>
+                        <div class="page-title-box">                            
+                            <h4 class="page-title"><i class="mdi mdi-home"></i> Home</h4>
                         </div>
                     </div>
                     @can('banners.visualizar')
@@ -226,7 +226,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Especialidades</h4>
+                            <h4 class="page-title"><i class="fas fa-user-nurse"></i> Especialidades</h4>
                         </div>
                     </div>
                     @can('especialidade.visualizar')
@@ -348,7 +348,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Material de apoio</h4>
+                            <h4 class="page-title"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</h4>
                         </div>
                     </div>
                     @can('protocolo.visualizar')
@@ -401,7 +401,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Mural de comunicação</h4>
+                            <h4 class="page-title"><i class="mdi mdi-form-select"></i> Mural de comunicação</h4>
                         </div>
                     </div>
                     @can('mural de comunicacao visualizar')
@@ -454,7 +454,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">SAVS</h4>
+                            <h4 class="page-title"><i class="mdi mdi-video"></i> SAVS</h4>
                         </div>
                     </div>
                     @can('sav.visualizar')
@@ -507,7 +507,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Desempenho/Parceiros</h4>
+                            <h4 class="page-title"><i class="fas fa-handshake"></i> Desempenho/Parceiros</h4>
                         </div>
                     </div>
                     @can('mapa.visualizar')
@@ -560,7 +560,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Agenda/Galeria</h4>
+                            <h4 class="page-title"><i class="mdi mdi-calendar-month"></i> Agenda/Galeria</h4>
                         </div>
                     </div>
                     @can('evento.visualizar')
@@ -613,7 +613,7 @@
                 <div class="row mt-0">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Contato</h4>
+                            <h4 class="page-title"><i class="mdi mdi-clipboard-list-outline"></i> Contato</h4>
                         </div>
                     </div>
                     @can('contato.visualizar')
@@ -689,7 +689,7 @@
                 <div class="row mb-4 mt-4">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Outros</h4>
+                            <h4 class="page-title"><i class="mdi mdi-tools"></i> Outros</h4>
                         </div>
                     </div>
                     @can('grupo.visualizar')
