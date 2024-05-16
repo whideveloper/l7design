@@ -240,6 +240,9 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .tutorial__list{
+        justify-content: center;
+    }
     .tutorial__item{
         max-width: 95%;
     }
