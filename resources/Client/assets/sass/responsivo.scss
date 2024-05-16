@@ -156,8 +156,8 @@
         max-width: 280px !important;
     }
     .footer__contact__items__right li:nth-child(-n+3){
-        margin-right: 16px;
-        padding-right: 16px;
+        margin-right: 12px;
+        padding-right: 12px;
     }
     .footer__contact__items__right{
         li{
@@ -165,7 +165,7 @@
                 width: 90px;
             }
             .insta, .linkedin {
-                width: 24px;
+                width: 20px;
             }
         }
     }
@@ -178,6 +178,7 @@
     .footer .footer__contact{
         width: 100% !important;
         max-width: 95% !important;
+        margin-top: 0px !important;
     }
     .tutorial__list{
         width: 100%;
@@ -198,10 +199,6 @@
     .btn__tutorial{
         width: 100%;
         max-width: 100%;
-    }
-    .especialidades .mdl-box{
-        max-width: inherit !important;
-        width: 95% !important;
     }
     .especialidades__categories{
         .especialidades__categories__list{
@@ -243,8 +240,29 @@
     }
 }
 @media screen and (max-width: 525px) {
+    .especialidades .mdl-box{
+        max-width: inherit !important;
+        width: 95% !important;
+    }
+    .rolagem__top a .top-1, .rolagem__top a .top-2{
+        width: 15px;
+    }
+    .rolagem__top{
+        right: 9px;
+        top: calc(100% - 74px);
+        height: 45px;
+        width: 45px;
+    }
+    .footer__contact__items__right{
+        max-width: inherit;
+    }
+    .footer .footer__contact{
+        width: 100% !important;
+        max-width: 95% !important;
+        margin-top: 30px;
+    }
     .location{
-        padding-bottom: 35px;
+        padding-bottom: 35px !important;
     }
     .calendar .fc-toolbar-title{
         margin-top: -25px !important;
