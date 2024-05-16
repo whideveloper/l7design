@@ -219,37 +219,36 @@
                         <img src="{{asset('Client/assets/images/logo-oswaldo-cruz.jpg')}}" alt="Hospital Alemão Oswaldo Cruz" title="Hospital Alemão Oswaldo Cruz">
                     </div>
                     <p>
-                        O <b>Hospital Alemão Oswaldo Cruz</b> compõe o seleto grupo de seis instituições filantrópicas detentoras do título de Entidades de Saúde de Reconhecida Excelência (ESRE). Juntas, essas instituições participam do PROADI-SUS, instituído em 2009 pelo Ministério da Saúde, com o objetivo de qualificar e aprimorar políticas, programas e serviços do SUS por meio de parcerias público-privadas com esses hospitais de excelência. 
-                        <br><br>
-                        Atualmente o PROADI-SUS é regulamentado pela Lei Complementar nº 187, de 16 de dezembro de 2021, que estabelece as etapas de habilitação e determina a apresentação de projetos em quatro modalidades: estudos de avaliação e incorporação de tecnologias; capacitação de recursos humanos; pesquisas de interesse público; e desenvolvimento de técnicas e operação de gestão em serviços de Saúde (Brasil, 2021).
-                        <br><br>
-                        Além destas quatro modalidades, os projetos estão inseridos dentro do que chamamos de macrotemas de saúde
-                        <br><br>
-                        <ul>
-                            <li>Educação para profissionais de saúde;</li>
-                            <li>Pesquisas de interesse público;</li>
-                            <li>Apoio à organização da Rede de Atenção à Saúde (RAS);</li>
-                            <li>Fortalecimento da gestão do SUS;</li>
-                            <li>Melhoria da gestão assistencial, de qualidade e de segurança do paciente;</li>
-                            <li>Evolução de práticas na Atenção Primária à Saúde;</li>
-                            <li>Saúde digital/Inovação;</li>
-                            <li>Assistência especializada complementar;</li>
-                            <li>Telessaúde;</li>
-                            <li>Avaliação de Tecnologias em Saúde;</li>
-                            <li>Aprimoramento do Sistema Nacional de Vigilância Sanitária (SNVS);</li>
-                            <li>Ações de enfrentamento à Covid-19 (a partir de 2020).</li>
-                        </ul>
+                        {!!$hospital->text!!}
                     </p>
+                    <div class="hospital__image__bottom">
+                        <img src="{{asset('Client/assets/images/image-bottom.jpg')}}" alt="image-bottom" title="image-bottom">
+                    </div>
                 </article>
-                <div class="proadi__image">
-                    <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+            </div>
+        </section>
+    @endif
+    @if ($proadi)
+        <section class="proadi">
+            <div class="proadi__content">
+                <h2 class="proadi__title">{{$proadi->title}}</h2>
+                <div class="proadi__content__items">
+                    <article>
+                        <p>
+                            {!!$proadi->text!!}
+                        </p>
+                    </article>
+                    <div class="proadi__image">
+                        <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="depoimento">
-        <div class="depoimento__content">
-            <h2 class="depoimento__title">Depoimentos</h2>
+        </section>
+    @endif
+    @if($depoiments->count() > 0)
+        <section id="depoimento">
+            <div class="depoimento__content">
+                <h2 class="depoimento__title">Depoimentos</h2>
 
                 <div class="depoimento owl-carousel owl-theme">
                     @foreach($depoiments as $depoiment)
