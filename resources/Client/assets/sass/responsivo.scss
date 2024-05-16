@@ -44,7 +44,7 @@
         }
     }
     .location__values img{
-        height: 370px;
+        height: 330px;
         transform: translate(-50%, -55%);
     }
     .telenordeste__content__event__list p{
@@ -112,6 +112,7 @@
             width: 46px;
             top: 190px !important;
             left: 40px !important;
+            display: none;
         }
         &::after{
             bottom: 29%;
@@ -119,6 +120,7 @@
             left: 97%;
             position: absolute;
             width: 50px;
+            display: none;
         }
     }
     .mural-de-comunicacao-interna__content {

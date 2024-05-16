@@ -275,7 +275,17 @@
     @endif
 
     {{-- <span id="footer"></span> --}}
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
+            changeBanner(banners);
+        
+            window.addEventListener('resize', function() {
+                changeBanner(banners);
+            });
+        });
+    </script>
+    
     <script>
         // Função para verificar se a sessão está visível na tela
         function isElementInViewport(el) {
@@ -331,16 +341,5 @@
         // Inicia a contagem quando a sessão está visível na tela
         startCountersWhenVisible();
 
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const banners = document.querySelectorAll('img[data-banner-mobile][data-banner-desktop]');
-            changeBanner(banners);
-        
-            window.addEventListener('resize', function() {
-                changeBanner(banners);
-            });
-        });
-    </script>
-        
+    </script>        
 @endsection
