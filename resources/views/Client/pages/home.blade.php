@@ -111,7 +111,7 @@
                     </div>
                 @endif
                 @if ($objectives->count() > 0)    
-                    <div class="location__column right">
+                    <div class="location__column right location-carrossel-mobile">
                         <h3 class="location__title right">Objetivos específicos</h3>
                         
                         <div class="location__values right">
