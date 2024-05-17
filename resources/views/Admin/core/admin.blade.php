@@ -486,11 +486,20 @@
                 <div class="copyright" style="color: #FFF;">
                     <script>
                         var currentYear = new Date().getFullYear();
-                        document.write('© ' + currentYear + ' WHI - Web de Alta Inspiração. Todos os direitos reservados.');
-                    </script>
+                        document.write('<a href="https://whi.dev.br" class="whi-btn" target="_blank">© ' + currentYear + ' WHI - Web de Alta Inspiração. Todos os direitos reservados.</a>');
+                    </script>                    
                 </div>
             </div>
         </footer>
+
+        <style>
+            .whi-btn{
+                color: #ffffff91;
+            }
+            .whi-btn:hover{
+                color: #FFF;
+            }
+        </style>
 
         <!-- Vendor js -->
         <script src="{{url(mix('Admin/assets/js/vendor.min.js'))}}"></script>

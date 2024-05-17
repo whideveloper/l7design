@@ -28,7 +28,7 @@
                         'id' => $especialista->id,
                         'title' => $especialista->name,
                         'funcao' => $especialista->function,
-                        'crm' => 'CRM:'. $especialista->crm,            
+                        'crm' => ($especialista->crm != null) ? 'CRM: '. $especialista->crm : '',            
                         'image' => asset('storage/'. $especialista->path_image),
                         'text' => $descricao,
                         'btnName' => 'Ver perfil completo',
@@ -50,7 +50,7 @@
                                         <div class="modal-box__right">
                                             <h3 class="modal-box__title">{{$especialista->name}}</h3>
                                             <span class="modal-box__function">{{$especialista->function}}</span>
-                                            <span class="modal-box__crm">CRM: {{$especialista->crm}}</span>
+                                            <span class="modal-box__crm">{{($especialista->crm != null) ? 'CRM: '. $especialista->crm : ''}}</span>
                                             <span class="modal-box__text">{!!$especialista->description!!}</span>
                                             <div class="modal-box__text__long">
                                                 {!! $especialista->text !!}

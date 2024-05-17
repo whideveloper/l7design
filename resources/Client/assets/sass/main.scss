@@ -1509,8 +1509,9 @@ input, select {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 93px;
-        gap: 0 34.79px;
+        height: auto;
+        max-height: 115px;
+        gap: 12px 34.79px;
         justify-content: space-between;
         max-width: 75%;
         margin-top: -50px;
@@ -3242,6 +3243,29 @@ table{
 .modal-box__right .modal-box__text__long{
     overflow-x: auto;
     height: 280px;
+    ul{
+        li{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0 10px;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 9px;
+            line-height: 22px;
+            &::before{
+                content: "";
+                background-color: var(--laranja);
+                height: 8px;
+                width: 8px;
+                border-radius: 100%;
+                position: absolute;
+                left: 6px;
+                top: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
 }
 .modal-box__content{
     position: relative;

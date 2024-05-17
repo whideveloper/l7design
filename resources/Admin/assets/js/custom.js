@@ -458,13 +458,21 @@ $(function() {
     })
 })
 
+// $(document).ready(function () {
+//     $("#loading-indicator").fadeIn("slow");
+
+//     setTimeout(function () {
+//         $("#loading-indicator").fadeOut("slow");
+//     }, 1000);
+// });
+$(window).on('load', function () {
+    $("#loading-indicator").fadeOut("slow");
+});
+
 $(document).ready(function () {
     $("#loading-indicator").fadeIn("slow");
-
-    setTimeout(function () {
-        $("#loading-indicator").fadeOut("slow");
-    }, 1000);
 });
+
 
 
 var toolbarOptions = [
