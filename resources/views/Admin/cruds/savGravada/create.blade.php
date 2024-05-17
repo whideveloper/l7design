@@ -23,7 +23,7 @@
                 {!! Form::model(null, ['route' => 'admin.dashboard.savGravada.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.savGravada.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.dashboard.savGravada.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.sav.edit',['sav' => $sav->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->

@@ -21,8 +21,10 @@ class SavGravadaController extends Controller
         if(!Auth::user()->can('sav.visualizar')){
             return view('Admin.error.403');
         }
-
-        return view('Admin.cruds.savGravada.create');
+        $sav = Sav::first();
+        return view('Admin.cruds.savGravada.create', [
+            'sav' => $sav
+        ]);
     }
     public function store(Request $request)
     {
@@ -66,9 +68,11 @@ class SavGravadaController extends Controller
         if(!Auth::user()->can('sav.visualizar')){
             return view('Admin.error.403');
         }
+        $sav = Sav::first();
         
         return view('Admin.cruds.savGravada.edit', [
-            'savGravada' => $savGravada
+            'savGravada' => $savGravada,
+            'sav' => $sav,
         ]);
     }
     public function update(Request $request, SavGravada $savGravada)
