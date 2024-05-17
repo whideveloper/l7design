@@ -146,7 +146,7 @@
             </div>
             <div class="btn__agendamento">
                 <div class="teleinterconsulta__btn">
-                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> {{$agendamento->btn_title}}</a>
+                    <a href="https://haoc.nilocare.app/login" target="_blank" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> {{$agendamento->btn_title}}</a>
                 </div>
             </div>
         </div>

@@ -101,7 +101,7 @@
                             <div class="location__values__content">
                                 <div class="location__values__box">
                                     <h4 id="cont-1" class="location__value__number">00</h4>
-                                    <p class="location__value__title">municípios atendidos</p>
+                                    <p class="location__value__title">municípios</p>
                                 </div>
                                 <div class="location__values__box">
                                     <h4 id="cont-2" class="location__value__number">0</h4>
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="teleinterconsulta__btn">
-                            <a href="" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
+                            <a href="https://haoc.nilocare.app/login" target="_blank" class="consulta"><img src="{{asset('Client/assets/images/cursor.svg')}}" alt="Agendar Consulta" title="Agendar Consulta"> Agende sua consulta</a>
                         </div>
                     </div>
                 </article>
@@ -273,11 +273,6 @@
             </div>
         </section>
     @endif
-
-    {{-- <span id="footer"></span> --}}
-    {{-- <script>
-        
-    </script> --}}
 
     <script>
         // Função para verificar se a sessão está visível na tela
