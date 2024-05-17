@@ -24,8 +24,10 @@ class EspecialidadeProfessionalController extends Controller
         foreach($categoryEspecialidade as $title){
             $categoryTitle[$title->id] = $title->title;
         }
+        $especialidadeSession = EspecialidadeSession::first();
         return view('Admin.cruds.especialidadeProfessional.create', [
-            'categoryEspecialidade' => $categoryTitle
+            'categoryEspecialidade' => $categoryTitle,
+            'especialidadeSession' => $especialidadeSession,
         ]);
     }
     public function store(Request $request)
@@ -51,13 +53,14 @@ class EspecialidadeProfessionalController extends Controller
             }
             $especialidadeSession = EspecialidadeSession::first();
 
-            Session::flash('success', 'Especialista cadastrado com sucesso!');
-
             DB::commit();
+            
+            Session::flash('success', 'Especialista cadastrado com sucesso!');
             return redirect()->route('admin.dashboard.especialidadeSession.edit', [
                 'especialidadeSession' => $especialidadeSession
             ]);
         }catch(\Exception $exception){
+            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao cadastrar o especialista!');
             return redirect()->back();

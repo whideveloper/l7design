@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.especialidadeProfessional.index')}}">Especialistas</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.especialidadeSession.edit', ['especialidadeSession' => $especialidadeSession->id])}}">Especialistas</a></li>
                                     <li class="breadcrumb-item active">Editar Especialista</li>
                                 </ol>
                             </div>

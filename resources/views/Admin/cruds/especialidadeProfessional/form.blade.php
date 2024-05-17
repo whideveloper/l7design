@@ -9,7 +9,7 @@
                 </div> 
 
                 <div class="mb-3 col-lg-6">
-                    {!! Form::label('heard', 'Categoria Clube Benefício', ['class'=>'form-label']) !!}
+                    {!! Form::label('heard', 'Função', ['class'=>'form-label']) !!}
 
                     {!! Form::select('especialidade_category_id', $categoryEspecialidade, isset($title)?$title:null, [
                         'class'=>'form-select',
