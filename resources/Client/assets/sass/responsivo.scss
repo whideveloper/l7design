@@ -1,11 +1,8 @@
 // Estilos para dispositivos de tela pequena
-@media screen and (max-width: 415px) {
-
-    .location__values__box{
-        width: 50%;
-    }
-}
 @media screen and (max-width: 476px) {   
+    .slide .splide__slide .splide__description{
+        width: 90%;
+    }
     .sandwich a{
         width: auto;
     }    
@@ -70,7 +67,16 @@
             width: 18px !important;
         }
     }
-    .telenordeste__title,
+    .telenordeste .telenordeste__title,
+    .especialidades__title,
+    .google__form__title,
+    .tutorial__title,
+    .desempenho__title,
+    .tutorial__title.right,
+    .mapa__atuacao__title,
+    .quadro__geral__title,
+    .contato__title,
+    .galeria__content .galeria__list .galeria__item .galeria__title,
     .mural__de__comunicacao__title,
     .savs__gravadas__title,
     .material .material__content .title,
@@ -240,7 +246,56 @@
         font-size: 4rem;
     }
 }
-@media screen and (max-width: 525px) {    
+@media screen and (max-width: 415px) {
+    .proadi .proadi__content .proadi__title::before{
+        height: 57px !important;
+    }
+    .telenordeste .telenordeste__title,
+    .google__form__title,
+    .especialidades__title,
+    .tutorial__title,
+    .desempenho__title,
+    .tutorial__title.right,
+    .mapa__atuacao__title,
+    .quadro__geral__title,
+    .contato__title,
+    .galeria__content .galeria__list .galeria__item .galeria__title,
+    .mural__de__comunicacao__title,
+    .savs__gravadas__title,
+    .material .material__content .title,
+    .box__document__title,
+    .depoimento__content .depoimento__title,
+    .proadi__content .proadi__title,
+    .funciona__content .funciona__title,
+    .hospital__content .hospital__title,
+    .teleinterconsulta .teleinterconsulta__description .teleinterconsulta__title,
+    .telenordeste__event__title,
+    .location__title,
+    .location__title.right{
+        font-size: 1.25rem !important;
+        &::before{
+            height: 2.188rem !important;
+        }
+    }
+    .teleinterconsulta .teleinterconsulta__image{
+        max-width: 235px !important;
+    }
+    .location__values__box{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 525px) {   
+    .galeria__text p {
+        margin: 0 auto;
+        width: 90%;
+        font-size: 15px;
+        line-height: 23px;
+        padding: 10px 0;
+    } 
+    .mural-de-comunicacao-interna__text{
+        max-width: 95%;
+        margin: 0 auto;
+    }
     .location__values__content{
         height: 100%;
         height: 100%;

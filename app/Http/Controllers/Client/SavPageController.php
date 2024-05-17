@@ -14,7 +14,7 @@ class SavPageController extends Controller
     public function index(){
 
         $sav = Sav::active()->first();
-        $savGravadas = SavGravada::sorting()->active()->get();
+        $savGravadas = SavGravada::sorting()->active()->paginate(6);
         return view('Client.pages.savs', [
             'sav' => $sav,
             'savGravadas' => $savGravadas,

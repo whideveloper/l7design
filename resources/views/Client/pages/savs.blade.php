@@ -78,9 +78,11 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
-
+                {{-- PAGINATION --}}
+                <div class="pagi">
+                    {{$savGravadas->links()}}
+                </div>
                 
                 <!-- Elemento para mostrar o indicador de carregamento -->
                 {{-- <div id="carregamento-savs" style="display: none;"><img src="{{asset('Client/assets/images/loading.svg')}}" alt=""></div> --}}
