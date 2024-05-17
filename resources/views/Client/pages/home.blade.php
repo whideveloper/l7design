@@ -288,7 +288,7 @@
 
         // Função para iniciar a contagem quando a sessão está visível na tela
         function startCountersWhenVisible() {
-            var locationSection = document.querySelector('.location');
+            var locationSection = document.querySelector('.location__values__content');
             var isCountingStarted = false;
 
             function startCounters() {
