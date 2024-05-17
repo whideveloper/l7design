@@ -89,7 +89,7 @@
                                 @if (Auth::user()->path_image)
                                     <img src="{{asset('storage/'.Auth::user()->path_image)}}" alt="user-image" class="rounded-circle">
                                     @else
-                                    <img src="{{asset('admin/assets/images/users/user.png')}}" alt="user-image" class="rounded-circle">
+                                    <img src="{{asset('Admin/assets/images/users/user.png')}}" alt="user-image" class="rounded-circle">
                                 @endif
 
                                 <span class="pro-user-name ms-1">
