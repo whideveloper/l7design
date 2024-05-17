@@ -471,7 +471,13 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
     $("#loading-indicator").fadeIn("slow");
+
+    // Fallback para garantir que o loading-indicator seja removido
+    setTimeout(function() {
+        $("#loading-indicator").fadeOut("slow");
+    }, 1000);
 });
+
 
 
 
