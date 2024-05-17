@@ -53,12 +53,11 @@
             margin: 0 auto;
         }
     }
-    // .location__values img{
-    //     height: 330px;
-    //     transform: translate(-50%, -55%);
-    // }
+
     .telenordeste__content__event__list p{
         width: calc(100% - 6rem) !important;
+        font-size: 0.938rem !important;
+        line-height: 20px !important;
     }
     .teleinterconsulta .teleinterconsulta__description .teleinterconsulta__title{
         &::before{
@@ -232,7 +231,7 @@
         height: 176px !important;
     }
     .location__values__content{
-        height: 530px !important;
+        height: 100% !important;
     }
    .location .location__content .location__column .location__title.right{
         margin-top: 350px !important;
@@ -249,7 +248,7 @@
         position: relative;
         left: inherit;
         transform: inherit;
-        margin-top: -440px;
+        margin-top: -323px;
         margin-bottom: 35px;
     }
     .location{
@@ -270,6 +269,7 @@
                         transform: inherit;
                         left: inherit;
                         height: 100%;
+                        max-height: 315px;
                     }
                 }
             }
@@ -871,11 +871,7 @@
             width: 90%;
             margin: 0 auto;
         }
-        aside{
-            width: 100%;
-            border-radius: inherit;
-            padding: 30px 0;
-        }
+
         .telenordeste__btn.agenda{
             position: relative;
             top: inherit;
