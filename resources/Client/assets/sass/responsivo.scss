@@ -5,6 +5,14 @@
     }
 }
 @media screen and (max-width: 476px) {   
+    .hidden div span span[aria-disabled=true] span,
+    .hidden div a,
+    a[rel=next], a[rel=prev]{
+        padding: 5px !important;
+    }
+    .hidden div span span[aria-current=page] span{
+        padding: 3px 8px !important;
+    }
     .slide .splide__slide .splide__description{
         width: 90%;
     }
