@@ -3015,7 +3015,7 @@ table{
         font-weight: 400;
         color: var(--grey-secundary);
         word-wrap: break-word;
-        overflow: hidden;
+        overflow: auto;
         transition: all ease 0.5s 0.2s;
         &.is-open {
             max-height: 500px;

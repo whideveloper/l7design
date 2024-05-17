@@ -1,60 +1,74 @@
 @extends('Client.core.main')
 @section('content')
-    <section id="image-carousel" class="splide slide splide-fade" aria-label="Beautiful Images">
-        <div class="splide__track">
-            <ul class="splide__list">
-                @foreach($slides as $slide)
-                    <li class="splide__slide"> <!--Resolucao imagem 1440x684-->
-                        <img 
-                            src="{{ asset('storage/' . $slide->path_image) }}" 
-                            alt="{{ $slide->title . ' ' . $slide->subtitle }}" 
-                            title="{{ $slide->title . ' ' . $slide->subtitle }}"
-                            data-banner-mobile="{{ asset('storage/' . $slide->path_image_mobile) }}"
-                            data-banner-desktop="{{ asset('storage/' . $slide->path_image) }}"
-                        >
-                        <div class="splide__description">
-                            @php
-                                $title = $slide->title;
-                                $title = str_replace('<br>', "\n", $title);
+    @if ($slides->count() > 0)        
+        <section id="image-carousel" class="splide slide splide-fade" aria-label="Beautiful Images">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @foreach($slides as $slide)
+                        <li class="splide__slide"> <!--Resolucao imagem 1440x684-->
+                            <img 
+                                src="{{ asset('storage/' . $slide->path_image) }}" 
+                                alt="{{ $slide->title . ' ' . $slide->subtitle }}" 
+                                title="{{ $slide->title . ' ' . $slide->subtitle }}"
+                                data-banner-mobile="{{ asset('storage/' . $slide->path_image_mobile) }}"
+                                data-banner-desktop="{{ asset('storage/' . $slide->path_image) }}"
+                            >
+                            <div class="splide__description">
+                                @php
+                                    $title = $slide->title;
+                                    $title = str_replace('<br>', "\n", $title);
 
-                                $subtitle = $slide->subtitle;
-                                $subtitle = str_replace('<br>', "\n", $subtitle);
-                            @endphp
+                                    $subtitle = $slide->subtitle;
+                                    $subtitle = str_replace('<br>', "\n", $subtitle);
+                                @endphp
 
-                            <h2 class="splide__title">{{ $title }} <br>{{ $subtitle }}</h2>
-                        </div>
-                        <img src="{{ asset('Client/assets/images/circulo.svg') }}" alt="circulo" class="slide-fitula-1">
-                        <img src="{{ asset('Client/assets/images/meia-lua.svg') }}" alt="meia-lua" class="slide-fitula-2">
-                        <img src="{{ asset('Client/assets/images/rosquinha.svg') }}" alt="rosquinha" class="slide-fitula-3">
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
+                                <h2 class="splide__title">{{ $title }} <br>{{ $subtitle }}</h2>
+                            </div>
+                            <img src="{{ asset('Client/assets/images/circulo.svg') }}" alt="circulo" class="slide-fitula-1">
+                            <img src="{{ asset('Client/assets/images/meia-lua.svg') }}" alt="meia-lua" class="slide-fitula-2">
+                            <img src="{{ asset('Client/assets/images/rosquinha.svg') }}" alt="rosquinha" class="slide-fitula-3">
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </section>
+    @endif
 
     
-    @if ($telenordeste)
-    @if ($eventAll->count() < 1)
-        <style>
-            .telenordeste__content article{
-                width: 100%;
-            }
-        </style>
-    @endif
+    @if ($telenordeste || $eventAll->count() > 0)
+        @if ($eventAll->count() < 1)
+            <style>
+                .telenordeste__content article{
+                    width: 100%;
+                }
+            </style>
+        @endif             
         <section id="telenordeste" class="telenordeste">
             <div class="telenordeste__content">
-                <article>
-                    <h1 class="telenordeste__title">{{$telenordeste->title}}</h1>
-        
-                    <p>{!!$telenordeste->text!!}</p>
+                    @if (!isset($telenordeste->title) && !isset($telenordeste->text))
+                        <style>
+                            .telenordeste{
+                                margin-top: 135px
+                            }
+                            .telenordeste__content aside{
+                                width: 100%;
+                            }
+                        </style>
+                    @endif
+                    <article>
+                        @if (isset($telenordeste->title) && isset($telenordeste->text))  
+                            <h1 class="telenordeste__title">{{$telenordeste->title}}</h1>
+                
+                            <p>{!!$telenordeste->text!!}</p>
 
-                    <div class="telenordeste__btn">
-                        <a href="https://wa.me/5511998208297" target="_blank">
-                            <img src="{{asset('Client/assets/images/wpp.svg')}}" alt="Whatsapp" title="Whatsapp">
-                            Entre em contato
-                        </a>
-                    </div>
-                </article>
+                            <div class="telenordeste__btn">
+                                <a href="https://wa.me/5511998208297" target="_blank">
+                                    <img src="{{asset('Client/assets/images/wpp.svg')}}" alt="Whatsapp" title="Whatsapp">
+                                    Entre em contato
+                                </a>
+                            </div>
+                        @endif 
+                    </article>
                 @if ($eventAll->count() > 0)
                     <aside>
                         <h4 class="telenordeste__event__title">Próximos Eventos</h4>
@@ -87,6 +101,7 @@
                 @endif
             </div>
         </section>
+        
     @endif
     @if ($location || $objectives->count() > 0)
         <section id="location" class="location">
