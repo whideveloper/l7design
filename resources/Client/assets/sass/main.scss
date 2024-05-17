@@ -1854,6 +1854,7 @@ input, select {
         width: 0.5rem;
     }
 }
+
 .especialidades__text,
 .desempenho__text,
 .google__form__text,
@@ -1870,6 +1871,9 @@ input, select {
         width: 85%;
         line-height: 26px;
     }   
+}
+.especialidades__text p{
+    width: 100%;
 }
 .especialidades__categories{
     width: 100%;

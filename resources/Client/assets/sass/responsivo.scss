@@ -298,6 +298,9 @@
     }
 }
 @media screen and (max-width: 525px) {   
+    .especialidades__text p{
+        width: 100%;
+    }
     .mural__de__comunicacao__title{      
         max-width: 90%;
         margin: 0 auto;
