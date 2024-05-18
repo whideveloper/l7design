@@ -299,6 +299,9 @@
     }
 }
 @media screen and (max-width: 525px) {   
+    .modal-box__right .modal-box__text__long ul li{
+        font-size: 0.938rem;
+    }
     .modal-especialidade {
         .modal-box__content{
             width: 92%;
