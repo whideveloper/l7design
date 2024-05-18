@@ -18,10 +18,13 @@ class GalleryPageController extends Controller
 
     public function galeriaInterna($gallery)
     {
-        $galleryImages = Gallery::with('galleryImage')
+        $galleryImages = Gallery::with(['galleryImage' => function ($query) {
+            $query->orderBy('sorting', 'ASC');
+        }])
         ->where('slug', $gallery)
         ->active()
         ->first();
+    
 
         return view('Client.pages.galeria-interna', [
             'galleryImages' => $galleryImages
