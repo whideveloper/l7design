@@ -18,7 +18,7 @@ class EventController extends Controller
         if (!Auth::user()->can('evento.visualizar')) {
             return view('Admin.error.403');
         }
-        $events = Event::sorting()->paginate(30);
+        $events = Event::orderBy('created_at', 'desc')->sorting()->paginate(30);
         $holidays = Holiday::sorting()->get();
         return view('Admin.cruds.event.index', [
             'events' => $events,

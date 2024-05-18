@@ -27,12 +27,15 @@
                     @endcan
                     <a href="{{route('admin.dashboard.muralDeApoio.index')}}" class="btn btn-secondary mb-3 waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
-
-                <div class="card card-body">
-                    <h4 class="page-title mobile">Feeds</h4>
-                    @can('mural de comunicacao.criar')                             
-                        <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.create')}}" class="bt-mobile btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> 
-                    @endcan
+                <div class="row col-12" style="margin-left: 2px;">
+                    <div class="card card-body">
+                        <h4 class="page-title mobile">Feeds</h4>
+                        <div class="col-12">
+                            @can('mural de comunicacao.criar')                             
+                                <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.create')}}" style="max-width:160px" class="bt-mobile btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> 
+                            @endcan
+                        </div>
+                    </div>
                 </div>
                 <div class="card card-body">
                     <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">

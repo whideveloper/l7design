@@ -10,7 +10,7 @@ use App\Models\Holiday;
 class EventPageController extends Controller
 {
     public function index(){
-        $eventAll = Event::sorting()->active()->get();
+        $eventAll = Event::orderBy('created_at', 'desc')->sorting()->active()->get();
         $holidays = Holiday::sorting()->active()->get();
 
         return view('Client.pages.calendario', [

@@ -138,9 +138,9 @@
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$event->id}}"></label>
                                                 </td>
-                                                <td>{{$event->name}}</td>
+                                                <td>{{$event->title}}</td>
                                                 <td class="table-user text-center">
-                                                    {{substr(strip_tags($event->text), 0, 180)}}...
+                                                    {!!substr(strip_tags($event->text), 0, 180)!!}...
                                                 </td>
 
                                                 <td class="text-center">

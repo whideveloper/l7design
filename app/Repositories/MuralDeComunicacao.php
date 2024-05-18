@@ -41,6 +41,7 @@ class MuralDeComunicacao
         'mural_de_comunicacao_feeds.slug as mural_slug',
         'mural_de_comunicacao_feeds.description',
         'mural_de_comunicacao_feeds.text',
+        'mural_de_comunicacao_feeds.link',
         'mural_de_comunicacao_feeds.publish_date',
         'mural_de_comunicacao_feeds.btn_title',
         ]);

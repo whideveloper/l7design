@@ -3439,3 +3439,9 @@ a[rel="prev"] {
     align-items: flex-start;
     flex-wrap: wrap;
 }
+.bt-all{
+    background-color: var(--pantone-7466-c);
+    a{
+        color: var(--white) !important;
+    }
+}

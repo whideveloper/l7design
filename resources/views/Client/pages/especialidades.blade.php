@@ -17,6 +17,11 @@
                             <a href="{{route('especialidades-category', [$category->slug])}}">{{$category->title}}</a>
                         </li>
                     @endforeach
+                    @if (Route::currentRouteName() ==  'especialidades-category')                        
+                        <li class="especialidades__categories__item bt-all">
+                            <a href="{{route('especialidades')}}">Ver todos</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
             @foreach ($especialistas as $especialista)

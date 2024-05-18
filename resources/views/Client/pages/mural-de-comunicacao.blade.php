@@ -36,7 +36,7 @@
                                 'date' => $data,         
                                 'image' => $imagePath,
                                 'text' => substr(strip_tags($descricao),0,150),
-                                'link' => route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
+                                'link' => isset($mural->link)?$mural->link:route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
                                 'btnName' => isset($mural->btn_title)?$mural->btn_title:'saiba mais',
                             ];
                         @endphp    

@@ -3,7 +3,7 @@
         <div class="mb-3 col-lg-6">
             {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
             {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
-        </div> 
+        </div>    
 
         <div class="mb-3 col-lg-6">
             {!! Form::label(null, 'Data', ['class'=>'form-label']) !!}
@@ -26,6 +26,11 @@
             {!! Form::label(null, 'Título do botão', ['class'=>'form-label']) !!}
             {!! Form::text('btn_title', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
         </div>   
+
+        <div class="mb-3 col-lg-12">
+            {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
+            {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
+        </div> 
         
         <div class="mb-3 col-lg-12">
             {!! Form::label('basic-editor', 'Breve Descrição', ['class'=>'form-label']) !!}

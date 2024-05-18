@@ -30,7 +30,7 @@ class Event extends Model
         'date_start'
     ];
     public function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC');
+        return $query->orderBy('sorting', 'DESC');
     }
     public function scopeActive($query){
         return $query->where('active', 1);

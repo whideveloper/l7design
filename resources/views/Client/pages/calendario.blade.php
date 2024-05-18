@@ -19,15 +19,13 @@
                         <ul class="events-list">
                             @foreach ($eventAll as $event)                                
                                 @php
-                                    $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y'); 
-                                    $text = $event->text;
-                                    $texto = strip_tags($text); 
+                                    $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y');
 
                                     $eventsListObj = [
                                         'date' => $data,
                                         'time' => $event->description,
                                         'title' => $event->title,
-                                        'text' => $texto,
+                                        'text' => $event->text,
                                     ];
                                 @endphp
                                 @include('Client.models.events-list__item', $eventsListObj)

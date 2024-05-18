@@ -10,7 +10,7 @@
                 <p class="mdl-box__text">{{ $text }}</p>
             </div>
             <div class="mdl-box__btn">
-                <a href="{{$link}}" class="more">{{ $btnName }}</a>
+                <a href="{{$link}}" {{isset($mural->link)?'target="_blank"':''}} class="more">{{ $btnName }}</a>
             </div>
         </div>
     </div>
