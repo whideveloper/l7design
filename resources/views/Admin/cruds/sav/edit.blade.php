@@ -23,29 +23,23 @@
                 {!! Form::model($sav, ['route' => ['admin.dashboard.sav.update', $sav->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.sav.form')
                     @can('sav.editar')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light mb-3 float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.sav.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.sav.index')}}" class="btn btn-secondary waves-effect waves-light mb-3 float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
-
-                <div class="row mb-0 col-12 col-lg-12">
-                    <div class="d-flex align-content-center justify-content-between flex-row mt-3">
-                        <div class="page-title-box col-lg-12">
-                            <h4 class="page-title">Savs Gravadas</h4>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="row mb-3 col-12 col-lg-12">
-                    <div class="col-6">
+                
+                <div class="card card-body col-12">
+                    <h4 class="page-title mobile">Savs Gravadas</h4>  
+                    <div class="d-flex align-items-center col-12" style="justify-content: space-between !important;">
                         @can('sav.remover')
+                        <div class="col-6">
                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.savGravada.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
-                        @endcan
-                    </div>
-                    @can('mural de comunicacao.criar')
-                        <div class="pe-0 col-lg-6">                              
-                            <a href="{{route('admin.dashboard.savGravada.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                         </div>
-                    @endcan
+                        @endcan
+                        @can('mural de comunicacao.criar')
+                            <a href="{{route('admin.dashboard.savGravada.create')}}" style="max-width: 160px;" class="bt-mobile btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                        @endcan
+                    </div>                      
                 </div>
                 <div class="card card-body">
                     <div class="row pe-3">

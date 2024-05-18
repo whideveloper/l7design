@@ -23,7 +23,7 @@
                 {!! Form::model($especialidadeProfessional, ['route' => ['admin.dashboard.especialidadeProfessional.update', $especialidadeProfessional->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.especialidadeProfessional.form')
                     
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     
                     <a href="{{route('admin.dashboard.especialidadeSession.edit', $especialidadeSession->id)}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

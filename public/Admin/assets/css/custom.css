@@ -454,3 +454,39 @@ body[data-sidebar-size=condensed] .left-side-menu .simplebar-content-wrapper{
 .content-page{
     padding: 0 15px 125px 15px;
 }
+
+@media screen and (max-width: 525px) {
+    .page-title.mobile{
+        width: 100%;
+        padding: 0;
+    }
+    .filter{
+        flex-direction: column;
+    }
+    .form{
+        margin-top: 15px;
+    }
+    .bt-mobile, .form{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .bt-event,
+    .bt-rm,
+    .bt-gallery{
+        width: 100%;
+    }
+    .bt-rm{
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 414px) {
+    .form form{
+        flex-direction: column;
+    }
+    .form form .row{
+        width: 100%;
+    }
+    .bt-select{
+        margin: 15px -10px 0 0 !important;
+    }
+}

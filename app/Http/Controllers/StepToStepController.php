@@ -43,8 +43,10 @@ class StepToStepController extends Controller
         if (!Auth::user()->can(['passo a passo.visualizar','passo a passo.editar'])) {
             return view('Admin.error.403');
         }
+        $howItWork = HowItWork::first();
         return view('Admin.cruds.stepToStep.edit', [
             'stepToStep' => $stepToStep,
+            'howItWork' => $howItWork,
         ]);
     }
     public function update(StepToStepUpdateRequest $request, StepToStep $stepToStep)

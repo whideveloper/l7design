@@ -23,42 +23,36 @@
                 {!! Form::model($trainingForUse, ['route' => ['admin.dashboard.trainingForUse.update', $trainingForUse->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.trainingForUse.form')
                     @can('treinamento.editar')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light mb-3 float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.trainingForUse.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.trainingForUse.index')}}" class="btn btn-secondary mb-3 waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
-
                 
-                <div class="row mb-3 col-12">
-                    <div class="row col-12 d-flex align-content-center justify-content-between flex-row pe-0 mt-3">
-                        <div class="page-title-box col-lg-6">
-                            <h4 class="page-title">Arquivos de treinamento</h4>
-                        </div>
-                        @can('especialidade.criar')
-                            <div class="pe-0 col-lg-6">                              
-                                <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-training">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                <div class="card card-body">
+                    <h4 class="page-title mobile">Arquivos de treinamento</h4>
+                    
+                    @can('especialidade.criar')                             
+                        <a class="btn btn-success float-end bt-mobile" style="max-width: 160px" data-bs-toggle="modal" data-bs-target="#modal-training">Adicionar novo <i class="mdi mdi-plus"></i></a>
 
-                                <div id="modal-training" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                    <div class="modal-dialog" style="max-width: 800px;">
-                                        <div class="modal-content">
-                                            <div class="modal-header p-3 pt-2 pb-2">
-                                                <h4 class="page-title">Arquivo de treinamento</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body p-3 pt-0 pb-3">
-                                                {!! Form::model(null, ['route' => 'admin.dashboard.training.store', 'class'=>'parsley-examples', 'files' => true]) !!}
-                                                @include('Admin.cruds.training.form')
-                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
-                                                {!! Form::close() !!}
-                                            </div>
-                                        </div>
+                        <div id="modal-training" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog" style="max-width: 800px;">
+                                <div class="modal-content">
+                                    <div class="modal-header p-3 pt-2 pb-2">
+                                        <h4 class="page-title">Arquivo de treinamento</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body p-3 pt-0 pb-3">
+                                        {!! Form::model(null, ['route' => 'admin.dashboard.training.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                        @include('Admin.cruds.training.form')
+                                        {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
-                        @endcan
-                    </div>
+                        </div>
+                    @endcan
                 </div>
-                <div class="row pe-3">
+                <div class="card card-body">
                     <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
 
                         <thead class="table-light">
@@ -120,7 +114,7 @@
                                                             {!! Form::model($training, ['route' => ['admin.dashboard.training.update', $training->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                                                                 @include('Admin.cruds.training.form')
                                                                 @can('especialidade.editar')
-                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                                                                 @endcan
                                                             {!! Form::close() !!}
                                                         </div>

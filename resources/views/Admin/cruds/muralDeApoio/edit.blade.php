@@ -23,24 +23,18 @@
                 {!! Form::model($muralDeApoio, ['route' => ['admin.dashboard.muralDeApoio.update', $muralDeApoio->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.muralDeApoio.form')
                     @can('mural de comunicacao.editar')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light mb-3 float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
-                    <a href="{{route('admin.dashboard.muralDeApoio.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.muralDeApoio.index')}}" class="btn btn-secondary mb-3 waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
 
-                <div class="row mb-3 col-12">
-                    <div class="row col-12 d-flex align-content-center justify-content-between flex-row pe-0 mt-3">
-                        <div class="page-title-box col-lg-6">
-                            <h4 class="page-title">Feeds</h4>
-                        </div>
-                        @can('mural de comunicacao.criar')
-                            <div class="pe-0 col-lg-6">                              
-                                <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                            </div>
-                        @endcan
-                    </div>
+                <div class="card card-body">
+                    <h4 class="page-title mobile">Feeds</h4>
+                    @can('mural de comunicacao.criar')                             
+                        <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.create')}}" class="bt-mobile btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> 
+                    @endcan
                 </div>
-                <div class="row pe-3">
+                <div class="card card-body">
                     <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
 
                         <thead class="table-light">

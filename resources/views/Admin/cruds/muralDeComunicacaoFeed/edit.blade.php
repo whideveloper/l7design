@@ -23,7 +23,7 @@
                 {!! Form::model($muralDeComunicacaoFeed, ['route' => ['admin.dashboard.muralDeComunicacaoFeed.update', $muralDeComunicacaoFeed->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.muralDeComunicacaoFeed.form')
                     
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     
                     <a href="{{route('admin.dashboard.muralDeApoio.edit', ['muralDeApoio' => $muralDeApoio->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

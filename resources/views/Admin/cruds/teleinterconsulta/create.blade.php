@@ -23,7 +23,7 @@
                 {!! Form::model(null, ['route' => 'admin.dashboard.teleinterconsulta.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.teleinterconsulta.form')
                     @can('teleinterconsulta.criar')
-                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.teleinterconsulta.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

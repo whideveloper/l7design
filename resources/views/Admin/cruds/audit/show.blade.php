@@ -26,77 +26,75 @@
                     </div>
                 </div>
                 <!-- end page title -->
-                <div class="row col-12">
-                    <div class="col-12 col-lg-12">
-                        <div class="card card-body">
-                            <div class="mb-2 col-lg-6">
-                                <div>
-                                    <h5>Usuário manipulador</h5>
-                                </div>
-                                @if($activitie->causer)
-                                    <!-- Verifica se há um usuário associado (causer) -->
-                                    <td>{{ $activitie->causer->name }}</td>
-                                @else
-                                    <td>Não encontrado</td>
-                                @endif
-                            </div>
-                            <div class="mb-2 col-lg-6">
-                                <div>
-                                    <h5>Recurso manipulado</h5>
-                                </div>
-                                {{--{{ ModelTypeAudit::getLabel($activitie->subject_type) }}--}}
-                                {{$modelName = AuditActivity::getModelName($activitie->subject_type)}}
-                            </div>
-                            <div class="mb-2">
-                                <div>
-                                    <h5>Ação realizada</h5>
-                                </div>
-                                @switch($activitie->description)
-                                    @case('created') <span>Criação</span> @break
-                                    @case('updated') <span>Atualização</span> @break
-                                    @case('deleted') <span>Deleção</span> @break
-                                    @case('Student Synced') <span>Adição/Remoção do Aluno a disciplina</span> @break
-                                    @case('Subject Synced') <span>Adição/Remoção da disciplina ao aluno</span> @break
-                                @endswitch
-                            </div>
-                            <div class="mb-2">
-                                <div>
-                                    <h5>Data do evento</h5>
-                                </div>
-                                @switch($activitie->description)
-                                    @case('created')
-                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('updated')
-                                        <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('deleted')
-                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('Student Synced')
-                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
-                                    @case('Subject Synced')
-                                        <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
-                                @endswitch
-                            </div>
-                            <div class="mb-2">
-                                <div>
-                                    <h5>Valores Antigos</h5>
-                                </div>
-                                <code>
-                                    {{ print_r($activitie->properties['old'] ?? [], true) }}
-                                    {{--{ json_encode($activitie->properties['old'] ?? []) }}--}}
-                                </code>
-                            </div>
-                            <div class="mb-2">
-                                <div>
-                                    <h5>Valores Novos</h5>
-                                </div>
-                                <code>
-                                    {{ print_r($activitie->properties['attributes'] ?? [], true) }}
-                                    {{--{{ json_encode($activitie->properties['attributes'] ?? []) }}--}}
-                                </code>
-                            </div>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div>
+
+                <div class="card card-body">
+                    <div class="mb-2 col-lg-6">
+                        <div>
+                            <h5>Usuário manipulador</h5>
+                        </div>
+                        @if($activitie->causer)
+                            <!-- Verifica se há um usuário associado (causer) -->
+                            <td>{{ $activitie->causer->name }}</td>
+                        @else
+                            <td>Não encontrado</td>
+                        @endif
+                    </div>
+                    <div class="mb-2 col-lg-6">
+                        <div>
+                            <h5>Recurso manipulado</h5>
+                        </div>
+                        {{--{{ ModelTypeAudit::getLabel($activitie->subject_type) }}--}}
+                        {{$modelName = AuditActivity::getModelName($activitie->subject_type)}}
+                    </div>
+                    <div class="mb-2">
+                        <div>
+                            <h5>Ação realizada</h5>
+                        </div>
+                        @switch($activitie->description)
+                            @case('created') <span>Criação</span> @break
+                            @case('updated') <span>Atualização</span> @break
+                            @case('deleted') <span>Deleção</span> @break
+                            @case('Student Synced') <span>Adição/Remoção do Aluno a disciplina</span> @break
+                            @case('Subject Synced') <span>Adição/Remoção da disciplina ao aluno</span> @break
+                        @endswitch
+                    </div>
+                    <div class="mb-2">
+                        <div>
+                            <h5>Data do evento</h5>
+                        </div>
+                        @switch($activitie->description)
+                            @case('created')
+                                <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                            @case('updated')
+                                <span>{{$activitie->updated_at->format('d/m/Y H:i:s')}}</span> @break
+                            @case('deleted')
+                                <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                            @case('Student Synced')
+                                <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                            @case('Subject Synced')
+                                <span>{{$activitie->created_at->format('d/m/Y H:i:s')}}</span> @break
+                        @endswitch
+                    </div>
+                    <div class="mb-2">
+                        <div>
+                            <h5>Valores Antigos</h5>
+                        </div>
+                        <code>
+                            {{ print_r($activitie->properties['old'] ?? [], true) }}
+                            {{--{ json_encode($activitie->properties['old'] ?? []) }}--}}
+                        </code>
+                    </div>
+                    <div class="mb-2">
+                        <div>
+                            <h5>Valores Novos</h5>
+                        </div>
+                        <code>
+                            {{ print_r($activitie->properties['attributes'] ?? [], true) }}
+                            {{--{{ json_encode($activitie->properties['attributes'] ?? []) }}--}}
+                        </code>
+                    </div>
+                </div> <!-- end card-body-->
+
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

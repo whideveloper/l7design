@@ -20,13 +20,15 @@
                     </div>
                 </div>
                 <!-- end page title -->
+               
                 {!! Form::model(null, ['route' => 'admin.dashboard.banner.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.banner.form')
                     @can('banners.criar')
-                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.banner.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
+                
             </div> <!-- container -->
         </div> <!-- content -->
     </div>

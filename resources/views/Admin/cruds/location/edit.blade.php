@@ -23,7 +23,7 @@
                 {!! Form::model($location, ['route' => ['admin.dashboard.location.update', $location->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.location.form')
                     @can('localizacao.editar')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.location.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
@@ -31,12 +31,12 @@
                 <div class="row mb-3 col-12">
                     <div class="row col-12 d-flex align-content-center justify-content-between flex-row pe-0 mt-3">
                         <div class="page-title-box col-lg-6">
-                            <h4 class="page-title">Objetivos específicos</h4>
+                            <h4 class="page-title mobile">Objetivos específicos</h4>
                         </div>
                         @can('objetivo.criar')
                             <div class="pe-0 col-lg-6">
                                 @if ($objectives->count() < 4)                                
-                                    <a class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#modal-objective">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                    <a class="btn btn-success float-end bt-mobile" data-bs-toggle="modal" data-bs-target="#modal-objective">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                 @endif
 
                                 <div id="modal-objective" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -49,7 +49,7 @@
                                             <div class="modal-body p-3 pt-0 pb-3">
                                                 {!! Form::model(null, ['route' => 'admin.dashboard.objective.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                                                 @include('Admin.cruds.objective.form')
-                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                                                 <a href="{{route('admin.dashboard.location.edit', ['location' => $location])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Cancelar</a>
                                                 {!! Form::close() !!}
                                             </div>
@@ -60,7 +60,7 @@
                         @endcan
                     </div>
                 </div>
-                <div class="row pe-3">
+                <div class="card card-body">
                     <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
 
                         <thead class="table-light">
@@ -110,7 +110,7 @@
                                                             {!! Form::model($objective, ['route' => ['admin.dashboard.objective.update', $objective->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                                                                 @include('Admin.cruds.objective.form')
                                                                 @can('objetivo.editar')
-                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                                                                {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                                                                 @endcan
                                                                 <a href="{{route('admin.dashboard.location.edit',['location' => $location->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                                                             {!! Form::close() !!}

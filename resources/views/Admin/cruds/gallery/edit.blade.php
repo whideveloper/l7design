@@ -19,12 +19,12 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary me-3 col-3 waves-effect waves-light mb-3" data-bs-toggle="modal" data-bs-target="#modal-image-gallery">Cadastrar imagens da Galeria <i class="mdi mdi-plus"></i></button>
+                <button type="button" class="btn btn-primary me-3 col-3 waves-effect waves-light mb-3 bt-gallery" data-bs-toggle="modal" data-bs-target="#modal-image-gallery">Cadastrar imagens da Galeria <i class="mdi mdi-plus"></i></button>
                 <!-- end page title -->
                 {!! Form::model($gallery, ['route' => ['admin.dashboard.gallery.update', $gallery->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.gallery.form')
                     @can('galeria.editar')
-                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.gallery.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

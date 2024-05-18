@@ -23,7 +23,7 @@
                 {!! Form::model(null, ['route' => 'admin.dashboard.location.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.location.form')
                     @can('localizacao.criar')
-                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
+                    {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.location.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}

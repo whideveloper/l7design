@@ -24,14 +24,14 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-3">
+                                <div class="row mb-3 align-items-center filter">
+                                    <div class="col-3 bt-mobile">
                                         @can('leads.remover')
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.lead.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
-                                    <div class="col-6">
-                                        <div class="mb-3 col-lg-12 d-flex align-items-end">
+                                    <div class="col-6 form">
+                                        <div class="mb-3 card card-body">
                                             @if (Route::currentRouteName() == 'admin.dashboard.lead.lead-search')
                                                 <a href="{{route('admin.dashboard.lead.index')}}" class="btn btn-danger waves-effect waves-light float-end me-3 width-lg">Limpar</a>
                                             @endif
@@ -45,15 +45,15 @@
                                                         'placeholder' => 'Selecione o vídeo'
                                                     ]) !!}
                                                 </div>
-                                                {!! Form::button('Buscar', ['class'=>'btn btn-primary waves-effect waves-light float-end ms-3 width-lg', 'type' => 'submit']) !!}                                               
+                                                {!! Form::button('Buscar', ['class'=>'btn btn-primary waves-effect waves-light float-end ms-3 width-lg bt-select', 'type' => 'submit']) !!}                                               
                                             </form>
                                         </div> 
                                     </div>
-                                    <div class="col-3">
+                                    {{-- <div class="col-3 bt-mobile">
                                         @can('leads.criar')
                                         <a href="{{route('admin.dashboard.lead.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         @endcan
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
