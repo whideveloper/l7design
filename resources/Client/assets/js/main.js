@@ -426,7 +426,7 @@ $(document).ready(function(){
         center:true,
         nav:true,
         dots:false,
-        autoplay:true,
+        // autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         smartSpeed: 1600,

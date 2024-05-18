@@ -1388,7 +1388,7 @@ input, select {
 .owl-carousel .owl-item.active.center .item{
     @include transition-medium;
     transform: scale(1.2);
-    padding: 25px 0; 
+    padding: 15px 0; 
 }
 .depoimento.owl-carousel .owl-stage{
     align-items: center;
@@ -1402,7 +1402,7 @@ input, select {
     height: auto;
     margin: 0 auto;
     max-width: 292px;
-    width: 100%;
+    width: 90%;
     padding: 0;
     &::after{
         content: '';
@@ -1411,10 +1411,10 @@ input, select {
     }
     &::before{
         content: '';
-        left: -13px;
-        top: -9px;
-        height: 50px;
-        width: 50px;
+        left: -18px;
+        top: -8px;
+        height: 35px;
+        width: 35px;
     }
     p{
         width: 100% !important;
@@ -1475,7 +1475,7 @@ input, select {
     }
     p{
         color: var(--grey-secundary);
-        font-size: 1.063rem;
+        font-size: 0.938rem;
         font-family: var(--roboto-font-family);
         font-weight: 400;
         line-height: 1.438rem;

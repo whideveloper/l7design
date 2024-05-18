@@ -276,9 +276,9 @@
                     @foreach($depoiments as $depoiment)
                         <div class="item">
                             <div class="item__description">
-                                <p>
-                                    {!!$depoiment->text!!}
-                                </p>
+                                
+                                {!!$depoiment->text!!}
+                                
                                 <h5 class="item__title">{{$depoiment->name}}</h5>
                                 <span>{{$depoiment->cargo}}</span>
                             </div>
