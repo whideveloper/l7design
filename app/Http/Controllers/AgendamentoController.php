@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AgendamentoController extends Controller
 {
     public function index()
     {
+        if (!Auth::user()->can(['agendamento.visualizar', 'agendamento.editar'])) {
+            return view('Admin.error.403');
+        }
         $agendamento = Agendamento::first();
         return view('Admin.cruds.agendamento.index', [
             'agendamento' => $agendamento
@@ -18,6 +22,9 @@ class AgendamentoController extends Controller
     }
     public function create()
     {
+        if (!Auth::user()->can(['agendamento.visualizar', 'agendamento.criar'])) {
+            return view('Admin.error.403');
+        }
         return view('Admin.cruds.agendamento.create');
     }
 
@@ -41,6 +48,9 @@ class AgendamentoController extends Controller
 
     public function edit(Agendamento $agendamento)
     {
+        if (!Auth::user()->can(['agendamento.visualizar', 'agendamento.editar'])) {
+            return view('Admin.error.403');
+        }
         return view('Admin.cruds.agendamento.edit', [
             'agendamento' => $agendamento
         ]);
@@ -68,6 +78,9 @@ class AgendamentoController extends Controller
 
     public function destroy(Agendamento $agendamento)
     {
+        if (!Auth::user()->can(['agendamento.visualizar', 'agendamento.remover'])) {
+            return view('Admin.error.403');
+        }
         $agendamento->delete();
         return redirect()->back();
         Session::flash('success', 'Agendamento deletado com sucesso!');

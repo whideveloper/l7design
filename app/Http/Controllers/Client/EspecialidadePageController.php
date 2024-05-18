@@ -28,7 +28,7 @@ class EspecialidadePageController extends Controller
         $sessaoEspecialidade = EspecialidadeSession::active()->first();       
         $tutorial = Tutorial::active()->first();
         $trainingForUse = TrainingForUse::active()->first();
-        $arquivoTreinamentos = Training::active()->get();
+        $arquivoTreinamentos = Training::sorting()->active()->get();
         $agendamento = Agendamento::active()->first();
         
         return view('Client.pages.especialidades', [

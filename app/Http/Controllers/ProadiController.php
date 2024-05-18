@@ -121,7 +121,7 @@ class ProadiController extends Controller
 
     public function destroy(Proadi $proadi)
     {
-        if(!Auth::user()->can(['proadi.visualizar','proadi.remove'])){
+        if(!Auth::user()->can(['proadi.visualizar','proadi.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($proadi->path_image);
@@ -132,7 +132,7 @@ class ProadiController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['proadi.visualizar','proadi.remove'])) {
+        if (!Auth::user()->can(['proadi.visualizar','proadi.remover'])) {
             return view('Admin.error.403');
         }
 

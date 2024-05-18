@@ -26,13 +26,13 @@
                             <div class="card-body">                                
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        @can('material.remover')
+                                        @can('material de apoio.remover')
                                             <button id="btSubmitDelete" data-route="" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     
                                     <div class="col-6">
-                                        @can('material.criar')
+                                        @can('material de apoio.criar')
                                             <a href="{{route('admin.dashboard.material.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>                                 
                                         @endcan
                                     </div>
@@ -68,12 +68,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('material.editar')
+                                                        @can('material de apoio.editar')
                                                         <div class="col-4">
                                                             <a href="{{route('admin.dashboard.material.edit',['material' => $material->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
                                                         @endcan
-                                                        @can('material.remover')
+                                                        @can('material de apoio.remover')
                                                         <form action="{{route('admin.dashboard.material.destroy',['material' => $material->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

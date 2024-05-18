@@ -19,6 +19,9 @@ class EspecialidadeProfessionalController extends Controller
     protected $pathUpload = 'admin/uploads/images/especialista/';
 
     public function create(){
+        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.criar'])){
+            return view('Admin.error.403');
+        }
         $categoryTitle = [];
         $categoryEspecialidade = EspecialidadeCategory::active()->get();
         foreach($categoryEspecialidade as $title){
@@ -68,6 +71,9 @@ class EspecialidadeProfessionalController extends Controller
     }
 
     public function edit(Request $request, EspecialidadeProfessional $especialidadeProfessional){
+        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.editar'])){
+            return view('Admin.error.403');
+        }
         $categoryTitle = [];
         $categoryEspecialidade = EspecialidadeCategory::active()->get();
         foreach($categoryEspecialidade as $title){
@@ -130,7 +136,7 @@ class EspecialidadeProfessionalController extends Controller
 
     public function destroy(EspecialidadeProfessional $especialidadeProfessional)
     {
-        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remove'])){
+        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($especialidadeProfessional->path_image);
@@ -142,7 +148,7 @@ class EspecialidadeProfessionalController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['especialidade.visualizar','especialidade.remove'])) {
+        if (!Auth::user()->can(['especialidade.visualizar','especialidade.remover'])) {
             return view('Admin.error.403');
         }
 

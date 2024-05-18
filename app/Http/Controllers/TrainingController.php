@@ -102,7 +102,7 @@ class TrainingController extends Controller
 
     public function destroy(Training $training)
     {
-        if(!Auth::user()->can(['treinamento.visualizar', 'treinamento.remove'])){
+        if(!Auth::user()->can(['treinamento.visualizar', 'treinamento.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($training->path_file);
@@ -113,7 +113,7 @@ class TrainingController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['treinamento.visualizar','treinamento.remove'])) {
+        if (!Auth::user()->can(['treinamento.visualizar','treinamento.remover'])) {
             return view('Admin.error.403');
         }
 

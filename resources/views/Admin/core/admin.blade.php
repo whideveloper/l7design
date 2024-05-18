@@ -203,7 +203,7 @@
                                     </a>
                                     <div class="collapse" id="home">
                                         <ul class="nav-second-level">
-                                            @can('banner.visualizar')
+                                            @can('banners.visualizar')
                                                 <li class="{{ route('admin.dashboard.banner.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.banner.index')}}"><i class="mdi mdi-bullseye-arrow"></i> Banner</a>
                                                 </li>

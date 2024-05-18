@@ -102,6 +102,12 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'hospital'=>[
+                'Criar',
+                'Editar',
+                'Visualizar',
+                'Remover',
+            ],
             'parceiro'=>[
                 'Criar',
                 'Editar',

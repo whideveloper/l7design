@@ -79,7 +79,7 @@ class TelenordesteController extends Controller
 
     public function destroy(Telenordeste $telenordeste)
     {
-        if(!Auth::user()->can(['telenordeste.visualizar','telenordeste.remove'])){
+        if(!Auth::user()->can(['telenordeste.visualizar','telenordeste.remover'])){
             return view('Admin.error.403');
         }
 
@@ -90,7 +90,7 @@ class TelenordesteController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['telenordeste.visualizar','telenordeste.remove'])) {
+        if (!Auth::user()->can(['telenordeste.visualizar','telenordeste.remover'])) {
             return view('Admin.error.403');
         }
 

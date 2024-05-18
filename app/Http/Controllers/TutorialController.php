@@ -123,7 +123,7 @@ class TutorialController extends Controller
 
     public function destroy(Tutorial $tutorial)
     {
-        if(!Auth::user()->can(['tutorial.visualizar', 'tutorial.remove'])){
+        if(!Auth::user()->can(['tutorial.visualizar', 'tutorial.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($tutorial->path_file);

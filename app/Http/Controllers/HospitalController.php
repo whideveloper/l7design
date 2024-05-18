@@ -153,7 +153,7 @@ class HospitalController extends Controller
 
     public function destroy(Hospital $hospital)
     {
-        if(!Auth::user()->can(['hospital.visualizar','hospital.remove'])){
+        if(!Auth::user()->can(['hospital.visualizar','hospital.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($hospital->path_image);
@@ -166,7 +166,7 @@ class HospitalController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['hospital.visualizar','hospital.remove'])) {
+        if (!Auth::user()->can(['hospital.visualizar','hospital.remover'])) {
             return view('Admin.error.403');
         }
 

@@ -94,7 +94,7 @@ class EspecialidadeCategoryController extends Controller
 
     public function destroy(EspecialidadeCategory $especialidadeCategory)
     {
-        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remove'])){
+        if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.remover'])){
             return view('Admin.error.403');
         }
         
@@ -106,7 +106,7 @@ class EspecialidadeCategoryController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['especialidade.visualizar','especialidade.remove'])) {
+        if (!Auth::user()->can(['especialidade.visualizar','especialidade.remover'])) {
             return view('Admin.error.403');
         }
 

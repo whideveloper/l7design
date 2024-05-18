@@ -116,7 +116,7 @@ class ContactTelenordesteController extends Controller
 
     public function destroy(ContactTelenordeste $contactTelenordeste)
     {
-        if(!Auth::user()->can(['contato.visualizar', 'contato.remove'])){
+        if(!Auth::user()->can(['contato.visualizar', 'contato.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($contactTelenordeste->path_image);
@@ -128,7 +128,7 @@ class ContactTelenordesteController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['contato.visualizar','contato.remove'])) {
+        if (!Auth::user()->can(['contato.visualizar','contato.remover'])) {
             return view('Admin.error.403');
         }
 

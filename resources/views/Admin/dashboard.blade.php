@@ -374,7 +374,7 @@
                             </a>
                         </div> <!-- end col-->
                     @endcan
-                    @can('material.visualizar')
+                    @can('material de apoio.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.material.index')}}">
                                 <div class="widget-rounded-circle card">

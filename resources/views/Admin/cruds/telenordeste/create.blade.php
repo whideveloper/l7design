@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.dashboard.telenordeste.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.telenordeste.form')
-                    @can('telenordestes.criar')
+                    @can('telenordeste.criar')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.telenordeste.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

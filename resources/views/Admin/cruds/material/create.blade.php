@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.dashboard.material.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.material.form')
-                    @can('material.criar')
+                    @can('material de apoio.criar')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.material.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

@@ -69,7 +69,7 @@ class StepToStepController extends Controller
     }
     public function destroy(StepToStep $stepToStep)
     {
-        if (!Auth::user()->can(['passo a passo.visualizar','passo a passo.remove'])) {
+        if (!Auth::user()->can(['passo a passo.visualizar','passo a passo.remover'])) {
             return view('Admin.error.403');
         }
         $stepToStep->delete();
@@ -78,7 +78,7 @@ class StepToStepController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['passo a passo.visualizar','passo a passo.remove'])) {
+        if (!Auth::user()->can(['passo a passo.visualizar','passo a passo.remover'])) {
             return view('Admin.error.403');
         }
 

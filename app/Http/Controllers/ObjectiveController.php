@@ -108,7 +108,7 @@ class ObjectiveController extends Controller
     }
     public function destroy(Objective $objective)
     {
-        if (!Auth::user()->can(['objetivo.visualizar','objetivo.remove'])) {
+        if (!Auth::user()->can(['objetivo.visualizar','objetivo.remover'])) {
             return view('Admin.error.403');
         }
         Storage::delete($objective->path_image);

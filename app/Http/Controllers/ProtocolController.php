@@ -29,7 +29,7 @@ class ProtocolController extends Controller
     }
     public function create()
     {
-        if(!Auth::user()->can('protocolo.visualizar')){
+        if(!Auth::user()->can(['protocolo.visualizar', 'protocolo.criar'])){
             return view('Admin.error.403');
         }
 
@@ -158,7 +158,7 @@ class ProtocolController extends Controller
 
     public function destroy(Protocol $protocol)
     {
-        if(!Auth::user()->can(['protocolo.visualizar', 'protocolo.remove'])){
+        if(!Auth::user()->can(['protocolo.visualizar', 'protocolo.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($protocol->path_file);

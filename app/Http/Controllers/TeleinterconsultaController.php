@@ -118,7 +118,7 @@ class TeleinterconsultaController extends Controller
     }
     public function destroy(Teleinterconsulta $Teleinterconsulta)
     {
-        if (!Auth::user()->can(['teleinterconsulta.visualizar','teleinterconsulta.remove'])) {
+        if (!Auth::user()->can(['teleinterconsulta.visualizar','teleinterconsulta.remover'])) {
             return view('Admin.error.403');
         }
         Storage::delete($Teleinterconsulta->path_image);
@@ -129,7 +129,7 @@ class TeleinterconsultaController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['teleinterconsulta.visualizar','teleinterconsulta.remove'])) {
+        if (!Auth::user()->can(['teleinterconsulta.visualizar','teleinterconsulta.remover'])) {
             return view('Admin.error.403');
         }
 

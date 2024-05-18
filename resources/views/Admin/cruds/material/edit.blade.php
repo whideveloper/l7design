@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model($material, ['route' => ['admin.dashboard.material.update', $material->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.material.form')
-                    @can('material.editar')
+                    @can('material de apoio.editar')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect mb-3 waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.material.index')}}" class="btn btn-secondary mb-3 waves-effect waves-light float-end me-3 width-lg">Voltar</a>

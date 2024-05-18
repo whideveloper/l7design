@@ -86,7 +86,7 @@ class TrainingForUseController extends Controller
 
     public function destroy(TrainingForUse $trainingForUse)
     {
-        if(!Auth::user()->can(['treinamento.visualizar', 'treinamento.remove'])){
+        if(!Auth::user()->can(['treinamento.visualizar', 'treinamento.remover'])){
             return view('Admin.error.403');
         }
         

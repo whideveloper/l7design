@@ -43,7 +43,6 @@
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            <th></th>
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
@@ -55,7 +54,6 @@
                                     @if ($trainingForUse)
                                         <tbody>
                                             <tr data-code="{{$trainingForUse->id}}">
-                                                <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$trainingForUse->id}}"></label>
                                                 </td>
@@ -75,10 +73,10 @@
                                                         </div>
                                                         @endcan
                                                         @can('treinamento.remover')
-                                                        <form action="{{route('admin.dashboard.trainingForUse.destroy',['trainingForUse' => $trainingForUse->id])}}" class="col-4" method="POST">
+                                                        {{-- <form action="{{route('admin.dashboard.trainingForUse.destroy',['trainingForUse' => $trainingForUse->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
+                                                        </form> --}}
                                                         @endcan
                                                     </div>
                                                 </td>
