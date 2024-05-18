@@ -29,31 +29,36 @@
                 {!! Form::close() !!}
 
                 
-                <div class="card card-body">
-                    <h4 class="page-title mobile">Arquivos de material</h4>
-                    
-                    @can('material de apoio.criar')                            
-                        <a class="btn btn-success float-end btn-mobile" data-bs-toggle="modal" data-bs-target="#modal-materialDocument">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                <div class="card card-body col-12 col-lg-12">
+                    <div class="row col-12" style="margin-left: 2px;">
+                        
+                        <h4 class="page-title mobile">Arquivos de material</h4>
+                        <div class="col-12">
+                            @can('material de apoio.criar')                            
+                                <a class="btn btn-success float-end btn-mobile" data-bs-toggle="modal" data-bs-target="#modal-materialDocument">Adicionar novo <i class="mdi mdi-plus"></i></a>
 
-                        <div id="modal-materialDocument" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog" style="max-width: 800px;">
-                                <div class="modal-content">
-                                    <div class="modal-header p-3 pt-2 pb-2">
-                                        <h4 class="page-title">Arquivo de material</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body p-3 pt-0 pb-3">
-                                        {!! Form::model(null, ['route' => 'admin.dashboard.materialDocument.store', 'class'=>'parsley-examples', 'files' => true]) !!}
-                                        @include('Admin.cruds.materialDocument.form')
-                                        {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
-                                        {!! Form::close() !!}
+                                <div id="modal-materialDocument" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog" style="max-width: 800px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header p-3 pt-2 pb-2">
+                                                <h4 class="page-title">Arquivo de material</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body p-3 pt-0 pb-3">
+                                                {!! Form::model(null, ['route' => 'admin.dashboard.materialDocument.store', 'class'=>'parsley-examples', 'files' => true]) !!}
+                                                @include('Admin.cruds.materialDocument.form')
+                                                {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endcan
                         </div>
-                    @endcan
+                       
+                    </div>
                 </div>
-                <div class="row pe-3">
+                <div class="card card-body">
                     <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
 
                         <thead class="table-light">
@@ -120,6 +125,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>

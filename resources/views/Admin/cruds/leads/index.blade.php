@@ -14,7 +14,7 @@
                                     <li class="breadcrumb-item active">Lead</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Lead</h4>
+                            <h4 class="page-title">Vídeos visualizados</h4>
                         </div>
                     </div>
                 </div>
@@ -30,12 +30,12 @@
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.lead.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
-                                    <div class="col-6 form">
-                                        <div class="mb-3 card card-body">
+                                    <div class="col-9 form">                                        
+                                        <div class="mb-3 card card-body d-flex flex-row align-items-end justify-content-end">
                                             @if (Route::currentRouteName() == 'admin.dashboard.lead.lead-search')
-                                                <a href="{{route('admin.dashboard.lead.index')}}" class="btn btn-danger waves-effect waves-light float-end me-3 width-lg">Limpar</a>
-                                            @endif
-                                            <form action="{{route('admin.dashboard.lead.lead-search')}}" method="GET" class="d-flex align-items-end">
+                                                <a href="{{route('admin.dashboard.lead.index')}}" style="width: 160px" class="btn btn-danger waves-effect waves-light me-3 float-end width-lg">Limpar</a>
+                                            @endif                                            
+                                            <form action="{{route('admin.dashboard.lead.lead-search')}}" method="GET" class="d-flex align-items-end justify-content-end">
                                                 @csrf
                                                 <div class="row">
                                                     {!! Form::label('heard', 'Filtrar por Vídeos', ['class' => 'form-label ps-0']) !!}
@@ -46,7 +46,7 @@
                                                     ]) !!}
                                                 </div>
                                                 {!! Form::button('Buscar', ['class'=>'btn btn-primary waves-effect waves-light float-end ms-3 width-lg bt-select', 'type' => 'submit']) !!}                                               
-                                            </form>
+                                            </form>                                            
                                         </div> 
                                     </div>
                                     {{-- <div class="col-3 bt-mobile">

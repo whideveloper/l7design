@@ -22,7 +22,12 @@ public function index(Request $request)
     }
 
     $leads = $leadsQuery->orderBy('created_at', 'DESC')->paginate(50);
-    $videosQuery = SavGravada::active()->select('sav_gravadas.id', 'sav_gravadas.title', 'sav_gravadas.active');
+
+    $videosQuery = SavGravada::join('leads', 'sav_gravadas.id', '=', 'leads.video_id')
+    ->active()
+    ->select('sav_gravadas.id', 'sav_gravadas.title', 'sav_gravadas.active')
+    ->orderBy('sav_gravadas.title', 'asc');
+
     $videos = $videosQuery->get();
 
     $videoSelect = [];

@@ -10,7 +10,13 @@ class MaterialDeApoioPageController extends Controller
 {
     public function index(){
         $protocolo = Protocol::active()->first();
-        $materialSections = Material::active()->get();
+        $materialSections = Material::with(['document' => function ($query) {
+            $query->orderBy('sorting', 'ASC');
+        }])
+        ->active()
+        ->orderBy('sorting', 'ASC')
+        ->get();
+
         return view('Client.pages.material-de-apoio', [
             'protocolo' => $protocolo,
             'materialSections' => $materialSections

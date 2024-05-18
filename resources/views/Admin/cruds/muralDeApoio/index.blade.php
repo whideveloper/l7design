@@ -43,7 +43,6 @@
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            <th></th>
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
@@ -55,7 +54,6 @@
                                     @if ($muralDeApoio)
                                         <tbody>
                                             <tr data-code="{{$muralDeApoio->id}}">
-                                                <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$muralDeApoio->id}}"></label>
                                                 </td>

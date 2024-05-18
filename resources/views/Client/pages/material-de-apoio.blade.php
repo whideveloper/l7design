@@ -1,5 +1,15 @@
 @extends('Client.core.main')
 @section('content')
+@if (!$protocolo)
+    <style>
+        .material{
+            margin-top: -190px;
+        }
+        .material:nth-of-type(odd){
+            margin-top: 0;
+        }
+    </style>
+@endif
 @if ($protocolo)
     <section id="{{$protocolo->slug}}" class="teleinterconsulta">
         <div class="teleinterconsulta__content {{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">

@@ -59,7 +59,11 @@ class MaterialController extends Controller
         if(!Auth::user()->can(['material.visualizar','material.editar'])){
             return view('Admin.error.403');
         }
-        
+        $material = Material::with(['document' => function ($query) {
+            $query->orderBy('sorting', 'ASC');
+        }])
+        ->find($material->id);
+
         return view('Admin.cruds.material.edit', [
             'material' => $material
         ]);

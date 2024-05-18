@@ -17,6 +17,11 @@
                         @foreach ($categorias as $category)
                             <li class="especialidades__categories__item {{ request()->category == $category->slug ? 'active' : '' }}"><a href="{{route('mural-de-comunicacao-category', [$category->slug])}}">{{$category->title}}</a></li>
                         @endforeach
+                        @if (Route::currentRouteName() ==  'mural-de-comunicacao-category')                        
+                            <li class="especialidades__categories__item bt-all">
+                                <a href="{{route('mural-de-comunicacao')}}">Ver todos</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             @endif
