@@ -299,6 +299,20 @@
     }
 }
 @media screen and (max-width: 525px) {   
+    .modal-especialidade {
+        .modal-box__content{
+            width: 92%;
+            margin: 0 auto;
+        }
+        .modal-content{
+            width: 100%;
+            padding: 0;
+            .modal-content-box{
+                padding: 130px 0px 60px 0 !important;
+            }
+        } 
+    }
+              
     .especialidades__text p{
         width: 100%;
     }

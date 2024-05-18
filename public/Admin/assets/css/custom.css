@@ -454,7 +454,9 @@ body[data-sidebar-size=condensed] .left-side-menu .simplebar-content-wrapper{
 .content-page{
     padding: 0 15px 125px 15px;
 }
+@media screen and (max-width: 680px) {
 
+}
 @media screen and (max-width: 525px) {
     .page-title.mobile{
         width: 100%;
