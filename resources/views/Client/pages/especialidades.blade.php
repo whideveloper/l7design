@@ -19,7 +19,7 @@
                     @endforeach
                     @if (Route::currentRouteName() ==  'especialidades-category')                        
                         <li class="especialidades__categories__item bt-all">
-                            <a href="{{route('especialidades')}}">Ver todos</a>
+                            <a href="{{route('especialidades')}}">Limpar filtro</a>
                         </li>
                     @endif
                 </ul>

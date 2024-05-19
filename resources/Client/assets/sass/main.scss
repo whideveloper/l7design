@@ -1,3 +1,17 @@
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--white);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--laranja);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid var(--white);  /* creates padding around scroll thumb */
+}
+
 #carregamento,
 #carregamento-savs{
     position: absolute;
@@ -377,7 +391,7 @@ input, select {
                 line-height: 4.438rem;
                 text-align: left;
                 width: calc(100% - 475px);
-                word-break: break-all;
+                word-break: break-word;
                 white-space: pre-line;
             }   
         }
@@ -1179,7 +1193,7 @@ input, select {
     font-family: var(--roboto-font-family);
     font-weight: 400;
     line-height: 1.625rem;
-    word-break: break-all;
+    word-break: break-word;
     & b, strong{
         color: var(--pantone-7466-c);
         font-weight: 500;
@@ -1782,7 +1796,7 @@ input, select {
                 text-align: center;
                 width: 67%;
                 margin: 0 auto;
-                word-break: break-all;
+                word-break: break-word;
                 margin-top: 18px;
             }
         }
@@ -3243,6 +3257,20 @@ table{
     }
   }
 }
+.modal-box__text__long::-webkit-scrollbar {
+    width: 12px;               /* largura da barra de rolagem */
+}
+
+.modal-box__text__long::-webkit-scrollbar-track {
+    background: var(--white);        /* cor da área de rastreamento */
+}
+
+.modal-box__text__long::-webkit-scrollbar-thumb {
+    background-color: var(--laranja);    /* cor do "polegar" da barra de rolagem */
+    border-radius: 20px;       /* arredondamento do "polegar" */
+    border: 3px solid var(--white);  /* cria uma margem ao redor do "polegar" */
+}
+
 .modal-box__right .modal-box__text__long{
     overflow-x: auto;
     height: 280px;
@@ -3250,12 +3278,12 @@ table{
         li{
             display: flex;
             justify-content: flex-start;
-            align-items: center;
             gap: 0 10px;
             position: relative;
             padding-left: 20px;
             margin-bottom: 9px;
             line-height: 22px;
+            word-break: break-word;
             &::before{
                 content: "";
                 background-color: var(--laranja);
@@ -3325,10 +3353,14 @@ table{
         font-family: var(--roboto-font-family);
         font-weight: 400;
         text-align: unset;
-        word-break: break-all;
+        word-break: break-word;
         margin-top: 18px;
         line-height: 26px;
         width: 100%;
+        span{
+            word-break: break-word;
+            word-wrap: break-word; 
+        }
     }
 }
 .submenu{

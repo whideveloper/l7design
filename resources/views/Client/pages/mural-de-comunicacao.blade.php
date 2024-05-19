@@ -19,7 +19,7 @@
                         @endforeach
                         @if (Route::currentRouteName() ==  'mural-de-comunicacao-category')                        
                             <li class="especialidades__categories__item bt-all">
-                                <a href="{{route('mural-de-comunicacao')}}">Ver todos</a>
+                                <a href="{{route('mural-de-comunicacao')}}">Limpar filtro</a>
                             </li>
                         @endif
                     </ul>
