@@ -26,13 +26,13 @@
                             <div class="card-body">                                
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        @can('mural de comunicação.remover')
+                                        @can('mural de comunicacao.remover')
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.muralDeComunicacaoCategory.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
                                     
                                     <div class="col-6">
-                                        @can('mural de comunicação.criar')
+                                        @can('mural de comunicacao.criar')
                                             <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>                                              
                                         @endcan
                                     </div>
@@ -68,12 +68,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('mural de comunicação.editar')
+                                                        @can('mural de comunicacao.editar')
                                                         <div class="col-4">
                                                             <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.edit',['muralDeComunicacaoCategory' => $muralDeComunicacaoCategory->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
                                                         @endcan
-                                                        @can('mural de comunicação.remover')
+                                                        @can('mural de comunicacao.remover')
                                                         <form action="{{route('admin.dashboard.muralDeComunicacaoCategory.destroy',['muralDeComunicacaoCategory' => $muralDeComunicacaoCategory->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

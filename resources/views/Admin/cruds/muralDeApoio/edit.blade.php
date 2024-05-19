@@ -75,13 +75,16 @@
                                         @endswitch
                                     </td>
                                     <td>
-                                        <div class="row d-flex justify-content-center">  
-                                            <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.edit',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
-
-                                            <form action="{{route('admin.dashboard.muralDeComunicacaoFeed.destroy',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="col-3" method="POST">
-                                                @method('DELETE') @csrf
-                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                            </form>
+                                        <div class="row d-flex justify-content-center"> 
+                                            @can('mural de comunicacao.editar')                                                
+                                                <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.edit',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
+                                            @endcan 
+                                            @can('mural de comunicacao.remover')                                                
+                                                <form action="{{route('admin.dashboard.muralDeComunicacaoFeed.destroy',['muralDeComunicacaoFeed' => $muralDeComunicacaoFeed->mural_de_comunicacao_id])}}" class="col-3" method="POST">
+                                                    @method('DELETE') @csrf
+                                                    <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                </form>
+                                            @endcan
                                         </div>
                                     </td>
                                 </tr>

@@ -19,7 +19,9 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary me-3 col-3 waves-effect waves-light mb-3 bt-gallery" data-bs-toggle="modal" data-bs-target="#modal-image-gallery">Cadastrar imagens da Galeria <i class="mdi mdi-plus"></i></button>
+                @can('galeria.criar')                    
+                    <button type="button" class="btn btn-primary me-3 col-3 waves-effect waves-light mb-3 bt-gallery" data-bs-toggle="modal" data-bs-target="#modal-image-gallery">Cadastrar imagens da Galeria <i class="mdi mdi-plus"></i></button>
+                @endcan
                 <!-- end page title -->
                 {!! Form::model($gallery, ['route' => ['admin.dashboard.gallery.update', $gallery->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.gallery.form')
@@ -92,10 +94,12 @@
                                                 </td>
                                                 <td>
                                                     <div class="row d-flex justify-content-center">
-                                                        <form action="{{route('admin.dashboard.galleryImage.destroy',['galleryImage' => $galleryImage->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
+                                                        @can('galeria.remover')                                                            
+                                                            <form action="{{route('admin.dashboard.galleryImage.destroy',['galleryImage' => $galleryImage->id])}}" class="col-4" method="POST">
+                                                                @method('DELETE') @csrf
+                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                            </form>
+                                                        @endcan
                                                     </div>
                                                 </td>
                                             </tr>

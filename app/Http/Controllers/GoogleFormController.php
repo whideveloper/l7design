@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\GoogleForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class GoogleFormController extends Controller
@@ -12,6 +13,9 @@ class GoogleFormController extends Controller
 
     public function index()
     {
+        if (!Auth::user()->can('google form.visualizar')) {
+            return view('Admin.error.403');
+        }
         $googleForm = GoogleForm::first();
 
         return view('Admin.cruds.googleForm.index', [
@@ -21,6 +25,9 @@ class GoogleFormController extends Controller
 
     public function create()
     {
+        if (!Auth::user()->can(['google form.visualizar','google form.criar'])) {
+            return view('Admin.error.403');
+        }
         return view('Admin.cruds.googleForm.create');
     }
 
@@ -44,6 +51,9 @@ class GoogleFormController extends Controller
 
     public function edit(GoogleForm $googleForm)
     {
+        if (!Auth::user()->can(['google form.visualizar','google form.editar'])) {
+            return view('Admin.error.403');
+        }
         return view('Admin.cruds.googleForm.edit', [
             'googleForm' => $googleForm
         ]);
@@ -69,6 +79,9 @@ class GoogleFormController extends Controller
 
     public function destroy(GoogleForm $googleForm)
     {
+        if (!Auth::user()->can(['google form.visualizar','google form.remover'])) {
+            return view('Admin.error.403');
+        }
         $googleForm->delete();
         Session::flash('success', 'Informação deletada com sucesso!');
         return redirect()->back();

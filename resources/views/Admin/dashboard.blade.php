@@ -404,7 +404,7 @@
                             <h4 class="page-title"><i class="mdi mdi-form-select"></i> Mural de comunicação</h4>
                         </div>
                     </div>
-                    @can('mural de comunicacao visualizar')
+                    @can('mural de comunicacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}">
                                 <div class="widget-rounded-circle card">
@@ -427,7 +427,7 @@
                             </a>
                         </div> <!-- end col-->
                     @endcan
-                    @can('mural de apoio.visualizar')
+                    @can('mural de comunicacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.muralDeApoio.index')}}">
                                 <div class="widget-rounded-circle card">

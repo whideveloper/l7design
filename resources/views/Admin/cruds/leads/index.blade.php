@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="row mb-3 align-items-center filter">
                                     <div class="col-3 bt-mobile">
-                                        @can('leads.remover')
+                                        @can('lead.remover')
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.lead.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
                                     </div>
@@ -50,7 +50,7 @@
                                         </div> 
                                     </div>
                                     {{-- <div class="col-3 bt-mobile">
-                                        @can('leads.criar')
+                                        @can('lead.criar')
                                         <a href="{{route('admin.dashboard.lead.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         @endcan
                                     </div> --}}
@@ -82,28 +82,28 @@
                                                 <td>{{$lead->video_title}}</td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('leads.editar')
-                                                        <div class="col-4">
-                                                           <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-lead-{{$lead->id}}"></a>
+                                                        @can('lead.editar')
+                                                            <div class="col-4">
+                                                                <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-lead-{{$lead->id}}"></a>
 
-                                                            <div id="modal-lead-{{$lead->id}}" class="modal fade" tabindex="-1" lead="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                                <div class="modal-dialog" style="max-width: 800px;">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header p-3 pt-2 pb-2">
-                                                                            <h4 class="page-title">Lead</h4>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body p-3 pt-0 pb-3">
-                                                                            {!! Form::model($lead, ['route' => ['admin.dashboard.lead.show', $lead->id], 'class'=>'parsley-examples']) !!}
-                                                                                @include('Admin.cruds.leads.form')
-                                                                            {!! Form::close() !!}                                                                             
+                                                                <div id="modal-lead-{{$lead->id}}" class="modal fade" tabindex="-1" lead="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                    <div class="modal-dialog" style="max-width: 800px;">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header p-3 pt-2 pb-2">
+                                                                                <h4 class="page-title">Lead</h4>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body p-3 pt-0 pb-3">
+                                                                                {!! Form::model($lead, ['route' => ['admin.dashboard.lead.show', $lead->id], 'class'=>'parsley-examples']) !!}
+                                                                                    @include('Admin.cruds.leads.form')
+                                                                                {!! Form::close() !!}                                                                             
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                         @endcan
-                                                        @can('leads.remover')
+                                                        @can('lead.remover')
                                                             <form action="{{route('admin.dashboard.lead.destroy',['lead' => $lead->id])}}" class="col-4" method="POST">
                                                                 @method('DELETE') @csrf
                                                                 <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>

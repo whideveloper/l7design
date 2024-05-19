@@ -30,7 +30,7 @@ class SavController extends Controller
 
     public function create()
     {
-        if(!Auth::user()->can('sav.visualizar')){
+        if(!Auth::user()->can(['sav.visualizar','sav.criar'])){
             return view('Admin.error.403');
         }
 
@@ -162,7 +162,7 @@ class SavController extends Controller
 
     public function destroy(Sav $sav)
     {
-        if(!Auth::user()->can(['sav.visualizar', 'sav.remove'])){
+        if(!Auth::user()->can(['sav.visualizar', 'sav.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($sav->path_file);

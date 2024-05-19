@@ -85,7 +85,7 @@ class HolidayController extends Controller
 
     public function destroy(Holiday $holiday)
     {
-        if (!Auth::user()->can(['evento.visualizar','evento.remove'])) {
+        if (!Auth::user()->can(['evento.visualizar','evento.remover'])) {
             return view('Admin.error.403');
         }
         $holiday->delete();
@@ -94,7 +94,7 @@ class HolidayController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['evento.visualizar','evento.remove'])) {
+        if (!Auth::user()->can(['evento.visualizar','evento.remover'])) {
             return view('Admin.error.403');
         }
 

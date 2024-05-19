@@ -134,7 +134,7 @@ class GalleryController extends Controller
     }
     public function destroy(Gallery $gallery)
     {
-        if(!Auth::user()->can(['galeria.visualizar', 'galeria.remove'])){
+        if(!Auth::user()->can(['galeria.visualizar', 'galeria.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($gallery->path_image);
@@ -144,7 +144,7 @@ class GalleryController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['galeria.visualizar','galeria.remove'])) {
+        if (!Auth::user()->can(['galeria.visualizar','galeria.remover'])) {
             return view('Admin.error.403');
         }
 

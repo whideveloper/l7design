@@ -16,7 +16,7 @@ class MaterialController extends Controller
 
     public function index()
     {
-        if(!Auth::user()->can('material.visualizar')){
+        if(!Auth::user()->can('material de apoio.visualizar')){
             return view('Admin.error.403');
         }
         $materials = Material::sorting()->get();
@@ -27,7 +27,7 @@ class MaterialController extends Controller
 
     public function create()
     {
-        if(!Auth::user()->can(['material.visualizar','material.criar'])){
+        if(!Auth::user()->can(['material de apoio.visualizar','material de apoio.criar'])){
             return view('Admin.error.403');
         }
 
@@ -56,7 +56,7 @@ class MaterialController extends Controller
 
     public function edit(Material $material)
     {
-        if(!Auth::user()->can(['material.visualizar','material.editar'])){
+        if(!Auth::user()->can(['material de apoio.visualizar','material de apoio.editar'])){
             return view('Admin.error.403');
         }
         $material = Material::with(['document' => function ($query) {
@@ -93,7 +93,7 @@ class MaterialController extends Controller
 
     public function destroy(Material $material)
     {
-        if(!Auth::user()->can(['material.visualizar', 'material.remove'])){
+        if(!Auth::user()->can(['material de apoio.visualizar', 'material de apoio.remover'])){
             return view('Admin.error.403');
         }
         
@@ -105,7 +105,7 @@ class MaterialController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['material.visualizar','material.remove'])) {
+        if (!Auth::user()->can(['material de apoio.visualizar','material de apoio.remover'])) {
             return view('Admin.error.403');
         }
 

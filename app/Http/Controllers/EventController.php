@@ -87,7 +87,7 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
-        if (!Auth::user()->can(['evento.visualizar','evento.remove'])) {
+        if (!Auth::user()->can(['evento.visualizar','evento.remover'])) {
             return view('Admin.error.403');
         }
         $event->delete();
@@ -97,7 +97,7 @@ class EventController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['evento.visualizar','evento.remove'])) {
+        if (!Auth::user()->can(['evento.visualizar','evento.remover'])) {
             return view('Admin.error.403');
         }
 

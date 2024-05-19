@@ -14,6 +14,9 @@ class LeadController extends Controller
 
 public function index(Request $request)
 {
+    if (!Auth::user()->can('lead.visualizar')) {
+        return view('Admin.error.403');
+    }
     $video_id = $request->video_id;
     $leadsQuery = Lead::query();
 
@@ -57,13 +60,16 @@ public function index(Request $request)
 
     public function destroy(Lead $lead)
     {
+        if (!Auth::user()->can(['lead.visualizar','lead.remover'])) {
+            return view('Admin.error.403');
+        }
         $lead->delete();
         Session::flash('success', 'Lead deletado com sucesso!');
         return redirect()->back();
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['lead.visualizar','lead.remove'])) {
+        if (!Auth::user()->can(['lead.visualizar','lead.remover'])) {
             return view('Admin.error.403');
         }
 

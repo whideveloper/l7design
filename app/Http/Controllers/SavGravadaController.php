@@ -65,7 +65,7 @@ class SavGravadaController extends Controller
     }
     public function edit(SavGravada $savGravada)
     {
-        if(!Auth::user()->can('sav.visualizar')){
+        if(!Auth::user()->can(['sav.visualizar', 'sav.editar'])){
             return view('Admin.error.403');
         }
         $sav = Sav::first();
@@ -121,7 +121,7 @@ class SavGravadaController extends Controller
 
     public function destroy(SavGravada $savGravada)
     {
-        if(!Auth::user()->can(['sav.visualizar', 'sav.remove'])){
+        if(!Auth::user()->can(['sav.visualizar', 'sav.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($savGravada->path_image);
@@ -133,7 +133,7 @@ class SavGravadaController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['sav.visualizar','sav.remove'])) {
+        if (!Auth::user()->can(['sav.visualizar','sav.remover'])) {
             return view('Admin.error.403');
         }
 

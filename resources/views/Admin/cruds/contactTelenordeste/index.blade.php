@@ -32,7 +32,7 @@
                                     @endcan
                                     <div class="col-6">
                                         @can('contato.criar')
-                                        <a href="{{route('admin.dashboard.contactTelenordeste.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                            <a href="{{route('admin.dashboard.contactTelenordeste.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         @endcan
                                     </div>
                                 </div>

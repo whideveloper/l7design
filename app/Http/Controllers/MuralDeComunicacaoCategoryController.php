@@ -90,7 +90,7 @@ class MuralDeComunicacaoCategoryController extends Controller
 
     public function destroy(MuralDeComunicacaoCategory $muralDeComunicacaoCategory)
     {
-        if(!Auth::user()->can(['mural de comunicacao.visualizar', 'mural de comunicacao.remove'])){
+        if(!Auth::user()->can(['mural de comunicacao.visualizar', 'mural de comunicacao.remover'])){
             return view('Admin.error.403');
         }
         
@@ -101,7 +101,7 @@ class MuralDeComunicacaoCategoryController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remove'])) {
+        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remover'])) {
             return view('Admin.error.403');
         }
 

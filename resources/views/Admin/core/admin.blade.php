@@ -409,7 +409,7 @@
                                                     <a href="{{route('admin.dashboard.contactTelenordeste.index')}}"><i class="mdi mdi-clipboard-list-outline"></i> Contato Telenordeste</a>
                                                 </li>
                                             @endcan
-                                            @can('contato.visualizar')
+                                            @can('google form.visualizar')
                                                 <li class="{{ route('admin.dashboard.googleForm.index') == url()->current() ? 'current' : 'off-current' }}">
                                                     <a href="{{route('admin.dashboard.googleForm.index')}}"><i class="mdi mdi-gmail "></i> Sessão formulário</a>
                                                 </li>

@@ -35,8 +35,8 @@
                                         @can('evento.criar') 
                                             @can('evento.criar')
                                                 <a href="{{route('admin.dashboard.event.create')}}" style="width: 170px;" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>                                        
+                                                <a class="btn btn-primary float-end me-2" data-bs-toggle="modal" data-bs-target="#modal-holiday">Adicionar feriado <i class="mdi mdi-plus"></i></a>
                                             @endcan                                
-                                            <a class="btn btn-primary float-end me-2" data-bs-toggle="modal" data-bs-target="#modal-holiday">Adicionar feriado <i class="mdi mdi-plus"></i></a>
             
                                             <div id="modal-holiday" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                 <div class="modal-dialog" style="max-width: 800px;">
@@ -79,7 +79,9 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <div class="row d-flex justify-content-center">
-                                                                                        <a class="btn-icon mdi mdi-square-edit-outline col-3" data-bs-toggle="modal" data-bs-target="#modal-holiday-edit{{$holiday->id}}"></a>
+                                                                                        @can('evento.editar')                                                                                            
+                                                                                            <a class="btn-icon mdi mdi-square-edit-outline col-3" data-bs-toggle="modal" data-bs-target="#modal-holiday-edit{{$holiday->id}}"></a>
+                                                                                        @endcan
                 
                                                                                         <div id="modal-holiday-edit{{$holiday->id}}" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                                             <div class="modal-dialog" style="max-width: 800px;">
@@ -100,10 +102,12 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div> 
-                                                                                        <form action="{{route('admin.dashboard.holiday.destroy',['holiday' => $holiday->id])}}" class="col-3" method="POST">
-                                                                                            @method('DELETE') @csrf
-                                                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                                                        </form>
+                                                                                        @can('evento.remover')                                                                                            
+                                                                                            <form action="{{route('admin.dashboard.holiday.destroy',['holiday' => $holiday->id])}}" class="col-3" method="POST">
+                                                                                                @method('DELETE') @csrf
+                                                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                                                            </form>
+                                                                                        @endcan
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
@@ -152,15 +156,15 @@
                                                 <td>
                                                     <div class="row">
                                                         @can('evento.editar')
-                                                        <div class="col-4">
-                                                            <a href="{{route('admin.dashboard.event.edit',['event' => $event->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
+                                                            <div class="col-4">
+                                                                <a href="{{route('admin.dashboard.event.edit',['event' => $event->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            </div>
                                                         @endcan
                                                         @can('evento.remover')
-                                                        <form action="{{route('admin.dashboard.event.destroy',['event' => $event->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
+                                                            <form action="{{route('admin.dashboard.event.destroy',['event' => $event->id])}}" class="col-4" method="POST">
+                                                                @method('DELETE') @csrf
+                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                            </form>
                                                         @endcan
                                                     </div>
                                                 </td>

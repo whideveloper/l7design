@@ -72,15 +72,15 @@
                                                 <td>
                                                     <div class="row">
                                                         @can('parceiro.editar')
-                                                        <div class="col-2">
-                                                           <a href="{{route('admin.dashboard.partner.edit',['partner' => $partner->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
+                                                            <div class="col-2">
+                                                            <a href="{{route('admin.dashboard.partner.edit',['partner' => $partner->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            </div>
                                                         @endcan
                                                         @can('parceiro.remover')
-                                                        <form action="{{route('admin.dashboard.partner.destroy',['partner' => $partner->id])}}" class="col-2" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
+                                                            <form action="{{route('admin.dashboard.partner.destroy',['partner' => $partner->id])}}" class="col-2" method="POST">
+                                                                @method('DELETE') @csrf
+                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                            </form>
                                                         @endcan
                                                     </div>
                                                 </td>

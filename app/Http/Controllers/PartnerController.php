@@ -125,7 +125,7 @@ class PartnerController extends Controller
 
     public function destroy(Partner $partner)
     {
-        if(!Auth::user()->can(['parceiro.visualizar', 'parceiro.remove'])){
+        if(!Auth::user()->can(['parceiro.visualizar', 'parceiro.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($partner->path_image);
@@ -136,7 +136,7 @@ class PartnerController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['parceiro.visualizar','parceiro.remove'])) {
+        if (!Auth::user()->can(['parceiro.visualizar','parceiro.remover'])) {
             return view('Admin.error.403');
         }
 

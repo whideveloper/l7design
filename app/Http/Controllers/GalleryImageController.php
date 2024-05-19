@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
@@ -46,11 +47,11 @@ class GalleryImageController extends Controller
         }
     }
     
-    
-
-
     public function destroy(GalleryImage $galleryImage)
     {
+        if (!Auth::user()->can(['galeria.visualizar','galeria.remover'])) {
+            return view('Admin.error.403');
+        }
         Storage::delete($this->pathUpload.$galleryImage->path_image);
         
         $galleryImage->delete();
@@ -67,6 +68,9 @@ class GalleryImageController extends Controller
      */
     public function destroySelected(Request $request)
     {
+        if (!Auth::user()->can(['galeria.visualizar','galeria.remover'])) {
+            return view('Admin.error.403');
+        }
         $galleryImages = GalleryImage::whereIn('id', $request->deleteAll)->get();
 
         foreach($galleryImages as $galleryImage){

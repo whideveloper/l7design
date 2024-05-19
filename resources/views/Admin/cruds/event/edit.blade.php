@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model($event, ['route' => ['admin.dashboard.event.update', $event->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                     @include('Admin.cruds.event.form')
-                    @can('especialidade.editar')
+                    @can('evento.editar')
                     {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.event.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

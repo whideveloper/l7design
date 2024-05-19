@@ -25,11 +25,6 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
-            'formulario de contato'=>[
-                'Editar',
-                'Visualizar',
-                'Remover'
-            ],
             'grupo'=>[
                 'Criar',
                 'Editar',

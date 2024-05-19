@@ -22,7 +22,7 @@
                 <!-- end page title -->
                 {!! Form::model(null, ['route' => 'admin.dashboard.muralDeComunicacaoCategory.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.muralDeComunicacaoCategory.form')
-                    @can('mural de comunicação.criar')
+                    @can('mural de comunicacao.criar')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
                     @endcan
                     <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

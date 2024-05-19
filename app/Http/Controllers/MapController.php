@@ -84,7 +84,7 @@ class MapController extends Controller
      */
     public function destroy(Map $map)
     {
-        if (!Auth::user()->can(['mapa.visualizar','mapa.remove'])) {
+        if (!Auth::user()->can(['mapa.visualizar','mapa.remover'])) {
             return view('Admin.error.403');
         }
         $map->delete();
@@ -94,7 +94,7 @@ class MapController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['mapa.visualizar','mapa.remove'])) {
+        if (!Auth::user()->can(['mapa.visualizar','mapa.remover'])) {
             return view('Admin.error.403');
         }
 

@@ -20,6 +20,9 @@ class MuralDeComunicacaoFeedController extends Controller
     protected $pathUpload = 'admin/uploads/images/mural-de-comunicacao/';
     public function index()
     {
+        if (!Auth::user()->can('mural de comunicacao.visualizar')) {
+            return view('Admin.error.403');
+        }
         $muralDeComunicacaoFeeds = MuralDeComunicacaoFeed::sorting()->get();
         return view('Admin.cruds.muralDeComunicacaoFeed.index',[
             'muralDeComunicacaoFeeds' => $muralDeComunicacaoFeeds
@@ -28,6 +31,9 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function create()
     {
+        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.criar'])) {
+            return view('Admin.error.403');
+        }
         $categoryTitle = [];
         $muralDeComunicacaoCategory = MuralDeComunicacaoCategory::active()->get();
         foreach($muralDeComunicacaoCategory as $title){
@@ -79,6 +85,9 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function edit(Request $request,MuralDeComunicacaoFeed $muralDeComunicacaoFeed)
     {
+        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.editar'])) {
+            return view('Admin.error.403');
+        }
         $categoryTitle = [];
         $muralDeComunicacaoCategory = MuralDeComunicacaoCategory::active()->get();
         foreach($muralDeComunicacaoCategory as $title){
@@ -143,7 +152,7 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function destroy(MuralDeComunicacaoFeed $muralDeComunicacaoFeed)
     {
-        if(!Auth::user()->can(['mural de comunicacao.visualizar', 'mural de comunicacao.remove'])){
+        if(!Auth::user()->can(['mural de comunicacao.visualizar', 'mural de comunicacao.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($muralDeComunicacaoFeed->path_image);
@@ -155,7 +164,7 @@ class MuralDeComunicacaoFeedController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remove'])) {
+        if (!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remover'])) {
             return view('Admin.error.403');
         }
 

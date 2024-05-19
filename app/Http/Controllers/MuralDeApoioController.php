@@ -102,7 +102,7 @@ class MuralDeApoioController extends Controller
 
     public function destroy(MuralDeApoio $muralDeApoio)
     {
-        if(!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remove'])){
+        if(!Auth::user()->can(['mural de comunicacao.visualizar','mural de comunicacao.remover'])){
             return view('Admin.error.403');
         }
 
