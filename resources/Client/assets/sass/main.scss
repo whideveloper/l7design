@@ -3353,7 +3353,7 @@ table{
         font-family: var(--roboto-font-family);
         font-weight: 400;
         text-align: unset;
-        word-break: break-all;
+        word-break: auto-phrase;
         margin-top: 18px;
         line-height: 26px;
         width: 100%;
