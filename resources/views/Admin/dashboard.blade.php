@@ -33,11 +33,22 @@
                 </div>
                 <!-- end page title -->
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">                            
-                            <h4 class="page-title"><i class="mdi mdi-home"></i> Home</h4>
+                    @can([
+                        'banners.visualizar',
+                        'como funciona.visualizar',
+                        'depoimento.visualizar',
+                        'hospital.visualizar',
+                        'localizacao.visualizar',
+                        'proadi.visualizar',
+                        'telenordeste.visualizar',
+                        'teleinterconsulta.visualizar',
+                        ])                        
+                        <div class="col-12">
+                            <div class="page-title-box">                            
+                                <h4 class="page-title"><i class="mdi mdi-home"></i> Home</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('banners.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.banner.index')}}">
@@ -224,11 +235,19 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="fas fa-user-nurse"></i> Especialidades</h4>
+                    @can([
+                        'especialidade.visualizar',
+                        'especialidade.visualizar',
+                        'tutorial.visualizar',
+                        'treinamento.visualizar',
+                        'agendamento.visualizar',
+                        ])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="fas fa-user-nurse"></i> Especialidades</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('especialidade.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.especialidadeCategory.index')}}">
@@ -346,11 +365,16 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</h4>
+                    @can([
+                        'protocolo.visualizar',
+                        'material de apoio.visualizar',
+                        ])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('protocolo.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.protocol.index')}}">
@@ -399,11 +423,15 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-form-select"></i> Mural de comunicação</h4>
+                    @can([
+                        'mural de comunicacao.visualizar'
+                        ])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-form-select"></i> Mural de comunicação</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('mural de comunicacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}">
@@ -426,8 +454,6 @@
                                 </div> <!-- end widget-rounded-circle-->
                             </a>
                         </div> <!-- end col-->
-                    @endcan
-                    @can('mural de comunicacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.muralDeApoio.index')}}">
                                 <div class="widget-rounded-circle card">
@@ -452,11 +478,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-video"></i> SAVS</h4>
+                    @can(['sav.visualizar', 'lead.visualizar'])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-video"></i> SAVS</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('sav.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.sav.index')}}">
@@ -505,11 +533,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="fas fa-handshake"></i> Desempenho/Parceiros</h4>
+                    @can(['mapa.visualizar', 'parceiro.visualizar'])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="fas fa-handshake"></i> Desempenho/Parceiros</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('mapa.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.map.index')}}">
@@ -558,11 +588,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-calendar-month"></i> Agenda/Galeria</h4>
+                    @can(['evento.visualizar','galeria.visualizar'])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-calendar-month"></i> Agenda/Galeria</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('evento.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.event.index')}}">
@@ -611,11 +643,13 @@
                     @endcan                        
                 </div>
                 <div class="row mt-0">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-clipboard-list-outline"></i> Contato</h4>
+                    @can(['contato.visualizar', 'google form.visualizar'])                        
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-clipboard-list-outline"></i> Contato</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('contato.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.contactTelenordeste.index')}}">
@@ -662,36 +696,15 @@
                             </a>
                         </div> <!-- end col-->
                     @endcan
-                    {{-- @can('formulario de contato.visualizar')
-                        <div class="col-md-6 col-xl-3">
-                            <a nofollow href="{{route('admin.dashboard.contact.index')}}">
-                                <div class="widget-rounded-circle card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="avatar-lg rounded-circle border-secondary border shadow m-auto mb-3">
-                                                    <i class="mdi mdi-form-select font-24 avatar-title text-dark"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <h4 class="text-dark mt-1">Formulário de contato</h4>
-                                                    <p class="text-muted mb-1">Gerenciar</p>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div>
-                                </div> <!-- end widget-rounded-circle-->
-                            </a>
-                        </div> <!-- end col-->
-                    @endcan --}}
                 </div>
                 <div class="row mb-4 mt-4">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <h4 class="page-title"><i class="mdi mdi-tools"></i> Outros</h4>
+                    @can(['grupo.visualizar','usuario.visualizar','auditoria.visualizar'])
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-tools"></i> Outros</h4>
+                            </div>
                         </div>
-                    </div>
+                    @endcan
                     @can('grupo.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.group.index')}}">

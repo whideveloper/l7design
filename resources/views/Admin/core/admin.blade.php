@@ -195,256 +195,287 @@
                                     <span> Páginas </span>
                                 </li>
 
-                                <li>
-                                    <a href="#home" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-home"></i>
-                                        <span> Home </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="home">
-                                        <ul class="nav-second-level">
-                                            @can('banners.visualizar')
-                                                <li class="{{ route('admin.dashboard.banner.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.banner.index')}}"><i class="mdi mdi-bullseye-arrow"></i> Banner</a>
-                                                </li>
-                                            @endcan
-                                            @can('como funciona.visualizar')
-                                                <li class="{{ route('admin.dashboard.howItWork.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.howItWork.index')}}"><i class="mdi mdi-file-search-outline"></i> Como funciona</a>
-                                                </li>
-                                            @endcan
-                                            @can('depoimento.visualizar')
-                                                <li class="{{ route('admin.dashboard.depoiment.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.depoiment.index')}}"><i class="mdi mdi-message-text"></i> Depoimento</a>
-                                                </li>
-                                            @endcan
+                                @can([
+                                    'banners.visualizar',
+                                    'como funciona.visualizar',
+                                    'depoimento.visualizar',
+                                    'hospital.visualizar',
+                                    'localizacao.visualizar',
+                                    'proadi.visualizar',
+                                    'telenordeste.visualizar',
+                                    'teleinterconsulta.visualizar',
+                                    ])                                    
+                                    <li>
+                                        <a href="#home" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-home"></i>
+                                            <span> Home </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="home">
+                                            <ul class="nav-second-level">
+                                                @can('banners.visualizar')
+                                                    <li class="{{ route('admin.dashboard.banner.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.banner.index')}}"><i class="mdi mdi-bullseye-arrow"></i> Banner</a>
+                                                    </li>
+                                                @endcan
+                                                @can('como funciona.visualizar')
+                                                    <li class="{{ route('admin.dashboard.howItWork.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.howItWork.index')}}"><i class="mdi mdi-file-search-outline"></i> Como funciona</a>
+                                                    </li>
+                                                @endcan
+                                                @can('depoimento.visualizar')
+                                                    <li class="{{ route('admin.dashboard.depoiment.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.depoiment.index')}}"><i class="mdi mdi-message-text"></i> Depoimento</a>
+                                                    </li>
+                                                @endcan
 
-                                            @can('hospital.visualizar')
-                                                <li class="{{ route('admin.dashboard.hospital.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.hospital.index')}}"><i class="mdi mdi-hospital-box-outline"></i> Hospital Oswaldo Cruz</a>
-                                                </li>
-                                            @endcan
+                                                @can('hospital.visualizar')
+                                                    <li class="{{ route('admin.dashboard.hospital.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.hospital.index')}}"><i class="mdi mdi-hospital-box-outline"></i> Hospital Oswaldo Cruz</a>
+                                                    </li>
+                                                @endcan
 
-                                            @can('localizacao.visualizar')
-                                                <li class="{{ route('admin.dashboard.location.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.location.index')}}"><i class="mdi mdi-map-marker-outline"></i> Localização</a>
-                                                </li>
-                                            @endcan
-                                            @can('proadi.visualizar')
-                                                <li class="{{ route('admin.dashboard.proadi.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.proadi.index')}}"><i class="mdi mdi-layers-triple-outline"></i> Proadi</a>
-                                                </li>
-                                            @endcan
-                                            @can('telenordeste.visualizar')
-                                                <li class="{{ route('admin.dashboard.telenordeste.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.telenordeste.index')}}"><i class="mdi mdi-layers-outline"></i> Telenordeste</a>
-                                                </li>
-                                            @endcan
-                                            @can('teleinterconsulta.visualizar')
-                                                <li class="{{ route('admin.dashboard.teleinterconsulta.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.teleinterconsulta.index')}}"><i class="mdi mdi-layers-minus"></i> Teleinterconsulta</a>
-                                                </li>
-                                            @endcan
-                                        </ul>
-                                    </div>                                    
-                                </li>
-                                <li>
-                                    <a href="#especialidade" data-bs-toggle="collapse">
-                                        <i class="fas fa-user-nurse"></i>
-                                        <span> Especialidades </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="especialidade">
-                                        <ul class="nav-second-level">
-                                            @can('especialidade.visualizar')
-                                                <li class="{{ route('admin.dashboard.especialidadeCategory.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.especialidadeCategory.index')}}"><i class="fas fa-sitemap"></i> Categoria especialidade</a>
-                                                </li>
-                                            @endcan
-                                            @can('especialidade.visualizar')
-                                                <li class="{{ route('admin.dashboard.especialidadeSession.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.especialidadeSession.index')}}"><i class="fas fa-user-nurse"></i> Especialidades</a>
-                                                </li>
-                                            @endcan
-                                            @can('tutorial.visualizar')
-                                                <li class="{{ route('admin.dashboard.tutorial.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.tutorial.index')}}"><i class="fas fa-project-diagram"></i> Tutorial</a>
-                                                </li>
-                                            @endcan
+                                                @can('localizacao.visualizar')
+                                                    <li class="{{ route('admin.dashboard.location.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.location.index')}}"><i class="mdi mdi-map-marker-outline"></i> Localização</a>
+                                                    </li>
+                                                @endcan
+                                                @can('proadi.visualizar')
+                                                    <li class="{{ route('admin.dashboard.proadi.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.proadi.index')}}"><i class="mdi mdi-layers-triple-outline"></i> Proadi</a>
+                                                    </li>
+                                                @endcan
+                                                @can('telenordeste.visualizar')
+                                                    <li class="{{ route('admin.dashboard.telenordeste.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.telenordeste.index')}}"><i class="mdi mdi-layers-outline"></i> Telenordeste</a>
+                                                    </li>
+                                                @endcan
+                                                @can('teleinterconsulta.visualizar')
+                                                    <li class="{{ route('admin.dashboard.teleinterconsulta.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.teleinterconsulta.index')}}"><i class="mdi mdi-layers-minus"></i> Teleinterconsulta</a>
+                                                    </li>
+                                                @endcan
+                                            </ul>
+                                        </div>                                    
+                                    </li>
+                                @endcan
+                                @can([
+                                    'especialidade.visualizar',
+                                    'especialidade.visualizar',
+                                    'tutorial.visualizar',
+                                    'treinamento.visualizar',
+                                    'agendamento.visualizar',
+                                    ])                                    
+                                    <li>
+                                        <a href="#especialidade" data-bs-toggle="collapse">
+                                            <i class="fas fa-user-nurse"></i>
+                                            <span> Especialidades </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="especialidade">
+                                            <ul class="nav-second-level">
+                                                @can('especialidade.visualizar')
+                                                    <li class="{{ route('admin.dashboard.especialidadeCategory.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.especialidadeCategory.index')}}"><i class="fas fa-sitemap"></i> Categoria especialidade</a>
+                                                    </li>
+                                                @endcan
+                                                @can('especialidade.visualizar')
+                                                    <li class="{{ route('admin.dashboard.especialidadeSession.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.especialidadeSession.index')}}"><i class="fas fa-user-nurse"></i> Especialidades</a>
+                                                    </li>
+                                                @endcan
+                                                @can('tutorial.visualizar')
+                                                    <li class="{{ route('admin.dashboard.tutorial.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.tutorial.index')}}"><i class="fas fa-project-diagram"></i> Tutorial</a>
+                                                    </li>
+                                                @endcan
 
-                                            @can('treinamento.visualizar')
-                                                <li class="{{ route('admin.dashboard.trainingForUse.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.trainingForUse.index')}}"><i class="fas fa-shapes"></i> Treinamento da plataforma</a>
-                                                </li>
-                                            @endcan
-                                            @can('agendamento.visualizar')
-                                                <li class="{{ route('admin.dashboard.agendamento.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.agendamento.index')}}"><i class="fas fa-shapes"></i> Agendamento</a>
-                                                </li>
-                                            @endcan
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                                @can('treinamento.visualizar')
+                                                    <li class="{{ route('admin.dashboard.trainingForUse.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.trainingForUse.index')}}"><i class="fas fa-shapes"></i> Treinamento da plataforma</a>
+                                                    </li>
+                                                @endcan
+                                                @can('agendamento.visualizar')
+                                                    <li class="{{ route('admin.dashboard.agendamento.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.agendamento.index')}}"><i class="fas fa-shapes"></i> Agendamento</a>
+                                                    </li>
+                                                @endcan
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
 
-                                <li>
-                                    <a href="#material-de-apoio" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-file-document-multiple"></i>
-                                        <span> Material de apoio </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="material-de-apoio">
-                                        <ul class="nav-second-level">
-                                            @can('protocolo.visualizar')
-                                                <li class="{{ route('admin.dashboard.protocol.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.protocol.index')}}"><i class="mdi mdi-file-document"></i> Protocolo</a>
-                                                </li>
-                                            @endcan
-                                            @can('material de apoio.visualizar')
-                                                <li class="{{ route('admin.dashboard.material.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.material.index')}}"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</a>
-                                                </li>
-                                            @endcan                                            
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can(['protocolo.visualizar', 'material de apoio.visualizar'])                                    
+                                    <li>
+                                        <a href="#material-de-apoio" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-file-document-multiple"></i>
+                                            <span> Material de apoio </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="material-de-apoio">
+                                            <ul class="nav-second-level">
+                                                @can('protocolo.visualizar')
+                                                    <li class="{{ route('admin.dashboard.protocol.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.protocol.index')}}"><i class="mdi mdi-file-document"></i> Protocolo</a>
+                                                    </li>
+                                                @endcan
+                                                @can('material de apoio.visualizar')
+                                                    <li class="{{ route('admin.dashboard.material.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.material.index')}}"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</a>
+                                                    </li>
+                                                @endcan                                            
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
                                 
-                                <li>
-                                    <a href="#mural-de-comunicacao" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-form-select"></i>
-                                        <span> Mural de comunicação </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="mural-de-comunicacao">
-                                        <ul class="nav-second-level">
-                                            @can('mural de comunicacao.visualizar')
-                                                <li class="{{ route('admin.dashboard.muralDeComunicacaoCategory.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}"><i class="fas fa-sitemap"></i> Categoria mural de comunicação</a>
-                                                </li>
-                                            @endcan
-                                            @can('mural de comunicacao.visualizar')
-                                                <li class="{{ route('admin.dashboard.muralDeApoio.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.muralDeApoio.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
-                                                </li>
-                                            @endcan                                            
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can('mural de comunicacao.visualizar')                                    
+                                    <li>
+                                        <a href="#mural-de-comunicacao" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-form-select"></i>
+                                            <span> Mural de comunicação </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="mural-de-comunicacao">
+                                            <ul class="nav-second-level">
+                                                @can('mural de comunicacao.visualizar')
+                                                    <li class="{{ route('admin.dashboard.muralDeComunicacaoCategory.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}"><i class="fas fa-sitemap"></i> Categoria mural de comunicação</a>
+                                                    </li>
+                                                    <li class="{{ route('admin.dashboard.muralDeApoio.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.muralDeApoio.index')}}"><i class="mdi mdi-form-select"></i> Mural de comunicação</a>
+                                                    </li>
+                                                @endcan                                            
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
 
-                                <li>
-                                    <a href="#savs" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-video"></i>
-                                        <span> Savs </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="savs">
-                                        <ul class="nav-second-level">
-                                            @can('sav.visualizar')
-                                                <li class="{{ route('admin.dashboard.sav.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.sav.index')}}"><i class="fas fa-sitemap"></i> Sav</a>
-                                                </li>
-                                            @endcan
-                                            @can('lead.visualizar')
-                                                <li class="{{ route('admin.dashboard.lead.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.lead.index')}}"><i class="mdi mdi-bullseye-arrow "></i> Leads</a>
-                                                </li>
-                                            @endcan                                            
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can(['sav.visualizar', 'lead.visualizar'])                                    
+                                    <li>
+                                        <a href="#savs" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-video"></i>
+                                            <span> Savs </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="savs">
+                                            <ul class="nav-second-level">
+                                                @can('sav.visualizar')
+                                                    <li class="{{ route('admin.dashboard.sav.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.sav.index')}}"><i class="fas fa-sitemap"></i> Sav</a>
+                                                    </li>
+                                                @endcan
+                                                @can('lead.visualizar')
+                                                    <li class="{{ route('admin.dashboard.lead.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.lead.index')}}"><i class="mdi mdi-bullseye-arrow "></i> Leads</a>
+                                                    </li>
+                                                @endcan                                            
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
                                 
-                                <li>
-                                    <a href="#desempenho" data-bs-toggle="collapse">
-                                        <i class="fas fa-handshake"></i>
-                                        <span> Mapa/Parceiros </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="desempenho">
-                                        <ul class="nav-second-level">
-                                            @can('mapa.visualizar')
-                                                <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.map.index')}}"><i class="fas fa-sitemap"></i> Mapa</a>
-                                                </li>
-                                            @endcan
-                                            @can('parceiro.visualizar')
-                                                <li class="{{ route('admin.dashboard.partner.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.partner.index')}}"><i class="fas fa-handshake"></i> Parceiros</a>
-                                                </li>
-                                            @endcan                                            
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can(['mapa.visualizar', 'parceiro.visualizar'])                                    
+                                    <li>
+                                        <a href="#desempenho" data-bs-toggle="collapse">
+                                            <i class="fas fa-handshake"></i>
+                                            <span> Mapa/Parceiros </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="desempenho">
+                                            <ul class="nav-second-level">
+                                                @can('mapa.visualizar')
+                                                    <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.map.index')}}"><i class="fas fa-sitemap"></i> Mapa</a>
+                                                    </li>
+                                                @endcan
+                                                @can('parceiro.visualizar')
+                                                    <li class="{{ route('admin.dashboard.partner.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.partner.index')}}"><i class="fas fa-handshake"></i> Parceiros</a>
+                                                    </li>
+                                                @endcan                                            
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
                                 
-                                <li>
-                                    <a href="#evento" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-calendar-month"></i>
-                                        <span> Agenda/Galeria </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="evento">
-                                        <ul class="nav-second-level">
-                                            @can('evento.visualizar')
-                                                <li class="{{ route('admin.dashboard.event.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.event.index')}}"><i class="mdi mdi-calendar-month"></i> Eventos</a>
-                                                </li>
-                                            @endcan
-                                            @can('galeria.visualizar')
-                                                <li class="{{ route('admin.dashboard.gallery.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.gallery.index')}}"><i class="mdi mdi-folder-multiple-image"></i> Galeria</a>
-                                                </li>
-                                            @endcan                                            
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can(['evento.visualizar','galeria.visualizar'])                                    
+                                    <li>
+                                        <a href="#evento" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-calendar-month"></i>
+                                            <span> Agenda/Galeria </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="evento">
+                                            <ul class="nav-second-level">
+                                                @can('evento.visualizar')
+                                                    <li class="{{ route('admin.dashboard.event.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.event.index')}}"><i class="mdi mdi-calendar-month"></i> Eventos</a>
+                                                    </li>
+                                                @endcan
+                                                @can('galeria.visualizar')
+                                                    <li class="{{ route('admin.dashboard.gallery.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.gallery.index')}}"><i class="mdi mdi-folder-multiple-image"></i> Galeria</a>
+                                                    </li>
+                                                @endcan                                            
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
 
-                                <li>
-                                    <a href="#contato" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-clipboard-list-outline"></i>
-                                        <span> Contato </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="contato">
-                                        <ul class="nav-second-level">
-                                            @can('contato.visualizar')
-                                                <li class="{{ route('admin.dashboard.contactTelenordeste.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.contactTelenordeste.index')}}"><i class="mdi mdi-clipboard-list-outline"></i> Contato Telenordeste</a>
-                                                </li>
-                                            @endcan
-                                            @can('google form.visualizar')
-                                                <li class="{{ route('admin.dashboard.googleForm.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.googleForm.index')}}"><i class="mdi mdi-gmail "></i> Sessão formulário</a>
-                                                </li>
-                                            @endcan
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                @can(['contato.visualizar', 'google form.visualizar'])                                    
+                                    <li>
+                                        <a href="#contato" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-clipboard-list-outline"></i>
+                                            <span> Contato </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="contato">
+                                            <ul class="nav-second-level">
+                                                @can('contato.visualizar')
+                                                    <li class="{{ route('admin.dashboard.contactTelenordeste.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.contactTelenordeste.index')}}"><i class="mdi mdi-clipboard-list-outline"></i> Contato Telenordeste</a>
+                                                    </li>
+                                                @endcan
+                                                @can('google form.visualizar')
+                                                    <li class="{{ route('admin.dashboard.googleForm.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.googleForm.index')}}"><i class="mdi mdi-gmail "></i> Sessão formulário</a>
+                                                    </li>
+                                                @endcan
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
 
-                                <li>
-                                    <a href="#outros" data-bs-toggle="collapse">
-                                        <i class="mdi mdi-tools"></i>
-                                        <span> Outros </span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <div class="collapse" id="outros">
-                                        <ul class="nav-second-level">
-                                            @can('auditoria.visualizar')
-                                                <li class="{{ route('admin.dashboard.audit.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.audit.index')}}"><i class="mdi mdi-file-search-outline"></i> Auditoria</a>
-                                                </li>
-                                            @endcan
-                                            @can('grupo.visualizar')
-                                                <li class="{{ route('admin.dashboard.group.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.group.index')}}"><i class="mdi mdi-account-group"></i> Grupos</a>
-                                                </li>
-                                            @endcan
+                                @can(['grupo.visualizar','usuario.visualizar','auditoria.visualizar'])                                    
+                                    <li>
+                                        <a href="#outros" data-bs-toggle="collapse">
+                                            <i class="mdi mdi-tools"></i>
+                                            <span> Outros </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="outros">
+                                            <ul class="nav-second-level">
+                                                @can('auditoria.visualizar')
+                                                    <li class="{{ route('admin.dashboard.audit.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.audit.index')}}"><i class="mdi mdi-file-search-outline"></i> Auditoria</a>
+                                                    </li>
+                                                @endcan
+                                                @can('grupo.visualizar')
+                                                    <li class="{{ route('admin.dashboard.group.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.group.index')}}"><i class="mdi mdi-account-group"></i> Grupos</a>
+                                                    </li>
+                                                @endcan
 
-                                            @can('usuario.visualizar')
-                                                <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-account-tie"></i> Usuários</a>
-                                                </li>
-                                            @endcan
-                                        </ul>
-                                    </div>                                   
-                                </li>
+                                                @can('usuario.visualizar')
+                                                    <li class="{{ route('admin.dashboard.user.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.user.index')}}"><i class="mdi mdi-account-tie"></i> Usuários</a>
+                                                    </li>
+                                                @endcan
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endcan
                                 
 
                                 {{-- <li>
