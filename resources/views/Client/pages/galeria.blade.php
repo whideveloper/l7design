@@ -16,7 +16,7 @@
                                 <img src="{{asset('storage/'. $gallery->path_image)}}" alt="imagem galeria">
                             </div>
                             <div class="galeria__text">
-                                <p>{!! substr(strip_tags($gallery->text), 0, 180) !!}</p>
+                                <p>{!! substr(strip_tags($gallery->description), 0, 180) !!}</p>
                             </div>
                         </div>
                     </div>

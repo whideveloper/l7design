@@ -13,6 +13,7 @@ class Gallery extends Model
 
     protected $fillable = [
         'title',
+        'description',
         'text',
         'active',
         'slug',
@@ -21,6 +22,7 @@ class Gallery extends Model
     ];
     protected static $logAttributes = [
         'title',
+        'description',
         'text',
         'active',
         'slug',

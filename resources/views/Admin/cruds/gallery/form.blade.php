@@ -5,6 +5,19 @@
             {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
             {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
         </div>
+        <div class="mb-3 col-12">
+            {!! Form::label('message', 'Breve descrição', ['class'=>'form-label']) !!}
+            {!! Form::textarea('description', null, [
+                'class'=>'form-control',
+                'id'=>'message',
+                'required'=>'required',
+                'data-parsley-trigger'=>'keyup',
+                'data-parsley-minlength'=>'20',
+                'data-parsley-maxlength'=>'100',
+                'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                'data-parsley-validation-threshold'=>'10',
+            ]) !!}
+        </div>
         <div class="mb-3 col-lg-12">
             {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
             {!! Form::textarea('text', null, [
