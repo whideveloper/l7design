@@ -2493,6 +2493,8 @@ input, select {
                 border-radius: 10px;
                 position: relative;
                 overflow: hidden;
+                height: 228px;
+                width: auto;
                 &::after{
                     content: '';
                     @include transition-ease;
