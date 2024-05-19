@@ -299,6 +299,9 @@
     }
 }
 @media screen and (max-width: 525px) {  
+    .modal-box__right .modal-box__title{
+        font-size: 1.25rem;
+    }
     #map{
         height: 320px !important;
     }
