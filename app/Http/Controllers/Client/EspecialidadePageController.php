@@ -39,7 +39,7 @@ class EspecialidadePageController extends Controller
         }
         
         $especialistas = $especialistas->paginate(9);
-        // dd($especialistas);
+
         $sessaoEspecialidade = EspecialidadeSession::active()->first();       
         $tutorial = Tutorial::active()->first();
         $trainingForUse = TrainingForUse::active()->first();

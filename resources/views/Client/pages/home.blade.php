@@ -127,7 +127,7 @@
                                         {!!$location->description!!}
                                     </div>
                                 </div>
-                                <a href=""><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
+                                <a href="{{$location->link}}#mapa__atuacao"><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
                             </div>
                         </div>
                     </div>

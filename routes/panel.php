@@ -322,8 +322,6 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.lead.destroySelected');
         Route::get('lead-search', [LeadController::class, 'index'])
             ->name('admin.dashboard.lead.lead-search');
-        Route::post('lead', [SavPageController::class, 'leadSave'])
-            ->name('admin.dashboard.lead.leadSave');
 
         //GRUPOS
         Route::resource('contato-telenordeste', ContactTelenordesteController::class)
@@ -429,6 +427,8 @@ Route::prefix('painel/')->group(function () {
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');
     });
 });
+Route::post('lead', [SavPageController::class, 'leadSave'])
+->name('admin.dashboard.lead.leadSave');
 
 View::composer('Admin.core.admin', function ($view) {
     $user = User::where('id', Auth::user()->id)->first();
