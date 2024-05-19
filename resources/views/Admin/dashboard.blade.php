@@ -33,22 +33,20 @@
                 </div>
                 <!-- end page title -->
                 <div class="row mt-0">
-                    @can([
-                        'banners.visualizar',
-                        'como funciona.visualizar',
-                        'depoimento.visualizar',
-                        'hospital.visualizar',
-                        'localizacao.visualizar',
-                        'proadi.visualizar',
-                        'telenordeste.visualizar',
-                        'teleinterconsulta.visualizar',
-                        ])                        
+                    @if (Auth::user()->can('banners.visualizar')
+                        || Auth::user()->can('como funciona.visualizar')
+                        || Auth::user()->can('depoimento.visualizar')
+                        || Auth::user()->can('hospital.visualizar')
+                        || Auth::user()->can('localizacao.visualizar')
+                        || Auth::user()->can('proadi.visualizar')
+                        || Auth::user()->can('telenordeste.visualizar')
+                        || Auth::user()->can('teleinterconsulta.visualizar'))
                         <div class="col-12">
-                            <div class="page-title-box">                            
-                                <h4 class="page-title"><i class="mdi mdi-home"></i> Home</h4>
+                            <div class="page-title-box">
+                                <h4 class="page-title"><i class="mdi mdi-desktop-mac-dashboard"></i> Dashboard</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif
                     @can('banners.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.banner.index')}}">
@@ -235,19 +233,17 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can([
-                        'especialidade.visualizar',
-                        'especialidade.visualizar',
-                        'tutorial.visualizar',
-                        'treinamento.visualizar',
-                        'agendamento.visualizar',
-                        ])                        
+                    @if (Auth::user()->can('especialidade.visualizar')
+                        || Auth::user()->can('tutorial.visualizar')
+                        || Auth::user()->can('treinamento.visualizar')
+                        || Auth::user()->can('agendamento.visualizar')
+                        )
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="fas fa-user-nurse"></i> Especialidades</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif
                     @can('especialidade.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.especialidadeCategory.index')}}">
@@ -365,16 +361,14 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can([
-                        'protocolo.visualizar',
-                        'material de apoio.visualizar',
-                        ])                        
+                    @if (Auth::user()->can('protocolo.visualizar') || 
+                        Auth::user()->can('material de apoio.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-file-document-multiple"></i> Material de apoio</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                      
                     @can('protocolo.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.protocol.index')}}">
@@ -423,15 +417,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can([
-                        'mural de comunicacao.visualizar'
-                        ])                        
+                    @if (Auth::user()->can('mural de comunicacao.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-form-select"></i> Mural de comunicação</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                       
                     @can('mural de comunicacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.muralDeComunicacaoCategory.index')}}">
@@ -478,13 +470,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can(['sav.visualizar', 'lead.visualizar'])                        
+                    @if (Auth::user()->can('sav.visualizar') || Auth::user()->can('lead.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-video"></i> SAVS</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                       
                     @can('sav.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.sav.index')}}">
@@ -533,13 +525,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can(['mapa.visualizar', 'parceiro.visualizar'])                        
+                    @if (Auth::user()->can('mapa.visualizar') || Auth::user()->can('parceirovisualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="fas fa-handshake"></i> Desempenho/Parceiros</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                      
                     @can('mapa.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.map.index')}}">
@@ -588,13 +580,13 @@
                     @endcan
                 </div>
                 <div class="row mt-0">
-                    @can(['evento.visualizar','galeria.visualizar'])                        
+                    @if (Auth::user()->can('evento.visualizar') || Auth::user()->can('galeria.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-calendar-month"></i> Agenda/Galeria</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                     
                     @can('evento.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.event.index')}}">
@@ -643,13 +635,14 @@
                     @endcan                        
                 </div>
                 <div class="row mt-0">
-                    @can(['contato.visualizar', 'google form.visualizar'])                        
+                    @if (Auth::user()->can('contato.visualizar') || Auth::user()->can('google form.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-clipboard-list-outline"></i> Contato</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif                       
+
                     @can('contato.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.contactTelenordeste.index')}}">
@@ -698,13 +691,15 @@
                     @endcan
                 </div>
                 <div class="row mb-4 mt-4">
-                    @can(['grupo.visualizar','usuario.visualizar','auditoria.visualizar'])
+                    @if (Auth::user()->can('grupo.visualizar')
+                        || Auth::user()->can('usuario.visualizar')
+                        || Auth::user()->can('auditoria.visualizar'))
                         <div class="col-12">
                             <div class="page-title-box">
                                 <h4 class="page-title"><i class="mdi mdi-tools"></i> Outros</h4>
                             </div>
                         </div>
-                    @endcan
+                    @endif
                     @can('grupo.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.group.index')}}">

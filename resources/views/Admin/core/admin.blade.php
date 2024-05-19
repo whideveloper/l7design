@@ -195,16 +195,15 @@
                                     <span> Páginas </span>
                                 </li>
 
-                                @can([
-                                    'banners.visualizar',
-                                    'como funciona.visualizar',
-                                    'depoimento.visualizar',
-                                    'hospital.visualizar',
-                                    'localizacao.visualizar',
-                                    'proadi.visualizar',
-                                    'telenordeste.visualizar',
-                                    'teleinterconsulta.visualizar',
-                                    ])                                    
+                                @if (Auth::user()->can('banners.visualizar')
+                                    || Auth::user()->can('como funciona.visualizar')
+                                    || Auth::user()->can('depoimento.visualizar')
+                                    || Auth::user()->can('hospital.visualizar')
+                                    || Auth::user()->can('localizacao.visualizar')
+                                    || Auth::user()->can('proadi.visualizar')
+                                    || Auth::user()->can('telenordeste.visualizar')
+                                    || Auth::user()->can('teleinterconsulta.visualizar')
+                                    )                                    
                                     <li>
                                         <a href="#home" data-bs-toggle="collapse">
                                             <i class="mdi mdi-home"></i>
@@ -228,13 +227,13 @@
                                                         <a href="{{route('admin.dashboard.depoiment.index')}}"><i class="mdi mdi-message-text"></i> Depoimento</a>
                                                     </li>
                                                 @endcan
-
+    
                                                 @can('hospital.visualizar')
                                                     <li class="{{ route('admin.dashboard.hospital.index') == url()->current() ? 'current' : 'off-current' }}">
                                                         <a href="{{route('admin.dashboard.hospital.index')}}"><i class="mdi mdi-hospital-box-outline"></i> Hospital Oswaldo Cruz</a>
                                                     </li>
                                                 @endcan
-
+    
                                                 @can('localizacao.visualizar')
                                                     <li class="{{ route('admin.dashboard.location.index') == url()->current() ? 'current' : 'off-current' }}">
                                                         <a href="{{route('admin.dashboard.location.index')}}"><i class="mdi mdi-map-marker-outline"></i> Localização</a>
@@ -258,14 +257,13 @@
                                             </ul>
                                         </div>                                    
                                     </li>
-                                @endcan
-                                @can([
-                                    'especialidade.visualizar',
-                                    'especialidade.visualizar',
-                                    'tutorial.visualizar',
-                                    'treinamento.visualizar',
-                                    'agendamento.visualizar',
-                                    ])                                    
+                                @endif                                  
+                             
+                                @if (Auth::user()->can('especialidade.visualizar')
+                                    || Auth::user()->can('tutorial.visualizar')
+                                    || Auth::user()->can('treinamento.visualizar')
+                                    || Auth::user()->can('agendamento.visualizar')
+                                    )                                    
                                     <li>
                                         <a href="#especialidade" data-bs-toggle="collapse">
                                             <i class="fas fa-user-nurse"></i>
@@ -289,7 +287,7 @@
                                                         <a href="{{route('admin.dashboard.tutorial.index')}}"><i class="fas fa-project-diagram"></i> Tutorial</a>
                                                     </li>
                                                 @endcan
-
+    
                                                 @can('treinamento.visualizar')
                                                     <li class="{{ route('admin.dashboard.trainingForUse.index') == url()->current() ? 'current' : 'off-current' }}">
                                                         <a href="{{route('admin.dashboard.trainingForUse.index')}}"><i class="fas fa-shapes"></i> Treinamento da plataforma</a>
@@ -303,9 +301,11 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif
+                                    
+                           
 
-                                @can(['protocolo.visualizar', 'material de apoio.visualizar'])                                    
+                                @if (Auth::user()->can('protocolo.visualizar') || Auth::user()->can('material de apoio.visualizar'))                                    
                                     <li>
                                         <a href="#material-de-apoio" data-bs-toggle="collapse">
                                             <i class="mdi mdi-file-document-multiple"></i>
@@ -327,9 +327,10 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif                                   
                                 
-                                @can('mural de comunicacao.visualizar')                                    
+                                
+                                @if(Auth::user()->can('mural de comunicacao.visualizar'))                                    
                                     <li>
                                         <a href="#mural-de-comunicacao" data-bs-toggle="collapse">
                                             <i class="mdi mdi-form-select"></i>
@@ -349,9 +350,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif
 
-                                @can(['sav.visualizar', 'lead.visualizar'])                                    
+                                @if(Auth::user()->can('sav.visualizar') || Auth::user()->can('lead.visualizar'))                                    
                                     <li>
                                         <a href="#savs" data-bs-toggle="collapse">
                                             <i class="mdi mdi-video"></i>
@@ -373,9 +374,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif
                                 
-                                @can(['mapa.visualizar', 'parceiro.visualizar'])                                    
+                                @if(Auth::user()->can('mapa.visualizar') || Auth::user()->can('parceiro.visualizar'))                                    
                                     <li>
                                         <a href="#desempenho" data-bs-toggle="collapse">
                                             <i class="fas fa-handshake"></i>
@@ -397,9 +398,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif
                                 
-                                @can(['evento.visualizar','galeria.visualizar'])                                    
+                                @if(Auth::user()->can('evento.visualizar') || Auth::user()->can('galeria.visualizar'))                                    
                                     <li>
                                         <a href="#evento" data-bs-toggle="collapse">
                                             <i class="mdi mdi-calendar-month"></i>
@@ -421,9 +422,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
-
-                                @can(['contato.visualizar', 'google form.visualizar'])                                    
+                                @endif
+                                
+                                @if (Auth::user()->can('contato.visualizar') || Auth::user()->can('google form.visualizar'))
                                     <li>
                                         <a href="#contato" data-bs-toggle="collapse">
                                             <i class="mdi mdi-clipboard-list-outline"></i>
@@ -445,9 +446,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif                                   
 
-                                @can(['grupo.visualizar','usuario.visualizar','auditoria.visualizar'])                                    
+                                @if (Auth::user()->can('grupo.visualizar') || Auth::user()->can('usuario.visualizar') || Auth::user()->can('auditoria.visualizar'))
                                     <li>
                                         <a href="#outros" data-bs-toggle="collapse">
                                             <i class="mdi mdi-tools"></i>
@@ -475,7 +476,9 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endcan
+                                @endif
+                                                                
+                            
                                 
 
                                 {{-- <li>
