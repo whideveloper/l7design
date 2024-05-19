@@ -60,7 +60,7 @@
                                                 </td>
                                                 <td>{{$depoiment->name}}</td>
                                                 <td class="table-user text-center">
-                                                    {{substr(strip_tags($depoiment->text), 0, 180)}}...
+                                                    {!!substr(strip_tags($depoiment->text), 0, 180)!!}...
                                                 </td>
 
                                                 <td class="text-center">

@@ -31,7 +31,7 @@
                 @can('passo a passo.visualizar')
                     <div class="card card-body col-12 col-lg-12 mb-3">
                         <div class="row flex-row justify-content-between align-items-center mb-0 nowrap">                        
-                            <h4 class="page-title mobile col-7">Passo a passo muito grande</h4>
+                            <h4 class="page-title mobile col-7">Passo a passo</h4>
                             
                             @can('passo a passo.criar')
                                 
