@@ -1,15 +1,16 @@
 @extends('Client.core.main')
 @section('content')
-@if ($sessaoEspecialidade)
+@if ($sessaoEspecialidade || $categorias->count() > 0 && $especialistas->count() > 0)
     <section class="especialidades"> 
         <div class="especialidades__content">
-            <h3 class="especialidades__title">{{$sessaoEspecialidade->title}}</h3>
-            <div class="especialidades__text">
-                <p>
-                    {!!$sessaoEspecialidade->text!!}
-                </p>
-            </div>
-            
+            @if ($sessaoEspecialidade)
+                <h3 class="especialidades__title">{{$sessaoEspecialidade->title}}</h3>
+                <div class="especialidades__text">
+                    <p>
+                        {!!$sessaoEspecialidade->text!!}
+                    </p>
+                </div>
+            @endif
             <div class="especialidades__categories">
                 <ul class="especialidades__categories__list">
                     @foreach ($categorias as $category)
@@ -71,10 +72,11 @@
             {{-- PAGINATION --}}
             <div class="pagi">
                 {{$especialistas->links()}}
-             </div>
+            </div>
         </div>
     </section>
 @endif
+
 @if ($tutorial || $trainingForUse || $arquivoTreinamentos->count() > 0)
     <section class="tutorial">
         <div class="tutorial__content">

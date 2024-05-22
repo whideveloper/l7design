@@ -40,16 +40,18 @@ class EspecialidadeProfessionalController extends Controller
 
         try {
             DB::beginTransaction();
+            
+            if($request->hasFile('path_image')){
+                $path_image = $helper->renameArchiveUpload($request, 'path_image');
+                if ($path_image) {
+                    $data['path_image'] = $this->pathUpload . $path_image;
+                }
+                if ($path_image) {
+                    $request->file('path_image')->storeAs($this->pathUpload, $path_image);
+                }
+            }
 
-            $path_image = $helper->renameArchiveUpload($request, 'path_image');
-            if ($path_image) {
-                $data['path_image'] = $this->pathUpload . $path_image;
-            }
-            if ($path_image) {
-                $request->file('path_image')->storeAs($this->pathUpload, $path_image);
-            }
             $data['active'] = $request->active ? 1 : 0;
-
             if (!EspecialidadeProfessional::create($data)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
@@ -128,11 +130,40 @@ class EspecialidadeProfessionalController extends Controller
                 'especialidadeSession' => $especialidadeSession
             ]);
         }catch(\Exception $exception){
+            dd($exception);
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o especialista!');
             return redirect()->back();
         }
     }
+
+    public function desactiveSession(){
+       $especialidadeProfessional =  EspecialidadeProfessional::query()->update(['active' => 0]);
+        
+       $especialidadeSession = EspecialidadeSession::first();
+       Session::flash('success', 'Sessão desativada com sucesso!');
+        return redirect()->route('admin.dashboard.especialidadeSession.edit', [
+            'especialidadeSession' => $especialidadeSession,
+            'especialidadeProfessional' => $especialidadeProfessional,
+        ]);
+    }
+    public function activeSession()
+    {
+        $especialidadeProfessional = EspecialidadeProfessional::where('active', 0)->update(['active' => 1]);
+        if ($especialidadeProfessional > 0) {
+            $especialidadeSession = EspecialidadeSession::first();
+            Session::flash('success', 'Sessão ativada com sucesso!');
+            
+        } else {
+            Session::flash('warning', 'Todos os profissionais já estão ativos!');
+        }
+
+        return redirect()->route('admin.dashboard.especialidadeSession.edit', [
+            'especialidadeSession' => $especialidadeSession ?? null,
+            'especialidadeProfessional' => $especialidadeProfessional
+        ]);
+    }
+
 
     public function destroy(EspecialidadeProfessional $especialidadeProfessional)
     {

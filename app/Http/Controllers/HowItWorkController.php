@@ -82,7 +82,7 @@ class HowItWorkController extends Controller
     }
     public function destroy(HowItWork $howItWork)
     {
-        if (!Auth::user()->can(['como funciona.visualizar','como funciona.remove'])) {
+        if (!Auth::user()->can(['como funciona.visualizar','como funciona.remover'])) {
             return view('Admin.error.403');
         }
         $howItWork->delete();
@@ -91,7 +91,7 @@ class HowItWorkController extends Controller
     }
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['como funciona.visualizar','como funciona.remove'])) {
+        if (!Auth::user()->can(['como funciona.visualizar','como funciona.remover'])) {
             return view('Admin.error.403');
         }
 

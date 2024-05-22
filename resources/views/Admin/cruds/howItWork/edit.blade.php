@@ -35,7 +35,7 @@
                             
                             @can('passo a passo.criar')
                                 
-                                @if ($stepToSteps->count() < 4)                                
+                                @if ($stepToSteps->count() < 3)                                
                                     <a class="btn btn-success float-end bt-mobile" style="max-width: 160px" data-bs-toggle="modal" data-bs-target="#modal-stepToStep">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                 @endif
 

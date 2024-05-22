@@ -70,6 +70,7 @@ class EspecialidadeSessionController extends Controller
         ->select(
             'especialidade_categories.id as category_id', 
             'especialidade_categories.title as categoria',
+            'especialidade_categories.active as category_active',
             'especialidade_categories.sorting as categoria_sorting',
             'especialidade_professionals.name',
             'especialidade_professionals.path_image',

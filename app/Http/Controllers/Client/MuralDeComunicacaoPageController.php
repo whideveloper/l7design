@@ -16,10 +16,12 @@ class MuralDeComunicacaoPageController extends Controller
         $sessaoMuralDeComunicacao = MuralDeApoio::active()->first();
         
         if ($category) {
-            $muralDeComunicacoes = (new MuralDeComunicacao())->getMuralDeComunicacao()->where('mural_de_comunicacao_categories.slug', $category);
+            $muralDeComunicacoes = (new MuralDeComunicacao())->getMuralDeComunicacao()
+            ->where('mural_de_comunicacao_feeds.active', 1)
+            ->where('mural_de_comunicacao_categories.slug', $category);
         }
         $muralDeComunicacoes = $muralDeComunicacoes->paginate(3);
-        // dd($muralDeComunicacoes);
+        // dd($categorias);
         return view('Client.pages.mural-de-comunicacao', [
             'categorias' => $categorias,
             'muralDeComunicacoes' => $muralDeComunicacoes,

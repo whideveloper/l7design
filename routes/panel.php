@@ -229,6 +229,10 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.especialidadeProfessional.destroySelected');
         Route::post('profissionais/sorting', [EspecialidadeProfessionalController::class, 'sorting'])
             ->name('admin.dashboard.especialidadeProfessional.sorting');
+        Route::post('profissionais/desativa-sessao', [EspecialidadeProfessionalController::class, 'desactiveSession'])
+            ->name('admin.dashboard.especialidadeProfessional.desactiveSession');
+        Route::post('profissionais/ativa-sessao', [EspecialidadeProfessionalController::class, 'activeSession'])
+            ->name('admin.dashboard.especialidadeProfessional.activeSession');
 
         //TUTORIAL
         Route::resource('tutorial', TutorialController::class)

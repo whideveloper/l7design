@@ -31,10 +31,23 @@
                 @can('especialidade.visualizar')
                     <div class="card card-body col-12">
                         <h4 class="page-title mobile">Especialistas</h4>
-                        
-                        @can('especialidade.criar')                                                         
-                            <a href="{{route('admin.dashboard.especialidadeProfessional.create')}}" style="max-width:160px" class="btn btn-success float-end bt-mobile">Adicionar novo <i class="mdi mdi-plus"></i></a>                           
-                        @endcan                                  
+                        <div class="row">
+                            @can('especialidade.editar')
+                              
+                                <form action="{{ route('admin.dashboard.especialidadeProfessional.activeSession') }}" method="POST" style="max-width:160px">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success waves-effect waves-light width-lg">Ativar Sessão</button>
+                                </form>
+                                <form action="{{ route('admin.dashboard.especialidadeProfessional.desactiveSession') }}" class="ps-1" method="POST" style="max-width:160px">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger waves-effect waves-light width-lg">Desativar Sessão</button>
+                                </form>
+
+                            @endcan
+                            @can('especialidade.criar')                                                         
+                                <a href="{{route('admin.dashboard.especialidadeProfessional.create')}}" style="max-width:200px" class="btn btn-success float-end bt-mobile">Adicionar especialista <i class="mdi mdi-plus"></i></a>                           
+                            @endcan                                  
+                        </div>
                     </div>
 
                     <div class="card card-body">
@@ -76,8 +89,12 @@
                                         </td>
                                         <td>
                                             <div class="row d-flex justify-content-center">  
-                                                @can('especialidade.editar')                                                    
+                                                @can('especialidade.editar')  
                                                     <a href="{{route('admin.dashboard.especialidadeProfessional.edit',['especialidadeProfessional' => $especialidadeProfessional->especialidade_id])}}" class="btn-icon mdi mdi-square-edit-outline col-3"></a>
+                                                    {{-- @if ($especialidadeProfessional->category_id && $especialidadeProfessional->category_active)                                                        
+                                                        @else
+                                                        <abbr class="col-3" title="É necessário que uma categoria esteja ativa para associar ao especialista."><span style="font-size: 22px;color:#98a6ad;" class="mdi mdi-information"></span></abbr>
+                                                    @endif                                                   --}}
                                                 @endcan
 
                                                 @can('especialidade.remover')                                                    

@@ -57,7 +57,7 @@
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$muralDeApoio->id}}"></label>
                                                 </td>
-                                                <td>{{substr(strip_tags($muralDeApoio->text),0,180)}}</td>
+                                                <td>{!!substr(strip_tags($muralDeApoio->text),0,180)!!}</td>
 
                                                 <td class="text-center">
                                                     @switch($muralDeApoio->active)

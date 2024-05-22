@@ -19,7 +19,7 @@
     </div>
 </div> <!-- end card-body-->
 
-<div class="row col-lg-6">
+<div class="row col-lg-12">
     <div class="col-12 col-lg-12">
         <div class="card card-body">
             <div class="row">

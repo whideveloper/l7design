@@ -55,10 +55,10 @@
         <div class="card card-body">
             <div class="row" style="text-align: left">
                 <div class="mb-3 col-lg-12">
-                    {!! Form::label('path_image', 'Imagem', ['class'=>'form-label']) !!}
+                    {!! Form::label('file', 'Imagem', ['class'=>'form-label']) !!}
                     {!! Form::file('path_image', [
                         'data-plugins'=>'dropify',
-                        'data-height'=>'160',
+                        'data-height'=>'300',
                         'data-max-file-size-preview'=>'2M',
                         'accept'=>'image/*',
                         'data-default-file'=> isset($especialidadeProfessional)?$especialidadeProfessional->path_image<>''?url('storage/'.$especialidadeProfessional->path_image):'':'',
