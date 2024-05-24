@@ -240,9 +240,9 @@ Route::prefix('painel/')->group(function () {
         ->parameters(['tutorial' => 'tutorial']); 
         
         //MURAL DE APOIO
-        Route::resource('mural-de-apoio', MuralDeApoioController::class)
+        Route::resource('sessao-mural-de-comunicacao', MuralDeApoioController::class)
         ->names('admin.dashboard.muralDeApoio')
-        ->parameters(['mural-de-apoio' => 'muralDeApoio']); 
+        ->parameters(['sessao-mural-de-comunicacao' => 'muralDeApoio']); 
 
         //CATEGORIA MURAL DE COMUNICACAO
         Route::resource('categoria-mural-de-comunicacao', MuralDeComunicacaoCategoryController::class)

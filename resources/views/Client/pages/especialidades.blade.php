@@ -27,16 +27,13 @@
             </div>
             @foreach ($especialistas as $especialista)
                 @php  
-                    $description = $especialista->description;
-                    $descricao = strip_tags($description);   
-
                     $content = [
                         'id' => $especialista->id,
                         'title' => $especialista->name,
                         'funcao' => $especialista->function,
                         'crm' => ($especialista->crm != null) ? 'CRM: '. $especialista->crm : '',            
                         'image' => asset('storage/'. $especialista->path_image),
-                        'text' => $descricao,
+                        'text' => $especialista->description,
                         'btnName' => 'Ver perfil completo',
                     ];
                 @endphp
@@ -184,5 +181,21 @@
     }
 </script>
 
-  
+{{-- <script>
+    // Seleciona todos os <li> dentro da div com a classe modal-box__text__long
+    const listItems = document.querySelectorAll('.modal-box__text__long li');
+
+    listItems.forEach(item => {
+        // Seleciona o <span> dentro da <li>
+        const span = item.querySelector('span');
+        if (span) {
+            // Cria um novo elemento <p>
+            const p = document.createElement('p');
+            // Copia o conteúdo do <span> para o <p>
+            p.textContent = span.textContent;
+            // Substitui o <span> pelo <p>
+            item.replaceChild(p, span);
+        }
+    });
+</script> --}}
 @endsection

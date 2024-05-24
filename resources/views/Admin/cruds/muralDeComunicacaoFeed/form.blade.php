@@ -32,19 +32,22 @@
             {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
         </div> 
         
-        <div class="mb-3 col-lg-12">
-            {!! Form::label('basic-editor', 'Breve Descrição', ['class'=>'form-label']) !!}
+        <div class="mb-3 col-12">
+            {!! Form::label('message', 'Breve Descrição', ['class'=>'form-label']) !!}
             {!! Form::textarea('description', null, [
-                'class'=>'form-control CkEditorColumn',
-                'id'=>'basic-editor',
-                'data-height' => 200
+                'class'=>'form-control',
+                'id'=>'message',
+                'required'=>'required',
+                'data-parsley-trigger'=>'keyup',
+                'data-parsley-minlength'=>'20',
+                'data-parsley-maxlength'=>'100',
+                'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
+                'data-parsley-validation-threshold'=>'10',
             ]) !!}
         </div>
 
         <div class="mb-3 col-lg-12">
             <h4 class="header-title">Texto</h4>
-            <p class="sub-header">Snow is a clean, flat toolbar theme.</p>
-
             <!-- Editor Quill.js -->
             <div id="snow-editor" style="height: 300px;">
                 {!! isset($muralDeComunicacaoFeed) ? $muralDeComunicacaoFeed->text : '' !!}

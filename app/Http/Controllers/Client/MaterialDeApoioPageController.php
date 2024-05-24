@@ -11,7 +11,7 @@ class MaterialDeApoioPageController extends Controller
     public function index(){
         $protocolo = Protocol::active()->first();
         $materialSections = Material::with(['document' => function ($query) {
-            $query->orderBy('sorting', 'ASC');
+            $query->active()->orderBy('sorting', 'ASC');
         }])
         ->active()
         ->orderBy('sorting', 'ASC')

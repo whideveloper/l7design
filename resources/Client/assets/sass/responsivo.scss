@@ -488,8 +488,9 @@
 }
 
 @media screen and (max-width: 680px) {
-    .slide .splide__slide .splide__description{
-        
+    .modal-content-box, .modal-box{
+        max-width: inherit;
+        width: 100%;
     }
     .galeria__content .galeria__list .galeria__item{
         width: 100%;

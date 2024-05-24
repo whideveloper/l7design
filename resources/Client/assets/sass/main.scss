@@ -1539,6 +1539,7 @@ input, select {
             position: relative;
             img{
                 width: 100%;
+                height: 40px;
             }
             &:hover{
                 @include transition-ease;

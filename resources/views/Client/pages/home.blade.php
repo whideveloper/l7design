@@ -127,7 +127,18 @@
                                         {!!$location->description!!}
                                     </div>
                                 </div>
-                                <a href="{{$location->link}}#mapa__atuacao"><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
+                                
+                                @php
+                                    $parts = explode('/', $location->link);
+                                    $lastPart = end($parts);
+                                @endphp
+                                @if ($lastPart === 'desempenho')
+                                    <a href="{{$location->link}}#mapa__atuacao"><img src="{{asset('Client/assets/images/location.svg')}}" alt="Location" title="Location"> Mapa completo</a>
+                                    @else
+                                    <a href="{{ $location->link }}"><img src="{{ asset('Client/assets/images/location.svg') }}" alt="Location" title="Location"> Mapa completo</a>
+                                @endif
+
+                            
                             </div>
                         </div>
                     </div>

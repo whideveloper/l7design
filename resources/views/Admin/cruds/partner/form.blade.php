@@ -1,11 +1,13 @@
 <div class="card card-body">
-    <div class="mb-3 col-lg-6">
-        {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
-        {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
-    </div>
-    <div class="mb-3 col-lg-6">
-        {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
-        {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
+    <div class="row">
+        <div class="mb-3 col-lg-6">
+            {!! Form::label(null, 'Título', ['class'=>'form-label']) !!}
+            {!! Form::text('title', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
+        </div>
+        <div class="mb-3 col-lg-6">
+            {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
+            {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom01']) !!}
+        </div>
     </div>
 
     <div class="mb-3 col-lg-12">
