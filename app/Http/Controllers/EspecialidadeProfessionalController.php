@@ -13,11 +13,21 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Models\EspecialidadeProfessional;
 use App\Http\Controllers\Helpers\HelperArchive;
+use HTMLPurifier;
+use HTMLPurifier_Config;
 
 class EspecialidadeProfessionalController extends Controller
 {
     protected $pathUpload = 'admin/uploads/images/especialista/';
 
+    // Função para sanitizar o HTML
+    protected function purifyHtml($html)
+    {
+        $config = HTMLPurifier_Config::createDefault();
+        $purifier = new HTMLPurifier($config);
+        return $purifier->purify($html);
+    }
+    
     public function create(){
         if(!Auth::user()->can(['especialidade.visualizar', 'especialidade.criar'])){
             return view('Admin.error.403');
@@ -50,8 +60,9 @@ class EspecialidadeProfessionalController extends Controller
                     $request->file('path_image')->storeAs($this->pathUpload, $path_image);
                 }
             }
-
+            $data['text'] = $this->purifyHtml($data['text']);
             $data['active'] = $request->active ? 1 : 0;
+ 
             if (!EspecialidadeProfessional::create($data)) {
                 Storage::delete($this->pathUpload . $path_image);
                 throw new Exception();
@@ -113,8 +124,8 @@ class EspecialidadeProfessionalController extends Controller
                 $data['path_image'] = null;
             }
 
+            $data['text'] = $this->purifyHtml($data['text']);
             $data['active'] = $request->active ? 1 : 0;
-
             $especialidadeProfessional->fill($data)->save();
 
             if ($path_image) {

@@ -391,7 +391,6 @@ input, select {
                 line-height: 4.438rem;
                 text-align: left;
                 width: calc(100% - 475px);
-                word-break: break-all;
                 white-space: pre-line;
             }   
         }
@@ -1193,7 +1192,6 @@ input, select {
     font-family: var(--roboto-font-family);
     font-weight: 400;
     line-height: 1.625rem;
-    word-break: break-all;
     & b, strong{
         color: var(--pantone-7466-c);
         font-weight: 500;
@@ -1797,7 +1795,6 @@ input, select {
                 text-align: center;
                 width: 67%;
                 margin: 0 auto;
-                word-break: break-all;
                 margin-top: 18px;
             }
         }
@@ -3284,7 +3281,6 @@ table{
             padding-left: 20px;
             margin-bottom: 9px;
             line-height: 22px;
-            word-break: break-all;
             &::before{
                 content: "";
                 background-color: var(--laranja);
@@ -3354,13 +3350,12 @@ table{
         font-family: var(--roboto-font-family);
         font-weight: 400;
         text-align: unset;
-        word-break: auto-phrase;
         margin-top: 18px;
         line-height: 26px;
         width: 100%;
         span, p{
-            word-break: break-word;
-            word-wrap: break-word; 
+            // word-break: break-word;
+            // word-wrap: break-word; 
         }
     }
 }

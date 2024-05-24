@@ -11,6 +11,8 @@ use App\Models\EspecialidadeSession;
 use App\Models\Training;
 use App\Models\TrainingForUse;
 use App\Models\Tutorial;
+use HTMLPurifier;
+use HTMLPurifier_Config;
 
 class EspecialidadePageController extends Controller
 {
@@ -37,9 +39,7 @@ class EspecialidadePageController extends Controller
                 ])
             ->where('especialidade_categories.slug', $category);
         }
-        
         $especialistas = $especialistas->paginate(9);
-
         $sessaoEspecialidade = EspecialidadeSession::active()->first();       
         $tutorial = Tutorial::active()->first();
         $trainingForUse = TrainingForUse::active()->first();

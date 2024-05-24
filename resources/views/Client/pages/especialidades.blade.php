@@ -198,4 +198,68 @@
         }
     });
 </script> --}}
+
+<script>
+ // Seleciona todos os elementos <li> dentro do container
+var listItems = document.querySelectorAll('.modal-box__text__long li');
+
+// Se não houver nenhum item de lista
+if (listItems.length === 0) {
+    // Seleciona o container principal
+    var textContainer = document.querySelector('.modal-box__text__long');
+
+    // Obtém o texto dentro do container
+    var text = textContainer.textContent;
+
+    // Decodifica as entidades HTML e remove as tags HTML
+    var decodedText = text.replace(/<\/?[^>]+(>|$)/g, ''); // Remove as tags HTML
+    decodedText = decodedText.replace(/&nbsp;/g, ' '); // Remove entidades &nbsp;
+
+    // Quebra o texto em diferentes partes usando um separador
+    var textParts = decodedText.split('. ');
+
+    // Cria um novo elemento <p>
+    var paragraph = document.createElement('p');
+
+    // Itera sobre as diferentes partes do texto
+    for (var i = 0; i < textParts.length; i++) {
+        // Adiciona cada parte do texto como um parágrafo
+        paragraph.innerHTML += textParts[i];
+        // Adiciona uma quebra de linha (<br>) após cada parte do texto, exceto a última
+        if (i < textParts.length - 1) {
+            paragraph.innerHTML += '<br>';
+        }
+    }
+
+    // Limpa o conteúdo original do container
+    textContainer.innerHTML = '';
+
+    // Adiciona o novo elemento <p> ao container original
+    textContainer.appendChild(paragraph);
+}
+else {
+    // Para cada item de lista
+    listItems.forEach(function(item) {
+        // Obtém o texto dentro do item
+        var text = item.innerHTML;
+
+        // Decodifica as entidades HTML e remove as tags HTML
+        var decodedText = text.replace(/<[^>]+>/g, ''); // Remove as tags HTML
+        decodedText = decodedText.replace(/&nbsp;/g, ' '); // Remove entidades &nbsp;
+
+        // Cria um novo elemento <p>
+        var paragraph = document.createElement('p');
+
+        // Insere o texto decodificado dentro do elemento <p>
+        paragraph.textContent = decodedText;
+
+        // Limpa o conteúdo original do item
+        item.innerHTML = '';
+
+        // Adiciona o novo elemento <p> ao item da lista
+        item.appendChild(paragraph);
+    });
+}
+
+</script>
 @endsection

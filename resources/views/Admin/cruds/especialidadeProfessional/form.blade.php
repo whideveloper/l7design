@@ -43,14 +43,6 @@
                 'data-height' => 200
             ]) !!}
         </div>  
-        {{-- <div class="mb-3">
-            {!! Form::label('messages', 'Texto', ['class'=>'form-label']) !!}
-            {!! Form::textarea('text', null, [
-                'class'=>'form-control',
-                'id'=>'messages',
-                'data-height' => 150
-            ]) !!}
-        </div>            --}}
     </div>
     <div class="mb-3 form-check" style="text-align: left">
         {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}

@@ -35,7 +35,10 @@ class EspecialidadeProfessional extends Model
     public function category(){
         return $this->belongsTo(EspecialidadeCategory::class, 'especialidade_category_id');
     }
-
+    public function getTextAttribute($value)
+    {
+        return html_entity_decode($value, ENT_QUOTES, 'UTF-8');
+    }
     protected static $logOnlyDirty = true;
 
     public function customProperties()
