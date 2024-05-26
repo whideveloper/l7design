@@ -1719,6 +1719,11 @@
         }
     }
 }
+@media screen and (max-width: 1280px) {
+    .especialidades .mdl-box .mdl-box__right .mdl-box__title{
+        font-size: 1.375rem;
+    }
+}
 @media screen and (max-width: 1303px){
     
     .tutorial .tutorial__content {
