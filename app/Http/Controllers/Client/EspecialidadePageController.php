@@ -19,24 +19,11 @@ class EspecialidadePageController extends Controller
     public function index($category = null)
     {
         $categorias = (new EspecialidadeRepository())->getEspecialidadeCategories();
-        $especialistas = EspecialidadeProfessional::sorting()->active();
+        $especialistas = (new EspecialidadeRepository())->getEspecialistas()->sorting()->active();
+
         if ($category) {
-            $especialistas->join('especialidade_categories', 'especialidade_professionals.especialidade_category_id', 'especialidade_categories.id')
-            ->select([
-                'especialidade_categories.id as category_id', 
-                'especialidade_categories.title',
-                'especialidade_categories.slug',
-                'especialidade_categories.active',
-                'especialidade_professionals.id',
-                'especialidade_professionals.name',
-                'especialidade_professionals.especialidade_category_id',
-                'especialidade_professionals.crm',
-                'especialidade_professionals.description',
-                'especialidade_professionals.text',
-                'especialidade_professionals.active as profissional_active',
-                'especialidade_professionals.path_image',
-                ])
-            ->where('especialidade_categories.slug', $category);
+            $especialistas = (new EspecialidadeRepository())->getEspecialistas()
+            ->where('especialidade_categories.slug', $category)->sorting()->active();
         }
         $especialistas = $especialistas->paginate(9);
         $sessaoEspecialidade = EspecialidadeSession::active()->first();       

@@ -30,7 +30,7 @@
                     $content = [
                         'id' => $especialista->id,
                         'title' => $especialista->name,
-                        'funcao' => $especialista->function,
+                        'funcao' => $especialista->title,
                         'crm' => ($especialista->crm != null) ? 'CRM: '. $especialista->crm : '',            
                         'image' => asset('storage/'. $especialista->path_image),
                         'text' => $especialista->description,
@@ -52,7 +52,7 @@
                                     <div class="modal-box__description">
                                         <div class="modal-box__right">
                                             <h3 class="modal-box__title">{{$especialista->name}}</h3>
-                                            <span class="modal-box__function">{{$especialista->function}}</span>
+                                            <span class="modal-box__function">{{$especialista->title}}</span>
                                             <span class="modal-box__crm">{{($especialista->crm != null) ? 'CRM: '. $especialista->crm : ''}}</span>
                                             <span class="modal-box__text">{!!$especialista->description!!}</span>
                                             <div class="modal-box__text__long">
