@@ -261,9 +261,6 @@
     }
 }
 @media screen and (max-width: 415px) {
-    #rolagem__top{
-        top: calc(100% - 160px) !important;
-    }
     #footer.footer .footer__contact{
         margin-top: 45px !important;
     }
@@ -492,7 +489,11 @@
         }
     }
 }
-
+@media screen and (max-width: 575px) {
+    #rolagem__top{
+        top: calc(100% - 160px) !important;
+    }
+}
 @media screen and (max-width: 680px) {
     .footer{
         max-height: 260px;
