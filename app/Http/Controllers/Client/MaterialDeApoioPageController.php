@@ -18,7 +18,7 @@ class MaterialDeApoioPageController extends Controller
         ->get();
         
         foreach ($materialSections as $materialSection) {
-            $materialSection->documents = $materialSection->document()->paginate(2);
+            $materialSection->documents = $materialSection->document()->paginate(6);
         }
         // dd($materialSection->documents);
         return view('Client.pages.material-de-apoio', [
