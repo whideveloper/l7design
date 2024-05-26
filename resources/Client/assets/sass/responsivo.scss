@@ -3,9 +3,6 @@
     .sidebar{
         height: calc(100% - 80px);
     }
-    #rolagem__top{
-        top: calc(100% - 160px) !important;
-    }
 }
 @media screen and (max-width: 476px) {   
     .hidden div span span[aria-disabled=true] span,
@@ -264,6 +261,9 @@
     }
 }
 @media screen and (max-width: 415px) {
+    #rolagem__top{
+        top: calc(100% - 160px) !important;
+    }
     #footer.footer .footer__contact{
         margin-top: 45px !important;
     }
