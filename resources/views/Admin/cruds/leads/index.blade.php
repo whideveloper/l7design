@@ -82,7 +82,7 @@
                                                 <td>{{$lead->video_title}}</td>
                                                 <td>
                                                     <div class="row">
-                                                        @can('lead.editar')
+                                                        @can('lead.visualizar')
                                                             <div class="col-4">
                                                                 <a class="btn-icon mdi mdi-eye" data-bs-toggle="modal" data-bs-target="#modal-lead-{{$lead->id}}"></a>
 

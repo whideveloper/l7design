@@ -37,13 +37,12 @@
                     </form>
                 </div>
                 <div class="row col-lg-12 d-flex justify-content-end mb-3 ms-0 btns">
-                    @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
-                        
-                        <button id="btSubmitDeleteForever" data-route="{{route('admin.dashboard.user.destroySelectedForced')}}" type="button" class="btn btn-danger me-3" style="display: none;width:170px;">Deletar registros <i class="mdi mdi-delete-restore"></i></button>
+                    {{-- @if (Auth::user()->hasRole('Super') || Auth::user()->hasRole('Administrador'))
+                    @endif --}}
+                    <button id="btSubmitDeleteForever" data-route="{{route('admin.dashboard.user.destroySelectedForced')}}" type="button" class="btn btn-danger me-3" style="display: none;width:170px;">Deletar registros <i class="mdi mdi-delete-restore"></i></button>
 
-                        <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary me-3" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
-                       
-                    @endif
+                    <button id="btSubmitRestore" data-route="{{route('admin.dashboard.user.retoreDataAll')}}" type="button" class="btn btn-primary me-3" style="display: none;width:170px;">Restaurar registros <i class="mdi mdi-restore"></i></button>
+                    
                     @if (url()->current() == route('admin.dashboard.user.show.search'))
                         <a href="{{route('admin.dashboard.user.showDeleted')}}" class="btn btn-primary bt-restore" style="width: 110px;height: 38px;margin-top: 0px;">Limpar Filtro</a>
                     @endif

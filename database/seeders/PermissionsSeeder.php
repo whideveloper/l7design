@@ -140,8 +140,6 @@ class PermissionsSeeder extends Seeder
                 'Remover',
             ],
             'lead'=>[
-                'Criar',
-                'Editar',
                 'Visualizar',
                 'Remover',
             ],

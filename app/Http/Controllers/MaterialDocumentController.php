@@ -97,7 +97,7 @@ class MaterialDocumentController extends Controller
 
     public function destroy(MaterialDocument $materialDocument)
     {
-        if(!Auth::user()->can(['material de apoio.visualizar', 'material de apoio.remove'])){
+        if(!Auth::user()->can(['material de apoio.visualizar', 'material de apoio.remover'])){
             return view('Admin.error.403');
         }
         Storage::delete($materialDocument->path_file);
@@ -109,7 +109,7 @@ class MaterialDocumentController extends Controller
 
     public function destroySelected(Request $request)
     {
-        if (!Auth::user()->can(['material de apoio.visualizar','material de apoio.remove'])) {
+        if (!Auth::user()->can(['material de apoio.visualizar','material de apoio.remover'])) {
             return view('Admin.error.403');
         }
 

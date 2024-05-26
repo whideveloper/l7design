@@ -13,11 +13,11 @@
     <div class="row">
         <div class="mb-3 col-lg-6">
             {!! Form::label(null, 'Nome', ['class'=>'form-label']) !!}
-            {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'required'=>'required']) !!}
+            {!! Form::text('name', null, ['class'=>'form-control', 'readonly', 'id'=>'validationCustom01', 'required'=>'required']) !!}
         </div>
         <div class="mb-3 col-lg-6">
             {!! Form::label(null, 'Email', ['class'=>'form-label']) !!}
-            {!! Form::text('email', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'required'=>'required']) !!}
+            {!! Form::text('email', null, ['class'=>'form-control', 'readonly', 'id'=>'validationCustom01', 'required'=>'required']) !!}
         </div>                
     </div>
 </div> <!-- end card-body-->
