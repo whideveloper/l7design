@@ -117,8 +117,8 @@
         width: 150px !important;
         height: 150px !important;
         .location__area__text{
-            line-height: 19px;
-            font-size: 0.813rem
+            font-size: 0.75rem;
+            line-height: 15px;
         }
     } 
 
@@ -517,6 +517,9 @@
     }
 }
 @media screen and (max-width: 680px) {
+    .especialidade__banner__interno{
+        margin-top: 95px;
+    }
     .footer .footer__contact__items,
     .logo-whi-footer a{
         flex-direction: row !important;
