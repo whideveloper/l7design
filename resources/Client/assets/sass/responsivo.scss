@@ -551,7 +551,7 @@
             bottom: 2rem;
         }
         .splide__slide{
-            height:535px  !important;
+            height:100% !important;
             &::after{
                 background-image: inherit;
                 background-color: #0000007a;
