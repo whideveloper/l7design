@@ -502,6 +502,15 @@
     }
 }
 @media screen and (max-width: 575px) {
+    .logo-whi-footer a{
+        width: 100%;
+        justify-content: center;
+        margin-top: 12px;
+    }
+    .logo-whi-footer{
+        flex-direction: column-reverse;
+        margin: 0;
+    }
     #rolagem__top{
         top: calc(100% - 200px) !important;
     }
@@ -858,11 +867,13 @@
             flex-direction: column;
             gap: 20px 0;
             padding: 20px 0;
+            width: 95%;
+            max-width: 95%;
         }
         .footer__contact{
                 background: var(--pantone-3145-c);
-                width: 100%;
-                max-width: 100%;
+                width: 100% !important;
+                max-width: 100% !important;
                 border-top: 8px solid var(--pantone-7466-c);
             .footer__contact__title{
                 text-align: left;
