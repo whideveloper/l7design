@@ -98,9 +98,9 @@
                                 </tbody>
                             </table>
                             {{-- PAGINATION --}}
-                            <div class="mt-3 float-end">
+                            {{-- <div class="mt-3 float-end">
                                 {{$savGravadas->links()}}
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 @endcan
