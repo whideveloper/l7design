@@ -87,7 +87,7 @@ class SavController extends Controller
         if(!Auth::user()->can(['sav.visualizar','sav.editar'])){
             return view('Admin.error.403');
         }
-        $savGravadas = SavGravada::sorting()->paginate(50);
+        $savGravadas = SavGravada::sorting()->get();
         
         return view('Admin.cruds.sav.edit', [
             'sav' => $sav,
