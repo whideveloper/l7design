@@ -115,11 +115,7 @@
     }
     .location__values__box.right{
         width: 150px !important;
-        height: 150px !important;
-        .location__area__text{
-            font-size: 0.75rem;
-            line-height: 15px;
-        }
+        height: 150px !important;        
     } 
 
     .teleinterconsulta .teleinterconsulta__content{
@@ -503,6 +499,10 @@
     }
 }
 @media screen and (max-width: 575px) {
+    .location__area__text{
+        font-size: 0.75rem;
+        line-height: 15px;
+    }
     .logo-whi-footer a{
         width: 100%;
         justify-content: center;
