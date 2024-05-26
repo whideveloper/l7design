@@ -261,6 +261,9 @@
     }
 }
 @media screen and (max-width: 415px) {
+    #footer.footer .footer__contact{
+        margin-top: 45px !important;
+    }
     .proadi .proadi__content .proadi__title::before{
         height: 57px !important;
     }
@@ -485,20 +488,17 @@
             margin-bottom: 20px
         }
     }
-    .footer{
-        max-height: 250px !important;
-    } 
 }
 
 @media screen and (max-width: 680px) {
     .footer{
-        max-height: 240px;
+        max-height: 260px;
         &::before{
             top: 89% !important;
         }
     }
     .footer .footer__contact{
-        margin-top: 35px !important;
+        margin-top: 70px !important;
         max-width: 95%;
     }
     .footer .footer__contact__items,
