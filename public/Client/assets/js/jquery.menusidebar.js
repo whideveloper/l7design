@@ -17,11 +17,12 @@ function sidebar() {
             $('.fundo-sidebar').remove();
         });
 
-        // Evita que o clique nos itens do submenu feche o sidebar
-        $('body').delegate('.sidebar ul li', 'click', function(event) {
-            if ($(this).closest('.sidebar').hasClass('aberto')) {
-                event.stopPropagation();
-            }
+        // Fecha o sidebar apenas quando um item específico do submenu é clicado
+        $('body').delegate('.sidebar .submenu__item', 'click', function(event) {
+            $(alvoSidebar).removeClass('aberto');
+            $('body').removeClass('no-scroll');
+            $('.fundo-sidebar').remove();
+            event.stopPropagation();
         });
     });
 }

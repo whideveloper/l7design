@@ -150,7 +150,9 @@
                         <div class="location__values right location-carrossel-mobile owl-carousel">
                             @foreach($objectives as $objective)
                                 <div class="location__values__box right">
-                                    <img src="{{asset('storage/' . $objective->path_image)}}" alt="ícone">
+                                    @if ($objective->path_image)                                        
+                                        <img src="{{asset('storage/' . $objective->path_image)}}" alt="ícone">
+                                    @endif
                                     <p class="location__area__text">{{$objective->title}}</p>
                                 </div>
                             @endforeach
