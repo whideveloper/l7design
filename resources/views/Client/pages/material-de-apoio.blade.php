@@ -68,7 +68,10 @@
                     @endphp
                     @include('Client.models.mdl-mt-apoio', $content)
                 @endforeach
-                
+                {{-- PAGINATION --}}
+                <div class="pagi">
+                    {{$materialSection->documents->links()}}
+                </div>
             </div>
         </div>
     </section>

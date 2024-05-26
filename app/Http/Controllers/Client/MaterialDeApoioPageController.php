@@ -16,7 +16,10 @@ class MaterialDeApoioPageController extends Controller
         ->active()
         ->orderBy('sorting', 'ASC')
         ->get();
-
+        
+        foreach ($materialSections as $materialSection) {
+            $materialSection->documents = $materialSection->document()->paginate(6);
+        }
         return view('Client.pages.material-de-apoio', [
             'protocolo' => $protocolo,
             'materialSections' => $materialSections
