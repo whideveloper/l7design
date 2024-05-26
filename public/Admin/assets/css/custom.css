@@ -509,3 +509,20 @@ body[data-sidebar-size=condensed] .left-side-menu .simplebar-content-wrapper{
         margin: 15px -10px 0 0 !important;
     }
 }
+.logo-whi-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logo-whi-footer img{
+    height: 40px;
+}
+.logo-whi-footer .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    flex-direction: column;
+    font-weight: bold;
+}

@@ -232,6 +232,20 @@
                         <li><a href="https://www.instagram.com/hospitaisproadisus/" target="_blank"><img src="{{asset('Client/assets/images/insta.svg')}}" class="insta" alt="Instagram" title="Instagram"></a></li> 
                         <li><a href="http://www.linkedin.com/hospitais-proadi-sus/" target="_blank"><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
                     </ul>
+                    <div class="logo-whi-footer">
+                        <a href="https://whi.dev.br/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração">
+                            <h6 class="title">WHI - <span>Web de alta inspiração</span></h6>
+                        </a>
+                    </div>
+                    {{-- <div class="reserved">
+                        <div class="copyright">
+                            <script>
+                                var currentYear = new Date().getFullYear();
+                                document.write('<p>' + currentYear + ' Telenordeste. Todos os direitos reservados.</p>');
+                            </script>                    
+                        </div>                        
+                    </div> --}}
                 </div>
             </div>
         </div>

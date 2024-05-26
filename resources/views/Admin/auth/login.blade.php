@@ -92,9 +92,21 @@
                     <!-- end form-->
 
                     <!-- Footer-->
-                    {{-- <footer class="footer footer-alt">
-                        <p class="text-muted">Não tem uma conta? <a href="auth-register-2.html" class="text-muted ms-1"><b>Increva-se</b></a></p>
-                    </footer> --}}
+                    <footer class="footer footer-alt">
+                        {{-- <p class="text-muted">Não tem uma conta? <a href="auth-register-2.html" class="text-muted ms-1"><b>Increva-se</b></a></p> --}}
+                        <a href="https://whi.dev.br/" target="_blank">
+                            <span class="logo-whi-footer">
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração" height="22">
+                                <h6 class="title">WHI <span>Web de alta inspiração</span></h6>
+                            </span>
+                        </a>
+                        <div class="copyright">
+                            <script>
+                                var currentYear = new Date().getFullYear();
+                                document.write('<a href="https://whi.dev.br" class="whi-btn" target="_blank">© ' + currentYear + ' Todos os direitos reservados.</a>');
+                            </script>                    
+                        </div>
+                    </footer>
 
                 </div> <!-- end .card-body -->
             </div> <!-- end .align-items-center.d-flex.h-100-->
@@ -117,6 +129,10 @@
     <!-- end auth-fluid-->
 
     <style>
+        .copyright a{
+            color: #98a6ad;
+            font-size: 12px;
+        }
         .btn-logar button:hover{
             background: #F18318 !important;
             border-color:#00B0B9 !important;

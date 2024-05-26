@@ -484,10 +484,27 @@
             margin-left: 20px;
             margin-bottom: 20px
         }
+    }
+    .footer{
+        max-height: 250px !important;
     } 
 }
 
 @media screen and (max-width: 680px) {
+    .footer{
+        max-height: 240px;
+        &::before{
+            top: 89% !important;
+        }
+    }
+    .footer .footer__contact{
+        margin-top: 35px !important;
+        max-width: 95%;
+    }
+    .footer .footer__contact__items,
+    .logo-whi-footer a{
+        flex-direction: row !important;
+    }
     .modal-content-box, .modal-box{
         max-width: inherit;
         width: 100%;
