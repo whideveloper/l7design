@@ -57,7 +57,7 @@
         $documents = \App\Models\MaterialDocument::where('material_id', $materialSection->id)
                     ->active()
                     ->orderBy('sorting', 'ASC')
-                    ->paginate(1, ['*'], 'page_' . $materialSection->id, $currentPage);
+                    ->paginate(6, ['*'], 'page_' . $materialSection->id, $currentPage);
     @endphp
     
     <section id="{{ $materialSection->slug }}" class="material">
