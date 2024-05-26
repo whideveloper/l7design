@@ -57,7 +57,7 @@
                 {!!$materialSection->text!!}
             </div>
             <div class="material__content__list owl-carousel">
-                @foreach ($materialSection->document as $document)
+                @foreach ($materialSection->documents as $document)
                     @php
                         $content = [
                             'title' => $document->title,
