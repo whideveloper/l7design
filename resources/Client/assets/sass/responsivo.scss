@@ -507,12 +507,6 @@
     }
 }
 @media screen and (max-width: 680px) {
-    .footer{
-        max-height: 280px;
-        &::before{
-            top: 89% !important;
-        }
-    }
     .footer .footer__contact__items,
     .logo-whi-footer a{
         flex-direction: row !important;
@@ -821,7 +815,7 @@
         border-top: inherit;
         position: relative;
         &::before{
-            display: none;
+            display: none !important;
         }
         .footer__contact__title{
             width: 95%;
