@@ -2845,6 +2845,9 @@ table{
     .mdl-box.mural-de-comunicacao{
         max-width: 100%;
     }
+    .mdl-box__text{
+        word-break: break-all;
+    }
     .mdl-box__content{
         width: 100% !important;
     }
