@@ -1535,9 +1535,9 @@ input, select {
 .footer{
     background-color: var(--pantone-3145-c);
     border-top: 8px solid var(--pantone-7466-c);
-    height: 235px;
-    max-height: 235px;
+    height: 100%;
     width: 100%;
+    padding-bottom: 25px;
     .footer__logos{
         align-items: center;
         display: flex;
