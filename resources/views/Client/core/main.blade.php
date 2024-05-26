@@ -234,8 +234,11 @@
                     </ul>
                     <div class="logo-whi-footer">
                         <a href="https://whi.dev.br/" target="_blank" rel="noopener noreferrer">
-                            <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração">
-                            <h6 class="title">WHI - <span>Web de alta inspiração</span></h6>
+                            Desenvolvido por:
+                            <div class="image">
+                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração">
+                                {{-- <h6 class="title">WHI - <span>Web de alta inspiração</span></h6> --}}
+                            </div>
                         </a>
                         <div class="copyright">
                             <script>

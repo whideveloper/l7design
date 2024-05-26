@@ -94,12 +94,7 @@
                     <!-- Footer-->
                     <footer class="footer footer-alt">
                         {{-- <p class="text-muted">Não tem uma conta? <a href="auth-register-2.html" class="text-muted ms-1"><b>Increva-se</b></a></p> --}}
-                        <a href="https://whi.dev.br/" target="_blank">
-                            <span class="logo-whi-footer">
-                                <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração" height="22">
-                                <h6 class="title">WHI <span>Web de alta inspiração</span></h6>
-                            </span>
-                        </a>
+
                         <div class="copyright">
                             <script>
                                 var currentYear = new Date().getFullYear();
@@ -114,14 +109,23 @@
         <!-- end auth-fluid-form-box-->
 
         <!-- Auth fluid right content -->
-        <div class="auth-fluid-right text-center" style="background-image: url({{asset('Admin/assets/images/bg-material.png')}})">
+        <div class="auth-fluid-right text-center" style="background-image: url({{asset('Admin/assets/images/bg-auth.jpg')}})">
             <div class="auth-user-testimonial">
                 <h2 class="mb-3 text-white">TeleNordeste</h2>
                 <p class="lead"><i class="mdi mdi-format-quote-open"></i> A telessaúde abraçando Sergipe <i class="mdi mdi-format-quote-close"></i>
                 </p>
-                <h5 class="text-white">
-                    {{-- - Fadlisaad (Ubold Admin User) --}}
-                </h5>
+                {{-- <h5 class="text-white">
+                    - Fadlisaad (Ubold Admin User)
+                </h5> --}}
+                <a href="https://whi.dev.br/" target="_blank">
+                    <span class="logo-whi-footer">
+                        Desenvolvido por:
+                        <div class="image">
+                            <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração" height="22">
+                            {{-- <h6 class="title">WHI <span>Web de alta inspiração</span></h6> --}}
+                        </div>
+                    </span>
+                </a>
             </div> <!-- end auth-user-testimonial-->
         </div>
         <!-- end Auth fluid right content -->

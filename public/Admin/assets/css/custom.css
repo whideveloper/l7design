@@ -511,18 +511,30 @@ body[data-sidebar-size=condensed] .left-side-menu .simplebar-content-wrapper{
 }
 .logo-whi-footer{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    font-size: 10px;
+    color: #ffffff57;
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+}
+.logo-whi-footer .image{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .logo-whi-footer img{
-    height: 40px;
+    height: 20px;
 }
 .logo-whi-footer .title{
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 5px;
+    align-items: flex-start;
+    margin: 0px;
     flex-direction: column;
     font-weight: bold;
+    font-size: 7px;
+    color: #ffffff57;
 }

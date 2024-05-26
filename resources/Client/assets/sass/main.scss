@@ -1,5 +1,4 @@
 .copyright{
-    width: 100%;
     align-items: center;
     display: flex;
     font-size: 1rem;
@@ -7,31 +6,48 @@
     color: var(--white);
     font-weight: 400;
     margin-top: 10px;
-    justify-content: center;
+    justify-content: flex-start;
+    width: calc(100% - 100px);
+    p{
+        color: rgba(255,255,255,0.3411764706);
+    }
 }
 .logo-whi-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     width: 100%;
-    a{
-        width: 100%;
+    margin-top: 20px;
+    .image{
         display: flex;
-        justify-content: center;
-        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    a{
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
         align-items: center;
         text-align: center;
+        width: 100px;
+        font-size: .625rem;
+        font-family: var(--roboto-font-family);
+        color: rgba(255, 255, 255, .3411764706);
     }
     img{
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: auto;
     }
-     .title{
-        align-items: center;
+    .title{
+        align-items: flex-start;
         display: flex;
-        font-size: 0.625rem;
+        font-size: 0.438rem;
         font-family: var(--roboto-font-family);
-        color: var(--white);
+        color: #ffffff57;
         font-weight: 400;
         gap: 0 10px;
-        margin-top: 5px;
+        margin-top: 0px;
+        flex-direction: column;
     }
        
 }
