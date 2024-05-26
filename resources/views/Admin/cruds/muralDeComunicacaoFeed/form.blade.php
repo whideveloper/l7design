@@ -13,11 +13,12 @@
         </div>
 
         <div class="mb-3 col-lg-6">
-            {!! Form::label('heard', 'Categoria Clube Benefício', ['class'=>'form-label']) !!}
+            {!! Form::label('heard', 'Categoria', ['class'=>'form-label']) !!}
 
             {!! Form::select('mural_category_id', $muralDeComunicacaoCategory, isset($title)?$title:null, [
                 'class'=>'form-select',
                 'id'=>'heard',
+                'required' => 'required',
                 'placeholder' => 'Selecione a categoria'
             ]) !!}
         </div>  
