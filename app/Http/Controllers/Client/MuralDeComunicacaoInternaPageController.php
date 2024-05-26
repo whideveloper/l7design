@@ -10,8 +10,6 @@ use App\Repositories\MuralDeComunicacao;
 class MuralDeComunicacaoInternaPageController extends Controller
 {
     public function index($slug = null, $title = null){
-
-
         if ($slug && $title) {
             $muralDeComunicacao = (new MuralDeComunicacao())->getMuralDeComunicacao()
             ->where('mural_de_comunicacao_categories.slug', $slug)

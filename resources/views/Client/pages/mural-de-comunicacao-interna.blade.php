@@ -25,20 +25,17 @@
                 <aside>
                     <h4 class="mural__de__comunicacao__title__aside">Conteúdos relacionados</h4>
                     <div class="mural__de__comunicacao__aside__content owl-carousel">
-                        @foreach ($muralDeComunicacaoRelacionados as $relacionados)
+                        @foreach ($muralDeComunicacaoRelacionados as $mural)
                             @php
-                                $imagePath = asset('storage/'. $relacionados->path_image);
-                                $description = $relacionados->description;
-                                $descricao = strip_tags($description);  
-                                $data = Carbon\Carbon::parse($relacionados->publish_date)->format('d/m/Y'); 
+                                $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y'); 
 
                                 $content = [
-                                    'title' => $relacionados->title,
+                                    'title' => $mural->title,
                                     'date' => $data,          
-                                    'image' => $imagePath,
-                                    'text' => substr(strip_tags($descricao),0,150),
-                                    'link' => route('mural-de-comunicacao-interna', [$relacionados->category_slug, $relacionados->mural_slug]),
-                                    'btnName' => isset($relacionados->btn_title)?$relacionados->btn_title:'saiba mais',                                    
+                                    'image' => asset('storage/'. $mural->path_image),
+                                    'text' => substr(strip_tags($mural->description),0,150),
+                                    'link' => route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
+                                    'btnName' => isset($mural->btn_title)?$mural->btn_title:'saiba mais',                                    
                                 ];
                             @endphp                   
                             @include('Client.models.mdl-box-interna', $content)

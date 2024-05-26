@@ -30,7 +30,6 @@
                 <div class="content-body">
                     @foreach ($muralDeComunicacoes as $mural)
                         @php
-                            $imagePath = asset('storage/'. $mural->path_image);
                             $description = $mural->description;
                             $descricao = strip_tags($description);  
                             $data = Carbon\Carbon::parse($mural->publish_date)->format('d/m/Y');                
@@ -39,7 +38,7 @@
                                 'id' => $mural->id,
                                 'title' => $mural->title,
                                 'date' => $data,         
-                                'image' => $imagePath,
+                                'image' => asset('storage/'.$mural->path_image),
                                 'text' => substr(strip_tags($descricao),0,150),
                                 'link' => isset($mural->link)?$mural->link:route('mural-de-comunicacao-interna', [$mural->category_slug, $mural->mural_slug]),
                                 'btnName' => isset($mural->btn_title)?$mural->btn_title:'saiba mais',
