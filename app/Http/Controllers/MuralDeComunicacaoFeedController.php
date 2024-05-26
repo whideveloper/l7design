@@ -39,8 +39,10 @@ class MuralDeComunicacaoFeedController extends Controller
         foreach($muralDeComunicacaoCategory as $title){
             $categoryTitle[$title->id] = $title->title;
         }
+        $muralDeApoio = MuralDeApoio::first();
         return view('Admin.cruds.muralDeComunicacaoFeed.create', [
-            'muralDeComunicacaoCategory' => $categoryTitle
+            'muralDeComunicacaoCategory' => $categoryTitle,
+            'muralDeApoio' => $muralDeApoio
         ]);
     }
     public function store(Request $request)

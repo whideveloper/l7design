@@ -11,7 +11,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}">Mural de comunicação</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.muralDeApoio.edit', ['muralDeApoio' => $muralDeApoio->id])}}">Mural de comunicação</a></li>
                                     <li class="breadcrumb-item active">Cadastro de Mural de comunicação</li>
                                 </ol>
                             </div>
@@ -23,7 +23,7 @@
                 {!! Form::model(null, ['route' => 'admin.dashboard.muralDeComunicacaoFeed.store', 'class'=>'parsley-examples', 'files' => true]) !!}
                     @include('Admin.cruds.muralDeComunicacaoFeed.form')
                     {!! Form::button('Cadastrar', ['class'=>'btn btn-primary waves-effect waves-light float-end width-lg', 'type' => 'submit']) !!}
-                    <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
+                    <a href="{{route('admin.dashboard.muralDeApoio.edit', ['muralDeApoio' => $muralDeApoio->id])}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>
                 {!! Form::close() !!}
             </div> <!-- container -->
         </div> <!-- content -->
