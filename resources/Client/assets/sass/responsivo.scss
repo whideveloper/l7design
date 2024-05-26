@@ -261,6 +261,9 @@
     }
 }
 @media screen and (max-width: 415px) {
+    .copyright{
+        font-size: 0.875rem;
+    }
     #footer.footer .footer__contact{
         margin-top: 45px !important;
     }
@@ -505,7 +508,7 @@
 }
 @media screen and (max-width: 680px) {
     .footer{
-        max-height: 260px;
+        max-height: 280px;
         &::before{
             top: 89% !important;
         }

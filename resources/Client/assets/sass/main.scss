@@ -1,4 +1,14 @@
-.reserved{}
+.copyright{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    font-family: var(--roboto-font-family);
+    color: var(--white);
+    font-weight: 400;
+    margin-top: 10px;
+    justify-content: center;
+}
 .logo-whi-footer{
     width: 100%;
     a{

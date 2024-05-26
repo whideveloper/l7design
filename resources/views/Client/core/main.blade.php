@@ -237,15 +237,13 @@
                             <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração">
                             <h6 class="title">WHI - <span>Web de alta inspiração</span></h6>
                         </a>
-                    </div>
-                    {{-- <div class="reserved">
                         <div class="copyright">
                             <script>
                                 var currentYear = new Date().getFullYear();
-                                document.write('<p>' + currentYear + ' Telenordeste. Todos os direitos reservados.</p>');
+                                document.write('<p> © ' + currentYear + ' Projeto Telenordeste. Todos os direitos reservados.</p>');
                             </script>                    
-                        </div>                        
-                    </div> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
