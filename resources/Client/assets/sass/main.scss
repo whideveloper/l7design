@@ -1726,6 +1726,7 @@ input, select {
                     margin-top: 0;
                     text-align: inherit;
                     width: 100%;
+                    word-break: break-all;
                 }
             }
             .mdl-box__content .mdl-box__image{
@@ -2844,9 +2845,6 @@ table{
     display: block !important;
     .mdl-box.mural-de-comunicacao{
         max-width: 100%;
-    }
-    .mdl-box__text{
-        word-break: break-all;
     }
     .mdl-box__content{
         width: 100% !important;
