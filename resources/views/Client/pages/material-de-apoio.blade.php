@@ -57,15 +57,15 @@
         $documents = \App\Models\MaterialDocument::where('material_id', $materialSection->id)
                     ->active()
                     ->orderBy('sorting', 'ASC')
-                    ->paginate(6, ['*'], 'page_' . $materialSection->id, $currentPage);
+                    ->paginate(1, ['*'], 'page_' . $materialSection->id, $currentPage);
     @endphp
     
-    <section id="{{$materialSection->slug}}" class="material">
+    <section id="{{ $materialSection->slug }}" class="material">
         
         <div class="material__content">    
-            <h2 class="title">{{$materialSection->title}}</h2>
+            <h2 class="title">{{ $materialSection->title }}</h2>
             <div class="description">
-                {!!$materialSection->text!!}
+                {!! $materialSection->text !!}
             </div>
             <div class="material__content__list owl-carousel">
                 @foreach ($documents as $document)
@@ -81,12 +81,13 @@
                 @endforeach
                 {{-- PAGINATION --}}
                 <div class="pagi">
-                    {{ $documents->appends(['page_' . $materialSection->id => $documents->currentPage()])->links() }}
+                    {{ $documents->appends(['page_' . $materialSection->id => $documents->currentPage()])->fragment($materialSection->slug)->links() }}
                 </div>
             </div>
         </div>
     </section>
 @endforeach
+
 
 
 @endsection
