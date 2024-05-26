@@ -20,7 +20,7 @@ class MaterialDeApoioPageController extends Controller
         foreach ($materialSections as $materialSection) {
             $materialSection->documents = $materialSection->document()->paginate(6);
         }
-        // dd($materialSection->documents);
+
         return view('Client.pages.material-de-apoio', [
             'protocolo' => $protocolo,
             'materialSections' => $materialSections

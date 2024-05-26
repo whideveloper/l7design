@@ -49,6 +49,17 @@
 @endif
 
 @foreach ($materialSections as $materialSection)
+    @php
+        // Obtém a página atual da seção, se existir
+        $currentPage = request()->input('page_' . $materialSection->id, 1);
+
+        // Carrega os documentos paginados para a seção atual
+        $documents = \App\Models\MaterialDocument::where('material_id', $materialSection->id)
+                    ->active()
+                    ->orderBy('sorting', 'ASC')
+                    ->paginate(6, ['*'], 'page_' . $materialSection->id, $currentPage);
+    @endphp
+    
     <section id="{{$materialSection->slug}}" class="material">
         
         <div class="material__content">    
@@ -57,7 +68,7 @@
                 {!!$materialSection->text!!}
             </div>
             <div class="material__content__list owl-carousel">
-                @foreach ($materialSection->documents as $document)
+                @foreach ($documents as $document)
                     @php
                         $content = [
                             'title' => $document->title,
@@ -70,7 +81,7 @@
                 @endforeach
                 {{-- PAGINATION --}}
                 <div class="pagi">
-                    {{$materialSection->documents->links()}}
+                    {{ $documents->appends(['page_' . $materialSection->id => $documents->currentPage()])->links() }}
                 </div>
             </div>
         </div>
