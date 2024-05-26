@@ -20,7 +20,6 @@ class EspecialidadePageController extends Controller
     {
         $categorias = (new EspecialidadeRepository())->getEspecialidadeCategories();
         $especialistas = EspecialidadeProfessional::sorting()->active();
-        
         if ($category) {
             $especialistas->join('especialidade_categories', 'especialidade_professionals.especialidade_category_id', 'especialidade_categories.id')
             ->select([

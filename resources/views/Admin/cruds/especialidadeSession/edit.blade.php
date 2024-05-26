@@ -34,14 +34,14 @@
                         <div class="row">
                             @can('especialidade.editar')
                               
-                                <form action="{{ route('admin.dashboard.especialidadeProfessional.activeSession') }}" method="POST" style="max-width:160px">
+                                {{-- <form action="{{ route('admin.dashboard.especialidadeProfessional.activeSession') }}" method="POST" style="max-width:160px">
                                     @csrf
                                     <button type="submit" class="btn btn-success waves-effect waves-light width-lg">Ativar Sessão</button>
                                 </form>
                                 <form action="{{ route('admin.dashboard.especialidadeProfessional.desactiveSession') }}" class="ps-1" method="POST" style="max-width:160px">
                                     @csrf
                                     <button type="submit" class="btn btn-danger waves-effect waves-light width-lg">Desativar Sessão</button>
-                                </form>
+                                </form> --}}
 
                             @endcan
                             @can('especialidade.criar')                                                         

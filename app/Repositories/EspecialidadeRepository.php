@@ -9,7 +9,6 @@ class EspecialidadeRepository
     public function getEspecialidadeCategories()
     {
         return EspecialidadeCategory::join('especialidade_professionals', 'especialidade_categories.id', 'especialidade_professionals.especialidade_category_id')
-        ->sorting()->active()
         ->select([
             'especialidade_categories.id', 
             'especialidade_categories.title',
@@ -17,8 +16,8 @@ class EspecialidadeRepository
             'especialidade_categories.active',
             'especialidade_professionals.active'
             ])
-        ->where('especialidade_categories.active')
-        ->where('especialidade_professionals.active')
+        ->where('especialidade_categories.active', '=', 1)
+        ->where('especialidade_professionals.active', '=', 1)
         ->orderBy('especialidade_categories.id',)
         ->orderBy('especialidade_categories.title')
         ->orderBy('especialidade_categories.slug')
@@ -28,6 +27,7 @@ class EspecialidadeRepository
         ->groupBy('especialidade_categories.active')
         ->groupBy('especialidade_categories.slug')
         ->groupBy('especialidade_professionals.active')
+        ->sorting()->active()
         ->get();
     }
 }
