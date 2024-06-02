@@ -17,7 +17,7 @@ class BannerUpdateRequest extends FormRequest
         if(!Auth::check()){
             return false;
         }
-        return Auth::user()->can(['banners.visualizar','banners.criar']);
+        return Auth::user()->can(['banners.visualizar','banners.editar']);
     }
 
     /**
