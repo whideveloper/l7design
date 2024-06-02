@@ -29,7 +29,7 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('naoresponda@hoom.net.br', 'WHI')
+        return $this->from('anderson@hoom.com.br', 'WHI')
                 ->subject('Bem-vindo ao Meu Site')
                 ->view('emails.contato'); 
     }
