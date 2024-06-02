@@ -555,7 +555,7 @@ $(document).ready(function(){
     });
     function initializeCarousel1() {
         $(".material-mobile").owlCarousel({
-            loop: true,
+            loop: false,
             margin: 10,
             nav: false,
             dots: true,

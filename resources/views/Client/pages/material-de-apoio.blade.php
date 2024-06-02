@@ -80,9 +80,9 @@
                     @include('Client.models.mdl-mt-apoio', $content)
                 @endforeach
                 {{-- PAGINATION --}}
-                <div class="pagi">
-                    {{ $documents->appends(['page_' . $materialSection->id => $documents->currentPage()])->fragment($materialSection->slug)->links() }}
-                </div>
+            </div>
+            <div class="pagi">
+                {{ $documents->appends(['page_' . $materialSection->id => $documents->currentPage()])->fragment($materialSection->slug)->links() }}
             </div>
         </div>
     </section>

@@ -116,11 +116,7 @@
     .location__values__box.right{
         width: 150px !important;
         height: 150px !important;        
-    } 
-
-    .teleinterconsulta .teleinterconsulta__content{
-        padding: 80px 0;
-    }
+    }     
     .location__values__box{
         margin: 0;
     }
@@ -516,7 +512,7 @@
         top: calc(100% - 200px) !important;
     }
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 680px) {    
     .footer .footer__logos__items li img{
         height: 60px !important;
     }
@@ -560,7 +556,7 @@
             bottom: 2rem;
         }
         .splide__slide{
-            height:100% !important;
+            height:75vh !important;
             &::after{
                 background-image: inherit;
                 background-color: #0000007a;
@@ -1039,6 +1035,9 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .teleinterconsulta .teleinterconsulta__content{
+        padding: 80px 0;
+    }
     .events-list__title{
         font-size: 1.625rem;
     }
