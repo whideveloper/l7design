@@ -34,6 +34,7 @@ class HomePageController extends Controller
         $startOfWeek = $currentDate->startOfWeek(Carbon::SUNDAY)->format('Y-m-d');
         $endOfWeek = $currentDate->endOfWeek(Carbon::SATURDAY)->format('Y-m-d');
         $eventAll = Event::whereMonth('date_start', '=', date('m'))->whereBetween('date_start', [$startOfWeek, $endOfWeek])
+        ->orderBy('date_start', 'ASC')
         ->sorting()
         ->active()
         ->get();    

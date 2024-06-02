@@ -93,7 +93,7 @@
                                                                                                     <div class="modal-body p-3 pt-0 pb-3">
                                                                                                         {!! Form::model($holiday, ['route' => ['admin.dashboard.holiday.update', $holiday->id], 'class'=>'parsley-examples', 'method' => 'PUT', 'files' => true]) !!}
                                                                                                             @include('Admin.cruds.holiday.form')
-                                                                                                            @can('holiday.editar')
+                                                                                                            @can('evento.editar')
                                                                                                             {!! Form::button('Salvar', ['class'=>'btn btn-primary waves-effect waves-light float-end me-3 width-lg', 'type' => 'submit']) !!}
                                                                                                             @endcan
                                                                                                             <a href="{{route('admin.dashboard.event.index')}}" class="btn btn-secondary waves-effect waves-light float-end me-3 width-lg">Voltar</a>

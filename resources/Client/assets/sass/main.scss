@@ -1112,6 +1112,20 @@ input, select {
         width: 104px;
         z-index: 1;
     }
+    &.mat{
+        .redound-bottom{
+            bottom: inherit;
+            top: 110px;
+        }
+        &::before{
+            right: -60px;
+            bottom: -81px;
+        }
+        &::after{
+            left: 85px;
+            right: inherit;
+        }
+    }
     &::before{
         @include transition-ease;
         content: '';
@@ -1129,6 +1143,12 @@ input, select {
 }
 
 .teleinterconsulta__image:hover{
+    &.mat{
+        &::before{
+            @include transition-ease;
+            transform: translate(8%, 1%);
+        }
+    }
     &::before{
         @include transition-ease;
         transform: translate(2%, 1%);
@@ -1561,7 +1581,8 @@ input, select {
 .footer{
     background-color: var(--pantone-3145-c);
     border-top: 8px solid var(--pantone-7466-c);
-    height: 100%;
+    height: auto;
+    max-height: 100%;
     width: 100%;
     padding-bottom: 25px;
     .footer__logos{
@@ -2610,9 +2631,15 @@ input, select {
 .galeria__text{
     background: var(--white);
     padding: 25px 25px 20px 25px;
-    max-width: 91%;
+    max-width: 92.5%;
     border-radius: 0px 0px 10px 10px;
     box-shadow: 4px 2px 18px -11px var(--ccc);
+    &.text{
+        background: inherit;
+        padding: 0;
+        border-radius: inherit;
+        box-shadow: inherit;
+    }
 }
 .carousel__button{
     background: var(--laranja) !important;
@@ -2665,8 +2692,10 @@ input, select {
     max-width: 364px;
     width: 100%;
     position: absolute;
-    bottom: 120px;
+    bottom: 182px;
     right: 155px;
+    background: #F3F3F3;
+    padding: 15px;
     p{
         width: 100%;
     }
@@ -3435,7 +3464,7 @@ table{
     &.active{
         display: block;
         @include transition-ease;
-        top: 57px;
+        top: 56px;
     }
 }
 .header__item{

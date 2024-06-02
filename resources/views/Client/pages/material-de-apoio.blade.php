@@ -15,7 +15,7 @@
         <div class="teleinterconsulta__content {{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
             <article class="{{ url()->current() == route('material-de-apoio') ? 'material-de-apoio' : ''  }}">
                 @if ($protocolo->path_image)
-                    <div class="teleinterconsulta__image">
+                    <div class="teleinterconsulta__image mat">
                         <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
 
                         <img src="{{asset('storage/'. $protocolo->path_image)}}" class="hover" alt="Material de apoio" title="Material de apoio">

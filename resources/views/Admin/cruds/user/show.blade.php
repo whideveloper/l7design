@@ -33,7 +33,7 @@
                         <div class="form-name col-5">
                             <input name="name" type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="button-addon2">
                         </div>
-                        <button class="btn btn-outline-secondary me-2 mt-3" style="width:100px;" type="submit" id="button-addon2">Button</button>
+                        <button class="btn btn-outline-secondary me-2 mt-3" style="width:100px;" type="submit" id="button-addon2">Filtrar</button>
                     </form>
                 </div>
                 <div class="row col-lg-12 d-flex justify-content-end mb-3 ms-0 btns">

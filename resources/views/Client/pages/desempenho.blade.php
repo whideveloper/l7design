@@ -6,10 +6,12 @@
 
 <section class="desempenho"> 
     <div class="desempenho__content">
-        <h3 class="desempenho__title">Especialidades</h3>
+        <h3 class="desempenho__title">Números gerais do TeleNordeste em 2024</h3>
         <div class="desempenho__text">
             <p>
-                O projeto TeleNordeste conta com um time de especialistas para apoiá-los com as teleinterconsultas e teleconsultorias. Abaixo você pode conhecê-lo um pouco mais:
+                Abaixo encontra-se a relação dos principais indicadores do Projeto TeleNordeste em 2024.
+                <br><br>
+                Explore o painel do TeleNordeste e verifique os números, atualizados mensalmente.            
             </p>
         </div>
 
@@ -58,9 +60,9 @@
             <img src="{{asset('Client/assets/images/map.png')}}" alt="">
         </div>--}}
 
-        {{-- <div class="mapa__atuacao__text">
+        <div class="mapa__atuacao__text">
             <p>O <strong>TeleNordeste</strong> está presente em 70 municípios de Sergipe, distribuídos em sete Regiões de Saúde: Itabaiana, Propriá, Lagarto, Aracaju, Estância, Nossa Senhora da Glória e Nossa Senhora do Socorro. Todos os municípios destacados neste mapa assinaram o termo de adesão ao TeleNordeste.</p>
-        </div>  --}}
+        </div> 
     </div>
 </section>
 <section class="quadro__geral">

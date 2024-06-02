@@ -19,6 +19,7 @@ class MaterialDeApoioPageController extends Controller
 
         return view('Client.pages.material-de-apoio', [
             'protocolo' => $protocolo,
+            'materialSections' => $materialSections 
         ]);
     }
 }

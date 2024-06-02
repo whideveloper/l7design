@@ -2,7 +2,7 @@
 @section('content')
     <section class="galeria">
         <div class="galeria__content">
-            <div class="galeria__text">
+            <div class="galeria__text text">
                 <p>Acompanhe a nossa galeria de fotos. Aqui compartilhamos os registros dos nossos eventos, treinamentos, visitas e muito mais!</p>
             </div>
 
