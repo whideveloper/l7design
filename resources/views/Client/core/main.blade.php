@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/fancybox.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/responsivo.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/splide.min.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/lgpd.css')) }}" />
+    <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/lgpd-responsivo.css')) }}" />
     <!--fonts google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,7 +193,7 @@
         @endphp
         @include('Client.models.banner-interno', $contentTitle)
     @endif
-
+    @include('Client.core.lgpd.lgpd')
     <main id="page">
         @yield('content')
     </main>
@@ -256,6 +258,7 @@
     <script src="{{ asset(mix('Client/assets/js/fancybox.js')) }}"></script>
     <script src="{{ asset(mix('Client/assets/js/splide.min.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="{{ asset(mix('Client/assets/js/lgpd.js')) }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var dropdown = document.getElementById('material-de-apoio-dropdown');

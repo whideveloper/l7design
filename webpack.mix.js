@@ -300,12 +300,24 @@ mix.scripts(
         "public/Client/assets/css/main.min.css"
     )
     .styles(
+        "resources/Client/assets/sass/lgpd.css",
+        "public/Client/assets/css/lgpd.css"
+    )
+    .styles(
+        "resources/Client/assets/sass/lgpd-responsivo.css",
+        "public/Client/assets/css/lgpd-responsivo.css"
+    )
+    .styles(
         "resources/Client/assets/sass/responsivo.min.css",
         "public/Client/assets/css/responsivo.min.css"
     )
     .scripts(
         "resources/Client/assets/js/splide.min.js",
         "public/Client/assets/js/splide.min.js"
+    )
+    .scripts(
+        "resources/Client/assets/js/lgpd.js",
+        "public/Client/assets/js/lgpd.js"
     )
     .scripts(
         "node_modules/@fancyapps/ui/dist/fancybox.umd.js",
