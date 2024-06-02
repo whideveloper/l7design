@@ -1,7 +1,7 @@
 <div id="mySidenav" class="sidenav">
    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
    <div class="log">
-      <img width="120" src="images/hoom.jpg" alt="">
+      <img width="120" src="{{ asset('Client/assets/images/logo-telenordeste.svg') }}" alt="">
    </div>
    <div class="content">
       <h3>Política Privacidade</h3>
@@ -50,7 +50,6 @@
       <h5>Ao clicar em “Prosseguir”, você concorda com o armazenamento de cookies em seu dispositivo para melhorar a navegação no site, analisar o uso do site e auxiliar nos serviços de marketing. <b><a target="_blank" href="https://policies.google.com/technologies/cookies?hl=pt-BR">Aviso de Cookie</a></b></h5>
       <div class="cookies-pref">
          <Button class="save_cookie_button">PROSSEGUIR</Button>
-         <a href="" target="_blank"><img class="fav" src="" alt=""></a>
       </div>
    </div>
 </div>
