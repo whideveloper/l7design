@@ -54,32 +54,25 @@
   .cookies-container{
     position: fixed;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(0,119,139,1) 0%, rgba(0,176,185,1) 100%);
-    width: 100%;
+    background: linear-gradient(90deg, rgba(0, 119, 139, 1) 0%, rgba(0, 176, 185, 1) 100%);
+    width: calc(100% - 220px);
     height: 100px;
     z-index: 10000;
+    left: 50%;
+    transform: translate(-50%, -8px);
   }
-  
-  .cookies-container .cookie-content .cookies-pref{
-    float: right;
-    margin-right: 35px;
-    margin-top: -50px;
+  .cookie-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 30px;
+    height: 100%;
+    flex-wrap: wrap;
   }
-  
-  .cookies-container .cookie-content{
-  
-    margin-left: 40px;
-  
-  }
-  
   .cookies-container .cookie-content h5{
   
-      color:#ffff;
-  
-      width: 50%;
-  
-      margin-top: 29px;
-  
+      color:#ffff;  
+      width: 70%;  
       font: 14px 'mosk-medium', sans-serif;
   
   }

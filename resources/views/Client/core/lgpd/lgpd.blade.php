@@ -49,8 +49,7 @@
    <div class="cookie-content">
       <h5>Ao clicar em “Permitir todos”, você concorda com o armazenamento de cookies em seu dispositivo para melhorar a navegação no site, analisar o uso do site e auxiliar nos serviços de marketing. <b><a target="_blank" href="https://policies.google.com/technologies/cookies?hl=pt-BR">Aviso de Cookie</a></b></h5>
       <div class="cookies-pref">
-         <Button class="save_cookie_button">Prosseguir</Button>
-         <Button style="display: none" class="personal_cookie_button" onclick="openNav()">Personalizar Configurações</Button>
+         <Button class="save_cookie_button">PROSSEGUIR</Button>
          <a href="" target="_blank"><img class="fav" src="" alt=""></a>
       </div>
    </div>

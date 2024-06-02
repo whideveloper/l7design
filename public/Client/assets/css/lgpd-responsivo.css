@@ -7,13 +7,6 @@
         margin-bottom: 10px;
 
     }
-
-    .cookies-container .cookie-content .cookies-pref {
-
-        margin-top: -35px;
-
-    }
-
     .fav {
 
         display: none;
@@ -22,39 +15,7 @@
 
 }
 
-@media screen and (max-width: 1378px) {
-
-    .cookies-container .cookie-content .cookies-pref {
-    }
-
-}
-
 @media screen and (max-width: 1150px) {
-
-    .cookies-container .cookie-content h5 {
-
-        width: 100%;
-
-    }
-
-    .cookies-container .cookie-content .cookies-pref {
-
-        float: none;
-
-        margin: 0 auto;
-
-        display: table;
-
-        padding-top: 10px;
-
-    }
-
-    .cookies-container .cookie-content {   
-
-        margin-right: 40px;
-
-    }
-
     .cookies-container {
 
         height: 130px;
@@ -69,6 +30,12 @@
 
 }
 
+@media screen and (max-width: 893px) {
+    .cookies-container .cookie-content h5{
+        width: 95%;
+        text-align: center;
+    }
+}
 @media screen and (max-width: 749px) {
 
     .cookies-container {
