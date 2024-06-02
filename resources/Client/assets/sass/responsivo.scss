@@ -517,6 +517,9 @@
     }
 }
 @media screen and (max-width: 680px) {
+    .footer .footer__logos__items li img{
+        height: 60px !important;
+    }
     .especialidade__banner__interno{
         margin-top: 95px;
     }
@@ -1134,7 +1137,7 @@
         justify-content: flex-start;
     }
     .footer{
-        height: 100%;
+        height: auto;
         padding: 0;
         background-color: inherit;
         border-top: inherit;

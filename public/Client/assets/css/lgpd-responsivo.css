@@ -1,193 +1,72 @@
 @media screen and (max-width: 1980px) {
-
-    #mySidenav .plus_button {
-
-        margin: 0 auto;
-
-        margin-bottom: 10px;
-
+     #mySidenav .plus_button {
+         margin: 0 auto;
+         margin-bottom: 10px;
     }
-    .fav {
+     .fav {
+         display: none;
+    }
+}
+ @media screen and (max-width: 1150px) {
+     .cookies-container {
+         height: 130px;
+    }
+     button {
+         margin-left: 10px;
+    }
+}
+ @media screen and (max-width: 893px) {
+     .cookies-container .cookie-content h5{
+         width: 95%;
+         text-align: center;
+    }
+}
 
-        display: none;
-
+ @media screen and (max-width: 580px) {
+    .cookie-content{
+        gap: 15px 30px;
+    }
+    .cookies-container{
+        width: calc(100% - 40px);
+        height: auto;
+        padding: 15px 5px;
+    }
+}
+ @media screen and (max-width: 483px) {
+     button {
+         font-size: 14px;
+    }
+}
+ @media screen and (max-width: 465px) {
+     #mySidenav .plus_button {
+         margin: 0 auto;
+         margin-bottom: 15px;
+    }
+     .sidenav .closebtn {
+         right: 45px;
+    }
+     .sidenav {
+         padding-right: 50px;
+    }
+     button {
+         padding: 10px 15px;
+    }
+}
+ @media screen and (max-width: 402px) {
+     .sidenav .closebtn {
+         right: 85px;
+    }
+     .sidenav {
+         padding-right: 90px;
     }
 
 }
 
-@media screen and (max-width: 1150px) {
-    .cookies-container {
-
-        height: 130px;
-
+ @media screen and (max-width: 356px) {
+     .sidenav .closebtn {
+         right: 105px;
     }
-
-    button {
-
-        margin-left: 10px;
-
-    } 
-
-}
-
-@media screen and (max-width: 893px) {
-    .cookies-container .cookie-content h5{
-        width: 95%;
-        text-align: center;
+     .sidenav {
+         padding-right: 110px;
     }
-}
-@media screen and (max-width: 749px) {
-
-    .cookies-container {
-
-        height: 150px;
-
-    }
-
-}
-
-@media screen and (max-width: 523px) {
-
-    .cookies-container {
-
-        height: 170px;
-
-    }
-
-}
-
-@media screen and (max-width: 503px) {
-
-    button {
-
-        padding: 10px 25px;
-
-    }
-
-}
-
-@media screen and (max-width: 483px) {
-
-    button {
-
-        font-size: 14px;
-
-    }
-
-    .cookies-container .cookie-content {
-
-        margin: 0 auto;
-
-        margin-left: 10px;
-
-        margin-right: 10px;
-
-    }
-
-    .cookies-container {
-
-        height: 150px;
-
-    }
-
-}
-
-@media screen and (max-width: 465px) {
-
-    #mySidenav .plus_button {
-
-        margin: 0 auto;
-
-        margin-bottom: 15px;
-
-    }
-
-    .sidenav .closebtn {
-
-        right: 45px;
-
-    }
-
-    .sidenav {
-
-        padding-right: 50px;
-
-    }
-
-    button {
-
-        padding: 10px 15px;
-
-    }  
-
-}
-
-@media screen and (max-width: 402px) {
-
-    .sidenav .closebtn {
-
-        right: 85px;
-
-    }
-
-    .sidenav {
-
-        padding-right: 90px;
-
-    }
-
-    .cookies-container .cookie-content h5 {
-
-        text-align: center;
-
-    }
-
-}
-
-@media screen and (max-width: 365px) {
-
-    .cookies-container {
-
-        height: 200px;
-
-    }
-
-    .cookies-container .cookie-content .cookies-pref {
-
-        display: table;
-
-        margin: 0 auto;
-
-        text-align: center;
-
-    }
-
-    button {
-
-        margin-bottom: 7px;
-
-    }
-
-}
-
-@media screen and (max-width: 356px) {
-
-    .sidenav .closebtn {
-
-        right: 105px;
-
-    }
-
-    .sidenav {
-
-        padding-right: 110px;
-
-    }
-
-    .cookies-container {
-
-        height: 220px;
-
-    }
-
 }
