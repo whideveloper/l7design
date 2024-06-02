@@ -274,7 +274,7 @@
                         </p>
                     </article>
                     <div class="proadi__image">
-                        <img src="{{asset('Client/assets/images/proadi.png')}}" alt="Proadi-SUS" title="Proadi-SUS">
+                        <img src="{{asset('storage/'. $proadi->path_image)}}" alt="Proadi-SUS" title="Proadi-SUS">
                     </div>
                 </div>
             </div>
