@@ -30,9 +30,16 @@
                 <div class="row col-12" style="margin-left: 2px;">
                     <div class="card card-body">
                         <h4 class="page-title mobile">Feeds</h4>
-                        <div class="col-12">
-                            @can('mural de comunicacao.criar')                             
+                        <div class="row col-12 d-flex justify-content-between">
+                            @can('mural de comunicacao.remover')
+                                <div class="col-6">
+                                    <button id="btSubmitDelete" data-route="{{route('admin.dashboard.muralDeComunicacaoFeed.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
+                                </div>
+                            @endcan
+                            @can('mural de comunicacao.criar')    
+                            <div class="col-6">
                                 <a href="{{route('admin.dashboard.muralDeComunicacaoFeed.create')}}" style="max-width:160px" class="bt-mobile btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a> 
+                            </div>                         
                             @endcan
                         </div>
                     </div>

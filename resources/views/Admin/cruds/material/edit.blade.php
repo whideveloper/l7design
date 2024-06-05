@@ -33,9 +33,16 @@
                         <div class="row col-12" style="margin-left: 2px;">
                             
                             <h4 class="page-title mobile">Arquivos de material</h4>
-                            <div class="col-12">
-                                @can('material de apoio.criar')                            
-                                    <a class="btn btn-success float-end btn-mobile" data-bs-toggle="modal" data-bs-target="#modal-materialDocument">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                            <div class="row col-12 d-flex justify-content-between">
+                                @can('mural de comunicacao.remover')
+                                    <div class="col-6">
+                                        <button id="btSubmitDelete" data-route="{{route('admin.dashboard.materialDocument.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
+                                    </div>
+                                @endcan
+                                @can('material de apoio.criar')
+                                    <div class="col-6">
+                                        <a class="btn btn-success float-end btn-mobile" data-bs-toggle="modal" data-bs-target="#modal-materialDocument">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                    </div>                            
 
                                     <div id="modal-materialDocument" class="modal fade" tabindex="-1" file="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog" style="max-width: 800px;">

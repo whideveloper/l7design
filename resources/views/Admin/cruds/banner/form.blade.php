@@ -8,10 +8,10 @@
             {!! Form::label(null, 'subtitulo', ['class'=>'form-label']) !!}
             {!! Form::text('subtitle', null, ['class'=>'form-control', 'id'=>'validationCustom02']) !!}
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             {!! Form::label(null, 'Link', ['class'=>'form-label']) !!}
             {!! Form::text('link', null, ['class'=>'form-control', 'id'=>'validationCustom03']) !!}
-        </div>
+        </div> --}}
 
     </div>
 </div> <!-- end card-body-->

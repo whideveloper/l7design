@@ -33,7 +33,7 @@
                             </div>
                         @endif
                         <div class="teleinterconsulta__btn proxima-sav">
-                            <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                            <a href="{{route('calendario')}}" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="teleinterconsulta__btn proxima-sav">
-                    <a href="" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
+                    <a href="{{route('calendario')}}" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
                 </div>
             </div>
 
