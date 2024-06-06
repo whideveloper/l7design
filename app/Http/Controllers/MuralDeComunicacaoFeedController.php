@@ -146,6 +146,7 @@ class MuralDeComunicacaoFeedController extends Controller
                 'muralDeApoio' => $muralDeApoio
             ]);
         }catch(\Exception $exception){
+            // dd($exception->getMessage());
             DB::rollBack();
             Session::flash('error', 'Erro ao atualizar o Mural de comunicação!');
             return redirect()->back();
