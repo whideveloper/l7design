@@ -49,6 +49,7 @@ class MuralDeComunicacao
         'mural_de_comunicacao_feeds.link',
         'mural_de_comunicacao_feeds.publish_date',
         'mural_de_comunicacao_feeds.btn_title',
+        'mural_de_comunicacao_feeds.deleted_at',
         ])->where('mural_de_comunicacao_categories.active', 1);
     }
 }

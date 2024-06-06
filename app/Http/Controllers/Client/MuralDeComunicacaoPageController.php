@@ -12,7 +12,7 @@ class MuralDeComunicacaoPageController extends Controller
 {
     public function index($category = null){
         $categorias = (new MuralDeComunicacao())->getMuralDeComunicacaoCategories();
-        $muralDeComunicacoes = (new MuralDeComunicacao())->getMuralDeComunicacao()->sorting()->active();
+        $muralDeComunicacoes = (new MuralDeComunicacao())->getMuralDeComunicacao()->whereNull('mural_de_comunicacao_feeds.deleted_at')->sorting()->active();
         $sessaoMuralDeComunicacao = MuralDeApoio::active()->first();
         
         if ($category) {
