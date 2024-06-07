@@ -126,6 +126,10 @@ Route::prefix('painel/')->group(function () {
             return view('Admin.dashboard');
         })->name('admin.dashboard');
 
+        Route::get('/videos-tutorial', function () {
+            return view('Admin.cruds.videoTutorial.index');
+        })->name('admin.dashboard.videoTutorial');
+
         //BANNER
         Route::resource('banner', BannerController::class)
             ->names('admin.dashboard.banner')

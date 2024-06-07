@@ -378,6 +378,10 @@ mix.scripts(
         "public/Admin/assets/images"
     )
     .copyDirectory(
+        "resources/Admin/assets/videos-tutorial",
+        "public/Admin/assets/videos-tutorial"
+    )
+    .copyDirectory(
         "node_modules/@ckeditor/ckeditor5-build-classic/build/translations",
         "public/Admin/assets/libs/translations"
     )

@@ -282,8 +282,6 @@
                                         </div>                                   
                                     </li>
                                 @endif
-                                    
-                           
 
                                 @if (Auth::user()->can('protocolo.visualizar') || Auth::user()->can('material de apoio.visualizar'))                                    
                                     <li>
@@ -307,8 +305,7 @@
                                             </ul>
                                         </div>                                   
                                     </li>
-                                @endif                                   
-                                
+                                @endif                                                                  
                                 
                                 @if(Auth::user()->can('mural de comunicacao.visualizar'))                                    
                                     <li>
@@ -459,8 +456,16 @@
                                 @endif
                                                                 
                             
-                                
-
+                                <li class="menu-title">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span> Tutorial </span>
+                                </li>
+                                <li class="{{ route('admin.dashboard') == url()->current() ? 'current' : 'off-current' }}">
+                                    <a nofollow href="{{route('admin.dashboard.videoTutorial')}}">
+                                        <i class="mdi mdi-play-box-multiple"></i>
+                                        <span> Vídeos </span>
+                                    </a>
+                                </li>
                                 {{-- <li>
                                     <a nofollow href="#">
                                         <i class="mdi mdi-help"></i>
