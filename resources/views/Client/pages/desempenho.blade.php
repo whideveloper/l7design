@@ -17,6 +17,12 @@
 
         <div class="desempenho__grafico">
             <img src="{{asset('Client/assets/images/desempenho.jpg')}}" alt="Desempenho">
+            {{-- <iframe width="1920" height="1080" 
+            src=https://lookerstudio.google.com/embed/reporting/bd0121d7-cb44-4ad5-9574-0b1b02e086dc/page/rTWzD 
+            frameborder="0" 
+            style="border:0" 
+            allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe> --}}
         </div>
     </div>
 </section>

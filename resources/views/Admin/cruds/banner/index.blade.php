@@ -43,7 +43,7 @@
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
-                                            <th>Link</th>
+                                            {{-- <th>Link</th> --}}
                                             <th>Título</th>
                                             <th>Subtitulo</th>
                                             <th>Imagem</th>
@@ -59,7 +59,7 @@
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="{{$key}}" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$banner->id}}"></label>
                                                 </td>
-                                                <td><a href="{{$banner->link}}" target="_blank" class="mdi mdi-link-box-variant font-28 text-secondary"></a></td>
+                                                {{-- <td><a href="{{$banner->link}}" target="_blank" class="mdi mdi-link-box-variant font-28 text-secondary"></a></td> --}}
                                                 @php
                                                     $title = $banner->title;
                                                     $title = str_replace('<br>', "", $title);

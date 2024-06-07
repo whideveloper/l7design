@@ -232,7 +232,7 @@
                         <li><a href="https://hospitais.proadi-sus.org.br/" target="_blank"><img src="{{asset('Client/assets/images/proadi-footer.svg')}}" alt="PROADI" title="PROADI"></a></li> 
                         <li><a href="https://www.hospitaloswaldocruz.org.br/" target="_blank"><img src="{{asset('Client/assets/images/haoc.svg')}}" alt="HAOC" title="HAOC"></a></li> 
                         <li><a href="https://www.instagram.com/hospitaisproadisus/" target="_blank"><img src="{{asset('Client/assets/images/insta.svg')}}" class="insta" alt="Instagram" title="Instagram"></a></li> 
-                        <li><a href="http://www.linkedin.com/hospitais-proadi-sus/" target="_blank"><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
+                        <li><a href="https://www.linkedin.com/company/hospitais-proadi-sus/" target="_blank"><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
                     </ul>
                     <div class="logo-whi-footer">
                         <a href="https://whi.dev.br/" target="_blank" rel="noopener noreferrer">
