@@ -21,17 +21,15 @@
         </div>   
 
         <div class="mb-3">
-            {!! Form::label('message', 'Descrição', ['class'=>'form-label']) !!}
+            {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
             {!! Form::textarea('description', null, [
-                'class'=>'form-control',
-                'id'=>'message',
-                'required'=>'required',
-                'data-parsley-trigger'=>'keyup',
+                'class'=>'form-control CkEditorColumn',
+                'id'=>'basic-editor',
                 'data-parsley-minlength'=>'20',
                 'data-parsley-maxlength'=>'100',
                 'data-parsley-minlength-message'=>'Vamos lá! Você precisa inserir um texto de pelo menos 20 caracteres.',
                 'data-parsley-validation-threshold'=>'10',
-                'data-height' => 150
+                'data-height' => 200
             ]) !!}
         </div>
 
