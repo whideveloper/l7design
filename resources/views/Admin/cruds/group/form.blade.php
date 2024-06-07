@@ -8,24 +8,25 @@
     </div>
 </div> <!-- end card-body-->
 <div class="card card-body">
-    <ul class="list-group w-50 h-25" style="column-count: 2">
+    <ul class="w-100 h-100 ps-0" style="column-count: 4">
         @php
             $last_index = '';
         @endphp
         @foreach($permissions as $permission)
-        {{-- {{dd($permissions)}} --}}
-            <li class="list-group-item">
-                @if($last_index!==$permission->index())
-                    {{ucfirst($permission->index())}}:
-                @endif
-                <ul>
+            <li style="list-style:none;">
+                <div class="mb-1 mt-1">
+                    @if($last_index!==$permission->index())
+                        {{ucfirst($permission->index())}}:
+                    @endif
+                </div>
+                <ul class="mt-0">
                     <li class="">
                         <label>
                             {{ucfirst($permission->name())}}
                             <input name="permissions[]"
-                                    type="checkbox"
-                                    @if(isset($role) && $role->hasPermissionTo($permission->name)) checked @endif
-                                    value="{{$permission->name}}">
+                                   type="checkbox"
+                                   @if(isset($role) && $role->hasPermissionTo($permission->name)) checked @endif
+                                   value="{{$permission->name}}">
                         </label>
                     </li>
                 </ul>
