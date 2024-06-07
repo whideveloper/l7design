@@ -15,15 +15,19 @@ class MuralDeComunicacao
             'mural_de_comunicacao_categories.slug',
             'mural_de_comunicacao_categories.active',
             'mural_de_comunicacao_feeds.active as feed_active',
+            'mural_de_comunicacao_feeds.deleted_at',
             ])
         ->where('mural_de_comunicacao_categories.active', 1)
         ->where('mural_de_comunicacao_feeds.active', 1)
+        ->whereNull('mural_de_comunicacao_feeds.deleted_at')
         ->orderBy('mural_de_comunicacao_feeds.active',)
         ->orderBy('mural_de_comunicacao_categories.id',)
         ->orderBy('mural_de_comunicacao_categories.title')
         ->orderBy('mural_de_comunicacao_categories.slug')
         ->orderBy('mural_de_comunicacao_categories.active')
+        ->orderBy('mural_de_comunicacao_feeds.deleted_at')
         ->groupBy('mural_de_comunicacao_feeds.active',)
+        ->groupBy('mural_de_comunicacao_feeds.deleted_at',)
         ->groupBy('mural_de_comunicacao_categories.id',)
         ->groupBy('mural_de_comunicacao_categories.title')
         ->groupBy('mural_de_comunicacao_categories.slug')
@@ -50,6 +54,7 @@ class MuralDeComunicacao
         'mural_de_comunicacao_feeds.publish_date',
         'mural_de_comunicacao_feeds.btn_title',
         'mural_de_comunicacao_feeds.deleted_at',
-        ])->where('mural_de_comunicacao_categories.active', 1);
+        ])->where('mural_de_comunicacao_categories.active', 1)
+        ->whereNull('mural_de_comunicacao_feeds.deleted_at');
     }
 }
