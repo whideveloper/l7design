@@ -26,13 +26,19 @@
                 </ul>
             </div>
             @foreach ($especialistas as $especialista)
+                
                 @php  
+                    if ($especialista->path_image) {                        
+                        $image = asset('storage/'. $especialista->path_image);
+                    }else{
+                        $image = '';
+                    }
                     $content = [
                         'id' => $especialista->id,
                         'title' => $especialista->name,
                         'funcao' => $especialista->title,
                         'crm' => ($especialista->crm != null) ? 'CRM: '. $especialista->crm : '',            
-                        'image' => asset('storage/'. $especialista->path_image),
+                        'image' => $image,
                         'text' => $especialista->description,
                         'btnName' => 'Ver perfil completo',
                     ];
