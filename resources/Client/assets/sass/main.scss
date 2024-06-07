@@ -596,12 +596,10 @@ input, select {
             @include transition-slow;
             border-color: var(--laranja);
             color: var(--pantone-7466-c);
-            text-shadow: 0px 4px 3px var(--text-shadow);
         }
         &.active{
             border-color: var(--laranja);
             color: var(--pantone-7466-c);
-            text-shadow: 0px 4px 3px var(--text-shadow);
         }
     }
 }
