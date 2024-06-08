@@ -33,7 +33,7 @@
         <div id="map" style="width: 100%; height: 600px;z-index:0;"></div>
         <script>
 
-            var map = L.map('map').setView([-10.5717, -37.3414], 6);
+            var map = L.map('map').setView([-10.5717, -37.3414], 8);
 
             // Adiciona um mapa de fundo
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
