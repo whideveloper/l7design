@@ -14,21 +14,24 @@ class EspecialidadeRepository
             'especialidade_categories.title',
             'especialidade_categories.slug',
             'especialidade_categories.active',
+            'especialidade_categories.sorting',  // Adicionando o campo sorting aqui
             'especialidade_professionals.active'
-            ])
+        ])
         ->where('especialidade_categories.active', '=', 1)
         ->where('especialidade_professionals.active', '=', 1)
-        ->orderBy('especialidade_categories.id',)
+        ->orderBy('especialidade_categories.sorting')  // Ordenando pelo campo sorting
+        ->orderBy('especialidade_categories.id')
         ->orderBy('especialidade_categories.title')
         ->orderBy('especialidade_categories.slug')
         ->orderBy('especialidade_categories.active')
         ->groupBy('especialidade_categories.id')
         ->groupBy('especialidade_categories.title')
-        ->groupBy('especialidade_categories.active')
         ->groupBy('especialidade_categories.slug')
+        ->groupBy('especialidade_categories.active')
+        ->groupBy('especialidade_categories.sorting')  // Agrupando pelo campo sorting
         ->groupBy('especialidade_professionals.active')
-        ->sorting()->active()
         ->get();
+    
     }
     public function getEspecialistas(){
         return EspecialidadeProfessional::join('especialidade_categories', 'especialidade_professionals.especialidade_category_id', 'especialidade_categories.id')
