@@ -3,7 +3,7 @@
     <section class="galeria evento">
         <div class="galeria__content">
             <div class="galeria__text">
-                <p>{!! $galleryImages->text !!}</p>
+                {!! $galleryImages->text !!}
             </div>
 
             @if ($galleryImages->galleryImage)
