@@ -11,25 +11,25 @@ class EspecialidadeRepository
         return EspecialidadeCategory::join('especialidade_professionals', 'especialidade_categories.id', 'especialidade_professionals.especialidade_category_id')
         ->select([
             'especialidade_categories.id', 
-            'especialidade_categories.title',
             'especialidade_categories.slug',
             'especialidade_categories.active',
-            'especialidade_categories.sorting',  // Adicionando o campo sorting aqui
+            'especialidade_categories.sorting',
+            'especialidade_categories.title',
             'especialidade_professionals.active'
         ])
         ->where('especialidade_categories.active', '=', 1)
         ->where('especialidade_professionals.active', '=', 1)
-        ->orderBy('especialidade_categories.sorting')  // Ordenando pelo campo sorting
         ->orderBy('especialidade_categories.id')
-        ->orderBy('especialidade_categories.title')
         ->orderBy('especialidade_categories.slug')
         ->orderBy('especialidade_categories.active')
         ->groupBy('especialidade_categories.id')
         ->groupBy('especialidade_categories.title')
         ->groupBy('especialidade_categories.slug')
         ->groupBy('especialidade_categories.active')
-        ->groupBy('especialidade_categories.sorting')  // Agrupando pelo campo sorting
+        ->groupBy('especialidade_categories.sorting')
         ->groupBy('especialidade_professionals.active')
+        ->orderBy('especialidade_categories.sorting')
+        ->orderBy('especialidade_categories.title', 'ASC')
         ->get();
     
     }
@@ -48,6 +48,8 @@ class EspecialidadeRepository
             'especialidade_professionals.text',
             'especialidade_professionals.active as profissional_active',
             'especialidade_professionals.path_image',
-        ]);
+            'especialidade_professionals.sorting',
+        ])->orderBy('especialidade_professionals.sorting','ASC',)
+        ->orderBy('especialidade_professionals.name', 'ASC');
     }
 }
