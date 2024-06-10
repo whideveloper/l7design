@@ -1938,6 +1938,7 @@ input, select {
 .google__form__title,
 .quadro__geral__title,
 .mural__de__comunicacao__title,
+.savs__gravadas__title,
 .desempenho__title{
     align-items: center;
     color: var(--pantone-3145-c);
@@ -2907,6 +2908,9 @@ table{
     .mdl-box__title{
         font-size: 1.313rem !important;
     }
+}
+.especialidades .mdl-box.mural-de-comunicacao .mdl-box__right .mdl-box__title{
+    margin-top: 20px;
 }
 .goback{
     background-color: var(--pantone-7466-c);
