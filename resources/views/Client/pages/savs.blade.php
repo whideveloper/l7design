@@ -8,7 +8,7 @@
                     <div class="teleinterconsulta__image">
                         <img src="{{asset('Client/assets/images/rendound-top.svg')}}" alt="redound-top" class="redound-top" title="redound-top">
 
-                        <img src="{{asset('storage/'. $sav->path_image)}}" class="hover" alt="Sav" title="Sav">
+                        <img src="{{asset('storage/'. $sav->path_image)}}" class="img-sav hover" alt="Sav" title="Sav">
 
                         <img src="{{asset('Client/assets/images/rendound-bottom.svg')}}" alt="redound-bottom" class="redound-bottom" title="redound-bottom">
                     </div>

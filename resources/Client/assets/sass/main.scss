@@ -1070,6 +1070,9 @@ input, select {
     align-items: center !important;
 }
 .teleinterconsulta__image{
+    &.mat{
+        max-width: 443px;
+    }
     position: relative;
     max-width: 388px;
     width: 40%;
@@ -1093,8 +1096,10 @@ input, select {
     }
     img{
         @include transition-ease;
-        height: 539px;
-        width: auto;
+        height: auto;
+        margin-top: 60px;
+        width: 100%;
+        max-width: 443px;
     }
     &::after{
         @include transition-ease;
@@ -2157,6 +2162,7 @@ input, select {
     }
     .material-de-apoio{
         justify-content: flex-end;
+        align-items: flex-start;
     }
 }
 .material,
@@ -2279,12 +2285,17 @@ input, select {
                 left: inherit;
                 right: 0;
             }
-            img{
-                height: 648px;
+            .img-sav{
+                height: 100%;
+                max-height: 648px;
+                margin-top: 60px;
+                width: 100%;
+                max-width: 354px;
             }
         }
         .savs{
             justify-content: flex-end;
+            align-items: flex-start;
             .teleinterconsulta__description{
                 width: 55%;
             }
