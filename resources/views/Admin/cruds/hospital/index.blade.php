@@ -27,16 +27,16 @@
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         @can('hospital.remover')
-                                            <button id="btSubmitDelete" data-route="{{route('admin.dashboard.hospital.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                         @endcan
+                                        <button id="btSubmitDelete" data-route="{{route('admin.dashboard.hospital.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
                                     </div>
                                     
                                     <div class="col-6">
                                         @can('hospital.criar')
-                                            @if (!$hospital)
-                                                <a href="{{route('admin.dashboard.hospital.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                            @endif                                          
                                         @endcan
+                                        @if (!$hospital)
+                                            <a href="{{route('admin.dashboard.hospital.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
+                                        @endif                                          
                                     </div>
                                    
                                 </div>
@@ -76,16 +76,16 @@
                                                 <td>
                                                     <div class="row">
                                                         @can('hospital.editar')
-                                                        <div class="col-4">
-                                                            <a href="{{route('admin.dashboard.hospital.edit',['hospital' => $hospital->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
-                                                        </div>
                                                         @endcan
+                                                            <div class="col-4">
+                                                                <a href="{{route('admin.dashboard.hospital.edit',['hospital' => $hospital->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            </div>
                                                         @can('hospital.remover')
-                                                        <form action="{{route('admin.dashboard.hospital.destroy',['hospital' => $hospital->id])}}" class="col-4" method="POST">
-                                                            @method('DELETE') @csrf
-                                                            <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
-                                                        </form>
                                                         @endcan
+                                                            <form action="{{route('admin.dashboard.hospital.destroy',['hospital' => $hospital->id])}}" class="col-4" method="POST">
+                                                                @method('DELETE') @csrf
+                                                                <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
+                                                            </form>
                                                     </div>
                                                 </td>
                                             </tr>

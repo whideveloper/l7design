@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="CONTENT-LANGUAGE" content="Portuguese" />
-    {{-- <link rel="shortcut icon" href="{{ asset(mix('Client/assets/images/')) }}" /> --}}
+    <link rel="shortcut icon" href="{{ asset('Client/assets/images/favicon.png') }}" />
 
     <meta name="copyright" content="L7Design" />
     <meta name="title" content="L7Design" />
