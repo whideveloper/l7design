@@ -36,7 +36,7 @@
                     @if (Auth::user()->can('banners.visualizar')
                         || Auth::user()->can('como funciona.visualizar')
                         || Auth::user()->can('depoimento.visualizar')
-                        // || Auth::user()->can('hospital.visualizar')
+                        || Auth::user()->can('hospital.visualizar')
                         || Auth::user()->can('localizacao.visualizar')
                         || Auth::user()->can('proadi.visualizar')
                         || Auth::user()->can('telenordeste.visualizar')
@@ -117,7 +117,6 @@
                         </div> <!-- end col-->
                     @endcan
                     @can('hospital.visualizar')
-                    @endcan
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.hospital.index')}}">
                                 <div class="widget-rounded-circle card">
@@ -139,6 +138,7 @@
                                 </div> <!-- end widget-rounded-circle-->
                             </a>
                         </div> <!-- end col-->
+                    @endcan
                     @can('localizacao.visualizar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.location.index')}}">
