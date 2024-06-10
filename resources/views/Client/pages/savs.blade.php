@@ -51,7 +51,9 @@
                 @foreach ($savGravadas as $savGravada)
                     <div class="savs__gravadas__item">
                         <a id="myModal-{{$savGravada->id}}" class="link-full click-lead"></a>
-                        <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
+                        @if ($savGravada->path_image)
+                            <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
+                        @endif
                         <div class="image__play">
                             <img src="{{asset('Client/assets/images/play.svg')}}" class="savs__gravadas__play" alt="Imagem de play">
                         </div>

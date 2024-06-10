@@ -2361,6 +2361,7 @@ input, select {
         position: relative;
         min-width: 415px;
         width: 48.5%;
+        background-color: #000000b0;
         &::before{
             @include transition-medium;
             content: '';
