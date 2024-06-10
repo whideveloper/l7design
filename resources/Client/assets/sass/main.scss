@@ -3595,3 +3595,7 @@ a[rel="prev"] {
         color: var(--white) !important;
     }
 }
+.desempenho__grafico iframe{
+    min-height: 360px;
+    overflow-y: auto;
+}
