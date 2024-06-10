@@ -1557,7 +1557,6 @@
         }
     }
 }
-// Estilos para dispositivos de tela média
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .hearder__position{
         justify-content: space-between;
@@ -1761,7 +1760,18 @@
         }
     }
 }
-
+@media screen and (max-width: 1360px){
+    .tutorial .tutorial__content{
+        flex-direction: column;
+        .tutorial__content__left,
+        .tutorial__content__right{
+            max-width: 100%;
+        }
+    }
+    .tutorial .tutorial__content .tutorial__content__left{
+        margin-bottom: 40px;
+    }
+}
 @media screen and (min-width: 360px) and (max-width: 1200px){
     .material .material__content .box__document{
         width: 100%;
