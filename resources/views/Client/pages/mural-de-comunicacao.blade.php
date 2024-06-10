@@ -27,7 +27,7 @@
             @endif
             
             @if ($muralDeComunicacoes->count() > 0)
-                <div class="content-body">
+                <div class="content-body mural">
                     @foreach ($muralDeComunicacoes as $mural)
                         @php
                             $description = $mural->description;
