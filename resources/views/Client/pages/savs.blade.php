@@ -29,7 +29,7 @@
                     <div class="row">
                         @if ($savGravadas->count() > 0)
                             <div class="teleinterconsulta__btn sav-gravada">
-                                <a href="#savs__gravadas" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
+                                <a href="#savs__gravadas" class="consulta"><img src="{{asset('Client/assets/images/savs-gravadas.svg')}}" alt="Sav's gravadas" title="Sav's gravadas"> Assista as SAVs gravadas</a>
                             </div>
                         @endif
                         <div class="teleinterconsulta__btn proxima-sav">
