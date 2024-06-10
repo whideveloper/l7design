@@ -1738,6 +1738,11 @@
         }
     }
 }
+@media screen and (max-width: 1080px) {
+    .especialidades .mdl-box{
+        max-width: 49%;
+    }
+}
 @media screen and (max-width: 1144px) {
     .savs__gravadas__list .savs__gravadas__item{
         min-width: inherit;
@@ -1792,6 +1797,9 @@
     }
 }
 @media screen and (max-width: 1360px){
+    .especialidades .mdl-box .mdl-box__right .mdl-box__title{
+        font-size: 1.5rem;
+    }
     .tutorial .tutorial__content{
         flex-direction: column;
         .tutorial__content__left,
