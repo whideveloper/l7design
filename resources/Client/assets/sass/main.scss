@@ -1880,9 +1880,12 @@ input, select {
                 font-family: var(--roboto-font-family);
                 font-weight: 400;
                 text-align: center;
-                width: 67%;
+                width: 85%;
                 margin: 0 auto;
                 margin-top: 18px;
+                p{
+                    line-height: 26px;
+                }
             }
         }
     }
