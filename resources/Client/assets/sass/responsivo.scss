@@ -1124,6 +1124,9 @@
     .teleinterconsulta__image {
         max-width: 320px;
         width: 100%;
+        &.mat{
+            max-width: 320px;
+        }
         .redound-top{
             top: -37px;
             width: 76px;
@@ -1747,11 +1750,12 @@
     .teleinterconsulta__description{
         width: 100% !important;
         max-width: 100%;
+        margin-top: 0 !important;
     }
 
     .teleinterconsulta__content .material-de-apoio,
     .teleinterconsulta__content.savs .savs{
-        flex-direction: column-reverse;
+        flex-direction: column-reverse !important;
         justify-content: center;
         align-items: center;
         gap: 30px 0;
