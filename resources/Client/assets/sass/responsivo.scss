@@ -1722,6 +1722,9 @@
     }
 }
 @media screen and (max-width: 1280px) {
+    .contato__item{
+        width: 50%;
+    }
     .especialidades .mdl-box .mdl-box__right .mdl-box__title{
         font-size: 1.375rem;
     }
@@ -1742,6 +1745,15 @@
         margin-bottom: 40px;
     }
 }
+@media screen and (max-width: 1320px){
+    .contato__description{
+
+        p, span{
+            font-size: 0.838rem;
+        }
+    }
+}
+
 @media screen and (min-width: 360px) and (max-width: 1200px){
     .material .material__content .box__document{
         width: 100%;
