@@ -25,8 +25,8 @@
                     @endif
                 </ul>
             </div>
+
             @foreach ($especialistas as $especialista)
-                
                 @php  
                     if ($especialista->path_image) {                        
                         $image = asset('storage/'. $especialista->path_image);

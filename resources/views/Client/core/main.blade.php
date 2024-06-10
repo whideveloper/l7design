@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>L7Design</title>
+    <title>Telenordeste</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,23 +10,23 @@
     <meta http-equiv="CONTENT-LANGUAGE" content="Portuguese" />
     <link rel="shortcut icon" href="{{ asset('Client/assets/images/favicon.png') }}" />
 
-    <meta name="copyright" content="L7Design" />
-    <meta name="title" content="L7Design" />
+    <meta name="copyright" content="Telenordeste" />
+    <meta name="title" content="Telenordeste" />
     <meta name="author" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
     <meta name="description" content="Descrição" />
     <meta name="keywords" content="Palavras chave" />
     <!-- METAS DO FACEBOOK COMPARTILHAR -->
     <meta property="og:url" content="{{ url('') }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="L7Design" />
+    <meta property="og:title" content="Telenordeste" />
     <meta property="og:description" content="Descrição" />
     {{-- <meta property="og:image" content="{{ asset(mix('')) }}" /> --}}
     <!-- METAS DO TWITTER COMPARTILHAR -->
-    <meta name="twitter:card" content="L7Design" />
+    <meta name="twitter:card" content="Telenordeste" />
     <meta name="twitter:site" content="{{ url('') }}" />
     {{-- <meta name="twitter:image" content="{{ asset(mix('')) }}" /> --}}
     <meta name="twitter:creator" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
-    <meta name="twitter:title" content="L7Design" />
+    <meta name="twitter:title" content="Telenordeste" />
     <meta name="twitter:description" content="Descrição" />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
