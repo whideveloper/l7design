@@ -52,9 +52,11 @@
                             <span class="close" onclick="closeModal({{$especialista->id}})">&times;</span>
                             <article class="modal-box">
                                 <div class="modal-box__content">
-                                    <div class="modal-box__image">
-                                        <img src="{{asset('storage/' . $especialista->path_image)}}" alt="{{$especialista->name}}" title="{{$especialista->name}}" class="modal-box__left">
-                                    </div>
+                                    @if ($especialista->path_image)                                        
+                                        <div class="modal-box__image">
+                                            <img src="{{asset('storage/' . $especialista->path_image)}}" alt="{{$especialista->name}}" title="{{$especialista->name}}" class="modal-box__left">
+                                        </div>
+                                    @endif
                                     <div class="modal-box__description">
                                         <div class="modal-box__right">
                                             <h3 class="modal-box__title">{{$especialista->name}}</h3>
