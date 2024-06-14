@@ -37,7 +37,7 @@
                         'id' => $especialista->id,
                         'title' => $especialista->name,
                         'funcao' => $especialista->title,
-                        'crm' => ($especialista->crm != null) ? 'CRM: '. $especialista->crm : '',            
+                        'crm' => ($especialista->crm != null) ? $especialista->crm : '',            
                         'image' => $image,
                         'text' => $especialista->description,
                         'btnName' => 'Ver perfil completo',
