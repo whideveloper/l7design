@@ -5,6 +5,9 @@
     }
 }
 @media screen and (max-width: 476px) {   
+    .galeria__content .galeria__list .galeria__item .galeria__image{
+        height: 228px;
+    }
     .hidden div span span[aria-disabled=true] span,
     .hidden div a,
     a[rel=next], a[rel=prev]{

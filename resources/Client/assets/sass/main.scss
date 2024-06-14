@@ -2617,9 +2617,11 @@ input, select {
                 position: relative;
                 overflow: hidden;
                 height: 348px;
-                width: auto;
-                max-width: 558px;
-                aspect-ratio: 2.1;
+                width: 100%;
+                &.interna{
+                    max-width: 364px;
+                    height: 228px;
+                }
                 &::after{
                     content: '';
                     @include transition-ease;
