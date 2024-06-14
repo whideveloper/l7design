@@ -17,7 +17,7 @@
 
         <div class="desempenho__grafico">
             {{-- <img src="{{asset('Client/assets/images/desempenho.jpg')}}" alt="Desempenho"> --}}
-            <iframe width="100%" height="100%" 
+            <iframe width="100%" height="1360" 
             src=https://lookerstudio.google.com/embed/reporting/bd0121d7-cb44-4ad5-9574-0b1b02e086dc/page/rTWzD 
             frameborder="0" 
             style="border:0" 
