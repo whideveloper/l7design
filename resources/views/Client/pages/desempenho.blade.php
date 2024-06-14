@@ -67,7 +67,7 @@
         </div>--}}
 
         <div class="mapa__atuacao__text">
-            <p>O <strong>TeleNordeste</strong> está presente em 70 municípios de Sergipe, distribuídos em sete Regiões de Saúde: Itabaiana, Propriá, Lagarto, Aracaju, Estância, Nossa Senhora da Glória e Nossa Senhora do Socorro. Todos os municípios destacados neste mapa assinaram o termo de adesão ao TeleNordeste.</p>
+            <p>O <strong>TeleNordeste</strong> está presente em mais de 70 municípios de Sergipe, distribuídos em sete Regiões de Saúde: Itabaiana, Propriá, Lagarto, Aracaju, Estância, Nossa Senhora da Glória e Nossa Senhora do Socorro. Todos os municípios destacados neste mapa assinaram o termo de adesão ao TeleNordeste.</p>
         </div> 
     </div>
 </section>
