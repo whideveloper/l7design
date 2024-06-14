@@ -39,6 +39,7 @@
                 'data-default-file'=> isset($gallery)?$gallery->path_image<>''?url('storage/'.$gallery->path_image):'':'',
             ]) !!}
         </div>
+        <span class="alert alert-warning" role="alert">OBS: Dimensões da imagem: 558 x 348</span>
     </div>
     <div class="mb-3 form-check">
         {!! Form::checkbox('active', '1', null, ['class'=>'form-check-input', 'id'=>'active']) !!}

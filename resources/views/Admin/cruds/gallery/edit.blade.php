@@ -46,8 +46,8 @@
                                     <p class="sub-header">
                                         Clique na área designada abaixo para adicionar suas imagens. Você pode selecionar uma ou várias imagens para enviar.
                                     </p>
-        
-                                    <form action="{{ route('admin.dashboard.galleryImage.store') }}" method="post" enctype="multipart/form-data">
+                                    
+                                    <form action="{{ route('admin.dashboard.galleryImage.store') }}" class="mb-2" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="gallery_id" value="{{ $gallery->id }}">
                                         <label for="imageInput" class="custom-file-upload">Selecionar Imagens</label>
@@ -55,6 +55,7 @@
                                         <span id="fileCount">Nenhum arquivo selecionado</span>
                                         <button type="submit" class="btn btn-secondary waves-effect waves-light float-end mb-3 me-0 width-lg align-items-left">Enviar</button>
                                     </form>
+                                    <span class="p-1 alert alert-warning" role="alert">OBS: Dimensões da imagem: 364 x 228</span>
 
                                     <script>
                                         function updateFileCount(input) {
