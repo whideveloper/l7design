@@ -12,10 +12,20 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Helpers\HelperArchive;
+use HTMLPurifier;
+use HTMLPurifier_Config;
 
 class GalleryController extends Controller
 {
     protected $pathUpload = 'admin/uploads/images/galeria/';
+
+     // Função para sanitizar o HTML
+     protected function purifyHtml($html)
+     {
+         $config = HTMLPurifier_Config::createDefault();
+         $purifier = new HTMLPurifier($config);
+         return $purifier->purify($html);
+     }
     public function index()
     {
         if (!Auth::user()->can('galeria.visualizar')) {
@@ -53,6 +63,7 @@ class GalleryController extends Controller
             }
             $data['slug'] = Str::slug($request->title,'-','pt-BR');
             $data['active'] = $request->active ? 1 : 0;
+            $data['text'] = $this->purifyHtml($data['text']);
 
             if (!$gallery = Gallery::create($data)) {
                 Storage::delete($this->pathUpload . $path_image);
@@ -110,8 +121,8 @@ class GalleryController extends Controller
             }
             $data['slug'] = Str::slug($request->title,'-','pt-BR');
             $data['active'] = $request->active ? 1 : 0;
-
-
+            $data['text'] = $this->purifyHtml($data['text']);
+            // dd($data['text']);
             $gallery->fill($data)->save();
 
             if ($path_image) {

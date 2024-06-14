@@ -18,10 +18,10 @@
             ]) !!}
         </div>
         <div class="mb-3 col-lg-12">
-            {!! Form::label('complete-editor', 'Descrição', ['class'=>'form-label']) !!}
+            {!! Form::label('basic-editor', 'Descrição', ['class'=>'form-label']) !!}
             {!! Form::textarea('text', null, [
                 'class'=>'form-control CkEditorColumn',
-                'id'=>'complete-editor',
+                'id'=>'basic-editor',
                 'data-height' => 250
             ]) !!}
         </div>

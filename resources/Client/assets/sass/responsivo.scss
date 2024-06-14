@@ -612,6 +612,9 @@
             max-width: 100%;
             .galeria__image{
                 width: 100%;
+                &.interna{
+                    max-width: inherit;
+                }
             }
         }
     }
