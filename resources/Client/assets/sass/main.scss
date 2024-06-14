@@ -17,11 +17,12 @@
     justify-content: space-between;
     flex-direction: row-reverse;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 20px;    
     .image{
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        gap: 0 9px;
     }
     a{
         display: flex;
@@ -29,14 +30,15 @@
         flex-direction: row;
         align-items: center;
         text-align: center;
-        width: 100px;
+        width: auto;
         font-size: .625rem;
         font-family: var(--roboto-font-family);
         color: rgba(255, 255, 255, .3411764706);
     }
     img{
-        height: 20px;
-        width: auto;
+        height: auto;
+        width: 30px;
+        aspect-ratio: 1.1;
     }
     .title{
         align-items: flex-start;
@@ -1053,8 +1055,8 @@ input, select {
     color: var(--grey-secundary);
     font-family: var(--roboto-font-family);
     font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.625rem;
+    font-size: 0.875rem;
+    line-height: 23px;
     margin: 0 auto;
     text-align: center;
     width: 90%;
@@ -2606,15 +2608,18 @@ input, select {
                 }
             }
             .galeria__text p{
-                width: 95%;
+                width: 90%;
+                margin: 0 auto;
             }
             .galeria__image{
                 @include transition-ease;
                 border-radius: 10px;
                 position: relative;
                 overflow: hidden;
-                height: 228px;
+                height: 348px;
                 width: auto;
+                max-width: 558px;
+                aspect-ratio: 2.1;
                 &::after{
                     content: '';
                     @include transition-ease;
@@ -2657,10 +2662,9 @@ input, select {
 }
 .galeria__text{
     background: var(--white);
-    padding: 25px 25px 20px 25px;
-    max-width: 92.5%;
+    max-width: 558px;
     border-radius: 0px 0px 10px 10px;
-    // box-shadow: 4px 2px 18px -11px var(--ccc);
+    padding: 25px 0;
     &.text{
         background: inherit;
         padding: 0;

@@ -506,11 +506,16 @@
         font-size: 0.75rem;
         line-height: 15px;
     }
-    .logo-whi-footer a{
-        width: 100%;
-        justify-content: center;
-        margin-top: 12px;
-    }
+
+    .logo-whi-footer{
+        .image{
+            justify-content: center;
+        }
+        a{
+            justify-content: center;
+            margin-top: 12px;
+        }
+    } 
     .logo-whi-footer{
         flex-direction: column-reverse;
         margin: 0;

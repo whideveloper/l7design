@@ -235,14 +235,15 @@
                         <li><a href="https://www.linkedin.com/company/hospitais-proadi-sus/" target="_blank"><img src="{{asset('Client/assets/images/linkedin.svg')}}" class="linkedin" alt="LinkedIn" title="LinkedIn"></a></li>
                     </ul>
                     <div class="logo-whi-footer">
-                        <a href="https://whi.dev.br/" target="_blank" rel="noopener noreferrer">
-                            {{-- Desenvolvido por: --}}
-                            <div class="image">
-                                <img src="{{asset('Admin/assets/images/l7-design.svg')}}" alt="L7 Design" title="L7 Design">
+                        
+                        <div class="image">
+                            <a href="https://www.l7design.com.br/" target="_blank" rel="noopener noreferrer">
+                                <img src="{{asset('Client/assets/images/l7-design.svg')}}" alt="L7design" title="L7design">
+                            </a>
+                            <a href="https://whi.dev.br/" target="_blank" rel="noopener noreferrer">
                                 <img src="{{asset('Admin/assets/images/whi.png')}}" alt="WHI - Web de alta inspiração" title="WHI - Web de alta inspiração">
-                                {{-- <h6 class="title">WHI - <span>Web de alta inspiração</span></h6> --}}
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                         <div class="copyright">
                             <script>
                                 var currentYear = new Date().getFullYear();
