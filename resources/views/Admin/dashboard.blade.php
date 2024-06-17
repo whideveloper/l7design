@@ -552,6 +552,8 @@
                                 </div> <!-- end widget-rounded-circle-->
                             </a>
                         </div> <!-- end col-->
+                    @endcan
+                    @can('quadro geral ubs.importar')
                         <div class="col-md-6 col-xl-3">
                             <a nofollow href="{{route('admin.dashboard.importExcel.index')}}">
                                 <div class="widget-rounded-circle card">

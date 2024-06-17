@@ -366,10 +366,12 @@
                                                     <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
                                                         <a href="{{route('admin.dashboard.map.index')}}"><i class="fe-map"></i> Mapa</a>
                                                     </li>
-                                                @endcan                                         
-                                                <li class="{{ route('admin.dashboard.importExcel.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.importExcel.index')}}"><i class="fe-bar-chart-2"></i> Quadro geral por UBS</a>
-                                                </li>
+                                                @endcan      
+                                                @can('quadro geral ubs.importar')                                                    
+                                                    <li class="{{ route('admin.dashboard.importExcel.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                        <a href="{{route('admin.dashboard.importExcel.index')}}"><i class="fe-bar-chart-2"></i> Quadro geral por UBS</a>
+                                                    </li>
+                                                @endcan                                   
                                             </ul>
                                         </div>                                   
                                     </li>

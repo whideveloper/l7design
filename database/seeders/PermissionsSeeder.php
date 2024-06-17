@@ -173,6 +173,9 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover',
             ],
+            'quadro geral ubs'=>[
+                'importar',
+            ],
             'usuario'=>[
                 'Criar',
                 'Editar',

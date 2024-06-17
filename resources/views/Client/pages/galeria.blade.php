@@ -1,5 +1,6 @@
 @extends('Client.core.main')
 @section('content')
+@if ($galleries->count() > 0)
     <section class="galeria">
         <div class="galeria__content">
             <div class="galeria__text text">
@@ -28,4 +29,5 @@
             </div>
         </div>
     </section>
+@endif
 @endsection
