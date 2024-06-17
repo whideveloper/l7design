@@ -1082,33 +1082,7 @@
     .tutorial .tutorial__content .tutorial__content__left{
         margin-bottom: 40px;
     }
-    /* Estilo da barra de rolagem horizontal */
-    .quadro__geral__table::-webkit-scrollbar {
-        width: 5px; 
-        height: 5px;
-    }
 
-    .quadro__geral__table::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    .quadro__geral__table::-webkit-scrollbar-thumb {
-        background: var(--pantone-3145-c);
-        border-radius: 5px;
-    }
-
-    .quadro__geral__table::-webkit-scrollbar-thumb:hover {
-        background: var(--pantone-3145-c);
-    }
-
-    /* Estilo da barra de rolagem horizontal */
-    .quadro__geral__table::-webkit-scrollbar-horizontal {
-        height: 5px;
-    }
-
-    .quadro__geral__table::-webkit-scrollbar-thumb:horizontal {
-        background-color: var(--pantone-3145-c); /* cor do manipulador (thumb) da barra horizontal */
-    }
     .quadro__geral__table{
         max-width: 760px;
         height: 180px;

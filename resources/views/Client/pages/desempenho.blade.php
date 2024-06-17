@@ -79,80 +79,44 @@
             <table>
                 <thead>
                     <tr>                        
-                        <th>UBS</th>
                         <th>CNES</th>
+                        <th style="width:300px">Unidade Saúde</th>
+                        <th>Município</th>
+                        <th>Região de Saúde</th>
                         <th>Cardiologia</th>
-                        <th>Endrocrinologista</th>
+                        <th>Endocrinologia e Metabologia</th>
+                        <th>Enfermagem</th>
+                        <th>Medicina de Família e Comunidade</th>
+                        <th>Fisiatria</th>
+                        <th>Neurologia</th>
+                        <th>Neuropediatria</th>
+                        <th>Nutricionista</th>
                         <th>Psiquiatria</th>
-                        <th>Total</th>
-                        <th>Região</th>
+                        <th>Psiquiatria da Infância e Adolescência</th>
+                        <th>Urologia</th>
                     </tr>
                 </thead>
 
-                <tbody>                    
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                        <td>SubTitulo</td>
-                    </tr>
+                <tbody>
+                    @foreach ($dataGraphs as $dataGraph)
+                        <tr>
+                            <td>{{$dataGraph->cnes}}</td>
+                            <td>{{$dataGraph->health_unit}}</td>
+                            <td>{{$dataGraph->county}}</td>
+                            <td>{{$dataGraph->health_region}}</td>
+                            <td>{{$dataGraph->cardiology}}</td>
+                            <td>{{$dataGraph->endocrinology_and_metabology}}</td>
+                            <td>{{$dataGraph->nursing}}</td>
+                            <td>{{$dataGraph->family_and_community_medicine}}</td>
+                            <td>{{$dataGraph->physiatry}}</td>
+                            <td>{{$dataGraph->neurology}}</td>
+                            <td>{{$dataGraph->neuropediatrics}}</td>
+                            <td>{{$dataGraph->nutritionist}}</td>
+                            <td>{{$dataGraph->psychiatry}}</td>
+                            <td>{{$dataGraph->child_and_adolescent_psychiatry}}</td>
+                            <td>{{$dataGraph->urology}}</td>
+                        </tr>
+                    @endforeach                    
                 </tbody>
             </table>
         </div>

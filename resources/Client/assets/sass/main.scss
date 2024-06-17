@@ -1,3 +1,71 @@
+/* Estilo da barra de rolagem horizontal */
+.quadro__geral__table::-webkit-scrollbar {
+    width: 5px; 
+    height: 5px;
+}
+
+.quadro__geral__table::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.quadro__geral__table::-webkit-scrollbar-thumb {
+    background: var(--pantone-3145-c);
+    border-radius: 5px;
+}
+
+.quadro__geral__table::-webkit-scrollbar-thumb:hover {
+    background: var(--pantone-3145-c);
+}
+
+/* Estilo da barra de rolagem horizontal */
+.quadro__geral__table::-webkit-scrollbar-horizontal {
+    height: 5px;
+}
+
+.quadro__geral__table::-webkit-scrollbar-thumb:horizontal {
+    background-color: var(--pantone-3145-c); /* cor do manipulador (thumb) da barra horizontal */
+}
+.quadro__geral__table{
+    max-width: 1440px;
+    width: 100%;
+    height: 680px;
+    overflow: auto;
+    
+}
+
+.quadro__geral__table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.quadro__geral__table th,
+.quadro__geral__table td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap; /* Impedir quebra de linha */
+}
+
+/* Ajustar largura mínima das colunas */
+.quadro__geral__table th:nth-child(2),
+.quadro__geral__table td:nth-child(2) {
+    min-width: 200px;
+}
+
+.quadro__geral__table th:nth-child(3),
+.quadro__geral__table td:nth-child(3) {
+    min-width: 150px;
+}
+
+.quadro__geral__table th:nth-child(4),
+.quadro__geral__table td:nth-child(4) {
+    min-width: 150px;
+}
+/* Alinhar à direita as colunas de Cardiologia até Urologia */
+.quadro__geral__table th:nth-child(n+5),
+.quadro__geral__table td:nth-child(n+5) {
+    text-align: right;
+}
 .copyright{
     align-items: center;
     display: flex;
@@ -2746,7 +2814,7 @@ table{
         border: 1px solid #cccccc52;
         text-align: left;
         padding: 7px 15px;
-        width: 14.28%;
+        width: 100%;
         color: var(--ccc);
         font-family: var(--roboto-font-family);
         font-size: 1rem;
