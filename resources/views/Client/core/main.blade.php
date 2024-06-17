@@ -13,21 +13,21 @@
     <meta name="copyright" content="Telenordeste" />
     <meta name="title" content="Telenordeste" />
     <meta name="author" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
-    <meta name="description" content="Descrição" />
-    <meta name="keywords" content="Palavras chave" />
+    <meta name="description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
+    <meta name="keywords" content="Telenordeste, Telenordeste-se, Proadi, Hospital Alemão Oswaldo Cruz, Conass, Sergipe, Saúde, TeleInterconsulta" />
     <!-- METAS DO FACEBOOK COMPARTILHAR -->
-    <meta property="og:url" content="{{ url('') }}" />
+    <meta property="og:url" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Telenordeste" />
-    <meta property="og:description" content="Descrição" />
-    {{-- <meta property="og:image" content="{{ asset(mix('')) }}" /> --}}
+    <meta property="og:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
+    <meta property="og:image" content="{{ asset('Client/assets/images/favicon.png') }}" />
     <!-- METAS DO TWITTER COMPARTILHAR -->
     <meta name="twitter:card" content="Telenordeste" />
-    <meta name="twitter:site" content="{{ url('') }}" />
-    {{-- <meta name="twitter:image" content="{{ asset(mix('')) }}" /> --}}
+    <meta name="twitter:site" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
+    <meta name="twitter:image" content="{{ asset('Client/assets/images/favicon.png') }}" />
     <meta name="twitter:creator" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
     <meta name="twitter:title" content="Telenordeste" />
-    <meta name="twitter:description" content="Descrição" />
+    <meta name="twitter:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/fancybox.css')) }}" />
