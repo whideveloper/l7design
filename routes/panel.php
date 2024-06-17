@@ -434,6 +434,7 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.contact.search');
         //IMPORT EXCEL
         Route::post('import', [DataGraphController::class, 'import'])->name('admin.dashboard.importExcel');
+        Route::get('quadro-geral-por-ubs', [DataGraphController::class, 'index'])->name('admin.dashboard.importExcel.index');
 
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');

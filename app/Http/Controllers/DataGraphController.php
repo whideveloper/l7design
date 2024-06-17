@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Session;
 
 class DataGraphController extends Controller
 {
+    public function index(){
+
+        return view('Admin.cruds.importExcel.index');
+    }
     public function import(Request $request) 
     {
         $request->validate([

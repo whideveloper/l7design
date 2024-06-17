@@ -353,20 +353,36 @@
                                     </li>
                                 @endif
                                 
-                                @if(Auth::user()->can('mapa.visualizar') || Auth::user()->can('parceiro.visualizar'))                                    
+                                @if(Auth::user()->can('mapa.visualizar'))                                    
                                     <li>
                                         <a href="#desempenho" data-bs-toggle="collapse">
-                                            <i class="fas fa-handshake"></i>
-                                            <span> Mapa/Parceiros </span>
+                                            <i class="fe-bar-chart-2"></i>
+                                            <span> Desempenho </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <div class="collapse" id="desempenho">
                                             <ul class="nav-second-level">
                                                 @can('mapa.visualizar')
                                                     <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                        <a href="{{route('admin.dashboard.map.index')}}"><i class="fas fa-sitemap"></i> Mapa</a>
+                                                        <a href="{{route('admin.dashboard.map.index')}}"><i class="fe-map"></i> Mapa</a>
                                                     </li>
-                                                @endcan
+                                                @endcan                                         
+                                                <li class="{{ route('admin.dashboard.importExcel.index') == url()->current() ? 'current' : 'off-current' }}">
+                                                    <a href="{{route('admin.dashboard.importExcel.index')}}"><i class="fe-bar-chart-2"></i> Quadro geral por UBS</a>
+                                                </li>
+                                            </ul>
+                                        </div>                                   
+                                    </li>
+                                @endif
+                                @if(Auth::user()->can('parceiro.visualizar'))                                    
+                                    <li>
+                                        <a href="#parther" data-bs-toggle="collapse">
+                                            <i class="fas fa-handshake"></i>
+                                            <span> Parceiros </span>
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <div class="collapse" id="parther">
+                                            <ul class="nav-second-level">
                                                 @can('parceiro.visualizar')
                                                     <li class="{{ route('admin.dashboard.partner.index') == url()->current() ? 'current' : 'off-current' }}">
                                                         <a href="{{route('admin.dashboard.partner.index')}}"><i class="fas fa-handshake"></i> Parceiros</a>
