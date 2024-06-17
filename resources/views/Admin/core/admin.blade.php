@@ -353,7 +353,7 @@
                                     </li>
                                 @endif
                                 
-                                @if(Auth::user()->can('mapa.visualizar'))                                    
+                                @if(Auth::user()->can('mapa.visualizar') || Auth::user()->can('quadro geral ubs.importar'))                                    
                                     <li>
                                         <a href="#desempenho" data-bs-toggle="collapse">
                                             <i class="fe-bar-chart-2"></i>
