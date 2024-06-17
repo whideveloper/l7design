@@ -45,6 +45,7 @@ use App\Http\Controllers\TeleinterconsultaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ContactTelenordesteController;
+use App\Http\Controllers\DataGraphController;
 use App\Http\Controllers\EspecialidadeSessionController;
 use App\Http\Controllers\EspecialidadeCategoryController;
 use App\Http\Controllers\MuralDeComunicacaoFeedController;
@@ -53,6 +54,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
+use App\Models\DataGraph;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -430,6 +432,8 @@ Route::prefix('painel/')->group(function () {
             ->name('admin.dashboard.contact.sorting');
         Route::post('contato/search', [ContactController::class, 'index'])
             ->name('admin.dashboard.contact.search');
+        //IMPORT EXCEL
+        Route::post('import', [DataGraphController::class, 'import'])->name('admin.dashboard.importExcel');
 
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');

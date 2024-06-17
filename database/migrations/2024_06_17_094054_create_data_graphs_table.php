@@ -15,22 +15,21 @@ class CreateDataGraphsTable extends Migration
     {
         Schema::create('data_graphs', function (Blueprint $table) {
             $table->id();
-            $table->integer('cnes')->nullable();
+            $table->string('cnes')->nullable();
             $table->string('health_unit')->nullable();
-            $table->string('district')->nullable();
             $table->string('county')->nullable();
-            $table->integer('health_region')->nullable();
-            $table->integer('cardiology')->nullable();
-            $table->integer('endocrinology_and_metabology')->nullable();
-            $table->integer('nursing')->nullable();
-            $table->integer('family_and_community_medicine')->nullable();
-            $table->integer('physiatry')->nullable();
-            $table->integer('neurology')->nullable();
-            $table->integer('neuropediatrics')->nullable();
-            $table->integer('nutritionist')->nullable();
-            $table->integer('psychiatry')->nullable();
-            $table->integer('child_and_adolescent_psychiatry')->nullable();
-            $table->integer('urology')->nullable();
+            $table->string('health_region')->nullable();
+            $table->string('cardiology')->nullable();
+            $table->string('endocrinology_and_metabology')->nullable();
+            $table->string('nursing')->nullable();
+            $table->string('family_and_community_medicine')->nullable();
+            $table->string('physiatry')->nullable();
+            $table->string('neurology')->nullable();
+            $table->string('neuropediatrics')->nullable();
+            $table->string('nutritionist')->nullable();
+            $table->string('psychiatry')->nullable();
+            $table->string('child_and_adolescent_psychiatry')->nullable();
+            $table->string('urology')->nullable();
             $table->timestamps();
         });
     }

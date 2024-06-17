@@ -12,7 +12,6 @@ class DataGraph extends Model
     protected $fillable = [
         'cnes',
         'health_unit',
-        'district',
         'county',
         'health_region',
         'cardiology',
@@ -30,7 +29,6 @@ class DataGraph extends Model
     protected static $logAttributes = [
         'cnes',
         'health_unit',
-        'district',
         'county',
         'health_region',
         'cardiology',

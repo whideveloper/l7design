@@ -2,29 +2,25 @@
 
 namespace App\Http\Controllers;
 
+
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\DataGraph;
 use Illuminate\Http\Request;
+use App\Imports\DataGraphImport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class DataGraphController extends Controller
 {
-    
-    public function store(Request $request)
+    public function import(Request $request) 
     {
-        $data = $request->all();
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
 
-        try {
-            DB::beginTransaction();
-                DataGraph::create($data);
-            DB::commit();
-            Session::flash('success', 'Importação realizada com sucesso!');
-            return redirect()->back();
-        } catch (\Exception $e) {
-            DB::rollBack();
-            Session::flash('error', 'Não foi possível Importar o arquivo!');
-            return redirect()->back();
-        }
+        Excel::import(new DataGraphImport, request()->file('file'));
+
+        return back()->with('success', 'Importação realizada com sucesso!');
     }
 
     public function update(Request $request, DataGraph $dataGraph)
