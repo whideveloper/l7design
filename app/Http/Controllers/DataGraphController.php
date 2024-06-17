@@ -13,44 +13,25 @@ use Illuminate\Support\Facades\Session;
 class DataGraphController extends Controller
 {
     public function import(Request $request) 
-{
-    $request->validate([
-        'file' => 'required|mimes:xls,xlsx'
-    ]);
-
-    try {
-        // Verifica se há dados na tabela
-        if (DB::table('data_graphs')->exists()) {
-            // Remove os dados existentes
-            DB::table('data_graphs')->truncate();
-        }
-
-        // Importa o novo arquivo
-        Excel::import(new DataGraphImport, $request->file('file'));
-
-        return back()->with('success', 'Importação realizada com sucesso!');
-    } catch (\Exception $e) {
-
-        return back()->with('error', 'Ocorreu um erro durante a importação: ' . $e->getMessage());
-    }
-}
-
-
-    public function update(Request $request, DataGraph $dataGraph)
     {
-        $data = $request->all();
+        $request->validate([
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
 
         try {
-            DB::beginTransaction();
-                $dataGraph->fill($data)->save();
-            DB::commit();
-            Session::flash('success', 'Importação atualizada com sucesso!');
-            return redirect()->back();
+            // Verifica se há dados na tabela
+            if (DB::table('data_graphs')->exists()) {
+                // Remove os dados existentes
+                DB::table('data_graphs')->truncate();
+            }
+
+            // Importa o novo arquivo
+            Excel::import(new DataGraphImport, $request->file('file'));
+
+            return back()->with('success', 'Importação realizada com sucesso!');
         } catch (\Exception $e) {
-            DB::rollBack();
-            Session::flash('error', 'Não foi atualizar o arquivo!');
-            return redirect()->back();
+
+            return back()->with('error', 'Ocorreu um erro durante a importação: ' . $e->getMessage());
         }
     }
-
 }
