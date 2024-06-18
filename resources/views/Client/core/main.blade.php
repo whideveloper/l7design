@@ -20,11 +20,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Telenordeste" />
     <meta property="og:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
-    <meta property="og:image" content="{{ asset('Client/assets/images/favicon.png') }}" />
+    <meta property="og:image" content="{{ asset('Client/assets/images/img-compartilhamento.png') }}" />
     <!-- METAS DO TWITTER COMPARTILHAR -->
     <meta name="twitter:card" content="Telenordeste" />
     <meta name="twitter:site" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
-    <meta name="twitter:image" content="{{ asset('Client/assets/images/favicon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('Client/assets/images/img-compartilhamento.png') }}" />
     <meta name="twitter:creator" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
     <meta name="twitter:title" content="Telenordeste" />
     <meta name="twitter:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
