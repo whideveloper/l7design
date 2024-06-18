@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <title>Telenordeste</title>
@@ -60,7 +60,7 @@
                 <nav class="header__nav">
                     <ul class="header__list">
                         <li class="header__item"><a href="{{route('home')}}" class="{{ Route::currentRouteName() == 'home' ? 'active' : ''}}">Home</a></li>
-                        <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}}">Especialidades</a></li>
+                        <li class="header__item"><a href="{{route('especialidades')}}" class="{{ Route::currentRouteName() == 'especialidades' ? 'active' : ''}} {{ Route::currentRouteName() == 'especialidades-category' ? 'active' : ''}}">Especialidades</a></li>
                         <li class="header__item" id="material-de-apoio-click">
                             <a class="{{ Route::currentRouteName() == 'material-de-apoio' ? 'active' : ''}}">Material de apoio</a>
                             <ul class="submenu" id="submenu-material-de-apoio">
