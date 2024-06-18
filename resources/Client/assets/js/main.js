@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Seletor para o botão flutuante
     var botaoFlutuante = document.getElementById('rolagem__top');
     // Seletor para a sessão do rodapé
-    var footer = document.getElementById('footer');
+    var footer = document.getElementById('foo');
 
     // Função para verificar a posição do scroll e mostrar o botão flutuante quando necessário
     function verificarPosicaoScroll() {

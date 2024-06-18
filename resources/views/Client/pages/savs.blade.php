@@ -119,6 +119,16 @@
         });
     });
 
+    // Função para fechar o modal e limpar os campos do formulário
+    function closeModal(modal) {
+        modal.style.display = "none"; // Oculte o modal
+        document.body.style.overflow = "auto"; // Reative a rolagem da página principal
+        const form = modal.querySelector('form'); // Obtenha o formulário dentro do modal
+        if (form) {
+            form.reset(); // Limpe os campos do formulário
+        }
+    }
+
     // Obtenha todos os botões de fechar o modal
     const closeButtons = document.querySelectorAll('.close-btn');
 
@@ -127,8 +137,7 @@
         button.addEventListener('click', function() {
             const modal = this.closest('.modal'); // Obtenha o modal pai do botão de fechar
             if (modal) {
-                modal.style.display = "none"; // Oculte o modal
-                document.body.style.overflow = "auto"; // Reative a rolagem da página principal
+                closeModal(modal); // Feche o modal e limpe os campos do formulário
             }
         });
     });
@@ -136,11 +145,10 @@
     // Feche o modal quando clicar fora dele
     window.addEventListener("click", function(event) {
         if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none"; // Oculte o modal clicado
-            document.body.style.overflow = "auto"; // Reative a rolagem da página principal
+            closeModal(event.target); // Feche o modal clicado e limpe os campos do formulário
         }
     });
-</script>
 
+</script>
 
 @endsection

@@ -221,7 +221,7 @@
                     @endforeach
                 </ul>
             @endif
-            <div class="footer__contact">
+            <div id="foo" class="footer__contact">
                 <h6 class="footer__contact__title">Contato</h6>
                 <div class="footer__contact__items">
                     <ul class="footer__contact__items__left">
