@@ -24,7 +24,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row mb-3 align-items-center filter">
+                                <div class="row mb-1 align-items-center filter">
                                     <div class="col-3 bt-mobile">
                                         @can('lead.remover')
                                             <button id="btSubmitDelete" data-route="{{route('admin.dashboard.lead.destroySelected')}}" type="button" class="btn btn-danger" style="display: none;">Deletar selecionados</button>             
@@ -54,6 +54,9 @@
                                         <a href="{{route('admin.dashboard.lead.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
                                         @endcan
                                     </div> --}}
+                                </div>
+                                <div class="w-100 justify-content-end">
+                                    <a href="{{route('admin.dashboard.lead.export')}}" class="col-1 mb-3 btn btn-light float-end">Exportar</a>
                                 </div>
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">

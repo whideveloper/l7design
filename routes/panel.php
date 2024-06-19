@@ -333,6 +333,9 @@ Route::prefix('painel/')->group(function () {
         Route::get('lead-search', [LeadController::class, 'index'])
             ->name('admin.dashboard.lead.lead-search');
 
+        //EXPORT EXCEL
+        Route::get('/export-leads', [LeadController::class, 'export'])->name('admin.dashboard.lead.export');
+
         //GRUPOS
         Route::resource('contato-telenordeste', ContactTelenordesteController::class)
         ->names('admin.dashboard.contactTelenordeste')

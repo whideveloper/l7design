@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Lead;
 use App\Models\SavGravada;
+use App\Exports\LeadExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LeadController extends Controller
 {
@@ -76,5 +78,10 @@ public function index(Request $request)
         if($deleted = Lead::whereIn('id', $request->deleteAll)->delete()){
             return Response::json(['status' => 'success', 'message' => $deleted.' itens deletados com sucessso!']);
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new LeadExport, 'leads.xlsx');
     }
 }
