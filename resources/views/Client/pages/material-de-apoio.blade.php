@@ -39,7 +39,7 @@
 
                     @if ($protocolo->path_file)
                         <div class="teleinterconsulta__btn">
-                            <a href="{{asset('storage/'. $protocolo->path_file)}}" download="" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Protocolos" title="Protocolos"> {{$protocolo->btn_title}}</a>
+                            <a href="{{asset('storage/'. $protocolo->path_file)}}" target="_blank" class="consulta"><img src="{{asset('Client/assets/images/pdf.svg')}}" alt="Protocolos" title="Protocolos"> {{$protocolo->btn_title}}</a>
                         </div>
                     @endif
                 </div>

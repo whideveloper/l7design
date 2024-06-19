@@ -17,7 +17,7 @@
                     
                     <aside id="eventPanel" class="calendar-page__aside">                        
                         <ul class="events-list">
-                            @foreach ($eventAll as $event)                                
+                            @foreach ($currentEvent as $event)                                
                                 @php
                                     $data = Carbon\Carbon::parse($event->date_start)->format('d/m/Y');
 

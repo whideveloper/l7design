@@ -42,17 +42,52 @@
 
             <div class="card">
                 <ul class="list-group w-100 h-25" style="column-count: 2">
-                    @foreach($currentRole as $role)
+                    {{-- @foreach($currentRole as $role)
                         <li class="list-group-item">
                             <label>
                                 {{ucfirst($role->name)}}
                             </label>
+                            @if (!Auth::user()->hasRole('Super'))
+                                <input type="hidden" name="roles[]" value="{{$role->name}}">
+                            @endif
                             @can('usuario.atribuir grupos')
-                                <input  type="checkbox" name="roles[]" checked value="{{$role->name}}">
+                                <input type="checkbox" name="roles[]" checked value="{{$role->name}}">
                             @endcan
 
                         </li>
+                    @endforeach --}}
+                    @foreach($currentRole as $role)
+                        <li class="list-group-item">
+                            <label>
+                                {{ ucfirst($role->name) }}
+                            </label>
+                            @if (!Auth::user()->hasRole('Super'))
+                                <input type="hidden" name="roles[]" id="input_{{ $role->name }}" value="{{ $role->name }}">
+                            @endif
+                            @can('usuario.atribuir grupos')
+                                <input type="checkbox" name="roles[]" checked value="{{ $role->name }}">
+                            @endcan
+                        </li>
                     @endforeach
+
+                    <script>
+                        // Aguarda o carregamento completo do DOM
+                        document.addEventListener("DOMContentLoaded", function() {
+                            // Itera sobre cada elemento input hidden criado
+                            @foreach($currentRole as $role)
+                                const targetNode = document.getElementById('input_{{ $role->name }}');
+                                const observer = new MutationObserver((mutationsList, observer) => {
+                                    for(let mutation of mutationsList) {
+                                        if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
+                                            // Reverte a mudança
+                                            targetNode.value = '{{ $role->name }}';
+                                        }
+                                    }
+                                });
+                                observer.observe(targetNode, { attributes: true });
+                            @endforeach
+                        });
+                    </script>
                 </ul>
             </div>
         @endif

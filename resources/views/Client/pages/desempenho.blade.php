@@ -60,11 +60,6 @@
                 marker.bindPopup(popupContent);
             }
         </script>
-         
-        <!-- Biblioteca do Leaflet -->
-        {{-- <div class="image">
-            <img src="{{asset('Client/assets/images/map.png')}}" alt="">
-        </div>--}}
 
         <div class="mapa__atuacao__text">
             <p>O <strong>TeleNordeste</strong> está presente em mais de 70 municípios de Sergipe, distribuídos em sete Regiões de Saúde: Itabaiana, Propriá, Lagarto, Aracaju, Estância, Nossa Senhora da Glória e Nossa Senhora do Socorro. Todos os municípios destacados neste mapa assinaram o termo de adesão ao TeleNordeste.</p>
@@ -77,8 +72,8 @@
             <h3 class="quadro__geral__title">Quadro geral por UBS</h3>
             <div class="quadro__geral__table">
                 <table>
-                    <thead>
-                        <tr>                        
+                    <thead class="header-thead">
+                        <tr class="header-table">                        
                             <th>CNES</th>
                             <th style="width:300px">Unidade Saúde</th>
                             <th>Município</th>
