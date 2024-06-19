@@ -49,11 +49,6 @@
                                             </form>                                            
                                         </div> 
                                     </div>
-                                    {{-- <div class="col-3 bt-mobile">
-                                        @can('lead.criar')
-                                        <a href="{{route('admin.dashboard.lead.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>
-                                        @endcan
-                                    </div> --}}
                                 </div>
                                 <div class="w-100 justify-content-end">
                                     <a href="{{route('admin.dashboard.lead.export')}}" class="col-1 mb-3 btn btn-light float-end">Exportar</a>
@@ -61,7 +56,6 @@
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
-                                            {{-- <th></th> --}}
                                             <th class="bs-checkbox">
                                                 <label><input name="btnSelectAll" type="checkbox"></label>
                                             </th>
@@ -75,7 +69,6 @@
                                     <tbody>
                                         @foreach ($leads as $key => $lead)
                                             <tr data-code="{{$lead->id}}">
-                                                {{-- <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td> --}}
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value="{{$lead->id}}"></label>
                                                 </td>
