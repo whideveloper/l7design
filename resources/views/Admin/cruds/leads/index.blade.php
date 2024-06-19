@@ -50,9 +50,12 @@
                                         </div> 
                                     </div>
                                 </div>
-                                <div class="w-100 justify-content-end">
-                                    <a href="{{route('admin.dashboard.lead.export')}}" class="col-1 mb-3 btn btn-light float-end">Exportar</a>
-                                </div>
+                                {{-- 
+                                    Para Exportar, adicionar div class="w-100 justify-content-end" e 
+                                    um a href com class="col-1 mb-3 btn btn-light float-end"
+                                    com rota admin.dashboard.lead.export
+                                --}}
+
                                 <table data-toggle="table" data-page-size="5" data-pagination="false" class="table-bordered table-sortable">
                                     <thead class="table-light">
                                         <tr>
