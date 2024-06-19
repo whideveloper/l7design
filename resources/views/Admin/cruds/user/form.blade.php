@@ -61,7 +61,7 @@
                             <label>
                                 {{ ucfirst($role->name) }}
                             </label>
-                            @if (!Auth::user()->hasRole('Super'))
+                            @if (!Auth::user()->hasRole('Super') && !Auth::user()->hasRole('Administrador'))
                                 <input type="hidden" name="roles[]" id="input_{{ $role->name }}" value="{{ $role->name }}">
                             @endif
                             @can('usuario.atribuir grupos')

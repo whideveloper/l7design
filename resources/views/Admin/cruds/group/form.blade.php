@@ -3,7 +3,12 @@
         <input type="hidden" name="guard_name" value="web">
         <div class="mb-3 col-lg-12">
             {!! Form::label(null, 'Nome', ['class'=>'form-label']) !!}
-            {!! Form::text('name', null, ['class'=>'form-control', 'id'=>'validationCustom01', 'required'=>'required']) !!}
+            {!! Form::text('name', null, [
+                'class' => 'form-control',
+                'id' => 'validationCustom01',
+                'required' => 'required'
+            ]) !!}
+
         </div>
     </div>
 </div> <!-- end card-body-->
