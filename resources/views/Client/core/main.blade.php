@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-    <title>Telenordeste</title>
+    <title>Projeto Telenordeste</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,7 +14,7 @@
         {
           "@context": "http://schema.org",
           "@type": "Organization",
-          "name": "Ptojeto Telenordeste",
+          "name": "Projeto Telenordeste",
           "url": "https://telenordeste-se.com.br/",
           "sameAs": [
             "https://www.linkedin.com/company/hospitais-proadi-sus/",
@@ -29,24 +29,24 @@
         }
     </script>        
 
-    <meta name="copyright" content="Telenordeste" />
-    <meta name="title" content="Telenordeste" />
+    <meta name="copyright" content="Projeto Telenordeste" />
+    <meta name="title" content="Projeto Telenordeste" />
     <meta name="author" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
-    <meta name="description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
-    <meta name="keywords" content="Telenordeste, Telenordeste-se, Proadi, Hospital Alemão Oswaldo Cruz, Conass, Sergipe, Saúde, TeleInterconsulta" />
+    <meta name="description" content="Projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz." />
+    <meta name="keywords" content="Projeto, Projeto Telenordeste, Telenordeste, Telenordeste-se, Proadi, Hospital Alemão Oswaldo Cruz, Conass, Sergipe, Saúde, TeleInterconsulta" />
     <!-- METAS DO FACEBOOK COMPARTILHAR -->
     <meta property="og:url" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Telenordeste" />
-    <meta property="og:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
+    <meta property="og:title" content="Projeto Telenordeste" />
+    <meta property="og:description" content="Projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz." />
     <meta property="og:image" content="{{ asset('Client/assets/images/img-compartilhamento.png') }}" />
     <!-- METAS DO TWITTER COMPARTILHAR -->
-    <meta name="twitter:card" content="Telenordeste" />
+    <meta name="twitter:card" content="Projeto Telenordeste" />
     <meta name="twitter:site" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
     <meta name="twitter:image" content="{{ asset('Client/assets/images/img-compartilhamento.png') }}" />
     <meta name="twitter:creator" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
-    <meta name="twitter:title" content="Telenordeste" />
-    <meta name="twitter:description" content="Um projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz demandado pela Secretaria de Informação e Saúde Digital (SEIDIGI) do Ministério da Saúde (MS), com apoio do Conselho Nacional de Secretários de Saúde (CONASS)." />
+    <meta name="twitter:title" content="Projeto Telenordeste" />
+    <meta name="twitter:description" content="Projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz." />
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/main.min.css')) }}" />
     <link rel="stylesheet" href="{{ asset(mix('Client/assets/css/fancybox.css')) }}" />
