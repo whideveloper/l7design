@@ -1,2 +1,5 @@
+# robots.txt gerado em http://www.ptwebsite.com
 User-agent: *
-Disallow:
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://telenordeste-se.com.br/sitemap.xml
