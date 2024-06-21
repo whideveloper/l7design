@@ -10,6 +10,25 @@
     <meta http-equiv="CONTENT-LANGUAGE" content="Portuguese" />
     <link rel="shortcut icon" href="{{ asset('Client/assets/images/favicon.png') }}" />
 
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "Ptojeto Telenordeste",
+          "url": "https://telenordeste-se.com.br/",
+          "sameAs": [
+            "https://www.linkedin.com/company/hospitais-proadi-sus/",
+            "https://www.instagram.com/hospitaisproadisus/"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Treze de Maio, 1815 Bela Vista ",
+            "addressRegion": "São Paulo",
+            "addressCountry": "BR"
+          }
+        }
+    </script>        
+
     <meta name="copyright" content="Telenordeste" />
     <meta name="title" content="Telenordeste" />
     <meta name="author" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
