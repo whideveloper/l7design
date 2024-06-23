@@ -82,6 +82,7 @@
 
     gtag('config', 'G-FDQ871C1KN');
     </script>
+    
 </head>
 
 <body>
