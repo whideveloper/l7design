@@ -22,14 +22,15 @@
           ],
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Rua Treze de Maio, 1815 Bela Vista ",
+            "streetAddress": "Rua Treze de Maio, 1815 Bela Vista",
             "addressLocality": "São Paulo",
             "addressRegion": "SP",
             "postalCode": "01327-001",
-            "addressCountry": "BR",
+            "addressCountry": "BR"
           }
         }
-    </script>        
+    </script>
+                
 
     <meta name="copyright" content="Projeto Telenordeste" />
     <meta name="title" content="Projeto Telenordeste" />
