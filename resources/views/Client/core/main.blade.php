@@ -23,8 +23,10 @@
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Rua Treze de Maio, 1815 Bela Vista ",
-            "addressRegion": "São Paulo",
-            "addressCountry": "BR"
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "01327-001",
+            "addressCountry": "BR",
           }
         }
     </script>        
@@ -33,7 +35,7 @@
     <meta name="title" content="Projeto Telenordeste" />
     <meta name="author" content="WHI - WEB DE ALTA INSPIRAÇÃO" />
     <meta name="description" content="Projeto que faz parte do Programa de Apoio ao Desenvolvimento Institucional do Sistema Único de Saúde (PROADI-SUS), executado pelo Hospital Alemão Oswaldo Cruz." />
-    <meta name="keywords" content="Projeto, Projeto Telenordeste, Telenordeste, Telenordeste-se, Proadi, Hospital Alemão Oswaldo Cruz, Conass, Sergipe, Saúde, TeleInterconsulta" />
+    <meta name="keywords" content="Telenordeste Sergipe, Projeto, Projeto Telenordeste, Telenordeste, Telenordeste-se, SUS, Proadi, Hospital Alemão Oswaldo Cruz, Conass, Sergipe, Saúde, TeleInterconsulta, hospital oswaldo cruz telefone, hospital oswaldo cruz agendamento de exames, agendamento de consultas, oswaldo cruz agendamento, convenio hospital oswaldo cruz, oswaldo cruz, sistema para hospital, hospital oswaldo cruz sp, oswaldo cruz cursos, hospital oswaldo cruz agendamento, hospital publico, enfermagem oswaldo cruz, telefone hospital oswaldo cruz, hospital oswaldo cruz sus, agendamento oswaldo cruz, hospital oswaldo cruz atende pelo sus, hospital oswaldo cruz tem convênio próprio, hospital oswaldo cruz telefone agendamento, hospital oswaldo cruz marcação de consultas, hospital oswaldo cruz atende sus, hospital oswaldo cruz brasilia, tecnico de enfermagem oswaldo cruz, haoc hospital alemão oswaldo cruz, instituto alemao oswaldo cruz, proadi sus oswaldo cruz, hospital oswaldo cruz tem convênio próprio, hospital oswaldo cruz telefone agendamento, hospital oswaldo cruz marcação de consultas, hospital oswaldo cruz atende sus, hospital oswaldo cruz brasilia, tecnico de enfermagem oswaldo cruz, haoc hospital alemão oswaldo cruz, instituto alemao oswaldo cruz, proadi sus oswaldo cruz" />
     <!-- METAS DO FACEBOOK COMPARTILHAR -->
     <meta property="og:url" content="{{ url('https://www.telenordeste-se.com.br/') }}" />
     <meta property="og:type" content="website" />
