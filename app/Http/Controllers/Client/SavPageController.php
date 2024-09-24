@@ -27,13 +27,19 @@ class SavPageController extends Controller
         $email = $request->email;
         $video_title = $request->video_title;
         $video_id = $request->video_id;
+        $dataHora = $request->dataHora;
+        $localidadeApi = $request->localidade;
+        $localidadeInput = $request->locality;
 
-        // dd($video_title, $video_id);
+        // dd($localidadeInput, $dataHora);
         $lead = Lead::create([
             'name' => $name,
             'email' => $email,
             'video_title' => $video_title,
-            'video_id' => $video_id
+            'video_id' => $video_id,
+            'localidade' => $localidadeApi,
+            'locality' => $localidadeInput,
+            'data_hora' => $dataHora,
         ]);
 
         if ($lead) {

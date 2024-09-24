@@ -64,6 +64,8 @@
                                             <th>Nome</th>
                                             <th>Email</th>
                                             <th>Vídeo assistido</th>
+                                            <th>Cidade/Município</th>
+                                            <th>Data/Hora</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -78,6 +80,8 @@
                                                 <td>{{$lead->name}}</td>
                                                 <td>{{$lead->email}}</td>
                                                 <td>{{$lead->video_title}}</td>
+                                                <td>{{isset($lead->locality) && isset($lead->localidade)?$lead->locality .' '. $lead->localidade:'-'}}</td>
+                                                <td>{{isset($lead->data_hora)?\Carbon\Carbon::parse($lead->data_hora)->setTimezone('America/Sao_Paulo')->format('d-m-Y H:i:s'):'-'}}</td>
                                                 <td>
                                                     <div class="row">
                                                         @can('lead.visualizar')

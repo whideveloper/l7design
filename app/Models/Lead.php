@@ -16,6 +16,9 @@ class Lead extends Model
         'video_title',
         'name',
         'email',
+        'localidade',
+        'locality',
+        'data_hora',
     ];
 
     protected static $logAttributes = [
@@ -23,6 +26,9 @@ class Lead extends Model
         'video_title',
         'name',
         'email',
+        'localidade',
+        'locality',
+        'data_hora',
     ];
 
     protected static $logOnlyDirty = true;

@@ -50,7 +50,7 @@
             <div class="savs__gravadas__list">
                 @foreach ($savGravadas as $savGravada)
                     <div class="savs__gravadas__item">
-                        <a id="myModal-{{$savGravada->id}}" class="link-full click-lead"></a>
+                        <a id="myModal-{{$savGravada->id}}" class="link-full click-lead" data-id="{{$savGravada->id}}" data-title="{{$savGravada->title}}" data-link="{{$savGravada->link}}"></a>
                         @if ($savGravada->path_image)
                             <img src="{{asset('storage/'. $savGravada->path_image)}}" class="savs__gravadas__capa" alt="Imagem de capa">
                         @endif
@@ -66,15 +66,17 @@
                                 <h6 class="modal-title">Para assistir digite seu nome completo e e-mail:</h6>
                                 <form action="{{route('admin.dashboard.lead.leadSave')}}" method="post">   
                                     @csrf 
-                                    <input type="hidden" name="link" value="{{$savGravada->link}}">
-                                    <input type="hidden" id="videoId" name="video_id" value="{{$savGravada->id}}">
-                                    <input type="hidden" id="videoTitle" name="video_title" value="{{$savGravada->title}}">                
+                                    <input type="hidden" name="link" class="modal-link" value="{{$savGravada->link}}">
+                                    <input type="hidden" name="video_id" class="modal-video_id" value="{{$savGravada->id}}">
+                                    <input type="hidden" name="video_title" class="modal-video_title" value="{{$savGravada->title}}">  
+                                    <input type="hidden" id="dataHoraAutomatica" name="dataHora">             
                                     <input type="text" name="name" required placeholder="Nome completo">                     
                                     <input type="text" name="email" required placeholder="E-mail">
-                                    
+                                    <input type="hidden" id="localidade" name="localidade">
+                                    <input type="text" name="locality" id="locality" required placeholder="Cidade/Município">
                                     <div class="modal-content-btn">
                                         <button type="submit" class="button"><span>Assistir</span></button>
-                                        <button type="button"  class="close-btn"><span>Sair</span></button>
+                                        <button type="button" class="close-btn"><span>Sair</span></button>
                                     </div>
                                 </form>
                             </div>
@@ -95,10 +97,76 @@
                     <a href="{{route('calendario')}}" class="consulta"><img src="{{asset('Client/assets/images/agenda.svg')}}" alt="Próximas Sav's" title="Próximas Sav's">Próximas SAVs</a>
                 </div>
             </div>
-
         </div>
     </section>
 @endif
+
+<script>
+    // Função para obter a localização do usuário - API de geolocalização por IP
+    function getLocation() {
+        return fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                return {
+                    city: '',
+                    region: data.region,
+                    country: data.country
+                };
+            })
+            .catch(error => {
+                console.error('Erro ao obter localização:', error);
+                return {
+                    city: '',
+                    region: '',
+                    country: ''
+                };
+            });
+    }
+    // Função para obter a data e hora atuais no formato 'YYYY-MM-DD HH:MM:SS'
+    function getCurrentDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    // Função para configurar os campos do modal
+    function setModalFields(modal, location) {
+        const form = modal.querySelector('form');
+        form.querySelector('#localidade').value = `${location.city}, ${location.region}, ${location.country}`;
+        form.querySelector('#locality').value = location.city;
+        form.querySelector('#dataHoraAutomatica').value = getCurrentDateTime();
+        
+    }
+
+    // Adicionar eventos de clique para cada link do modal
+    document.querySelectorAll('.link-full').forEach(link => {
+        link.addEventListener('click', function() {
+            const modalId = `#myModal-${this.dataset.id}-modal`;
+            const modal = document.querySelector(modalId);
+            
+            getLocation().then(location => {
+                setModalFields(modal, location);
+            });
+
+            // Mostrar o modal
+            modal.style.display = 'block';
+        });
+    });
+
+    // Adicionar evento de clique para os botões de fechar do modal
+    document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
+</script>
+
 
 <script>
     // Obtenha todos os links que abrem o modal
