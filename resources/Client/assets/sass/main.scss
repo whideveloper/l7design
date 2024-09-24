@@ -2734,6 +2734,7 @@ input, select {
                     height: 100%;
                     object-fit: cover;
                     aspect-ratio: 2 / 1;
+                    
                 }
             }
         }
@@ -3571,10 +3572,6 @@ table{
         margin-top: 18px;
         line-height: 26px;
         width: 100%;
-        span, p{
-            // word-break: break-word;
-            // word-wrap: break-word; 
-        }
     }
 }
 .submenu{
