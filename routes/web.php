@@ -84,6 +84,7 @@ Route::get('/calendario/{slug}', [EventPageController::class, 'calendarioDate'])
 Route::get('/desempenho', [DesempenhoPageController::class, 'index'])->name('desempenho');
 Route::post('/contact/envia', [SendEmailController::class, 'enviarEmail'])->name('send');
 
+
 View::composer('Client.core.main', function ($view) {
     $partners = Partner::sorting()->active()->get();
     $materialSections = Material::active()->get();
