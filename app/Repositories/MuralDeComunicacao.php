@@ -13,21 +13,19 @@ class MuralDeComunicacao
             'mural_de_comunicacao_categories.id', 
             'mural_de_comunicacao_categories.title',
             'mural_de_comunicacao_categories.slug',
-            'mural_de_comunicacao_categories.active',
-            'mural_de_comunicacao_feeds.active as feed_active',
-            'mural_de_comunicacao_feeds.deleted_at',
+            'mural_de_comunicacao_categories.active'
         ])
         ->where('mural_de_comunicacao_categories.active', 1)
         ->where('mural_de_comunicacao_feeds.active', 1)
         ->whereNull('mural_de_comunicacao_feeds.deleted_at')
-        ->orderBy('mural_de_comunicacao_feeds.active')
+        ->groupBy('mural_de_comunicacao_categories.id', 
+                'mural_de_comunicacao_categories.title',
+                'mural_de_comunicacao_categories.slug',
+                'mural_de_comunicacao_categories.active')
         ->orderBy('mural_de_comunicacao_categories.id')
         ->orderBy('mural_de_comunicacao_categories.title')
         ->orderBy('mural_de_comunicacao_categories.slug')
         ->orderBy('mural_de_comunicacao_categories.active')
-        ->orderBy('mural_de_comunicacao_feeds.deleted_at')
-        ->sorting()
-        ->active()
         ->get();
 
     }
