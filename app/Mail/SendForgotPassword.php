@@ -33,7 +33,7 @@ class SendForgotPassword extends Mailable
      */
     public function build()
     {
-        return $this->from('anderson@hoom.com.br', 'WHI')
+        return $this->from('waggner.447@gmail.com', 'WHI')
             ->subject('WHI, Recuperação de senha')
             ->view('emails.forgot-password', [
                 'token'=> $this->token
