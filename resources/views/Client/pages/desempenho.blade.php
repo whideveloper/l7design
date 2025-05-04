@@ -6,14 +6,12 @@
 
 <section class="desempenho"> 
     <div class="desempenho__content">
-        <h3 class="desempenho__title">Números gerais do TeleNordeste em 2024</h3>
-        <div class="desempenho__text">
-            <p>
-                Abaixo encontra-se a relação dos principais indicadores do Projeto TeleNordeste em 2024.
-                <br><br>
-                Explore o painel do TeleNordeste e verifique os números, atualizados mensalmente.            
-            </p>
-        </div>
+        @if(isset($sectionTitlePerformance) && $sectionTitlePerformance->title !== null || isset($sectionTitlePerformance) && $sectionTitlePerformance->description !== null)
+            <h3 class="desempenho__title">{{isset($sectionTitlePerformance) && $sectionTitlePerformance->title !== null ? $sectionTitlePerformance->title : ''}}</h3>
+            <div class="desempenho__text">
+                {!!isset($sectionTitlePerformance) && $sectionTitlePerformance->description !== null ? $sectionTitlePerformance->description : ''!!}
+            </div>
+        @endif
 
         <div class="desempenho__grafico">
             {{-- <img src="{{asset('Client/assets/images/desempenho.jpg')}}" alt="Desempenho"> --}}
