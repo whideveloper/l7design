@@ -39,7 +39,7 @@ class SectionTitlePerformanceController extends Controller
 
     public function edit(SectionTitlePerformance $sectionTitlePerformance)
     {
-        $performance = SectionTitlePerformance::first();
+        $performance = $sectionTitlePerformance;
 
         return view('admin.cruds.performance.edit', compact('performance'));
     }
@@ -64,7 +64,6 @@ class SectionTitlePerformanceController extends Controller
     public function destroy(SectionTitlePerformance $sectionTitlePerformance)
     {
         $sectionTitlePerformance->delete();
-        // dd($sectionTitlePerformance); 
         Session::flash('success', 'Item deletado com sucesso!');
         return redirect()->back();
     }
