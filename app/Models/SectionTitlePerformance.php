@@ -18,5 +18,22 @@ class SectionTitlePerformance extends Model
         'description',
     ];
 
+    protected static $logAttributes = [
+        'title',
+        'description', 
+    ];
 
+    protected static $logOnlyDirty = true;
+
+    public function customProperties()
+    {
+        $properties = [];
+
+        foreach (static::$logAttributes as $attribute) {
+            $properties['old'][$attribute] = $this->getOriginal($attribute);
+            $properties['new'][$attribute] = $this->getAttribute($attribute);
+        }
+
+        return $properties;
+    }
 }

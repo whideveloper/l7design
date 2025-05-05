@@ -13,7 +13,7 @@ class SectionTitlePerformanceController extends Controller
     public function index()
     {
         $sectionTitlePerformance = SectionTitlePerformance::first();
-
+        dd($sectionTitlePerformance);
         return view('admin.cruds.performance.index', compact('sectionTitlePerformance'));
     }
 
