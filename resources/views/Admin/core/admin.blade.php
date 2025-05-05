@@ -363,7 +363,7 @@
                                         <div class="collapse" id="desempenho">
                                             <ul class="nav-second-level">
                                                 <li class="{{ route('admin.dashboard.performance.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.performance.index')}}"><i class="mdi mdi-format-title"></i> Título Sessão Desempenho</a>
+                                                    <a href="{{route('admin.dashboard.performance.index')}}"><i class="mdi mdi-format-title"></i> Título Seção Desempenho</a>
                                                 </li>
                                                 @can('mapa.visualizar')
                                                     <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
@@ -438,7 +438,7 @@
                                                 @endcan
                                                 @can('google form.visualizar')
                                                     <li class="{{ route('admin.dashboard.googleForm.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                        <a href="{{route('admin.dashboard.googleForm.index')}}"><i class="mdi mdi-gmail "></i> Sessão formulário</a>
+                                                        <a href="{{route('admin.dashboard.googleForm.index')}}"><i class="mdi mdi-gmail "></i> Seção formulário</a>
                                                     </li>
                                                 @endcan
                                             </ul>
