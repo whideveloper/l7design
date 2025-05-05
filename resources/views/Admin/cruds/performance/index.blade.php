@@ -55,9 +55,9 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <a href="{{route('admin.dashboard.sectionTitlePerformance.edit',['sectionTitlesectionTitlePerformance' => $sectionTitlePerformance->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
+                                                            <a href="{{route('admin.dashboard.sectionTitlePerformance.edit',['sectionTitlePerformance' => $sectionTitlePerformance->id])}}" class="btn-icon mdi mdi-square-edit-outline"></a>
                                                         </div>
-                                                        <form action="{{route('admin.dashboard.sectionTitlePerformance.destroy',['sectionTitlesectionTitlePerformance' => $sectionTitlePerformance->id])}}" class="col-4" method="POST">
+                                                        <form action="{{route('admin.dashboard.sectionTitlePerformance.destroy',['sectionTitlePerformance' => $sectionTitlePerformance->id])}}" class="col-4" method="POST">
                                                             @method('DELETE') @csrf
                                                             <button type="button" class="btn-icon btSubmitDeleteItem"><i class="mdi mdi-trash-can"></i></button>
                                                         </form>

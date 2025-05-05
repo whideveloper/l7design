@@ -40,9 +40,7 @@ class SectionTitlePerformanceController extends Controller
 
     public function edit(SectionTitlePerformance $sectionTitlePerformance)
     {
-        $performance = $sectionTitlePerformance;
-        dd($performance);
-        return view('admin.cruds.performance.edit', compact('performance'));
+        return view('admin.cruds.performance.edit', compact('sectionTitlePerformance'));
     }
 
     public function update(Request $request, SectionTitlePerformance $sectionTitlePerformance)
