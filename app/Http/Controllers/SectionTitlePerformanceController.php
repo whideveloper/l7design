@@ -12,13 +12,15 @@ class SectionTitlePerformanceController extends Controller
 
     public function index()
     {
-        $performance = SectionTitlePerformance::first();
-        return view('admin.cruds.performance.index', compact('performance'));
+        $sectionTitlePerformance = SectionTitlePerformance::first();
+        
+        return view('Admin.cruds.performance.index', compact('sectionTitlePerformance'));
     }
+
 
     public function create()
     {
-        return view('admin.cruds.performance.create');
+        return view('Admin.cruds.performance.create');
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class SectionTitlePerformanceController extends Controller
                 SectionTitlePerformance::create($data);
             DB::commit();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.dashboard.performance.index');
+            return redirect()->route('admin.dashboard.sectionTitlePerformance.index');
         } catch (\Exception $e) {
             DB::rollback();
             Session::flash('error', 'Erro ao cadastrar item!');
@@ -39,9 +41,7 @@ class SectionTitlePerformanceController extends Controller
 
     public function edit(SectionTitlePerformance $sectionTitlePerformance)
     {
-        $performance = SectionTitlePerformance::first();
-
-        return view('admin.cruds.performance.edit', compact('performance'));
+        return view('Admin.cruds.performance.edit', compact('sectionTitlePerformance'));
     }
 
     public function update(Request $request, SectionTitlePerformance $sectionTitlePerformance)
@@ -53,7 +53,7 @@ class SectionTitlePerformanceController extends Controller
                 $sectionTitlePerformance->fill($data)->save();
             DB::commit();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.performance.edit', $sectionTitlePerformance->id);
+            return redirect()->route('admin.dashboard.sectionTitlePerformance.edit', $sectionTitlePerformance->id);
         } catch (\Exception $e) {
             DB::rollback();
             Session::flash('error', 'Erro ao atualizar item!');
@@ -64,7 +64,6 @@ class SectionTitlePerformanceController extends Controller
     public function destroy(SectionTitlePerformance $sectionTitlePerformance)
     {
         $sectionTitlePerformance->delete();
-        // dd($sectionTitlePerformance); 
         Session::flash('success', 'Item deletado com sucesso!');
         return redirect()->back();
     }

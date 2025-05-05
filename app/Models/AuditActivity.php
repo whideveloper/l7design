@@ -56,6 +56,7 @@ class AuditActivity extends Model
     public const HOLIDAY = 'Feriados';
     public const ROLES = 'Grupos';
     public const MAPA = 'Mapa';
+    public const SECTIONTITLEPERFORMANCE = 'Título Sessão Desempenho';
 
     public static function getModelName($subjectType)
     {
@@ -132,6 +133,8 @@ class AuditActivity extends Model
                 return self::HOLIDAY;
             case Map::class:
                 return self::MAPA;
+            case SectionTitlePerformance::class:
+                return self::SECTIONTITLEPERFORMANCE;
             default:
                 return 'Desconhecido';
         }

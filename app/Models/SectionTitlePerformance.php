@@ -11,6 +11,8 @@ class SectionTitlePerformance extends Model
 {
     use HasFactory, Notifiable, LogsActivity;
 
+    protected $table = 'section_title_performances'; 
+
     protected $fillable = [
         'title',
         'description',

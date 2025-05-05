@@ -531,7 +531,7 @@
                         </div>
                     </div>  
                     <div class="col-md-6 col-xl-3">
-                        <a nofollow href="{{route('admin.dashboard.performance.index')}}">
+                        <a nofollow href="{{route('admin.dashboard.sectionTitlePerformance.index')}}">
                             <div class="widget-rounded-circle card">
                                 <div class="card-body">
                                     <div class="row">
@@ -542,7 +542,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="text-center">
-                                                <h4 class="text-dark mt-1">Título Sessão Desempenho</h4>
+                                                <h4 class="text-dark mt-1">Título Seção Desempenho</h4>
                                                 <p class="text-muted mb-1">Gerenciar</p>
                                             </div>
                                         </div>
@@ -728,7 +728,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="text-center">
-                                                    <h4 class="text-dark mt-1">Sessão formulário</h4>
+                                                    <h4 class="text-dark mt-1">Seção formulário</h4>
                                                     <p class="text-muted mb-1">Gerenciar</p>
                                                 </div>
                                             </div>
