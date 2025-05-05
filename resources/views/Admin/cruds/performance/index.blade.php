@@ -51,7 +51,12 @@
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value=""></label>
                                                 </td>
                                                 <td>{{$sectionTitlePerformance->title}}</td>
-                                                <td>{!!substr(strip_tags($sectionTitlePerformance->description), 0, 80)!!}...</td>
+                                                <td>
+                                                    {!! $sectionTitlePerformance->description 
+                                                        ? substr(strip_tags($sectionTitlePerformance->description), 0, 80) . '...'
+                                                        : '-' 
+                                                    !!}
+                                                </td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-4">
