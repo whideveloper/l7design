@@ -132,6 +132,10 @@ Route::prefix('painel/')->group(function () {
             return view('Admin.cruds.videoTutorial.index');
         })->name('admin.dashboard.videoTutorial');
 
+        //DESEMPENHO
+        Route::resource('titulo-sessao-performance', SectionTitlePerformanceController::class)
+        ->names('admin.dashboard.sectionTitlePerformance')
+        ->parameters(['titulo-sessao-performance' => 'sectionTitlePerformance']);
         //BANNER
         Route::resource('banner', BannerController::class)
             ->names('admin.dashboard.banner')
@@ -438,10 +442,6 @@ Route::prefix('painel/')->group(function () {
         //IMPORT EXCEL
         Route::post('import', [DataGraphController::class, 'import'])->name('admin.dashboard.importExcel');
         Route::get('quadro-geral-por-ubs', [DataGraphController::class, 'index'])->name('admin.dashboard.importExcel.index');
-        //DESEMPENHO
-        Route::resource('titulo-sessao-performance', SectionTitlePerformanceController::class)
-            ->names('admin.dashboard.sectionTitlePerformance')
-            ->parameters(['titulo-sessao-performance' => 'sectionTitlePerformance']);
 
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');
