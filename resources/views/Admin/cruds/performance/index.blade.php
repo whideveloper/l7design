@@ -44,13 +44,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (isset($sectionTitlePerformance) && $sectionTitlePerformance !== null)                                            
+                                        @if ($sectionTitlePerformance)                                            
                                             <tr>
                                                 <td><span class="btnDrag mdi mdi-drag-horizontal font-22"></span></td>
                                                 <td class="bs-checkbox">
                                                     <label><input data-index="" name="btnSelectItem" class="btnSelectItem" type="checkbox" value=""></label>
                                                 </td>
-                                                <td>{{$sectionTitlePerformance->title}}</td>
+                                                <td>{{ $sectionTitlePerformance->title ? $sectionTitlePerformance->title : ''}}</td>
                                                 <td>
                                                     {!! $sectionTitlePerformance->description 
                                                         ? substr(strip_tags($sectionTitlePerformance->description), 0, 80) . '...'
@@ -68,6 +68,10 @@
                                                         </form>
                                                     </div>
                                                 </td>
+                                            </tr>
+                                            @else
+                                            <tr>
+                                                <td colspan="5">Nenhum item encontrado.</td>
                                             </tr>
                                         @endif
                                     </tbody>
