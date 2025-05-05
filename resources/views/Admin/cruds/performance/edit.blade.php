@@ -11,11 +11,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.sectionTitlePerformance.index')}}">Título Sessão Desempenho</a></li>
-                                    <li class="breadcrumb-item active">Editar Título Sessão Desempenho</li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin.dashboard.sectionTitlePerformance.index')}}">Título Seção Desempenho</a></li>
+                                    <li class="breadcrumb-item active">Editar Título Seção Desempenho</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Editar Título Sessão Desempenho</h4>
+                            <h4 class="page-title">Editar Título Seção Desempenho</h4>
                         </div>
                     </div>
                 </div>
