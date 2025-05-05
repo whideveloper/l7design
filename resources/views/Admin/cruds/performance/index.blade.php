@@ -25,6 +25,7 @@
                         <div class="card">
                             <div class="card-body">                                
                                 <div class="row mb-3">
+                                    {{dd($sectionTitlePerformance )}}
                                     @if ($sectionTitlePerformance == null)                                        
                                         <div class="col-12"> 
                                             <a href="{{route('admin.dashboard.sectionTitlePerformance.create')}}" class="btn btn-success float-end">Adicionar novo <i class="mdi mdi-plus"></i></a>                                        
