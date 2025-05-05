@@ -14,12 +14,13 @@ class SectionTitlePerformanceController extends Controller
     {
         $sectionTitlePerformance = SectionTitlePerformance::first();
         
-        return view('admin.cruds.performance.index', compact('sectionTitlePerformance'));
+        return view('Admin.cruds.performance.index', compact('sectionTitlePerformance'));
     }
+
 
     public function create()
     {
-        return view('admin.cruds.performance.create');
+        return view('Admin.cruds.performance.create');
     }
 
     public function store(Request $request)
@@ -40,7 +41,7 @@ class SectionTitlePerformanceController extends Controller
 
     public function edit(SectionTitlePerformance $sectionTitlePerformance)
     {
-        return view('admin.cruds.performance.edit', compact('sectionTitlePerformance'));
+        return view('Admin.cruds.performance.edit', compact('sectionTitlePerformance'));
     }
 
     public function update(Request $request, SectionTitlePerformance $sectionTitlePerformance)
