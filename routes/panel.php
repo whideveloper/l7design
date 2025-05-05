@@ -55,8 +55,6 @@ use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\MuralDeComunicacaoCategoryController;
 use App\Http\Controllers\SectionTitlePerformanceController;
-use App\Models\DataGraph;
-use App\Models\SectionTitlePerformance;
 
 Route::get('painel/', function () {
     return redirect()->route('admin.dashboard.painel');
@@ -441,9 +439,9 @@ Route::prefix('painel/')->group(function () {
         Route::post('import', [DataGraphController::class, 'import'])->name('admin.dashboard.importExcel');
         Route::get('quadro-geral-por-ubs', [DataGraphController::class, 'index'])->name('admin.dashboard.importExcel.index');
         //DESEMPENHO
-        Route::resource('desempenho', SectionTitlePerformanceController::class)
+        Route::resource('desempenho/titulo-da-sessao', SectionTitlePerformanceController::class)
             ->names('admin.dashboard.performance')
-            ->parameters(['desempenho' => 'sectionTitlePerformance']);
+            ->parameters(['performance' => 'sectionTitlePerformance']);
 
         // LOGOUT
         Route::get('logout', [AuthController::class, 'logout'])->name('admin.dashboard.user.logout');
