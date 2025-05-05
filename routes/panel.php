@@ -440,7 +440,7 @@ Route::prefix('painel/')->group(function () {
         Route::get('quadro-geral-por-ubs', [DataGraphController::class, 'index'])->name('admin.dashboard.importExcel.index');
         //DESEMPENHO
         Route::resource('desempenho', SectionTitlePerformanceController::class)
-            ->names('admin.dashboard.performance')
+            ->names('admin.dashboard.sectionTitlePerformance')
             ->parameters(['desempenho' => 'sectionTitlePerformance']);
 
         // LOGOUT

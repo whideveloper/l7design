@@ -12,8 +12,9 @@ class SectionTitlePerformanceController extends Controller
 
     public function index()
     {
-        $performance = SectionTitlePerformance::first();
-        return view('admin.cruds.performance.index', compact('performance'));
+        $sectionTitlePerformance = SectionTitlePerformance::first();
+
+        return view('admin.cruds.performance.index', compact('sectionTitlePerformance'));
     }
 
     public function create()
@@ -30,7 +31,7 @@ class SectionTitlePerformanceController extends Controller
                 SectionTitlePerformance::create($data);
             DB::commit();
             Session::flash('success', 'Item cadastrado com sucesso!');
-            return redirect()->route('admin.dashboard.performance.index');
+            return redirect()->route('admin.dashboard.sectionTitlePerformance.index');
         } catch (\Exception $e) {
             DB::rollback();
             Session::flash('error', 'Erro ao cadastrar item!');
@@ -40,7 +41,7 @@ class SectionTitlePerformanceController extends Controller
     public function edit(SectionTitlePerformance $sectionTitlePerformance)
     {
         $performance = $sectionTitlePerformance;
-
+        dd($performance);
         return view('admin.cruds.performance.edit', compact('performance'));
     }
 
@@ -53,7 +54,7 @@ class SectionTitlePerformanceController extends Controller
                 $sectionTitlePerformance->fill($data)->save();
             DB::commit();
             Session::flash('success', 'Item atualizado com sucesso!');
-            return redirect()->route('admin.dashboard.performance.edit', $sectionTitlePerformance->id);
+            return redirect()->route('admin.dashboard.sectionTitlePerformance.edit', $sectionTitlePerformance->id);
         } catch (\Exception $e) {
             DB::rollback();
             Session::flash('error', 'Erro ao atualizar item!');

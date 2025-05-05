@@ -531,7 +531,7 @@
                         </div>
                     </div>  
                     <div class="col-md-6 col-xl-3">
-                        <a nofollow href="{{route('admin.dashboard.performance.index')}}">
+                        <a nofollow href="{{route('admin.dashboard.sectionTitlePerformance.index')}}">
                             <div class="widget-rounded-circle card">
                                 <div class="card-body">
                                     <div class="row">
