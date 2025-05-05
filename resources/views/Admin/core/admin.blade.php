@@ -363,7 +363,7 @@
                                         <div class="collapse" id="desempenho">
                                             <ul class="nav-second-level">
                                                 <li class="{{ route('admin.dashboard.sectionTitlePerformance.index') == url()->current() ? 'current' : 'off-current' }}">
-                                                    <a href="{{route('admin.dashboard.sectionTitlePerformance.index')}}"><i class="mdi mdi-format-title"></i> Título Sessão Desempenho</a>
+                                                    <a href="{{route('admin.dashboard.sectionTitlePerformance.index')}}"><i class="mdi mdi-format-title"></i> Título Seção Desempenho</a>
                                                 </li>
                                                 @can('mapa.visualizar')
                                                     <li class="{{ route('admin.dashboard.map.index') == url()->current() ? 'current' : 'off-current' }}">
