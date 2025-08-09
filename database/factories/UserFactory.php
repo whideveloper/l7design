@@ -26,7 +26,7 @@ class UserFactory extends Factory
         return [
             'name' => 'Wagner Oliveira',
             'email' => 'waggner.dev@gmail.com',
-            'password' => Hash::make('123456789'), // password
+            'password' => '$2y$12$HK.V4hsv1XLgO66Yo55sJ.JGENt/7UlHdlftx.FOlPm30Rlh43wta',
             'active' => 1,
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),

@@ -19,7 +19,7 @@ class UserAdminSeeder extends Seeder
         User::create([
             'name' => 'Administrador',
             'email' => 'administrador@gmail.com.br',
-            'password' => Hash::make('123456789'), // password
+            'password' => '$2y$12$HK.V4hsv1XLgO66Yo55sJ.JGENt/7UlHdlftx.FOlPm30Rlh43wta',
             'active' => 1,
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
