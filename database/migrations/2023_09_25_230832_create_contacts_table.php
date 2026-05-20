@@ -20,7 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('email', 191)->nullable();
             $table->enum('status', ['1', '2', '3', '4'])->default('1');
             $table->integer('sorting')->default(0);
-            $table->date('data_registro')->default(DB::raw('CURRENT_DATE'));
+            $table->timestamp('data_registro')->useCurrent();
             $table->softDeletes();
             $table->timestamps();
         });
